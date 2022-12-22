@@ -30,7 +30,7 @@ sky_material = SubResource("PanoramaSkyMaterial_d5uiv")
 
 [sub_resource type="Environment" id="Environment_vxiet"]
 background_mode = 2
-background_energy_multiplier = 2.0
+background_energy_multiplier = 2.75
 background_intensity = 0.62
 sky = SubResource("Sky_0mcjk")
 ambient_light_source = 3
