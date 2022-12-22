@@ -11,6 +11,11 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed(\"quit\"):
 		get_tree().quit()
+
+func _process(delta):
+	var p := Globals.player
+	if p.global_position.y < -20.:
+		get_tree().reload_current_scene()
 "
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_f521v"]
@@ -66,7 +71,7 @@ var ftime_l := $Frametime
 
 func _process(delta):
 	fps_l.text = \"FPS: %.1f\" % [Engine.get_frames_per_second()]
-	ftime_l.text = \"Time: %.3f\" % [Performance.get_monitor(Performance.TIME_PROCESS)]
+	ftime_l.text = \"Time: %.2f ms\" % [Performance.get_monitor(Performance.TIME_PROCESS)*1000.]
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0qia"]
@@ -112,6 +117,16 @@ mesh = SubResource("BoxMesh_5g7t6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Env/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_thnrw")
 
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Env"]
+transform = Transform3D(-2.64941e-08, 0.12991, 1.65061, 7.70878e-09, 0.446483, -0.480267, -0.63125, 0, -7.51428e-08, -6, 0.5, -0.0405054)
+layers = 5
+mesh = SubResource("BoxMesh_5g7t6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_thnrw")
+
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Env"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 3.49923, 0, -1, 0, -4.37114e-08, 1, 0.5, 6.95949)
 layers = 5
@@ -141,7 +156,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Debug UI"]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -155,13 +169,18 @@ script = SubResource("GDScript_5lvim")
 metadata/_edit_group_ = true
 
 [node name="FPS" type="Label" parent="Debug UI/VBoxContainer"]
-layout_mode = 2
+offset_right = 100.0
+offset_bottom = 42.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "FPS: --"
 label_settings = SubResource("LabelSettings_o0qia")
 horizontal_alignment = 2
 
 [node name="Frametime" type="Label" parent="Debug UI/VBoxContainer"]
-layout_mode = 2
+offset_top = 46.0
+offset_right = 100.0
+offset_bottom = 88.0
 text = "Time: --"
 label_settings = SubResource("LabelSettings_o0qia")
 horizontal_alignment = 2
