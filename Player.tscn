@@ -1,55 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq5xdgw0ai7g0"]
+[gd_scene load_steps=9 format=3 uid="uid://bq5xdgw0ai7g0"]
 
-[sub_resource type="GDScript" id="GDScript_queex"]
-script/source = "extends CharacterBody3D
-
-@export_range(.01, 20., .005) var TOTAL_SPEED = 5. 
-@export_range(.01, 50., .005) var H_SPEED := 5.
-@export_range(.01, 20., .005) var JUMP_VELOCITY := 4.5
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
-
-func _input(event):
-	if event is InputEventMouseMotion:
-		var viewport := get_viewport()
-		var mouse_pos = viewport.get_mouse_position()
-		var screen_center = viewport.get_visible_rect().size / 2.
-		var delta : Vector2 = mouse_pos - screen_center
-		
-		rotation.y = -delta.angle() + TAU / 8.
-
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# Every action is flipped......MMMMMMM
-	var input_dir = Input.get_vector(\"right\", \"left\", \"backward\", \"forward\")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * H_SPEED
-		velocity.z = direction.z * H_SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, H_SPEED)
-		velocity.z = move_toward(velocity.z, 0, H_SPEED)
-	
-	move_and_slide()
-	
-func rotate_with_mouse(event: InputEventMouseMotion, node: Node3D, sensitivity := .001):
-	var tmp = -event.relative * sensitivity
-	var event_rel : Vector2 = Vector2(rad_to_deg(tmp.x), rad_to_deg(tmp.y))
-	var y_rot = event_rel.x
-
-	node.rotate_y(y_rot)
-"
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_eudix"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kb6wn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfhmx"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq7l1"]
+render_priority = -1
+next_pass = SubResource("StandardMaterial3D_gfhmx")
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(0.470588, 0.694118, 0.937255, 0.694118)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpuet"]
 
@@ -76,17 +41,14 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_fv145"]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 0.4
-
 [node name="Player" type="CharacterBody3D"]
-script = SubResource("GDScript_queex")
+script = ExtResource("1_eudix")
 TOTAL_SPEED = 7.325
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="."]
+layers = 3
 mesh = SubResource("CapsuleMesh_kb6wn")
+surface_material_override/0 = SubResource("StandardMaterial3D_kq7l1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gpuet")
@@ -96,7 +58,7 @@ transform = Transform3D(-0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, 
 script = SubResource("GDScript_o1kn3")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -4)
+transform = Transform3D(-1, 0, -1.49012e-07, 2.98023e-08, 1, -3.8743e-07, 8.9407e-08, -4.47035e-08, -1, -4.76837e-07, -4.76837e-07, -9.27767)
 projection = 1
 size = 10.0
 near = 0.002
@@ -109,7 +71,3 @@ texture_albedo = SubResource("GradientTexture2D_oik2g")
 upper_fade = 2.85409
 lower_fade = 2.85409
 cull_mask = 1048574
-
-[node name="Nose" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, -1, 0, 4.37114e-08, 0, 1, -4.37114e-08, 0, 0.476, 0.499)
-mesh = SubResource("CylinderMesh_fv145")

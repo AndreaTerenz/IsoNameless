@@ -1,7 +1,11 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1671625215
-default_env.tres::Environment::-1::1671568682::0::1::::<><>::
-icon.png::CompressedTexture2D::1682664406071696382::1671568682::1671580478::1::::<><>::
-main.tscn::PackedScene::5864079807450324591::1671585024::0::1::::<><>::uid://bq5xdgw0ai7g0
-Player.tscn::PackedScene::3572775713000791109::1671585024::0::1::::<><>::
-::res://addons/::1671568682
+::res://::1671720854
+default_env.tres::Environment::-1::1671659185::0::1::::<><>::
+icon.png::CompressedTexture2D::1682664406071696382::1671659185::1671659185::1::::<><>::
+main.tscn::PackedScene::5864079807450324591::1671666553::0::1::::<><>::uid://bq5xdgw0ai7g0
+Player.tscn::PackedScene::3572775713000791109::1671666553::0::1::::<><>::res://Scripts/Player.gd
+README.md::TextFile::-1::1671659185::0::1::::<><>::
+::res://Scripts/::1671662893
+Player.gd::GDScript::-1::1671662893::0::1::::Player<>CharacterBody3D<>::
+::res://Scripts/Autoloads/::1671662901
+Globals.gd::GDScript::-1::1671662901::0::1::::<>Node<>::

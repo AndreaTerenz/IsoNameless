@@ -1,6 +1,14 @@
+VBoxContainer
+Label
+Control
+RayCast3D
+Sprite2D
+TextureRect
+SubViewport
+SubViewportContainer
 MeshInstance3D
-Decal
 Node3D
+Decal
 WorldEnvironment
 DirectionalLight3D
 Camera3D

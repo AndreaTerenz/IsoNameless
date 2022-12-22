@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpsusjs2xu4w6"]
+[gd_scene load_steps=17 format=3 uid="uid://cpsusjs2xu4w6"]
 
 [ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Player.tscn" id="1_pwmmf"]
 
@@ -12,6 +12,20 @@ func _input(event):
 	if Input.is_action_just_pressed(\"quit\"):
 		get_tree().quit()
 "
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_f521v"]
+turbidity = 5.51
+ground_color = Color(0.101961, 0.0705882, 0.0352941, 1)
+energy_multiplier = 7.92
+
+[sub_resource type="Sky" id="Sky_yfb3j"]
+sky_material = SubResource("PhysicalSkyMaterial_f521v")
+
+[sub_resource type="Environment" id="Environment_vxiet"]
+sky = SubResource("Sky_yfb3j")
+ambient_light_source = 3
+ssao_radius = 0.47
+ssao_power = 7.91703
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hters"]
 size = Vector2(20, 20)
@@ -30,39 +44,124 @@ albedo_texture = SubResource("NoiseTexture2D_vfwjj")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sww43"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_f521v"]
-turbidity = 5.51
-ground_color = Color(0.101961, 0.0705882, 0.0352941, 1)
-energy_multiplier = 7.92
+[sub_resource type="BoxMesh" id="BoxMesh_5g7t6"]
+size = Vector3(4, 1, 4)
 
-[sub_resource type="Sky" id="Sky_yfb3j"]
-sky_material = SubResource("PhysicalSkyMaterial_f521v")
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_thnrw"]
+data = PackedVector3Array(-2, 0.5, 2, 2, 0.5, 2, -2, -0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2, 2, 0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, -2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, -2, -0.5, 2, 2, -0.5, 2, -2, -0.5, -2, 2, -0.5, 2, 2, -0.5, -2, -2, -0.5, -2)
 
-[sub_resource type="Environment" id="Environment_vxiet"]
-sky = SubResource("Sky_yfb3j")
-ambient_light_source = 3
-ssao_radius = 0.47
-ssao_power = 7.91703
+[sub_resource type="BoxMesh" id="BoxMesh_dejig"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o3q6s"]
+data = PackedVector3Array(-1.5, 0.5, 1.5, 1.5, 0.5, 1.5, -1.5, -0.5, 1.5, 1.5, 0.5, 1.5, 1.5, -0.5, 1.5, -1.5, -0.5, 1.5, 1.5, 0.5, -1.5, -1.5, 0.5, -1.5, 1.5, -0.5, -1.5, -1.5, 0.5, -1.5, -1.5, -0.5, -1.5, 1.5, -0.5, -1.5, 1.5, 0.5, 1.5, 1.5, 0.5, -1.5, 1.5, -0.5, 1.5, 1.5, 0.5, -1.5, 1.5, -0.5, -1.5, 1.5, -0.5, 1.5, -1.5, 0.5, -1.5, -1.5, 0.5, 1.5, -1.5, -0.5, -1.5, -1.5, 0.5, 1.5, -1.5, -0.5, 1.5, -1.5, -0.5, -1.5, 1.5, 0.5, 1.5, -1.5, 0.5, 1.5, 1.5, 0.5, -1.5, -1.5, 0.5, 1.5, -1.5, 0.5, -1.5, 1.5, 0.5, -1.5, -1.5, -0.5, 1.5, 1.5, -0.5, 1.5, -1.5, -0.5, -1.5, 1.5, -0.5, 1.5, 1.5, -0.5, -1.5, -1.5, -0.5, -1.5)
+
+[sub_resource type="GDScript" id="GDScript_5lvim"]
+script/source = "extends VBoxContainer
+
+@onready
+var fps_l := $FPS
+@onready
+var ftime_l := $Frametime
+
+func _process(delta):
+	fps_l.text = \"FPS: %.1f\" % [Engine.get_frames_per_second()]
+	ftime_l.text = \"Time: %.3f\" % [Performance.get_monitor(Performance.TIME_PROCESS)]
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0qia"]
+font_size = 28
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_57rur")
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-layers = 5
-mesh = SubResource("PlaneMesh_hters")
-surface_material_override/0 = SubResource("StandardMaterial3D_r17ln")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_sww43")
 
 [node name="Player" parent="." instance=ExtResource("1_pwmmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.943686, 0.330844, 0, -0.330844, 0.943686, 0, 1.19407, 0)
+layers = 3
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vxiet")
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Env"]
+layers = 7
+mesh = SubResource("PlaneMesh_hters")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_r17ln")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_sww43")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Env"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0.5, -0.0405054)
+layers = 5
+mesh = SubResource("BoxMesh_5g7t6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_thnrw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Env"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 3.49923, 0, -1, 0, -4.37114e-08, 1, 0.5, 6.95949)
+layers = 5
+mesh = SubResource("BoxMesh_5g7t6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_thnrw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Env"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 1.5, -0.0405054)
+layers = 5
+mesh = SubResource("BoxMesh_dejig")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o3q6s")
+
+[node name="Debug UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -88.0
+grow_horizontal = 0
+grow_vertical = 0
+script = SubResource("GDScript_5lvim")
+metadata/_edit_group_ = true
+
+[node name="FPS" type="Label" parent="Debug UI/VBoxContainer"]
+layout_mode = 2
+text = "FPS: --"
+label_settings = SubResource("LabelSettings_o0qia")
+horizontal_alignment = 2
+
+[node name="Frametime" type="Label" parent="Debug UI/VBoxContainer"]
+layout_mode = 2
+text = "Time: --"
+label_settings = SubResource("LabelSettings_o0qia")
+horizontal_alignment = 2
