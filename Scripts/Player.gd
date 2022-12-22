@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export_range(.01, 50., .005) var H_SPEED := 5.
 @export_range(.01, 2., .005) var H_DECELERATION := .5
 @export_range(.01, 20., .005) var JUMP_VELOCITY := 4.5
+@export_range(.01, 20., .005) var ROT_SENSITIVITY := 4.
 
 @onready
 var body := %Body
@@ -16,6 +17,14 @@ func _ready():
 	Globals.set_player(self)
 
 func _physics_process(delta):
+	var rot_dir := 0.
+	if Input.is_action_pressed("rot_left"):
+		rot_dir = 1.
+	elif Input.is_action_pressed("rot_right"):
+		rot_dir = -1.
+	
+	rotate_y((TAU/8.) * rot_dir * ROT_SENSITIVITY * delta)
+		
 	var on_floor := is_on_floor()
 	var v_vel := velocity.y
 	var h_vel := Vector2(velocity.x, velocity.z)
@@ -26,7 +35,6 @@ func _physics_process(delta):
 	
 	if direction:
 		h_vel = Vector2(direction.x, direction.z) * H_SPEED
-		h_vel = h_vel.rotated(TAU/8.).rotated(TAU/2.)
 	else:
 		h_vel = h_vel.lerp(Vector2.ZERO, H_DECELERATION * float(on_floor))
 		
@@ -41,6 +49,6 @@ func _physics_process(delta):
 	
 	if direction:
 		var body_look_pos = Vector3(velocity.x, 0., velocity.z).normalized()
-		body.look_at((global_position - body_look_pos), Vector3.UP)
+		#body.look_at((global_position - body_look_pos), Vector3.UP)
 		
 	move_and_slide()
