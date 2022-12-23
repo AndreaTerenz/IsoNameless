@@ -18,7 +18,7 @@ transparency = 1
 no_depth_test = true
 shading_mode = 0
 disable_ambient_light = true
-albedo_color = Color(0.470588, 0.694118, 0.937255, 0.694118)
+albedo_color = Color(0.952941, 0.858824, 0.611765, 0.376471)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpuet"]
 
@@ -38,6 +38,7 @@ func _process(delta):
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_eudix")
+MOVEMENT_MODE = 1
 TOTAL_SPEED = 7.325
 
 [node name="Body" type="MeshInstance3D" parent="."]
