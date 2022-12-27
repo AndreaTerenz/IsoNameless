@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://bokhgdrbnrduy"]
+
+[ext_resource type="Script" path="res://Scripts/DebugUI.gd" id="1_6k8ji"]
+
+[sub_resource type="GDScript" id="GDScript_wmckw"]
+script/source = "extends VBoxContainer
+
+@onready
+var fps_l := $FPS
+@onready
+var ftime_l := $Frametime
+
+func _process(delta):
+	fps_l.text = \"FPS: %.1f\" % [Engine.get_frames_per_second()]
+	ftime_l.text = \"Time: %.2f ms\" % [Performance.get_monitor(Performance.TIME_PROCESS)*1000.]
+"
+
+[sub_resource type="Theme" id="Theme_ba2bc"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 15
+
+[node name="Debug UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6k8ji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+script = SubResource("GDScript_wmckw")
+metadata/_edit_group_ = true
+
+[node name="FPS" type="Label" parent="VBoxContainer"]
+offset_right = 57.0
+offset_bottom = 26.0
+text = "FPS: --"
+horizontal_alignment = 2
+
+[node name="Frametime" type="Label" parent="VBoxContainer"]
+offset_top = 30.0
+offset_right = 57.0
+offset_bottom = 56.0
+text = "Time: --"
+horizontal_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 360.0
+grow_vertical = 2
+vertical_scroll_mode = 3
+metadata/_edit_group_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer"]
+modulate = Color(1, 1, 1, 0.764706)
+offset_right = 360.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DB messages" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
+unique_name_in_owner = true
+offset_right = 360.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_ba2bc")
+alignment = 2

@@ -1,0 +1,61 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://fjs2d4wya2fu"
+path="res://.godot/imported/test_level_1.blend-a579809ed482468e25b8842b3e5a3f01.scn"
+
+[deps]
+
+source_file="res://Assets/Models/Levels/test_level_1.blend"
+dest_files=["res://.godot/imported/test_level_1.blend-a579809ed482468e25b8842b3e5a3f01.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Ground": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Platform": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Ramp": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
