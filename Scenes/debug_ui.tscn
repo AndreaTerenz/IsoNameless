@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="2_0uuiu"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="3_q3s7h"]
 
-[sub_resource type="GDScript" id="GDScript_t6ne6"]
+[sub_resource type="GDScript" id="GDScript_6qgib"]
 script/source = "extends VBoxContainer
 
 @onready
@@ -17,7 +17,7 @@ func _process(delta):
 	ftime_l.text = \"Time: %.2f ms\" % [Performance.get_monitor(Performance.TIME_PROCESS)*1000.]
 "
 
-[sub_resource type="Theme" id="Theme_fyb3t"]
+[sub_resource type="Theme" id="Theme_ccvoa"]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Label/constants/shadow_offset_x = 0
@@ -44,7 +44,7 @@ offset_left = -57.0
 offset_top = -56.0
 grow_horizontal = 0
 grow_vertical = 0
-script = SubResource("GDScript_t6ne6")
+script = SubResource("GDScript_6qgib")
 metadata/_edit_group_ = true
 
 [node name="FPS" type="Label" parent="VBoxContainer"]
@@ -79,7 +79,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 offset_right = 360.0
 offset_bottom = 1080.0
-theme = SubResource("Theme_fyb3t")
+theme = SubResource("Theme_ccvoa")
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

@@ -63,6 +63,7 @@ transform = Transform3D(-1, 5.96046e-08, -1.49012e-07, 8.9407e-08, 1, -3.8743e-0
 projection = 1
 size = 14.0
 near = 0.001
+far = 233.52
 
 [node name="InteractRay" type="RayCast3D" parent="CameraPivot/Camera"]
 unique_name_in_owner = true
