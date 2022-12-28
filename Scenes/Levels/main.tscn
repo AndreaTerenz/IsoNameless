@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpsusjs2xu4w6"]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_8l230"]
-[ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Player.tscn" id="1_pwmmf"]
+[ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Scenes/Player.tscn" id="1_pwmmf"]
 [ext_resource type="Environment" uid="uid://bqyqg4xr6e0aj" path="res://default_env.tres" id="2_6psim"]
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="2_yloyn"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="3_eqqcc"]

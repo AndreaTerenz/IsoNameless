@@ -102,14 +102,6 @@ func _refresh():
 	
 	_pending_refresh = false
 	
-	if fit_mode != FitMode.NONE:
-		custom_minimum_size = Vector2()
-	
-	if fit_mode == FitMode.MATCH_WIDTH:
-		custom_minimum_size.x = size.y
-	elif fit_mode == FitMode.MATCH_HEIGHT:
-		custom_minimum_size.y = size.x
-	
 	var is_joypad := false
 	if joypad_mode == JoypadMode.FORCE_JOYPAD or (joypad_mode == JoypadMode.ADAPTIVE and _use_joypad):
 		is_joypad = true
@@ -160,9 +152,17 @@ func _refresh():
 	
 	if not texture and action_name != &"":
 		push_error(str("No icon for action: ", action_name))
+	else:
+		var s = texture.get_size()
+		if fit_mode != FitMode.NONE:
+			custom_minimum_size = Vector2()
+			
+		if fit_mode == FitMode.MATCH_WIDTH:
+			custom_minimum_size.x = s.y
+		elif fit_mode == FitMode.MATCH_HEIGHT:
+			custom_minimum_size.y = s.x
 
 func get_keyboard(key: int) -> Texture:
-	print("key: %s" % key)
 	match key:
 		KEY_0:
 			return get_image(KEYBOARD, "0")

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://fjs2d4wya2fu"
+uid="uid://cfvsxshop0a4t"
 path="res://.godot/imported/test_level_1.blend-a579809ed482468e25b8842b3e5a3f01.scn"
 
 [deps]
@@ -29,15 +29,19 @@ animation/trimming=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Ground": {
+"PATH:Env/Ground": {
 "generate/physics": true,
 "physics/shape_type": 2
 },
-"PATH:Platform": {
+"PATH:Env/Platform": {
 "generate/physics": true,
 "physics/shape_type": 2
 },
-"PATH:Ramp": {
+"PATH:Env/Ramp": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Env/Wall": {
 "generate/physics": true,
 "physics/shape_type": 2
 }

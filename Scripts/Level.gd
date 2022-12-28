@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var debug_ui_scn : PackedScene = preload("res://Scenes/debug_ui.tscn")
+@export var debug_ui_on_start := false
 
 var debug_ui : Control = null
 
@@ -13,6 +14,8 @@ func _ready():
 		
 		Globals.debug_ui = debug_ui
 		Globals.new_debug_msg("Level started")
+		
+		debug_ui.visible = debug_ui_on_start
 	
 func _input(event):
 	if Input.is_action_just_pressed("quit"):
