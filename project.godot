@@ -53,7 +53,7 @@ mouse_cursor/custom_image="res://Assets/UI/cursor.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg")
 
 [input]
 

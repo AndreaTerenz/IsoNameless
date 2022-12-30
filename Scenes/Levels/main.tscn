@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://cx0v8jb5vt45i"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_8l230"]
 [ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Scenes/Player.tscn" id="1_pwmmf"]
@@ -30,7 +30,7 @@ data = PackedVector3Array(-1.5, 0.5, 1.5, 1.5, 0.5, 1.5, -1.5, -0.5, 1.5, 1.5, 0
 script = ExtResource("1_8l230")
 
 [node name="Player" parent="." instance=ExtResource("1_pwmmf")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.145658, 1, 2.86432)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.145658, 0, 2.86432)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.492697, -0.6254, 0.605082, -1.32539e-09, 0.695336, 0.718685, -0.870201, 0.354094, -0.34259, 0, 1.19407, 0)

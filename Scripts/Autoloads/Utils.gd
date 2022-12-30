@@ -92,3 +92,6 @@ func create_debug_mesh(mesh: Mesh, global_pos: Vector3, material : Material = pr
 	
 	get_tree().root.add_child(mesh_inst)
 	mesh_inst.global_position = global_pos
+	
+func length_geq(vec, dist: float):	
+	return vec.length_squared() >= dist**2

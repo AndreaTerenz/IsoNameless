@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwowhjdlhepqk"]
+
+[sub_resource type="GDScript" id="GDScript_yy6mv"]
+script/source = "extends Control
+
+@onready
+var stamina_bar = %StaminaBar
+
+var stamina_recharge_rate := .5
+var stamina:
+	get:
+		return stamina_bar.value
+	set(new_value):
+		stamina_bar.value = new_value
+
+func _ready():
+	stamina = 1.
+
+func _physics_process(delta):
+	stamina += stamina_recharge_rate * delta
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwsfa"]
+content_margin_left = 25.0
+content_margin_right = 25.0
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 0.843137)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyogd"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.831373, 0.831373, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jilvm"]
+bg_color = Color(0.831373, 0.831373, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_yy6mv")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -293.0
+offset_top = -63.0
+offset_right = 293.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lwsfa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+offset_left = 25.0
+offset_top = 18.0
+offset_right = 561.0
+offset_bottom = 44.0
+size_flags_vertical = 4
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+offset_right = 90.0
+offset_bottom = 26.0
+size_flags_horizontal = 4
+text = "STAMINA"
+
+[node name="StaminaBar" type="ProgressBar" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 103.0
+offset_right = 536.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_hyogd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jilvm")
+max_value = 1.0
+step = 0.0
+value = 0.31
+show_percentage = false

@@ -3,7 +3,7 @@ extends Node
 signal player_set(p)
 
 var player : Player = null
-var debug_ui : Control = null
+var debug_ui : DebugUI = null
 var start_time := 0.
 
 func _ready():
@@ -14,6 +14,17 @@ func set_player(p: Player):
 		player = p
 		player_set.emit(p)
 
-func new_debug_msg(s: String, mode: DebugUI.DEBUG_MSG_MODE = DebugUI.DEBUG_MSG_MODE.LOG):
+func log_msg(s: String, mode: DebugUI.DEBUG_MSG_MODE = DebugUI.DEBUG_MSG_MODE.LOG, print_stdout := true):
 	if debug_ui:
-		debug_ui.new_msg(s, mode)
+		var to_print : String = debug_ui.new_msg(s, mode)
+		
+		if print_stdout:
+			match mode:
+				DebugUI.DEBUG_MSG_MODE.LOG:
+					pass
+				DebugUI.DEBUG_MSG_MODE.WARN:
+					to_print = "[WARN] %s" % to_print
+				DebugUI.DEBUG_MSG_MODE.ERROR:
+					to_print = "[ERROR] %s" % to_print
+			
+			print(to_print)

@@ -13,15 +13,15 @@ func _ready():
 		add_child(debug_ui)
 		
 		Globals.debug_ui = debug_ui
-		Globals.new_debug_msg("Level started")
+		Globals.log_msg("Level started")
 		
 		debug_ui.visible = debug_ui_on_start
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
-func _process(delta):
+func _process(_delta):
 	var p := Globals.player
 	var p_y := p.global_position.y
 	var self_y := global_position.y

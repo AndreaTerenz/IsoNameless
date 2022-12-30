@@ -21,5 +21,5 @@ glow_enabled = true
 glow_normalized = true
 glow_strength = 1.47
 glow_blend_mode = 4
-adjustment_enabled = true
-adjustment_saturation = 1.22
+adjustment_brightness = 1.07
+adjustment_contrast = 0.86

@@ -16,7 +16,7 @@ const debug_msg_colors := {
 @onready
 var db_messages_cont := %"DB messages"
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("toggle_debug_ui"):
 		visible = not visible
 
@@ -27,3 +27,5 @@ func new_msg(s: String, mode: DEBUG_MSG_MODE):
 	db_messages_cont.add_child(lbl)
 	#Ensures last message is never clipped
 	$"ScrollContainer".scroll_vertical += lbl.get_rect().size.y*2
+	
+	return lbl.text

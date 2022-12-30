@@ -57,7 +57,7 @@ emission_energy_multiplier = 11.86
 script = ExtResource("2_npikm")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.7135, 4.58471, 1.53521e-07)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.7135, 3.6046, 1.53521e-07)
 
 [node name="Target" type="Area3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 4.79748, 0)
