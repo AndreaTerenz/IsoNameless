@@ -6,13 +6,13 @@ extends CharacterBody3D
 @export_group("Movement")
 @export var ISOMETRIC_WASD := false
 @export var JUMP_ENABLED := true
-@export_range(.01, 20., .005) var TOTAL_SPEED = 5. 
 @export_range(.01, 20., .005) var JUMP_VELOCITY := 4.5
 @export_range(.01, 20., .005) var ROT_SENSITIVITY := 4.
 @export_subgroup("Ground movement")
 @export_range(.01, 50., .005) var H_SPEED := 5.
 @export_range(.01,  2., .005) var H_DECELERATION := .5
 @export_range(.01,  8., .005) var H_SPRINT_MULT := 6.
+@export var H_SPEED_CURVE : Curve = null
 @export_subgroup("Sprinting")
 @export_range(.01,  30., .005) var SPRINT_MAX_DIST := 8.
 @export_range(1.,  5., .005) var SPRINT_IGNORE_DIST_MULT := 2.5
@@ -50,16 +50,26 @@ func get_h_direction() -> Vector2:
 	var input_dir = Input.get_vector("right", "left", "backward", "forward")
 	var dir = (transform.basis * Utils.vec_sub(input_dir, "x0y")).normalized()
 	
-	var output = Utils.vec_sub(dir, "xz")
-	
-	return output if ISOMETRIC_WASD else output.rotated(TAU/8.+TAU/2.)
+	return Utils.vec_sub(dir, "xz")
 	
 func get_h_velocity(current: Vector3) -> Vector3:
 	var dir := get_h_direction()
 	if dir:
-		return Utils.vec_sub(dir * H_SPEED, "x0y")
+		var speed := H_SPEED
+		
+		if H_SPEED_CURVE:
+			var mouse_proj := mouse_ground_projection()
+			var _max_dist := (SPRINT_MAX_DIST/2.)**2.
+			var mproj_dist : float = min((mouse_proj - global_position).length_squared(), _max_dist)
+			# HACK: SPRINT_MAX_DIST/2. here is a placeholder
+			# should be a dedicated @export parameter
+			var fact := remap(mproj_dist, 0., _max_dist, 0., 1.)
+			
+			speed = H_SPEED_CURVE.sample(fact) * H_SPEED
+		
+		return Utils.vec_sub(dir * speed, "x0y")
 	
-	return current.lerp(Vector3.ZERO, H_DECELERATION * float(is_on_floor()))
+	return current.lerp(Vector3.ZERO, H_DECELERATION) if is_on_floor() else current
 	
 func get_v_velocity(current: float, delta: float) -> Vector3:
 	var output := Vector3.UP
@@ -75,15 +85,15 @@ func get_v_velocity(current: float, delta: float) -> Vector3:
 		
 	return output
 	
-func get_body_rotation() -> float:
+func get_mouse_rotation() -> float:
 	var viewport := get_viewport()
 	var mouse_pos = viewport.get_mouse_position()
 	var screen_center = viewport.get_visible_rect().size / 2.
-	var angle_delta : Vector2 = mouse_pos - screen_center
+	var mouse_delta : Vector2 = screen_center - mouse_pos
 	
-	return -angle_delta.angle() + TAU / 8.
+	return -mouse_delta.angle() + TAU / 8.
 
-func get_sprint_position():
+func mouse_ground_projection() -> Vector3:
 	var mouse_ray := get_mouse_ray()
 	var A := mouse_ray[0]
 	var B := mouse_ray[1]
@@ -97,7 +107,7 @@ func get_sprint_position():
 
 func check_sprinting():
 	if not sprinting and Input.is_action_just_pressed("sprint"):
-		sprint_to = get_sprint_position()
+		sprint_to = mouse_ground_projection()
 		# There should always be a plane-ray intersection
 		# so this check should be redundant
 		if sprint_to == null:
@@ -156,12 +166,12 @@ func _physics_process(delta):
 	
 	if not sprinting:
 		sprint_decal.visible = false
-		body.rotation.y = get_body_rotation()
+		rotation.y = get_mouse_rotation()
 		
 		h_vel = get_h_velocity(velocity)
 		v_vel = get_v_velocity(velocity.y, delta)
 		
-	velocity = h_vel + v_vel #+ old_sprint_vel
+	velocity = h_vel + v_vel
 	move_and_slide()
 	
 func _input(_event):
