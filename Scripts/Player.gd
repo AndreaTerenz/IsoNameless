@@ -30,6 +30,8 @@ var camera_pivot := %CameraPivot
 var interact_ray := %InteractRay
 @onready
 var ui = %UI
+@onready
+var sprint_decal = %SprintDecal
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -41,6 +43,7 @@ var sprint_delta := Vector3.ZERO
 func _ready():
 	Globals.set_player(self)
 	ui.stamina_recharge_rate = STAMINA_RATE
+	sprint_decal.visible = false
 
 func get_h_direction() -> Vector2:
 	# Get the input direction and handle the movement/deceleration.
@@ -51,11 +54,12 @@ func get_h_direction() -> Vector2:
 	
 	return output if ISOMETRIC_WASD else output.rotated(TAU/8.+TAU/2.)
 	
-func get_h_velocity(current: Vector2, dir: Vector2) -> Vector2:
+func get_h_velocity(current: Vector3) -> Vector3:
+	var dir := get_h_direction()
 	if dir:
-		return dir * H_SPEED
+		return Utils.vec_sub(dir * H_SPEED, "x0y")
 	
-	return current.lerp(Vector2.ZERO, H_DECELERATION * float(is_on_floor()))
+	return current.lerp(Vector3.ZERO, H_DECELERATION * float(is_on_floor()))
 	
 func get_v_velocity(current: float, delta: float) -> Vector3:
 	var output := Vector3.UP
@@ -80,9 +84,9 @@ func get_body_rotation() -> float:
 	return -angle_delta.angle() + TAU / 8.
 
 func get_sprint_position():
-	var mouse_pos = get_viewport().get_mouse_position()
-	var A := camera.project_ray_origin(mouse_pos)
-	var B := camera.project_position(mouse_pos, 1.)
+	var mouse_ray := get_mouse_ray()
+	var A := mouse_ray[0]
+	var B := mouse_ray[1]
 	
 	var P : Vector3 = global_position
 	var N : Vector3 = (Vector3.UP)
@@ -129,48 +133,53 @@ func apply_h_velocity(h_vel: Vector2):
 	velocity.x = h_vel.x
 	velocity.z = h_vel.y
 
+# FIXME: When the player is falling and reaches the sprint_to
+# point, it stops completely as it istantly gets out of the
+# sprinting state
 func _physics_process(delta):
-	var _spr = check_sprinting()
-	var h_vel := Vector2.ZERO
-	var old_sprint_vel := Vector3.ZERO
+	var h_vel : Vector3 = Utils.vec_sub(velocity, "x0z")
+	var v_vel := Vector3.ZERO
 	
+	var _spr = check_sprinting()
 	# sprint status just changed
 	if _spr != sprinting:
-		
 		if _spr:
-			Globals.log_msg("Sprinting to: %s" % [sprint_to])
-			var h_dir : Vector2 = Utils.vec_sub(sprint_delta.normalized(), "xz")
+			sprint_decal.visible = true
+			sprint_decal.global_position = sprint_to
+			
+			var h_dir : Vector3 = sprint_delta.normalized()
+			
 			h_vel = h_dir * H_SPEED * H_SPRINT_MULT
-		else:
-			#old_sprint_vel = velocity
-			Globals.log_msg("Sprint done")
+			v_vel *= 0.
 		
 		sprinting = _spr
-		apply_h_velocity(h_vel)
 	
 	if not sprinting:
+		sprint_decal.visible = false
 		body.rotation.y = get_body_rotation()
 		
-		h_vel = get_h_velocity(Utils.vec_sub(velocity, "xz"), get_h_direction())
-		var v_vel := get_v_velocity(velocity.y, delta)
+		h_vel = get_h_velocity(velocity)
+		v_vel = get_v_velocity(velocity.y, delta)
 		
-		velocity = Utils.vec_sub(h_vel, "x0y") + v_vel + old_sprint_vel
-	
+	velocity = h_vel + v_vel #+ old_sprint_vel
 	move_and_slide()
 	
 func _input(_event):
 	if Input.is_action_just_pressed("fire"):
 		var ray_length = global_position.distance_to(Globals.player.global_position) + 30.
-		var mouse_pos = get_viewport().get_mouse_position()
-		var from = camera.project_ray_origin(mouse_pos)
-		var to = from + camera.project_ray_normal(mouse_pos) * ray_length
+		var m_ray := get_mouse_ray(ray_length)
 		
-		interact_ray.global_position = from
-		interact_ray.target_position = interact_ray.to_local(to)
+		var from = m_ray[0]
+		var to = m_ray[1]
 		
-		interact_ray.force_raycast_update()
-		
-		var coll = interact_ray.get_collider() as Node3D
-		if coll and coll.player_inside:
+		var interactable = interact_ray.check(from, to)
+		if interactable:
 			Globals.log_msg("Interacted!")
-			coll.interact()
+			interactable.interact()
+
+func get_mouse_ray(length := 1.) -> Array[Vector3]:
+	var mouse_pos := get_viewport().get_mouse_position()
+	var from := camera.project_ray_origin(mouse_pos)
+	var to := camera.project_position(mouse_pos, length)
+	
+	return [from, to]

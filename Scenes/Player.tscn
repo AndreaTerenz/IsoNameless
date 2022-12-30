@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq5xdgw0ai7g0"]
+[gd_scene load_steps=13 format=3 uid="uid://bq5xdgw0ai7g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_eudix"]
 [ext_resource type="Texture2D" uid="uid://dcgtdsm4ycttb" path="res://Assets/Blender_Default_Mixed_Grid.jpg" id="2_5o4mk"]
@@ -38,6 +38,32 @@ func _process(delta):
 	global_rotation = initial_rot
 "
 
+[sub_resource type="GDScript" id="GDScript_pbuh2"]
+script/source = "extends RayCast3D
+
+func check(from, to):
+	global_position = from
+	target_position = to_local(to)
+	
+	force_raycast_update()
+	
+	var coll = get_collider() as Interactable
+	if coll and coll.player_inside:
+		return coll
+		
+	return null
+"
+
+[sub_resource type="Gradient" id="Gradient_uujw2"]
+offsets = PackedFloat32Array(0, 0.532819, 0.745174, 0.837838, 0.895753, 0.942085, 1)
+colors = PackedColorArray(0.254902, 0.956863, 0.113725, 0.427451, 0.254902, 0.956863, 0.113725, 0.427451, 0.266667, 1, 0.12, 1, 0, 0, 0, 1, 0.357143, 0.357143, 0.357143, 0.357143, 0.643137, 0.643137, 0.643137, 0, 0.835294, 0.835294, 0.835294, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2wbcu"]
+gradient = SubResource("Gradient_uujw2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.910256, 0.222222)
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_eudix")
@@ -72,6 +98,7 @@ far = 233.52
 unique_name_in_owner = true
 collide_with_areas = true
 collide_with_bodies = false
+script = SubResource("GDScript_pbuh2")
 
 [node name="AO Decal" type="Decal" parent="."]
 layers = 4
@@ -84,3 +111,11 @@ cull_mask = 1048574
 [node name="UI" parent="." instance=ExtResource("4_mdx2w")]
 unique_name_in_owner = true
 process_mode = 3
+
+[node name="SprintDecal" type="Decal" parent="."]
+unique_name_in_owner = true
+top_level = true
+extents = Vector3(0.5, 0.33, 0.5)
+texture_albedo = SubResource("GradientTexture2D_2wbcu")
+upper_fade = 0.15
+lower_fade = 0.15
