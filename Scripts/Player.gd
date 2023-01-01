@@ -29,12 +29,14 @@ var camera_pivot := %CameraPivot
 @onready
 var interact_ray := %InteractRay
 @onready
-var ui = %UI
+var ui := %UI
 @onready
-var sprint_decal = %SprintDecal
+var sprint_decal := %SprintDecal
+@onready
+var stats := %Stats
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var sprinting := false
 var sprint_to := Vector3.ZERO
 # Helpful
@@ -42,7 +44,6 @@ var sprint_delta := Vector3.ZERO
 
 func _ready():
 	Globals.set_player(self)
-	ui.stamina_recharge_rate = STAMINA_RATE
 	sprint_decal.visible = false
 
 func get_h_direction() -> Vector2:
@@ -116,7 +117,7 @@ func check_sprinting():
 		sprint_delta = (sprint_to - global_position)
 		var sprint_dist := sprint_delta.length()
 		# Change the max srpint distance based on stamina level
-		var max_dist = SPRINT_MAX_DIST * ui.stamina
+		var max_dist = SPRINT_MAX_DIST * stats.get_stat_value("stamina")
 		
 		# If the player wants to sprint too far, we limit it to the max allowed distance...
 		if sprint_dist >= max_dist:
@@ -128,7 +129,7 @@ func check_sprinting():
 			sprint_to = global_position + sprint_delta
 			
 		# change stamina based on how far the player will sprint
-		ui.stamina = 1. - sprint_dist/max_dist
+		stats.set_stat_value("stamina", 1. - sprint_dist/max_dist)
 		
 		return true
 	

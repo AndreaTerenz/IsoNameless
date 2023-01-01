@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bokhgdrbnrduy"]
+[gd_scene load_steps=4 format=3 uid="uid://bokhgdrbnrduy"]
 
 [ext_resource type="Script" path="res://Scripts/DebugUI.gd" id="1_6k8ji"]
-[ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="2_0uuiu"]
-[ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="3_q3s7h"]
 
-[sub_resource type="GDScript" id="GDScript_56wsw"]
+[sub_resource type="GDScript" id="GDScript_ciisp"]
 script/source = "extends VBoxContainer
 
 @onready
@@ -17,7 +15,7 @@ func _process(delta):
 	ftime_l.text = \"Time: %.2f ms\" % [Performance.get_monitor(Performance.TIME_PROCESS)*1000.]
 "
 
-[sub_resource type="Theme" id="Theme_uwi7q"]
+[sub_resource type="Theme" id="Theme_q2s8i"]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Label/constants/shadow_offset_x = 0
@@ -35,6 +33,7 @@ grow_vertical = 2
 script = ExtResource("1_6k8ji")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -44,18 +43,21 @@ offset_left = -57.0
 offset_top = -56.0
 grow_horizontal = 0
 grow_vertical = 0
-script = SubResource("GDScript_56wsw")
+script = SubResource("GDScript_ciisp")
 metadata/_edit_group_ = true
 
 [node name="FPS" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 text = "FPS: --"
 horizontal_alignment = 2
 
 [node name="Frametime" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 text = "Time: --"
 horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 360.0
@@ -65,34 +67,12 @@ metadata/_edit_group_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer"]
 modulate = Color(1, 1, 1, 0.764706)
-offset_right = 360.0
-offset_bottom = 1080.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="DB messages" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
 unique_name_in_owner = true
-theme = SubResource("Theme_uwi7q")
+layout_mode = 2
+theme = SubResource("Theme_q2s8i")
 alignment = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-alignment = 2
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-text = "Close Debug UI"
-horizontal_alignment = 2
-
-[node name="ActionIcon" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 60)
-texture = ExtResource("2_0uuiu")
-ignore_texture_size = true
-stretch_mode = 5
-script = ExtResource("3_q3s7h")
-action_name = &"toggle_debug_ui"
-fit_mode = 0

@@ -23,11 +23,17 @@ _global_script_classes=[{
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://Scripts/Player.gd"
+}, {
+"base": "Node",
+"class": &"PlayerStats",
+"language": &"GDScript",
+"path": "res://Scripts/PlayerStats.gd"
 }]
 _global_script_class_icons={
 "DebugUI": "",
 "Interactable": "",
-"Player": ""
+"Player": "",
+"PlayerStats": ""
 }
 
 [application]
