@@ -57,6 +57,7 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
 mouse_cursor/custom_image="res://Assets/UI/cursor.png"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

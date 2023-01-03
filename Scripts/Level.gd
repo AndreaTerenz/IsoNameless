@@ -16,10 +16,6 @@ func _ready():
 		Globals.log_msg("Level started")
 		
 		debug_ui.visible = debug_ui_on_start
-	
-func _input(_event):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
 
 func _process(_delta):
 	var p := Globals.player

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bokhgdrbnrduy"]
+[gd_scene load_steps=6 format=3 uid="uid://bokhgdrbnrduy"]
 
 [ext_resource type="Script" path="res://Scripts/DebugUI.gd" id="1_6k8ji"]
 
-[sub_resource type="GDScript" id="GDScript_ciisp"]
+[sub_resource type="GDScript" id="GDScript_pnw1w"]
 script/source = "extends VBoxContainer
 
 @onready
@@ -15,7 +15,14 @@ func _process(delta):
 	ftime_l.text = \"Time: %.2f ms\" % [Performance.get_monitor(Performance.TIME_PROCESS)*1000.]
 "
 
-[sub_resource type="Theme" id="Theme_q2s8i"]
+[sub_resource type="SystemFont" id="SystemFont_lpbxm"]
+font_names = PackedStringArray("Monospace")
+font_weight = 800
+
+[sub_resource type="Theme" id="Theme_uov5v"]
+default_font = SubResource("SystemFont_lpbxm")
+
+[sub_resource type="Theme" id="Theme_88j1t"]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Label/constants/shadow_offset_x = 0
@@ -43,7 +50,7 @@ offset_left = -57.0
 offset_top = -56.0
 grow_horizontal = 0
 grow_vertical = 0
-script = SubResource("GDScript_ciisp")
+script = SubResource("GDScript_pnw1w")
 metadata/_edit_group_ = true
 
 [node name="FPS" type="Label" parent="VBoxContainer"]
@@ -62,6 +69,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 360.0
 grow_vertical = 2
+theme = SubResource("Theme_uov5v")
 vertical_scroll_mode = 3
 metadata/_edit_group_ = true
 
@@ -74,5 +82,5 @@ size_flags_vertical = 3
 [node name="DB messages" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = SubResource("Theme_q2s8i")
+theme = SubResource("Theme_88j1t")
 alignment = 2
