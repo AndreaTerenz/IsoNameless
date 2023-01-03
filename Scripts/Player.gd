@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var ISOMETRIC_WASD := false
 @export var JUMP_ENABLED := true
 @export_range(.01, 20., .005) var JUMP_VELOCITY := 4.5
-@export_range(.01, 20., .005) var ROT_SENSITIVITY := 4.
+@export_range(.001, 1., .001) var ROT_SPEED := .3
 @export_subgroup("Ground movement")
 @export_range(.01, 50., .005) var H_SPEED := 5.
 @export_range(.01,  2., .005) var H_DECELERATION := .5
@@ -41,6 +41,8 @@ var sprinting := false
 var sprint_to := Vector3.ZERO
 # Helpful
 var sprint_delta := Vector3.ZERO
+var target_dir := Vector2.ZERO
+var current_dir := Vector2.ZERO
 
 func _ready():
 	Globals.set_player(self)
@@ -48,22 +50,21 @@ func _ready():
 
 func get_h_direction() -> Vector2:
 	# Get the input direction and handle the movement/deceleration.
-	var input_dir = Input.get_vector("right", "left", "backward", "forward")
-	var dir = (transform.basis * Utils.vec_sub(input_dir, "x0y")).normalized()
+	target_dir = Input.get_vector("right", "left", "backward", "forward")
+	current_dir = current_dir.lerp(target_dir, ROT_SPEED)
 	
-	return Utils.vec_sub(dir, "xz")
+	return current_dir
 	
-func get_h_velocity(current: Vector3) -> Vector3:
-	var dir := get_h_direction()
+func get_h_velocity(current: Vector3, dir := get_h_direction()) -> Vector3:
 	if dir:
 		var speed := H_SPEED
 		
-		if H_SPEED_CURVE:
+		if false and H_SPEED_CURVE:
 			var mouse_proj := mouse_ground_projection()
-			var _max_dist := (SPRINT_MAX_DIST/2.)**2.
-			var mproj_dist : float = min((mouse_proj - global_position).length_squared(), _max_dist)
 			# HACK: SPRINT_MAX_DIST/2. here is a placeholder
 			# should be a dedicated @export parameter
+			var _max_dist := (SPRINT_MAX_DIST/2.)**2.
+			var mproj_dist : float = min((mouse_proj - global_position).length_squared(), _max_dist)
 			var fact := remap(mproj_dist, 0., _max_dist, 0., 1.)
 			
 			speed = H_SPEED_CURVE.sample(fact) * H_SPEED
@@ -162,14 +163,23 @@ func _physics_process(delta):
 			
 			h_vel = h_dir * H_SPEED * H_SPRINT_MULT
 			v_vel *= 0.
+			
+			look_at(sprint_to)
+			#diocane
+			rotate_y(TAU/2.)
 		
 		sprinting = _spr
 	
 	if not sprinting:
 		sprint_decal.visible = false
-		rotation.y = get_mouse_rotation()
 		
-		h_vel = get_h_velocity(velocity)
+		var h_dir = get_h_direction()
+		
+		if target_dir != Vector2.ZERO:
+			var rot_angle = -current_dir.angle()+TAU/8.
+			rotation.y = lerp_angle(rotation.y, rot_angle, ROT_SPEED)
+		
+		h_vel = get_h_velocity(velocity, h_dir)
 		v_vel = get_v_velocity(velocity.y, delta)
 		
 	velocity = h_vel + v_vel

@@ -36,6 +36,7 @@ script/source = "extends Node3D
 var initial_rot := Vector3.ZERO
 
 func _ready():
+	await Globals.level_started
 	initial_rot = global_rotation
 
 func _process(delta):
@@ -70,7 +71,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.910256, 0.222222)
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_eudix")
 JUMP_ENABLED = false
 H_SPEED_CURVE = SubResource("Curve_vr3k8")

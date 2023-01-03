@@ -13,9 +13,11 @@ func _ready():
 		add_child(debug_ui)
 		
 		Globals.debug_ui = debug_ui
-		Globals.log_msg("Level started")
 		
 		debug_ui.visible = debug_ui_on_start
+		
+	rotate_y(TAU/8.)
+	Globals.start_level()
 
 func _process(_delta):
 	var p := Globals.player

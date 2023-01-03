@@ -40,7 +40,6 @@ grow_vertical = 2
 script = ExtResource("1_6k8ji")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -54,17 +53,19 @@ script = SubResource("GDScript_pnw1w")
 metadata/_edit_group_ = true
 
 [node name="FPS" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_right = 57.0
+offset_bottom = 26.0
 text = "FPS: --"
 horizontal_alignment = 2
 
 [node name="Frametime" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 30.0
+offset_right = 57.0
+offset_bottom = 56.0
 text = "Time: --"
 horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 360.0
@@ -75,12 +76,14 @@ metadata/_edit_group_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer"]
 modulate = Color(1, 1, 1, 0.764706)
-layout_mode = 2
+offset_right = 360.0
+offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="DB messages" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+offset_right = 360.0
+offset_bottom = 1080.0
 theme = SubResource("Theme_88j1t")
 alignment = 2
