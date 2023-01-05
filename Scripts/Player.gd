@@ -17,7 +17,7 @@ extends CharacterBody3D
 @export_range(.01,  30., .005) var SPRINT_MAX_DIST := 8.
 @export_range(1.,  5., .005) var SPRINT_IGNORE_DIST_MULT := 2.5
 
-@export_group("Stamina")
+@export_group("Stats")
 @export_range(.001, 1., .0005) var STAMINA_RATE := .5
 
 @onready

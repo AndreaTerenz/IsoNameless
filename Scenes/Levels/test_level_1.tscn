@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=22 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://cfvsxshop0a4t" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -8,7 +8,9 @@
 [ext_resource type="Material" uid="uid://dxkr3knpjdqi6" path="res://Materials/Grids/yellow_grid.tres" id="4_jxqma"]
 [ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Scenes/Player.tscn" id="6_4v2tq"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="9_kep4t"]
+[ext_resource type="Texture2D" uid="uid://d0c72csex0v12" path="res://Assets/Grids/grid_light.png" id="10_gur3q"]
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]
+[ext_resource type="Texture2D" uid="uid://deqlj2y7ymbrk" path="res://Assets/Grids/grid_norm.png" id="11_kt7yb"]
 
 [sub_resource type="GDScript" id="GDScript_28iu5"]
 script/source = "extends Interactable
@@ -53,6 +55,46 @@ emission_enabled = true
 emission = Color(0.717647, 0, 0, 1)
 emission_energy_multiplier = 11.86
 
+[sub_resource type="GDScript" id="GDScript_yin7p"]
+script/source = "extends Area3D
+
+@export
+var inside_mat : BaseMaterial3D = preload(\"res://Materials/Grids/white_grid.tres\")
+
+@onready
+var mesh := $MeshInstance3D
+@onready
+var outside_mat : Material = mesh.material_override
+
+func _ready():
+	var env_node = get_node(\"../Env\")
+	body_entered.connect(
+		func (body):
+			if body == Globals.player:
+				mesh.material_override = inside_mat
+				env_node.visible = false
+	)
+	body_exited.connect(
+		func (body):
+			if body == Globals.player:
+				mesh.material_override = outside_mat
+				env_node.visible = true
+	)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgve6"]
+cull_mode = 1
+albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
+albedo_texture = ExtResource("10_gur3q")
+normal_enabled = true
+normal_texture = ExtResource("11_kt7yb")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_g0cta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
+
 [node name="test_level_1" instance=ExtResource("1_blvs2")]
 script = ExtResource("2_npikm")
 
@@ -85,6 +127,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hrev2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
 transform = Transform3D(-0.566755, -0.576082, 0.588998, -0.296208, 0.809576, 0.506801, -0.768798, 0.112766, -0.629471, 0, 0, 0)
+visible = false
 shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_blend_splits = true
@@ -109,3 +152,18 @@ surface_material_override/0 = ExtResource("4_jxqma")
 [node name="Wall" parent="Env" index="3"]
 material_override = ExtResource("9_kep4t")
 surface_material_override/0 = ExtResource("2_goaju")
+
+[node name="Room" type="Area3D" parent="." index="5"]
+transform = Transform3D(11.65, 0, 0, 0, 5.09816, 0, 0, 0, 11.65, 14, 2.54908, -5)
+script = SubResource("GDScript_yin7p")
+inside_mat = SubResource("StandardMaterial3D_bgve6")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00351551, 0)
+mesh = SubResource("BoxMesh_g0cta")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("10_i710y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room" index="1"]
+shape = SubResource("BoxShape3D_hapeh")

@@ -41,7 +41,7 @@ _global_script_class_icons={
 config/name="IsoTest"
 config/description="Isometric thingy
 "
-run/main_scene="res://Scenes/Levels/main.tscn"
+run/main_scene="res://Scenes/Levels/test_level_1.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
