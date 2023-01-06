@@ -57,21 +57,12 @@ func get_h_direction() -> Vector2:
 	
 func get_h_velocity(current: Vector3, dir := get_h_direction()) -> Vector3:
 	if dir:
-		var speed := H_SPEED
-		
-		if false and H_SPEED_CURVE:
-			var mouse_proj := mouse_ground_projection()
-			# HACK: SPRINT_MAX_DIST/2. here is a placeholder
-			# should be a dedicated @export parameter
-			var _max_dist := (SPRINT_MAX_DIST/2.)**2.
-			var mproj_dist : float = min((mouse_proj - global_position).length_squared(), _max_dist)
-			var fact := remap(mproj_dist, 0., _max_dist, 0., 1.)
-			
-			speed = H_SPEED_CURVE.sample(fact) * H_SPEED
-		
-		return Utils.vec_sub(dir * speed, "x0y")
+		return Utils.vec_sub(dir * H_SPEED, "x0y")
 	
-	return current.lerp(Vector3.ZERO, H_DECELERATION) if is_on_floor() else current
+	if is_on_floor():
+		return current.lerp(Vector3.ZERO, H_DECELERATION)
+		
+	return current
 	
 func get_v_velocity(current: float, delta: float) -> Vector3:
 	var output := Vector3.UP
@@ -175,9 +166,8 @@ func _physics_process(delta):
 		
 		var h_dir = get_h_direction()
 		
-		if target_dir != Vector2.ZERO:
-			var rot_angle = -current_dir.angle()+TAU/8.
-			rotation.y = lerp_angle(rotation.y, rot_angle, ROT_SPEED)
+		var rot_angle = -current_dir.angle()+TAU/8.
+		rotation.y = lerp_angle(rotation.y, rot_angle, ROT_SPEED)
 		
 		h_vel = get_h_velocity(velocity, h_dir)
 		v_vel = get_v_velocity(velocity.y, delta)
