@@ -90,8 +90,9 @@ func create_debug_mesh(mesh: Mesh, global_pos: Vector3, material : Material = pr
 	mesh_inst.mesh = mesh
 	mesh_inst.set_surface_override_material(0, material)
 	
-	get_tree().root.add_child(mesh_inst)
+	get_tree().root.add_child.call_deferred((mesh_inst))
+	await mesh_inst.tree_entered
 	mesh_inst.global_position = global_pos
 	
-func length_geq(vec, dist: float):	
+func length_geq(vec, dist: float):
 	return vec.length_squared() >= dist**2
