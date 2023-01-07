@@ -209,11 +209,11 @@ material_override = ExtResource("3_qu1om")
 surface_material_override/0 = ExtResource("4_jxqma")
 
 [node name="Room" parent="Env" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7507, 1.0339, -8.31769)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7507, 1.00004, -8.31769)
 surface_material_override/0 = ExtResource("10_i710y")
 
 [node name="Door" type="Area3D" parent="Env/Room/DoorPos" index="0" node_paths=PackedStringArray("outside_env", "outside_mesh", "inside_mesh")]
-transform = Transform3D(1.47324, 0, 0, 0, 2.41838, 0, 0, 0, 0.580491, 0, 0, 0)
+transform = Transform3D(1.98881, 0, 0, 0, 2.41838, 0, 0, 0, 0.580491, 0, 0, 0)
 script = SubResource("GDScript_ccnij")
 outside_env = NodePath("../../..")
 outside_mesh = NodePath("../..")
@@ -225,10 +225,23 @@ shape = SubResource("BoxShape3D_hapeh")
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Room/DoorPos/Door" index="1"]
+visible = false
 transparency = 0.26
 mesh = SubResource("BoxMesh_nymqc")
 surface_material_override/0 = ExtResource("3_qu1om")
 metadata/_edit_lock_ = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Env/Room/DoorPos/Door" index="2"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Env/Room/DoorPos/Door/CSGCombiner3D" index="0"]
+size = Vector3(1, 1, 0.250596)
+material = ExtResource("3_qu1om")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Env/Room/DoorPos/Door/CSGCombiner3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0600171, 0)
+operation = 2
+size = Vector3(0.806643, 1.0001, 1)
+material = ExtResource("3_qu1om")
 
 [node name="Room_In" parent="Env/Room" index="1"]
 surface_material_override/0 = ExtResource("9_kep4t")

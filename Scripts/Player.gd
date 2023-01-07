@@ -43,6 +43,7 @@ var sprint_to := Vector3.ZERO
 var sprint_delta := Vector3.ZERO
 var target_dir := Vector2.ZERO
 var current_dir := Vector2.ZERO
+var sprinting_collided := false
 
 func _ready():
 	Globals.set_player(self)
@@ -122,10 +123,14 @@ func check_sprinting():
 			
 		# change stamina based on how far the player will sprint
 		stats.set_stat_value("stamina", 1. - sprint_dist/max_dist)
+		sprinting_collided = false
 		
 		return true
 	
 	if sprinting:
+		if sprinting_collided:
+			return false
+			
 		var gp : Vector3 = Utils.vec_sub(global_position, "x0z")
 		if not Utils.length_geq((sprint_to - gp), .4):
 			return false
@@ -143,6 +148,8 @@ func _physics_process(delta):
 	var h_vel : Vector3 = Utils.vec_sub(velocity, "x0z")
 	var v_vel := Vector3.ZERO
 	
+	var slide := true
+	
 	var _spr = check_sprinting()
 	# sprint status just changed
 	if _spr != sprinting:
@@ -158,8 +165,10 @@ func _physics_process(delta):
 			look_at(sprint_to)
 			#diocane
 			rotate_y(TAU/2.)
-		
+			
 		sprinting = _spr
+	
+	slide = not sprinting
 	
 	if not sprinting:
 		sprint_decal.visible = false
@@ -173,7 +182,13 @@ func _physics_process(delta):
 		v_vel = get_v_velocity(velocity.y, delta)
 		
 	velocity = h_vel + v_vel
-	move_and_slide()
+	
+	if slide:
+		move_and_slide()
+	else:
+		var collision := move_and_collide(velocity * delta)
+		if collision:
+			sprinting_collided = true
 	
 func _input(_event):
 	if Input.is_action_just_pressed("fire"):
