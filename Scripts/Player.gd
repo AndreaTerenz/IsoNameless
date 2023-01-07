@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody3D
 
+signal entered_door(d)
+signal exited_door(d)
+
 # If true, W moves towards isometric forward (and so on)
 # If false, W moves towards top of the screen (and so on)
 @export_group("Movement")
@@ -44,6 +47,8 @@ var sprint_delta := Vector3.ZERO
 var target_dir := Vector2.ZERO
 var current_dir := Vector2.ZERO
 var sprinting_collided := false
+
+var current_door = null
 
 func _ready():
 	Globals.set_player(self)
@@ -209,3 +214,13 @@ func get_mouse_ray(length := 1.) -> Array[Vector3]:
 	var to := camera.project_position(mouse_pos, length)
 	
 	return [from, to]
+	
+func enter_door(d: Area3D):
+	if not current_door:
+		current_door = d
+		entered_door.emit(d)
+	
+func exit_door(d: Area3D):
+	if d == current_door:
+		current_door = null
+		exited_door.emit(d)

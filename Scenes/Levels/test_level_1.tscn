@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=18 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -56,6 +56,9 @@ emission_energy_multiplier = 11.86
 [sub_resource type="GDScript" id="GDScript_ccnij"]
 script/source = "extends Area3D
 
+signal player_entered
+signal player_exited
+
 enum DOOR_DIR {
 	X,Y,Z,nX,nY,nZ
 }
@@ -93,27 +96,36 @@ func _ready():
 		func (body):
 			if body == Globals.player:
 				inside = true
+				Globals.player.enter_door(self)
+				player_entered.emit()
 	)
 	
 	body_exited.connect(
 		func (body):
 			if body != Globals.player:
 				return
-			
-			Globals.log_msg(\"EXITED\")
-			inside = false
+				
 			outside_mesh.transparency = round(outside_mesh.transparency)
+			inside = false
+			Globals.player.exit_door(self)
+			player_exited.emit()
 	)
 	
 func _process(delta):
 	if not inside:
 		return
 	
-	var p_pos : Vector3 = (local_player_pos) * dir_to_vec3(direction)
-	var p_depth : float = get_pos_depth(p_pos)
-	
+	var p_depth : float = get_player_depth()
 	var factor : float = clampf(p_depth / door_depth, 0., 1.)
+	
 	outside_mesh.transparency = 1. - factor
+	
+func get_player_depth() -> float:
+	if not inside:
+		return -1.
+	
+	var p_pos : Vector3 = (local_player_pos) * dir_to_vec3(direction)
+	return get_pos_depth(p_pos)
 
 func face_closest_to_pos(p: Vector3) -> Vector3:
 	var out_dist := p.distance_squared_to(outside_face)
@@ -151,8 +163,6 @@ func dir_to_vec3(dir: DOOR_DIR) -> Vector3:
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nymqc"]
 
 [node name="test_level_1" instance=ExtResource("1_blvs2")]
 script = ExtResource("2_npikm")
@@ -224,14 +234,9 @@ direction = 5
 shape = SubResource("BoxShape3D_hapeh")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Room/DoorPos/Door" index="1"]
-visible = false
-transparency = 0.26
-mesh = SubResource("BoxMesh_nymqc")
-surface_material_override/0 = ExtResource("3_qu1om")
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Env/Room/DoorPos/Door" index="1"]
+layers = 9
 metadata/_edit_lock_ = true
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Env/Room/DoorPos/Door" index="2"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Env/Room/DoorPos/Door/CSGCombiner3D" index="0"]
 size = Vector3(1, 1, 0.250596)
@@ -244,6 +249,7 @@ size = Vector3(0.806643, 1.0001, 1)
 material = ExtResource("3_qu1om")
 
 [node name="Room_In" parent="Env/Room" index="1"]
+layers = 9
 surface_material_override/0 = ExtResource("9_kep4t")
 
 [node name="Wall" parent="Env" index="4"]
