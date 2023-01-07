@@ -20,7 +20,7 @@ const debug_msg_names := {
 	DEBUG_MSG_MODE.ERROR: "Error",
 }
 
-var min_db_msg := DEBUG_MSG_MODE.LOG
+const MIN_DB_LEVEL := DEBUG_MSG_MODE.LOG
 
 var player : Player = null
 var debug_ui : DebugUI = null
@@ -57,9 +57,9 @@ func end_log_seq():
 	log_timestamp = true
 
 func log_msg(obj, mode: DEBUG_MSG_MODE = DEBUG_MSG_MODE.LOG, print_stdout := true):
-	if started and mode >= min_db_msg:
+	if started and mode >= MIN_DB_LEVEL:
 		var s := str(obj)
-		var time = "%.1f" % (Time.get_unix_time_from_system() - Globals.start_time)
+		var time = "%.3f" % (Time.get_unix_time_from_system() - Globals.start_time)
 		var mode_name = debug_msg_names.get(mode, "")
 		
 		if mode_name != "":
@@ -72,3 +72,5 @@ func log_msg(obj, mode: DEBUG_MSG_MODE = DEBUG_MSG_MODE.LOG, print_stdout := tru
 		
 		if print_stdout:
 			print(s)
+	
+	return obj

@@ -84,7 +84,7 @@ func isect_line_plane_v3(p0: Vector3, p1: Vector3, p_co: Vector3, p_no: Vector3,
 
 func create_debug_mesh(mesh: Mesh, global_pos: Vector3, material : Material = preload("res://Materials/Grids/white_grid.tres")):
 	if mute_debug_meshes:
-		return
+		return null
 	
 	var mesh_inst := MeshInstance3D.new()
 	mesh_inst.mesh = mesh
@@ -93,6 +93,8 @@ func create_debug_mesh(mesh: Mesh, global_pos: Vector3, material : Material = pr
 	get_tree().root.add_child.call_deferred((mesh_inst))
 	await mesh_inst.tree_entered
 	mesh_inst.global_position = global_pos
+	
+	return mesh_inst
 	
 func length_geq(vec, dist: float):
 	return vec.length_squared() >= dist**2

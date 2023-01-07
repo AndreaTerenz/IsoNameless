@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cfvsxshop0a4t"
+uid="uid://wja52f18klx4"
 path="res://.godot/imported/test_level_1.blend-a579809ed482468e25b8842b3e5a3f01.scn"
 
 [deps]
@@ -38,6 +38,14 @@ _subresources={
 "physics/shape_type": 2
 },
 "PATH:Env/Ramp": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Env/Room": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Env/Room/Room_In": {
 "generate/physics": true,
 "physics/shape_type": 2
 },

@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=19 format=3 uid="uid://xxlp26s1av6w"]
 
-[ext_resource type="PackedScene" uid="uid://cfvsxshop0a4t" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
+[ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
 [ext_resource type="Environment" uid="uid://bqyqg4xr6e0aj" path="res://default_env.tres" id="2_je60b"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="2_npikm"]
@@ -8,9 +8,7 @@
 [ext_resource type="Material" uid="uid://dxkr3knpjdqi6" path="res://Materials/Grids/yellow_grid.tres" id="4_jxqma"]
 [ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Scenes/Player.tscn" id="6_4v2tq"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="9_kep4t"]
-[ext_resource type="Texture2D" uid="uid://d0c72csex0v12" path="res://Assets/Grids/grid_light.png" id="10_gur3q"]
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]
-[ext_resource type="Texture2D" uid="uid://deqlj2y7ymbrk" path="res://Assets/Grids/grid_norm.png" id="11_kt7yb"]
 
 [sub_resource type="GDScript" id="GDScript_28iu5"]
 script/source = "extends Interactable
@@ -55,51 +53,112 @@ emission_enabled = true
 emission = Color(0.717647, 0, 0, 1)
 emission_energy_multiplier = 11.86
 
-[sub_resource type="GDScript" id="GDScript_yin7p"]
+[sub_resource type="GDScript" id="GDScript_ccnij"]
 script/source = "extends Area3D
 
-@export
-var inside_mat : BaseMaterial3D = preload(\"res://Materials/Grids/white_grid.tres\")
+enum DOOR_DIR {
+	X,Y,Z,nX,nY,nZ
+}
+
+@export var outside_env : Node3D
+@export var outside_mesh : GeometryInstance3D
+@export var inside_mesh : GeometryInstance3D
+@export var direction : DOOR_DIR = DOOR_DIR.Z
 
 @onready
-var mesh := $MeshInstance3D
-@onready
-var outside_mat : Material = mesh.material_override
+var shape := $CollisionShape3D
+
+var outside_face : Vector3
+var inside_face : Vector3
+var door_depth := 0.
+var inside := false
+var dir_vec :
+	get:
+		return dir_to_vec3(direction)
+var local_player_pos:
+	get:
+		return shape.to_local(Globals.player.global_position) + outside_face
 
 func _ready():
-	var env_node = get_node(\"../Env\")
+	if not Globals.started:
+		await Globals.level_started
+
+	var shape_size := (shape.shape as BoxShape3D).size
+	
+	outside_face = dir_vec * (shape_size / 2.)
+	inside_face = outside_face * -1.
+	door_depth = get_pos_depth(inside_face)
+	
 	body_entered.connect(
 		func (body):
 			if body == Globals.player:
-				mesh.material_override = inside_mat
-				env_node.visible = false
+				inside = true
 	)
+	
 	body_exited.connect(
 		func (body):
-			if body == Globals.player:
-				mesh.material_override = outside_mat
-				env_node.visible = true
+			if body != Globals.player:
+				return
+			
+			Globals.log_msg(\"EXITED\")
+			inside = false
+			outside_mesh.transparency = round(outside_mesh.transparency)
 	)
+	
+func _process(delta):
+	if not inside:
+		return
+	
+	var p_pos : Vector3 = (local_player_pos) * dir_to_vec3(direction)
+	var p_depth : float = get_pos_depth(p_pos)
+	
+	var factor : float = clampf(p_depth / door_depth, 0., 1.)
+	outside_mesh.transparency = 1. - factor
+
+func face_closest_to_pos(p: Vector3) -> Vector3:
+	var out_dist := p.distance_squared_to(outside_face)
+	var in_dist := p.distance_squared_to(inside_face)
+	
+	if out_dist < in_dist:
+		return outside_face
+	elif out_dist > in_dist:
+		return inside_face
+	
+	return Vector3.ZERO
+	
+func get_pos_depth(p: Vector3) -> float:
+	if Utils.length_geq(p, door_depth/2.):
+		p = (face_closest_to_pos(p))
+		
+	return ((outside_face - p) * dir_vec).length()
+
+func dir_to_vec3(dir: DOOR_DIR) -> Vector3:
+	match dir:
+		DOOR_DIR.X:
+			return Vector3.RIGHT
+		DOOR_DIR.Y:
+			return Vector3.UP
+		DOOR_DIR.Z:
+			return Vector3.BACK
+		DOOR_DIR.nX:
+			return Vector3.LEFT
+		DOOR_DIR.nY:
+			return Vector3.DOWN
+		DOOR_DIR.nZ:
+			return Vector3.FORWARD
+
+	return Vector3.ZERO
 "
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgve6"]
-cull_mode = 1
-albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
-albedo_texture = ExtResource("10_gur3q")
-normal_enabled = true
-normal_texture = ExtResource("11_kt7yb")
-uv1_triplanar = true
-uv1_triplanar_sharpness = 5.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_g0cta"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nymqc"]
 
 [node name="test_level_1" instance=ExtResource("1_blvs2")]
 script = ExtResource("2_npikm")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.7135, 3.6046, 1.53521e-07)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.2825, -4.76837e-07, -19.0995)
 
 [node name="Target" type="Area3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 4.79748, 0)
@@ -149,21 +208,31 @@ layers = 5
 material_override = ExtResource("3_qu1om")
 surface_material_override/0 = ExtResource("4_jxqma")
 
-[node name="Wall" parent="Env" index="3"]
-material_override = ExtResource("9_kep4t")
-surface_material_override/0 = ExtResource("2_goaju")
-
-[node name="Room" type="Area3D" parent="." index="5"]
-transform = Transform3D(11.65, 0, 0, 0, 5.09816, 0, 0, 0, 11.65, 14, 2.54908, -5)
-script = SubResource("GDScript_yin7p")
-inside_mat = SubResource("StandardMaterial3D_bgve6")
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Room" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00351551, 0)
-mesh = SubResource("BoxMesh_g0cta")
-skeleton = NodePath("../..")
+[node name="Room" parent="Env" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7507, 1.0339, -8.31769)
 surface_material_override/0 = ExtResource("10_i710y")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room" index="1"]
+[node name="Door" type="Area3D" parent="Env/Room/DoorPos" index="0" node_paths=PackedStringArray("outside_env", "outside_mesh", "inside_mesh")]
+transform = Transform3D(1.47324, 0, 0, 0, 2.41838, 0, 0, 0, 0.580491, 0, 0, 0)
+script = SubResource("GDScript_ccnij")
+outside_env = NodePath("../../..")
+outside_mesh = NodePath("../..")
+inside_mesh = NodePath("../../Room_In")
+direction = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Room/DoorPos/Door" index="0"]
 shape = SubResource("BoxShape3D_hapeh")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Room/DoorPos/Door" index="1"]
+transparency = 0.26
+mesh = SubResource("BoxMesh_nymqc")
+surface_material_override/0 = ExtResource("3_qu1om")
+metadata/_edit_lock_ = true
+
+[node name="Room_In" parent="Env/Room" index="1"]
+surface_material_override/0 = ExtResource("9_kep4t")
+
+[node name="Wall" parent="Env" index="4"]
+material_override = ExtResource("9_kep4t")
+surface_material_override/0 = ExtResource("2_goaju")
