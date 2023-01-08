@@ -60,36 +60,29 @@ func check(from, to):
 	return null
 "
 
-[sub_resource type="GDScript" id="GDScript_8giqv"]
-script/source = "extends Camera3D
-
-func _process(delta):
-	global_transform = %Camera.global_transform
-"
-
 [sub_resource type="Shader" id="Shader_fewc4"]
 code = "shader_type canvas_item;
 
 uniform sampler2D text : hint_default_transparent;
-uniform float fact : hint_range(0.0, 1.0, 0.01);
+uniform float strength : hint_range(0.0, 1.0, 0.01) = .5;
 
 void fragment() {
 	float val = texture(text, SCREEN_UV).a;
-	COLOR.a = (1. - val) * fact;
+	COLOR.a = (1. - val) * strength;
 }
 "
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3nj2w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7l0ps"]
 viewport_path = NodePath("CameraPivot/SubViewportContainer/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0faa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ianme"]
 resource_local_to_scene = true
 shader = SubResource("Shader_fewc4")
-shader_parameter/fact = 0.46
-shader_parameter/text = SubResource("ViewportTexture_3nj2w")
+shader_parameter/strength = 0.5
+shader_parameter/text = SubResource("ViewportTexture_7l0ps")
 
-[sub_resource type="GDScript" id="GDScript_u04vg"]
-script/source = "extends ColorRect
+[sub_resource type="GDScript" id="GDScript_c1r1e"]
+script/source = "extends SubViewportContainer
 
 @export_range(0., 1., .001)
 var fx_strength := .7
@@ -99,7 +92,7 @@ var current_fact := 0.
 
 func _ready():
 	var mat : ShaderMaterial = material as ShaderMaterial
-	mat.set_shader_parameter(\"fact\", 0.)
+	mat.set_shader_parameter(\"strength\", 0.)
 
 func _process(delta):
 	if run:
@@ -107,7 +100,7 @@ func _process(delta):
 		current_fact = clampf(1. - door.get_player_depth(), 0., fx_strength)
 		
 		var mat : ShaderMaterial = material as ShaderMaterial
-		mat.set_shader_parameter(\"fact\", current_fact)
+		mat.set_shader_parameter(\"strength\", current_fact)
 
 func _on_player_entered_door(d):
 	visible = true
@@ -117,8 +110,13 @@ func _on_player_entered_door(d):
 func _on_player_exited_door(d):
 	run = false
 	
-	if current_fact == 0.:
-		visible = false
+"
+
+[sub_resource type="GDScript" id="GDScript_8giqv"]
+script/source = "extends Camera3D
+
+func _process(delta):
+	global_transform = %Camera.global_transform
 "
 
 [sub_resource type="Gradient" id="Gradient_uujw2"]
@@ -166,22 +164,23 @@ collide_with_areas = true
 collide_with_bodies = false
 script = SubResource("GDScript_pbuh2")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CameraPivot"]
-modulate = Color(1, 1, 1, 0)
+[node name="OutsideFade" type="SubViewportContainer" parent="CameraPivot"]
+material = SubResource("ShaderMaterial_ianme")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+script = SubResource("GDScript_c1r1e")
 
-[node name="SubViewport" type="SubViewport" parent="CameraPivot/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="CameraPivot/OutsideFade"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="InCamera" type="Camera3D" parent="CameraPivot/SubViewportContainer/SubViewport"]
+[node name="InCamera" type="Camera3D" parent="CameraPivot/OutsideFade/SubViewport"]
 unique_name_in_owner = true
 transform = Transform3D(0.707107, 0.5, -0.5, -4.21471e-08, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -11.7636, 17.6363, 11.7637)
 cull_mask = 1048568
@@ -203,17 +202,6 @@ cull_mask = 1048574
 unique_name_in_owner = true
 process_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_b0faa")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = SubResource("GDScript_u04vg")
-
 [node name="SprintDecal" type="Decal" parent="."]
 unique_name_in_owner = true
 top_level = true
@@ -226,6 +214,6 @@ lower_fade = 0.15
 unique_name_in_owner = true
 script = ExtResource("5_5c2a4")
 
-[connection signal="entered_door" from="." to="UI/ColorRect" method="_on_player_entered_door"]
-[connection signal="exited_door" from="." to="UI/ColorRect" method="_on_player_exited_door"]
+[connection signal="entered_door" from="." to="CameraPivot/OutsideFade" method="_on_player_entered_door"]
+[connection signal="exited_door" from="." to="CameraPivot/OutsideFade" method="_on_player_exited_door"]
 [connection signal="stat_changed" from="Stats" to="UI" method="_on_stats_stat_changed"]

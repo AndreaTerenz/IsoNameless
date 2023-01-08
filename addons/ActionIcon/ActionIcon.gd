@@ -59,6 +59,16 @@ const MODEL_MAP = {
 		fit_mode = mode
 		refresh()
 
+## Set whether the icon can refresh while invisible
+@export var ignore_visibility: bool = false:
+	set(new_value):
+		ignore_visibility = new_value
+		refresh()
+		
+var _visible : bool :
+	get:
+		return ignore_visibility or is_visible_in_tree()
+
 var _base_path: String
 var _use_joypad: bool
 var _pending_refresh: bool
@@ -97,7 +107,7 @@ func refresh():
 	_refresh.call_deferred()
 
 func _refresh():
-	if Engine.is_editor_hint() or not is_visible_in_tree():
+	if Engine.is_editor_hint() or not _visible:
 		return
 	
 	_pending_refresh = false

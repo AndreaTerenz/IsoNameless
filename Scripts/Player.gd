@@ -179,9 +179,14 @@ func _physics_process(delta):
 		sprint_decal.visible = false
 		
 		var h_dir = get_h_direction()
-		
 		var rot_angle = -current_dir.angle()+TAU/8.
-		rotation.y = lerp_angle(rotation.y, rot_angle, ROT_SPEED)
+		rot_angle = snappedf(rot_angle, TAU/8.)
+		
+		if Utils.length_geq(current_dir, .001):
+			rotation.y = lerp_angle(rotation.y, rot_angle, ROT_SPEED)
+		else:
+			# Avoid lerping rotation when current_dir is ALMOST zero
+			rotation.y = rot_angle
 		
 		h_vel = get_h_velocity(velocity, h_dir)
 		v_vel = get_v_velocity(velocity.y, delta)
