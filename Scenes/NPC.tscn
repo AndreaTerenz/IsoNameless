@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://brl0ha628jxif"]
+
+[ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="1_nicew"]
+[ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_txgmd"]
+[ext_resource type="PackedScene" uid="uid://2xhtwxpgnyd8" path="res://Scenes/UIs/dialog_ui_npc.tscn" id="2_kkecn"]
+[ext_resource type="Script" path="res://Scripts/EnvElements/Interactable.gd" id="3_fuxog"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ka84"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1j6es"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wapxf"]
+radius = 0.673729
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_txgmd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0ka84")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_1j6es")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = ExtResource("1_nicew")
+
+[node name="dialogUI" parent="." instance=ExtResource("2_kkecn")]
+unique_name_in_owner = true
+
+[node name="Interactable" type="Area3D" parent="." node_paths=PackedStringArray("tooltip_origin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("3_fuxog")
+tooltip_text = "Talk "
+tooltip_origin = NodePath("Node3D")
+mode = null
+start_enabled = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("CapsuleShape3D_wapxf")
+
+[node name="Node3D" type="Node3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66539, 0)
+
+[connection signal="dialog_done" from="dialogUI" to="." method="_on_dialog_done"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interacted"]

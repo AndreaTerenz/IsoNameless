@@ -1,6 +1,11 @@
 class_name Player
 extends CharacterBody3D
 
+enum MODE {
+	NORMAL,
+	DIALOGUE
+}
+
 signal entered_door(d)
 signal exited_door(d)
 
@@ -49,6 +54,8 @@ var current_dir := Vector2.ZERO
 var sprinting_collided := false
 
 var current_door = null
+var current_mode := MODE.NORMAL
+var talking_to : NPC = null
 
 func _ready():
 	Globals.set_player(self)
@@ -159,6 +166,9 @@ func apply_h_velocity(h_vel: Vector2):
 # point, it stops completely as it istantly gets out of the
 # sprinting state
 func _physics_process(delta):
+	if current_mode == MODE.DIALOGUE:
+		return
+	
 	var h_vel : Vector3 = Utils.vec_sub(velocity, "x0z")
 	var v_vel := Vector3.ZERO
 	
@@ -204,16 +214,28 @@ func _physics_process(delta):
 	
 func _input(_event):
 	if Input.is_action_just_pressed("fire"):
-		var ray_length = global_position.distance_to(Globals.player.global_position) + 30.
-		var m_ray := get_mouse_ray(ray_length)
+		interact()
+			
+func interact():
+	var ray_length = global_position.distance_to(Globals.player.global_position) + 30.
+	var m_ray := get_mouse_ray(ray_length)
+	
+	var from = m_ray[0]
+	var to = m_ray[1]
+	
+	var interactable = interact_ray.check(from, to)
+	if interactable:
+		interactable.interact()
 		
-		var from = m_ray[0]
-		var to = m_ray[1]
-		
-		var interactable = interact_ray.check(from, to)
-		if interactable:
-			Globals.log_msg("Interacted!")
-			interactable.interact()
+		if interactable.get_parent() is NPC:
+			current_mode = MODE.DIALOGUE
+			talking_to = interactable.get_parent()
+			
+			talking_to.dialogue_done.connect(
+				func ():
+					current_mode = MODE.NORMAL
+					talking_to = null
+			)
 
 func get_mouse_ray(length := 1.) -> Array[Vector3]:
 	var mouse_pos := get_viewport().get_mouse_position()

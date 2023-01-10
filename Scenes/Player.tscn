@@ -168,7 +168,6 @@ script = SubResource("GDScript_pbuh2")
 
 [node name="OutsideFade" type="SubViewportContainer" parent="CameraPivot"]
 material = SubResource("ShaderMaterial_ianme")
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

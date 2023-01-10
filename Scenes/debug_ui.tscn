@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="2_r687s"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="3_rg60s"]
 
-[sub_resource type="GDScript" id="GDScript_24bpy"]
+[sub_resource type="GDScript" id="GDScript_s8kqv"]
 script/source = "extends VBoxContainer
 
 @onready
@@ -17,14 +17,14 @@ func _process(delta):
 	ftime_l.text = \"Time: %.2f ms\" % [Performance.get_monitor(Performance.TIME_PROCESS)*1000.]
 "
 
-[sub_resource type="SystemFont" id="SystemFont_xewy2"]
+[sub_resource type="SystemFont" id="SystemFont_wg874"]
 font_names = PackedStringArray("Monospace")
 font_weight = 800
 
-[sub_resource type="Theme" id="Theme_7okx5"]
-default_font = SubResource("SystemFont_xewy2")
+[sub_resource type="Theme" id="Theme_krvbo"]
+default_font = SubResource("SystemFont_wg874")
 
-[sub_resource type="Theme" id="Theme_g8uk8"]
+[sub_resource type="Theme" id="Theme_70rc4"]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Label/constants/shadow_offset_x = 0
@@ -32,7 +32,7 @@ Label/constants/shadow_offset_y = 0
 Label/constants/shadow_outline_size = 0
 Label/font_sizes/font_size = 15
 
-[sub_resource type="GDScript" id="GDScript_npqj3"]
+[sub_resource type="GDScript" id="GDScript_s8b0u"]
 script/source = "extends PanelContainer
 
 @onready
@@ -56,7 +56,7 @@ func _input(event):
 			icons[action].modulate.a = .2
 "
 
-[sub_resource type="GDScript" id="GDScript_ld75c"]
+[sub_resource type="GDScript" id="GDScript_me1md"]
 script/source = "extends Label
 
 @export
@@ -88,7 +88,7 @@ grow_vertical = 2
 script = ExtResource("1_6k8ji")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 3
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -97,46 +97,41 @@ offset_left = -57.0
 offset_top = -56.0
 grow_horizontal = 0
 grow_vertical = 0
-script = SubResource("GDScript_24bpy")
+script = SubResource("GDScript_s8kqv")
 metadata/_edit_group_ = true
 
 [node name="FPS" type="Label" parent="VBoxContainer"]
-offset_right = 57.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "FPS: --"
 horizontal_alignment = 2
 
 [node name="Frametime" type="Label" parent="VBoxContainer"]
-offset_top = 30.0
-offset_right = 57.0
-offset_bottom = 56.0
+layout_mode = 2
 text = "Time: --"
 horizontal_alignment = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-anchors_preset = 9
+layout_mode = 0
 anchor_bottom = 1.0
 offset_right = 360.0
 grow_vertical = 2
-theme = SubResource("Theme_7okx5")
+theme = SubResource("Theme_krvbo")
 vertical_scroll_mode = 3
 metadata/_edit_group_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer"]
-offset_right = 360.0
-offset_bottom = 1080.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="DB messages" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
 unique_name_in_owner = true
-offset_right = 360.0
-offset_bottom = 1080.0
-theme = SubResource("Theme_g8uk8")
+layout_mode = 2
+theme = SubResource("Theme_70rc4")
 alignment = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-anchors_preset = 1
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -342.0
@@ -145,23 +140,19 @@ grow_horizontal = 0
 theme_override_constants/separation = 30
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2"]
-offset_right = 342.0
-offset_bottom = 214.0
-grow_horizontal = 0
+layout_mode = 2
 size_flags_vertical = 3
-script = SubResource("GDScript_npqj3")
+script = SubResource("GDScript_s8b0u")
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer2/PanelContainer"]
-offset_right = 342.0
-offset_bottom = 214.0
+layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
 [node name="ActionIcon" type="TextureRect" parent="VBoxContainer2/PanelContainer/GridContainer"]
 modulate = Color(1, 1, 1, 0)
-offset_right = 114.0
-offset_bottom = 107.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_r687s")
@@ -171,9 +162,7 @@ script = ExtResource("3_rg60s")
 fit_mode = 0
 
 [node name="ActionIcon2" type="TextureRect" parent="VBoxContainer2/PanelContainer/GridContainer"]
-offset_left = 114.0
-offset_right = 228.0
-offset_bottom = 107.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_r687s")
@@ -186,9 +175,7 @@ ignore_visibility = true
 
 [node name="ActionIcon3" type="TextureRect" parent="VBoxContainer2/PanelContainer/GridContainer"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 228.0
-offset_right = 342.0
-offset_bottom = 107.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_r687s")
@@ -197,9 +184,7 @@ stretch_mode = 5
 script = ExtResource("3_rg60s")
 
 [node name="ActionIcon4" type="TextureRect" parent="VBoxContainer2/PanelContainer/GridContainer"]
-offset_top = 107.0
-offset_right = 114.0
-offset_bottom = 214.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_r687s")
@@ -211,10 +196,7 @@ fit_mode = 0
 ignore_visibility = true
 
 [node name="ActionIcon5" type="TextureRect" parent="VBoxContainer2/PanelContainer/GridContainer"]
-offset_left = 114.0
-offset_top = 107.0
-offset_right = 228.0
-offset_bottom = 214.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_r687s")
@@ -226,10 +208,7 @@ fit_mode = 0
 ignore_visibility = true
 
 [node name="ActionIcon6" type="TextureRect" parent="VBoxContainer2/PanelContainer/GridContainer"]
-offset_left = 228.0
-offset_top = 107.0
-offset_right = 342.0
-offset_bottom = 214.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_r687s")
@@ -241,124 +220,94 @@ fit_mode = 0
 ignore_visibility = true
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer2"]
-offset_top = 244.0
-offset_right = 342.0
-offset_bottom = 458.0
-grow_horizontal = 0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/PanelContainer2"]
-offset_right = 342.0
-offset_bottom = 214.0
+layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="StatsContainer" type="GridContainer" parent="VBoxContainer2/PanelContainer2/MarginContainer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 334.0
-offset_bottom = 206.0
+layout_mode = 2
 theme_override_constants/h_separation = 25
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
 custom_minimum_size = Vector2(90, 0)
-offset_right = 90.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "Position"
 vertical_alignment = 1
 
 [node name="Position" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
-offset_left = 115.0
-offset_right = 326.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical_alignment = 1
-script = SubResource("GDScript_ld75c")
+script = SubResource("GDScript_me1md")
 property = "global_position"
 
 [node name="Label3" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
 custom_minimum_size = Vector2(90, 0)
-offset_top = 41.0
-offset_right = 90.0
-offset_bottom = 78.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "Rotation
 "
 vertical_alignment = 1
 
 [node name="Rotation" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
-offset_left = 115.0
-offset_top = 41.0
-offset_right = 326.0
-offset_bottom = 78.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical_alignment = 1
-script = SubResource("GDScript_ld75c")
+script = SubResource("GDScript_me1md")
 property = "rotation"
 
 [node name="Label4" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
 custom_minimum_size = Vector2(90, 0)
-offset_top = 82.0
-offset_right = 90.0
-offset_bottom = 118.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "Velocity
 "
 vertical_alignment = 1
 
 [node name="Velocity" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
-offset_left = 115.0
-offset_top = 82.0
-offset_right = 326.0
-offset_bottom = 118.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical_alignment = 1
-script = SubResource("GDScript_ld75c")
+script = SubResource("GDScript_me1md")
 property = "velocity"
 
 [node name="Label5" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
 custom_minimum_size = Vector2(90, 0)
-offset_top = 122.0
-offset_right = 90.0
-offset_bottom = 158.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "TargetDir"
 vertical_alignment = 1
 
 [node name="TargetDir" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
-offset_left = 115.0
-offset_top = 122.0
-offset_right = 326.0
-offset_bottom = 158.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical_alignment = 1
-script = SubResource("GDScript_ld75c")
+script = SubResource("GDScript_me1md")
 property = "target_dir"
 
 [node name="Label6" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
 custom_minimum_size = Vector2(90, 0)
-offset_top = 162.0
-offset_right = 90.0
-offset_bottom = 198.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "CurrentDir"
 vertical_alignment = 1
 
 [node name="CurrentDir" type="Label" parent="VBoxContainer2/PanelContainer2/MarginContainer/StatsContainer"]
-offset_left = 115.0
-offset_top = 162.0
-offset_right = 326.0
-offset_bottom = 198.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 vertical_alignment = 1
-script = SubResource("GDScript_ld75c")
+script = SubResource("GDScript_me1md")
 property = "current_dir"

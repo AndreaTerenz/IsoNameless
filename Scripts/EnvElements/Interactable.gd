@@ -13,10 +13,16 @@ signal player_exited
 signal enabled_changed(en)
 
 @export
+var tooltip_text := "Interact"
+@export
+var tooltip_origin : Node3D = null
+@export
 var mode : INTERACT_MODE = INTERACT_MODE.MULTIPLE
 @export
 var start_enabled := true
 
+var tooltip_scene := preload("res://Scenes/actors/interact_tooltip.tscn")
+var tooltip : Sprite3D = null
 var enabled :
 	get:
 		return monitorable and monitoring
@@ -39,18 +45,26 @@ func _ready():
 		
 	body_entered.connect(
 		func (body):
-			player_inside = (body == Globals.player)
-			if player_inside:
+			if body == Globals.player:
+				tooltip.visible = true
+				player_inside = true
 				_on_player_entered()
 				player_entered.emit()
 	)
 	body_exited.connect(
 		func (body):
-			player_inside = not (body == Globals.player)
-			if not player_inside:
+			if body == Globals.player:
+				tooltip.visible = false
+				player_inside = false
 				_on_player_exited()
 				player_exited.emit()
 	)
+	
+	if tooltip_origin:
+		tooltip = tooltip_scene.instantiate()
+		tooltip.visible = false
+		tooltip.text = tooltip_text
+		tooltip_origin.add_child(tooltip)
 
 func interact():
 	if not enabled:
