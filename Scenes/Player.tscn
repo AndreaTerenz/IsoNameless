@@ -1,7 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bq5xdgw0ai7g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_eudix"]
-[ext_resource type="Texture2D" uid="uid://dcgtdsm4ycttb" path="res://Assets/Blender_Default_Mixed_Grid.jpg" id="2_5o4mk"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
 [ext_resource type="PackedScene" uid="uid://cwowhjdlhepqk" path="res://Scenes/UI.tscn" id="4_mdx2w"]
 [ext_resource type="Script" path="res://Scripts/PlayerStats.gd" id="5_5c2a4"]
@@ -12,15 +11,18 @@ point_count = 2
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kb6wn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfhmx"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pyynk"]
+load_path = "res://.godot/imported/Blender_Default_Mixed_Grid.jpg-52fd97d1f493faf574a2115b6a56d053.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1gfr"]
 transparency = 1
 diffuse_mode = 3
-albedo_texture = ExtResource("2_5o4mk")
+albedo_texture = SubResource("CompressedTexture2D_pyynk")
 uv1_offset = Vector3(-0.125, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq7l1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18b2u"]
 render_priority = -1
-next_pass = SubResource("StandardMaterial3D_gfhmx")
+next_pass = SubResource("StandardMaterial3D_d1gfr")
 transparency = 1
 no_depth_test = true
 shading_mode = 0
@@ -73,7 +75,7 @@ void fragment() {
 "
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7l0ps"]
-viewport_path = NodePath("CameraPivot/SubViewportContainer/SubViewport")
+viewport_path = NodePath("CameraPivot/OutsideFade/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ianme"]
 resource_local_to_scene = true
@@ -139,7 +141,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_kb6wn")
-surface_material_override/0 = SubResource("StandardMaterial3D_kq7l1")
+surface_material_override/0 = SubResource("StandardMaterial3D_18b2u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

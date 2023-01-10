@@ -4,6 +4,8 @@ Rider
 # Godot 4+ specific ignores
 .godot/
 
+*.blend1
+
 # Godot-specific ignores
 .import/
 export.cfg

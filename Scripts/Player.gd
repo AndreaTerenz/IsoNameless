@@ -61,6 +61,15 @@ func get_h_direction() -> Vector2:
 	
 	return current_dir
 	
+func dir_to_rotation(dir : Vector2) -> float:
+	var rot_angle = -dir.angle()+TAU/8.
+	rot_angle = snappedf(rot_angle, TAU/8.)
+	
+	if Utils.length_geq(dir, .001):
+		return lerp_angle(rotation.y, rot_angle, ROT_SPEED)
+		
+	return rot_angle
+	
 func get_h_velocity(current: Vector3, dir := get_h_direction()) -> Vector3:
 	if dir:
 		return Utils.vec_sub(dir * H_SPEED, "x0y")
@@ -179,15 +188,8 @@ func _physics_process(delta):
 		sprint_decal.visible = false
 		
 		var h_dir = get_h_direction()
-		var rot_angle = -current_dir.angle()+TAU/8.
-		rot_angle = snappedf(rot_angle, TAU/8.)
 		
-		if Utils.length_geq(current_dir, .001):
-			rotation.y = lerp_angle(rotation.y, rot_angle, ROT_SPEED)
-		else:
-			# Avoid lerping rotation when current_dir is ALMOST zero
-			rotation.y = rot_angle
-		
+		rotation.y = dir_to_rotation(h_dir)
 		h_vel = get_h_velocity(velocity, h_dir)
 		v_vel = get_v_velocity(velocity.y, delta)
 		
