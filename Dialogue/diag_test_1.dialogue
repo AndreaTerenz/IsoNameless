@@ -1,11 +1,18 @@
 ~ start
 
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.[next=2.0]
-Nathan: Here are some choices[wait=2]choices[wait=2]choices[wait=2]choices[wait=2].
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+[[Hi|Hello|Howdy]], I am Brad Pitt.[next=2.0]
+I have lots of hair on the back of my head.[wait=2.0] Is this stament true?:
+- Yes
+	AAAAAAAAAAAAAAAAAAAAA I wish
+- No
+	You just failed the exam.
+- I hate you => Francesco
+- (run away) => END
+For more information see Virtuale[next=2.0]
+=> END
+
+~ Francesco
+
+Francesco??[wait=2.0]\nWhat are you doing here??[next=2.0]
+GET BACK IN THE EVA[next=2.0]
+=> END

@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_4"
+type="Resource"
+uid="uid://xccl3407j476"
+path="res://.godot/imported/diag_test_ncr.dialogue-dd13d38a855e34877c254086e021141a.tres"
+
+[deps]
+
+source_file="res://Dialogue/diag_test_ncr.dialogue"
+dest_files=["res://.godot/imported/diag_test_ncr.dialogue-dd13d38a855e34877c254086e021141a.tres"]
+
+[params]
+

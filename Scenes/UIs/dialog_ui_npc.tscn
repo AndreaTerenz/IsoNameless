@@ -41,38 +41,49 @@ script/source = "extends ScrollContainer
 signal selected(opt_id)
 
 @onready
-var opt_buttons : Array = [
-	$VBoxContainer/Opt0,
-	$VBoxContainer/Opt1,
-	$VBoxContainer/Opt2,
-	$VBoxContainer/Opt3,
-]
+var opt_buttons_cont := $VBoxContainer
 
 func _ready():
 	visible = false
-	for btn in opt_buttons:
-		btn.text = \"\"
+	# Make sure there are no buttons left from the editor
+	for kid in opt_buttons_cont.get_children():
+		opt_buttons_cont.remove_child(kid)
+		kid.queue_free()
 
 func show_options(opts : Array[DialogueResponse]):
-	for idx in len(opts):
-		opt_buttons[idx].text = opts[idx].text
+	var existing_btns := opt_buttons_cont.get_child_count()
+	var min_len = min(len(opts), existing_btns)
+	var delta = abs(len(opts) - existing_btns)
+	
+	for idx in min_len:
+		var button_i := opt_buttons_cont.get_child(idx)
+		button_i.text = opts[idx].text
+		
+	for i in delta:
+		var idx : int = i + min_len
+		
+		if len(opts) < existing_btns:
+			# Remove excess buttons
+			var to_remove = opt_buttons_cont.get_child(idx)
+			opt_buttons_cont.remove_child(to_remove)
+			to_remove.queue_free()
+		else:
+			# Create missing buttons
+			var button_i := Button.new()
+			opt_buttons_cont.add_child.call_deferred(button_i)
+			
+			button_i.text = opts[idx].text
+			button_i.custom_minimum_size.y = 50
+			button_i.pressed.connect(
+				func ():
+					select(idx)
+			)
+		
 	visible = len(opts) > 0
 	
 func select(idx: int):
 	visible = false
 	selected.emit(idx)
-
-func _on_opt_0_pressed():
-	select(0)
-
-func _on_opt_1_pressed():
-	select(1)
-
-func _on_opt_2_pressed():
-	select(2)
-
-func _on_opt_3_pressed():
-	select(3)
 "
 
 [node name="DialogUI_NPC" type="Control"]
@@ -182,7 +193,3 @@ size_flags_vertical = 4
 text = "Opt A"
 
 [connection signal="pressed" from="PanelContainer/CloseBtn" to="." method="_on_close_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer/Opt0" to="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont" method="_on_opt_0_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer/Opt1" to="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont" method="_on_opt_1_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer/Opt2" to="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont" method="_on_opt_2_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer/Opt3" to="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont" method="_on_opt_3_pressed"]
