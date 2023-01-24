@@ -1,0 +1,5 @@
+~ Francesco
+
+Francesco??[wait=2.0]\nWhat are you doing here??[next=2.0]
+GET BACK IN THE EVA[next=2.0]
+=> END

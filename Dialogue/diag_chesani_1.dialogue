@@ -1,7 +1,7 @@
 ~ start
 
 [[Hi|Hello|Howdy]], I am Brad Pitt.[next=2.0]
-I have lots of hair on the back of my head.[wait=2.0] Is this stament true?:
+I have lots of hair on the back of my head - is this stament true?:
 - Yes
 	do memorize("LOTS_OF_HAIR", true)
 	AAAAAAAAAAAAAAAAAAAAA I wish

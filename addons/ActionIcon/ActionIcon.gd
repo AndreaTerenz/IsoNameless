@@ -94,7 +94,11 @@ func _ready() -> void:
 	
 	if action_name == &"":
 		return
-	assert(InputMap.has_action(action_name) or action_name in CUSTOM_ACTIONS) ## Commented-out due to Godot bug. ##, str("Action \"", action_name, "\" does not exist in the InputMap nor CUSTOM_ACTIONS."))
+	
+	var action_exists = InputMap.has_action(action_name) or action_name in CUSTOM_ACTIONS
+	
+	assert(action_exists or Engine.is_editor_hint(), 
+		"Action \"%s\" does not exist in the InputMap nor CUSTOM_ACTIONS." % action_name)
 	
 	refresh()
 
@@ -173,167 +177,58 @@ func _refresh():
 			custom_minimum_size.y = s.x
 
 func get_keyboard(key: int) -> Texture:
-	match key:
-		KEY_0:
-			return get_image(KEYBOARD, "0")
-		KEY_1:
-			return get_image(KEYBOARD, "1")
-		KEY_2:
-			return get_image(KEYBOARD, "2")
-		KEY_3:
-			return get_image(KEYBOARD, "3")
-		KEY_4:
-			return get_image(KEYBOARD, "4")
-		KEY_5:
-			return get_image(KEYBOARD, "5")
-		KEY_6:
-			return get_image(KEYBOARD, "6")
-		KEY_7:
-			return get_image(KEYBOARD, "7")
-		KEY_8:
-			return get_image(KEYBOARD, "8")
-		KEY_9:
-			return get_image(KEYBOARD, "9")
-		KEY_A:
-			return get_image(KEYBOARD, "A")
-		KEY_B:
-			return get_image(KEYBOARD, "B")
-		KEY_C:
-			return get_image(KEYBOARD, "C")
-		KEY_D:
-			return get_image(KEYBOARD, "D")
-		KEY_E:
-			return get_image(KEYBOARD, "E")
-		KEY_F:
-			return get_image(KEYBOARD, "F")
-		KEY_G:
-			return get_image(KEYBOARD, "G")
-		KEY_H:
-			return get_image(KEYBOARD, "H")
-		KEY_I:
-			return get_image(KEYBOARD, "I")
-		KEY_J:
-			return get_image(KEYBOARD, "J")
-		KEY_K:
-			return get_image(KEYBOARD, "K")
-		KEY_L:
-			return get_image(KEYBOARD, "L")
-		KEY_M:
-			return get_image(KEYBOARD, "M")
-		KEY_N:
-			return get_image(KEYBOARD, "N")
-		KEY_O:
-			return get_image(KEYBOARD, "O")
-		KEY_P:
-			return get_image(KEYBOARD, "P")
-		KEY_Q:
-			return get_image(KEYBOARD, "Q")
-		KEY_R:
-			return get_image(KEYBOARD, "R")
-		KEY_S:
-			return get_image(KEYBOARD, "S")
-		KEY_T:
-			return get_image(KEYBOARD, "T")
-		KEY_U:
-			return get_image(KEYBOARD, "U")
-		KEY_V:
-			return get_image(KEYBOARD, "V")
-		KEY_W:
-			return get_image(KEYBOARD, "W")
-		KEY_X:
-			return get_image(KEYBOARD, "X")
-		KEY_Y:
-			return get_image(KEYBOARD, "Y")
-		KEY_Z:
-			return get_image(KEYBOARD, "Z")
-		KEY_F1:
-			return get_image(KEYBOARD, "F1")
-		KEY_F2:
-			return get_image(KEYBOARD, "F2")
-		KEY_F3:
-			return get_image(KEYBOARD, "F3")
-		KEY_F4:
-			return get_image(KEYBOARD, "F4")
-		KEY_F5:
-			return get_image(KEYBOARD, "F5")
-		KEY_F6:
-			return get_image(KEYBOARD, "F6")
-		KEY_F7:
-			return get_image(KEYBOARD, "F7")
-		KEY_F8:
-			return get_image(KEYBOARD, "F8")
-		KEY_F9:
-			return get_image(KEYBOARD, "F9")
-		KEY_F10:
-			return get_image(KEYBOARD, "F10")
-		KEY_F11:
-			return get_image(KEYBOARD, "F11")
-		KEY_F12:
-			return get_image(KEYBOARD, "F12")
-		KEY_LEFT:
-			return get_image(KEYBOARD, "Left")
-		KEY_RIGHT:
-			return get_image(KEYBOARD, "Right")
-		KEY_UP:
-			return get_image(KEYBOARD, "Up")
-		KEY_DOWN:
-			return get_image(KEYBOARD, "Down")
-		KEY_QUOTELEFT:
-			return get_image(KEYBOARD, "Tilde")
-		KEY_MINUS:
-			return get_image(KEYBOARD, "Minus")
-		KEY_PLUS:
-			return get_image(KEYBOARD, "Plus")
-		KEY_BACKSPACE:
-			return get_image(KEYBOARD, "Backspace")
-		KEY_BRACELEFT:
-			return get_image(KEYBOARD, "BracketLeft")
-		KEY_BRACERIGHT:
-			return get_image(KEYBOARD, "BracketRight")
-		KEY_SEMICOLON:
-			return get_image(KEYBOARD, "Semicolon")
-		KEY_QUOTEDBL:
-			return get_image(KEYBOARD, "Quote")
-		KEY_BACKSLASH:
-			return get_image(KEYBOARD, "BackSlash")
-		KEY_ENTER:
-			return get_image(KEYBOARD, "Enter")
-		KEY_ESCAPE:
-			return get_image(KEYBOARD, "Esc")
-		KEY_LESS:
-			return get_image(KEYBOARD, "LT")
-		KEY_GREATER:
-			return get_image(KEYBOARD, "GT")
-		KEY_QUESTION:
-			return get_image(KEYBOARD, "Question")
-		KEY_CTRL:
-			return get_image(KEYBOARD, "Ctrl")
-		KEY_SHIFT:
-			return get_image(KEYBOARD, "Shift")
-		KEY_ALT:
-			return get_image(KEYBOARD, "Alt")
-		KEY_SPACE:
-			return get_image(KEYBOARD, "Space")
-		KEY_META:
-			return get_image(KEYBOARD, "Win")
-		KEY_CAPSLOCK:
-			return get_image(KEYBOARD, "CapsLock")
-		KEY_TAB:
-			return get_image(KEYBOARD, "Tab")
-		KEY_PRINT:
-			return get_image(KEYBOARD, "PrintScrn")
-		KEY_INSERT:
-			return get_image(KEYBOARD, "Insert")
-		KEY_HOME:
-			return get_image(KEYBOARD, "Home")
-		KEY_PAGEUP:
-			return get_image(KEYBOARD, "PageUp")
-		KEY_DELETE:
-			return get_image(KEYBOARD, "Delete")
-		KEY_END:
-			return get_image(KEYBOARD, "End")
-		KEY_PAGEDOWN:
-			return get_image(KEYBOARD, "PageDown")
+	var str = ""
+	
+	if KEY_0 <= key and key <= KEY_9:
+		# Convert key to ASCII character
+		str = char(key)
+	elif KEY_A <= key and key <= KEY_Z:
+		# Convert key to ASCII character and make uppercase
+		str = char(key)#.to_upper()
+	elif KEY_F1 <= key and key <= KEY_F12:
+		# Convert key to Function button name
+		str = "F%d" % [key - KEY_F1 + 1]
+	else:
+		var other_keys := {
+			KEY_LEFT: "Left",
+			KEY_RIGHT: "Right",
+			KEY_UP: "Up",
+			KEY_DOWN: "Down",
+			KEY_QUOTELEFT: "Tilde",
+			KEY_MINUS: "Minus",
+			KEY_PLUS: "Plus",
+			KEY_BACKSPACE: "Backspace",
+			KEY_BRACELEFT: "BracketLeft",
+			KEY_BRACERIGHT: "BracketRight",
+			KEY_SEMICOLON: "Semicolon",
+			KEY_QUOTEDBL: "Quote",
+			KEY_BACKSLASH: "BackSlash",
+			KEY_ENTER: "Enter",
+			KEY_ESCAPE: "Esc",
+			KEY_LESS: "LT",
+			KEY_GREATER: "GT",
+			KEY_QUESTION: "Question",
+			KEY_CTRL: "Ctrl",
+			KEY_SHIFT: "Shift",
+			KEY_ALT: "Alt",
+			KEY_SPACE: "Space",
+			KEY_META: "Win",
+			KEY_CAPSLOCK: "CapsLock",
+			KEY_TAB: "Tab",
+			KEY_PRINT: "PrintScrn",
+			KEY_INSERT: "Insert",
+			KEY_HOME: "Home",
+			KEY_PAGEUP: "PageUp",
+			KEY_DELETE: "Delete",
+			KEY_END: "End",
+			KEY_PAGEDOWN: "PageDown",
+		}
+		
+		str = other_keys.get(key, "")
+	
+	if str != "":
+		return get_image(KEYBOARD, str)
+	
 	return null
 
 func get_joypad_model(device: int) -> String:

@@ -8,6 +8,7 @@ enum MODE {
 
 signal entered_door(d)
 signal exited_door(d)
+signal mode_changed(md)
 
 # If true, W moves towards isometric forward (and so on)
 # If false, W moves towards top of the screen (and so on)
@@ -54,8 +55,25 @@ var current_dir := Vector2.ZERO
 var sprinting_collided := false
 
 var current_door = null
-var current_mode := MODE.NORMAL
-var talking_to : NPC = null
+var current_mode := MODE.NORMAL :
+	get:
+		return current_mode
+	set(new_mode):
+		if new_mode == current_mode:
+			return
+			
+		current_mode = new_mode
+		var cursor_mode := Globals.CURSOR_MODE.UI if current_mode == MODE.DIALOGUE else Globals.CURSOR_MODE.NORMAL
+		Globals.set_cursor_mode(cursor_mode)
+		
+		mode_changed.emit(current_mode)
+		
+var talking_to : NPC = null :
+	get:
+		return talking_to
+	set(new_val):
+		talking_to = new_val
+		current_mode = MODE.DIALOGUE if talking_to else MODE.NORMAL
 
 func _ready():
 	Globals.set_player(self)
@@ -228,12 +246,9 @@ func interact():
 		interactable.interact()
 		
 		if interactable.get_parent() is NPC:
-			current_mode = MODE.DIALOGUE
 			talking_to = interactable.get_parent()
-			
 			talking_to.dialogue_done.connect(
 				func ():
-					current_mode = MODE.NORMAL
 					talking_to = null
 			)
 

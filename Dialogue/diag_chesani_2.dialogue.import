@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_4"
+type="Resource"
+uid="uid://dalginruqvkcx"
+path="res://.godot/imported/diag_chesani_2.dialogue-ce9ef6f86626eb7601ec09085df71098.tres"
+
+[deps]
+
+source_file="res://Dialogue/diag_chesani_2.dialogue"
+dest_files=["res://.godot/imported/diag_chesani_2.dialogue-ce9ef6f86626eb7601ec09085df71098.tres"]
+
+[params]
+

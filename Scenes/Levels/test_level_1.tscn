@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://Scripts/EnvElements/Door.gd" id="9_eao6j"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="9_kep4t"]
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]
-[ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="11_qv2pg"]
-[ext_resource type="Texture2D" uid="uid://bcqbmp2es2h4n" path="res://Assets/Portraits/chesani.png" id="13_2dis8"]
+[ext_resource type="PackedScene" uid="uid://l1kwvfllnngd" path="res://Scenes/actors/npc_white.tscn" id="12_6n8ic"]
+[ext_resource type="PackedScene" uid="uid://mo41jkqkymf" path="res://Scenes/actors/npc_red.tscn" id="13_35u1s"]
 [ext_resource type="Texture2D" uid="uid://dw1fwoonptjfj" path="res://Assets/Portraits/NCR.png" id="14_q7825"]
 [ext_resource type="Resource" uid="uid://xccl3407j476" path="res://Dialogue/diag_test_ncr.dialogue" id="15_3bhkp"]
 
@@ -75,13 +75,10 @@ surface_material_override/1 = ExtResource("9_kep4t")
 material_override = ExtResource("9_kep4t")
 surface_material_override/0 = ExtResource("2_goaju")
 
-[node name="NPC" parent="." index="5" instance=ExtResource("11_qv2pg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8463, 4.76837e-07, -21.2244)
-npc_name = "Prof Chesani"
-npc_portrait = ExtResource("13_2dis8")
-
-[node name="NPC2" parent="." index="6" instance=ExtResource("11_qv2pg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0882, 4.76837e-07, -25.5354)
-npc_name = "NCR Trooper"
+[node name="NCR Trooper" parent="." index="5" instance=ExtResource("12_6n8ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2413, 0, -25.0666)
 npc_portrait = ExtResource("14_q7825")
 dialogue_file = ExtResource("15_3bhkp")
+
+[node name="Chesani" parent="." index="6" instance=ExtResource("13_35u1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.846, 0, -21.3217)

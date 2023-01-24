@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://mo41jkqkymf"]
+
+[ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="1_aanv6"]
+[ext_resource type="Texture2D" uid="uid://bcqbmp2es2h4n" path="res://Assets/Portraits/chesani.png" id="2_7a57x"]
+[ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="2_ltho0"]
+[ext_resource type="Resource" uid="uid://ctjychwne8fx5" path="res://Dialogue/diag_chesani_1.dialogue" id="3_pwisr"]
+
+[sub_resource type="GDScript" id="GDScript_gnath"]
+script/source = "extends NPC
+
+func _predialogue():
+	if dialogue_memory.has(\"FRANCESCO\"):
+		dialog_ui.dialogue_file = preload(\"res://Dialogue/diag_chesani_2.dialogue\")
+		dialog_ui.skippable = true
+"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pw34j"]
+
+[node name="Chesani" instance=ExtResource("1_aanv6")]
+script = SubResource("GDScript_gnath")
+npc_name = "Chesani"
+npc_portrait = ExtResource("2_7a57x")
+dialogue_file = ExtResource("3_pwisr")
+dialogue_skippable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
+mesh = SubResource("CapsuleMesh_pw34j")
+surface_material_override/0 = ExtResource("2_ltho0")
+
+[node name="Interactable" parent="." index="2"]
+mode = 0
+start_enabled = true

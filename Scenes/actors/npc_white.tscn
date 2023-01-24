@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://l1kwvfllnngd"]
+
+[ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="1_p0tpl"]
+[ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="2_ojl3k"]
+
+[sub_resource type="GDScript" id="GDScript_b5ux8"]
+script/source = "extends NPC
+"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wlwo2"]
+
+[node name="NPC" instance=ExtResource("1_p0tpl")]
+script = SubResource("GDScript_b5ux8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
+mesh = SubResource("CapsuleMesh_wlwo2")
+surface_material_override/0 = ExtResource("2_ojl3k")

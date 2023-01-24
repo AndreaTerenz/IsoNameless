@@ -1,10 +1,13 @@
 class_name DialogUI
 extends Control
 
+signal dialog_started
 signal dialog_done
 
 @export
 var dialogue_file = preload("res://Dialogue/diag_test_1.dialogue")
+@export
+var skippable := true
 
 @onready
 var diag_line = %DialogueLabel
@@ -14,13 +17,22 @@ var opts_cont = %OptionsCont
 var name_lbl = %NameLbl
 @onready
 var portrait = %Portrait
+@onready
+var close_btn = %CloseBtn
 
+var parent_npc : NPC = null
 var next_id := ""
 var responses : Array[DialogueResponse] = []
 var stop := false
 
-func setup(diag_f : DialogueResource, n: String, propic: Texture):
+func setup(diag_f : DialogueResource, n: String, propic: Texture, skip := true, par : NPC = get_parent()):
 	visible = false
+	
+	parent_npc = par
+	self.dialog_done.connect(parent_npc._on_dialog_done)
+	
+	skippable = skip
+	close_btn.visible = skippable
 	name_lbl.text = n
 	dialogue_file = diag_f
 	portrait.texture = propic
@@ -29,6 +41,7 @@ func setup(diag_f : DialogueResource, n: String, propic: Texture):
 		func ():
 			if visible:
 				next_id = ""
+				dialog_started.emit()
 				update_line()
 	)
 	
@@ -49,7 +62,7 @@ func setup(diag_f : DialogueResource, n: String, propic: Texture):
 
 func update_line():
 	var from : String = "start" if next_id == "" else next_id
-	var current_line : DialogueLine = await DialogueManager.get_next_dialogue_line(dialogue_file, from)
+	var current_line : DialogueLine = await DialogueManager.get_next_dialogue_line(dialogue_file, from, [parent_npc])
 	
 	if current_line == null:
 		_hide()
