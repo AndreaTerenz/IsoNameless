@@ -2,19 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://b0dwo5fijaa6m" path="res://Assets/panorama_image.png" id="1_3monp"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e6ice"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sal2q"]
 panorama = ExtResource("1_3monp")
 
-[sub_resource type="Sky" id="Sky_dud5d"]
-sky_material = SubResource("PanoramaSkyMaterial_e6ice")
+[sub_resource type="Sky" id="Sky_jij6n"]
+sky_material = SubResource("PanoramaSkyMaterial_sal2q")
 
 [resource]
 background_mode = 1
 background_energy_multiplier = 2.75
 background_intensity = 0.62
-sky = SubResource("Sky_dud5d")
+sky = SubResource("Sky_jij6n")
 ambient_light_source = 3
 tonemap_mode = 3
+ssil_enabled = true
 sdfgi_read_sky_light = false
 glow_enabled = true
 glow_normalized = true

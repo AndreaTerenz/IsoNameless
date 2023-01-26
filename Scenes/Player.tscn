@@ -1,6 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bq5xdgw0ai7g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_eudix"]
+[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="2_26olt"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
 [ext_resource type="PackedScene" uid="uid://cwowhjdlhepqk" path="res://Scenes/UI.tscn" id="4_mdx2w"]
 [ext_resource type="Script" path="res://Scripts/PlayerStats.gd" id="5_5c2a4"]
@@ -74,14 +75,11 @@ void fragment() {
 }
 "
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7l0ps"]
-viewport_path = NodePath("CameraPivot/OutsideFade/SubViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ianme"]
 resource_local_to_scene = true
 shader = SubResource("Shader_fewc4")
 shader_parameter/strength = 0.5
-shader_parameter/text = SubResource("ViewportTexture_7l0ps")
+shader_parameter/text = ExtResource("2_26olt")
 
 [sub_resource type="GDScript" id="GDScript_c1r1e"]
 script/source = "extends SubViewportContainer
@@ -89,14 +87,18 @@ script/source = "extends SubViewportContainer
 @export_range(0., 1., .001)
 var fx_strength := .7
 
+@onready
+var viewport := $SubViewport
+
 var run := false
 var current_fact := 0.
 
 func _ready():
 	var mat : ShaderMaterial = material as ShaderMaterial
+	mat.set_shader_parameter(\"text\", viewport.get_texture())
 	mat.set_shader_parameter(\"strength\", 0.)
 
-func _process(delta):
+func _process(_delta):
 	if run:
 		var door = Globals.player.current_door
 		current_fact = clampf(1. - door.get_player_depth(), 0., fx_strength)
@@ -104,12 +106,12 @@ func _process(delta):
 		var mat : ShaderMaterial = material as ShaderMaterial
 		mat.set_shader_parameter(\"strength\", current_fact)
 
-func _on_player_entered_door(d):
+func _on_player_entered_door(_d):
 	visible = true
 	run = true
 
 
-func _on_player_exited_door(d):
+func _on_player_exited_door(_d):
 	run = false
 	
 "
@@ -117,7 +119,7 @@ func _on_player_exited_door(d):
 [sub_resource type="GDScript" id="GDScript_8giqv"]
 script/source = "extends Camera3D
 
-func _process(delta):
+func _process(_delta):
 	global_transform = %Camera.global_transform
 "
 
@@ -133,7 +135,6 @@ fill_to = Vector2(0.910256, 0.222222)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_eudix")
-JUMP_ENABLED = false
 H_SPEED_CURVE = SubResource("Curve_vr3k8")
 
 [node name="Body" type="MeshInstance3D" parent="."]
@@ -168,6 +169,7 @@ script = SubResource("GDScript_pbuh2")
 
 [node name="OutsideFade" type="SubViewportContainer" parent="CameraPivot"]
 material = SubResource("ShaderMaterial_ianme")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

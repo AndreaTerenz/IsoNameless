@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 enum MODE {
 	NORMAL,
+	COMBAT,
 	DIALOGUE
 }
 
@@ -10,12 +11,12 @@ signal entered_door(d)
 signal exited_door(d)
 signal mode_changed(md)
 
+
+@export var initial_mode := MODE.NORMAL
+@export_group("Movement")
 # If true, W moves towards isometric forward (and so on)
 # If false, W moves towards top of the screen (and so on)
-@export_group("Movement")
 @export var ISOMETRIC_WASD := false
-@export var JUMP_ENABLED := true
-@export_range(.01, 20., .005) var JUMP_VELOCITY := 4.5
 @export_range(.001, 1., .001) var ROT_SPEED := .3
 @export_subgroup("Ground movement")
 @export_range(.01, 50., .005) var H_SPEED := 5.
@@ -59,12 +60,17 @@ var current_mode := MODE.NORMAL :
 	get:
 		return current_mode
 	set(new_mode):
-		if new_mode == current_mode:
-			return
-			
+		if new_mode == MODE.DIALOGUE and talking_to == null:
+			push_error("Tried to set Player mode to Dialogue without talking to an NPC")
+			new_mode = MODE.NORMAL
+		
 		current_mode = new_mode
-		var cursor_mode := Globals.CURSOR_MODE.UI if current_mode == MODE.DIALOGUE else Globals.CURSOR_MODE.NORMAL
-		Globals.set_cursor_mode(cursor_mode)
+		
+		match current_mode:
+			MODE.NORMAL, MODE.DIALOGUE:
+				Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
+			MODE.COMBAT:
+				Globals.set_cursor_mode(Globals.CURSOR_MODE.COMBAT)
 		
 		mode_changed.emit(current_mode)
 		
@@ -77,6 +83,7 @@ var talking_to : NPC = null :
 
 func _ready():
 	Globals.set_player(self)
+	current_mode = initial_mode
 	sprint_decal.visible = false
 
 func get_h_direction() -> Vector2:
@@ -110,9 +117,6 @@ func get_v_velocity(current: float, delta: float) -> Vector3:
 	# Add the gravity.
 	if not is_on_floor():
 		output *= current - gravity * delta
-	# Handle Jump.
-	elif Input.is_action_just_pressed("jump") and JUMP_ENABLED:
-		output *= JUMP_VELOCITY
 	else:
 		output *= current
 		
@@ -139,7 +143,7 @@ func mouse_ground_projection() -> Vector3:
 	return Utils.isect_line_plane_v3(A,B,P,N)
 
 func check_sprinting():
-	if not sprinting and Input.is_action_just_pressed("sprint"):
+	if not sprinting and Input.is_action_just_pressed("sprint") and current_mode == MODE.NORMAL:
 		sprint_to = mouse_ground_projection()
 		# There should always be a plane-ray intersection
 		# so this check should be redundant
@@ -217,7 +221,11 @@ func _physics_process(delta):
 		
 		var h_dir = get_h_direction()
 		
-		rotation.y = dir_to_rotation(h_dir)
+		if current_mode == MODE.NORMAL:
+			rotation.y = dir_to_rotation(h_dir)
+		elif current_mode == MODE.COMBAT:
+			rotation.y = get_mouse_rotation()
+		
 		h_vel = get_h_velocity(velocity, h_dir)
 		v_vel = get_v_velocity(velocity.y, delta)
 		
@@ -233,6 +241,10 @@ func _physics_process(delta):
 func _input(_event):
 	if Input.is_action_just_pressed("fire"):
 		interact()
+		
+	if Input.is_action_just_pressed("toggle_combat") and current_mode != MODE.DIALOGUE:
+
+		current_mode = MODE.COMBAT if (current_mode == MODE.NORMAL) else MODE.NORMAL
 			
 func interact():
 	var ray_length = global_position.distance_to(Globals.player.global_position) + 30.

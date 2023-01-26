@@ -11,7 +11,7 @@ enum DEBUG_MSG_MODE {
 
 enum CURSOR_MODE {
 	NORMAL,
-	UI
+	COMBAT
 }
 
 const debug_msg_colors := {
@@ -81,12 +81,15 @@ func log_msg(obj, mode: DEBUG_MSG_MODE = DEBUG_MSG_MODE.LOG, print_stdout := tru
 	return obj
 	
 func set_cursor_mode(mode: CURSOR_MODE):
-	var cursor_img = "cursor"
+	var cursor_img = ""
 	
 	match mode:
 		CURSOR_MODE.NORMAL:
-			pass
-		CURSOR_MODE.UI:
 			cursor_img = "cursor_arrow"
+		CURSOR_MODE.COMBAT:
+			cursor_img = "cursor_combat"
+		_:
+			push_warning("Invalid cursor mode (%s)" % mode)
+			return
 	
 	DisplayServer.cursor_set_custom_image(load("res://Assets/UI/%s.png" % cursor_img))

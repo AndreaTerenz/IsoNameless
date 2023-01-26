@@ -1,0 +1,2123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="svg694"
+   sodipodi:docname="crosshairs.svg"
+   width="1373"
+   height="677"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview696"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="541.5"
+     inkscape:cy="290.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg694" />
+  <defs
+     id="defs2" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 446,0 v 16 h -4 V 0 h 4 m 14,30 h 16 v 4 h -16 v -4 m -48,0 h 16 v 4 h -16 v -4 m 34,18 v 16 h -4 V 48 h 4"
+     id="path4"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 474,32 q 0,12.45 -8.8,21.2 Q 456.45,62 444,62 431.55,62 422.75,53.2 414,44.45 414,32 414,19.55 422.75,10.75 431.55,2 444,2 456.45,2 465.2,10.75 474,19.55 474,32 M 462.4,13.6 Q 454.8,6 444,6 433.2,6 425.6,13.6 418,21.2 418,32 q 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path6"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 446,69 v 28 h -4 V 69 h 4 m 0,36 v 28 h -4 v -28 h 4 m 2,-6 h 28 v 4 h -28 v -4 m -36,0 h 28 v 4 h -28 v -4"
+     id="path8"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 474,101 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 414,113.45 414,101 414,88.55 422.75,79.75 431.55,71 444,71 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 M 462.4,82.6 Q 454.8,75 444,75 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path10"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 416,168 h 12 v 4 h -12 v -4 m 44,0 h 12 v 4 h -12 v -4 m -14,-26 v 12 h -4 v -12 h 4 m 0,44 v 12 h -4 v -12 h 4"
+     id="path12"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 462.4,151.6 Q 454.8,144 444,144 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 474,170 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 414,182.45 414,170 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path14"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 590,30 h 20 v 4 H 590 V 30 M 584,4 v 20 h -4 V 4 h 4 m -30,26 h 20 v 4 h -20 v -4 m 30,10 v 20 h -4 V 40 h 4"
+     id="path16"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 600.4,13.6 Q 592.8,6 582,6 571.2,6 563.6,13.6 556,21.2 556,32 q 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 Q 608,42.8 608,32 608,21.2 600.4,13.6 M 612,32 q 0,12.45 -8.8,21.2 Q 594.45,62 582,62 569.55,62 560.75,53.2 552,44.45 552,32 552,19.55 560.75,10.75 569.55,2 582,2 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path18"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 580,30 h 4 v 4 h -4 v -4"
+     id="path20"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 584,73 v 18 h -4 V 73 h 4 m -30,26 h 18 v 4 h -18 v -4 m 38,0 h 18 v 4 h -18 v -4 m -8,12 v 18 h -4 v -18 h 4"
+     id="path22"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 612,101 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 552,113.45 552,101 552,88.55 560.75,79.75 569.55,71 582,71 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 M 600.4,82.6 Q 592.8,75 582,75 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path24"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 584,95 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path26"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 554,168 h 10 v 4 h -10 v -4 m 30,-26 v 10 h -4 v -10 h 4 m 8,26 h 4 v 4 h -4 v -4 m 8,0 h 10 v 4 h -10 v -4 m -20,-12 h 4 v 4 h -4 v -4 m -12,12 h 4 v 4 h -4 v -4 m 12,12 h 4 v 4 h -4 v -4 m 4,8 v 10 h -4 v -10 h 4"
+     id="path28"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 600.4,151.6 Q 592.8,144 582,144 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 612,170 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 552,182.45 552,170 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path30"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 584,164 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path32"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 600.4,220.6 Q 592.8,213 582,213 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 612,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 552,251.45 552,239 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path34"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 584,233 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path36"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 572.1,229.1 q -4.1,4.1 -4.1,9.9 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.75,0 9.85,-4.1 l 0.05,-0.05 q 4.1,-4.1 4.1,-9.85 0,-5.8 -4.1,-9.9 -4.1,-4.1 -9.9,-4.1 -5.8,0 -9.9,4.1 m 22.6,-2.85 q 5.3,5.3 5.3,12.75 0,7.4 -5.3,12.7 -5.3,5.3 -12.7,5.3 -7.45,0 -12.75,-5.3 Q 564,246.45 564,239 q 0,-7.45 5.25,-12.7 l 0.05,-0.05 Q 574.55,221 582,221 q 7.45,0 12.7,5.25"
+     id="path38"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 619,30 h 30 V 0 h 4 v 30 h 30 v 4 h -30 v 30 h -4 V 34 h -30 v -4"
+     id="path40"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 660.9,22.05 q 4.1,4.1 4.1,9.95 0,5.8 -4.1,9.9 -4.1,4.1 -9.9,4.1 -5.85,0 -9.95,-4.1 Q 637,37.8 637,32 q 0,-5.8 4.05,-9.9 l 0.05,-0.05 Q 645.2,18 651,18 q 5.8,0 9.9,4.05 m -17,2.85 -0.05,0.05 Q 641,27.9 641,32 v 0.05 q 0,4.1 2.9,7.05 2.95,2.9 7.1,2.9 4.15,0 7.05,-2.9 l 0.05,-0.05 Q 661,36.15 661,32 661,27.85 658.1,24.9 655.15,22 651.05,22 H 651 q -4.1,0 -7.05,2.85 L 643.9,24.9 M 681,32 q 0,12.45 -8.8,21.2 Q 663.45,62 651,62 638.55,62 629.75,53.2 621,44.45 621,32 621,19.55 629.75,10.75 638.55,2 651,2 663.45,2 672.2,10.75 681,19.55 681,32 M 669.4,13.6 Q 661.8,6 651,6 640.2,6 632.6,13.6 625,21.2 625,32 q 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path42"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 454,237 h 18 v 4 h -18 v -4 m -38,0 h 18 v 4 h -18 v -4 m 30,2 v 28 h -4 v -28 h 4"
+     id="path44"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 474,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 414,251.45 414,239 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 M 462.4,220.6 Q 454.8,213 444,213 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path46"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 701.6,50.4 q 5.4,5.4 12.4,6.95 l 4,0.6 V 64 h -4 V 61.45 Q 705.35,59.8 698.75,53.2 692.2,46.65 690.55,38 H 688 v -4 h 6.1 q 0.1,2.05 0.55,4 1.55,7 6.95,12.4 m 0,-36.8 q -5.4,5.4 -6.95,12.4 -0.45,1.95 -0.55,4 H 688 v -4 h 2.55 q 1.65,-8.65 8.2,-15.25 6.6,-6.55 15.25,-8.2 V 0 h 4 v 6.1 l -4,0.55 q -7,1.55 -12.4,6.95 m 36.8,0 Q 733,8.2 726,6.65 L 722,6.1 V 0 h 4 v 2.55 q 8.65,1.65 15.2,8.2 6.6,6.6 8.25,15.25 H 752 v 4 h -6.05 l -0.6,-4 Q 743.8,19 738.4,13.6 m 0,36.8 q 5.45,-5.45 7,-12.5 L 745.95,34 H 752 v 3.9 h -2.5 q -1.65,8.7 -8.3,15.3 -6.55,6.6 -15.2,8.25 V 64 h -4 v -6.05 l 4,-0.6 q 7,-1.55 12.4,-6.95"
+     id="path48"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 722,26 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path50"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 718,99 h 4 v 4 h -4 v -4 m 4,30 v 4 h -4 v -4 h 4 m 0,-60 v 4 h -4 v -4 h 4"
+     id="path52"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 728,99 h 24 v 4 h -24 v -4 m -40,0 h 24 v 4 h -24 v -4"
+     id="path54"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 738.4,119.4 q 5.1,-5.1 6.8,-11.65 l 3.85,1 q -1.95,7.55 -7.85,13.45 -5.9,5.9 -13.45,7.85 -3.65,0.95 -7.75,0.95 -4.15,0 -7.85,-0.95 -7.5,-1.95 -13.35,-7.8 l -0.05,-0.05 q -5.85,-5.85 -7.8,-13.4 l 3.9,-1.05 q 1.65,6.55 6.75,11.65 5.05,5.05 11.6,6.75 L 720,127 q 3.55,0 6.7,-0.8 6.6,-1.7 11.7,-6.8 m 0,-36.8 q -5.1,-5.1 -11.7,-6.8 L 720,75 q -3.55,0 -6.75,0.85 -6.55,1.65 -11.65,6.75 -5.1,5.1 -6.8,11.7 l -3.85,-1.05 q 1.9,-7.6 7.8,-13.5 5.9,-5.85 13.45,-7.8 3.7,-0.95 7.8,-0.95 4.05,0 7.75,0.95 7.55,1.9 13.45,7.8 l 0.05,0.05 q 5.85,5.85 7.8,13.4 l -3.85,1.05 Q 743.5,87.7 738.4,82.6"
+     id="path56"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 712.9,162.9 -0.05,0.05 Q 710,165.9 710,170 v 0.05 q 0,4.1 2.9,7.05 2.95,2.9 7.1,2.9 4.15,0 7.05,-2.9 l 0.05,-0.05 q 2.9,-2.9 2.9,-7.05 0,-4.15 -2.9,-7.1 -2.95,-2.9 -7.05,-2.9 H 720 q -4.1,0 -7.05,2.85 l -0.05,0.05 m 17,-2.85 q 4.1,4.1 4.1,9.95 0,5.8 -4.1,9.9 -4.1,4.1 -9.9,4.1 -5.85,0 -9.95,-4.1 -4.05,-4.1 -4.05,-9.9 0,-5.8 4.05,-9.9 l 0.05,-0.05 q 4.1,-4.05 9.9,-4.05 5.8,0 9.9,4.05 M 722,170 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path58"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 750,170 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 690,182.45 690,170 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 M 738.4,151.6 Q 730.8,144 720,144 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path60"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 726,172 v -4 h 26 v 4 h -26"
+     id="path62"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 688,172 v -4 h 26 v 4 h -26"
+     id="path64"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 726,174 14,14 -2,2 -14,-14 2,-2"
+     id="path66"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 714,174 2,2 -14,14 -2,-2 14,-14"
+     id="path68"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 531.4,220.6 Q 523.8,213 513,213 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 543,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 483,251.45 483,239 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path70"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 515,237 h 26 v 4 h -26 v 26 h -4 v -26 h -26 v -4 h 26 v -26 h 4 v 26"
+     id="path72"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 507,243 h 12 v 4 h -12 v -4"
+     id="path74"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 505,249 h 16 v 4 h -16 v -4"
+     id="path76"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 502.95,255 h 20.1 v 4 h -20.1 v -4"
+     id="path78"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 531.4,13.6 Q 523.8,6 513,6 502.2,6 494.6,13.6 487,21.2 487,32 q 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 Q 539,42.8 539,32 539,21.2 531.4,13.6 M 543,32 q 0,12.45 -8.8,21.2 Q 525.45,62 513,62 500.55,62 491.75,53.2 483,44.45 483,32 483,19.55 491.75,10.75 500.55,2 513,2 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path80"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 525.7,19.25 q 5.3,5.3 5.3,12.75 0,7.4 -5.3,12.7 Q 520.4,50 513,50 505.55,50 500.25,44.7 495,39.45 495,32 q 0,-7.45 5.25,-12.7 l 0.05,-0.05 Q 505.55,14 513,14 q 7.45,0 12.7,5.25 m -22.6,2.85 q -4.1,4.1 -4.1,9.9 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.75,0 9.85,-4.1 l 0.05,-0.05 Q 527,37.75 527,32 527,26.2 522.9,22.1 518.8,18 513,18 q -5.8,0 -9.9,4.1"
+     id="path82"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 521,30 h 24 v 4 H 521 V 30 M 515,0 v 24 h -4 V 0 h 4 m 0,40 v 24 h -4 V 40 h 4 M 481,30 h 24 v 4 h -24 v -4"
+     id="path84"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 543,101 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 483,113.45 483,101 483,88.55 491.75,79.75 500.55,71 513,71 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 M 531.4,82.6 Q 523.8,75 513,75 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path86"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 515,73 v 8 h -4 v -8 h 4 m 26,30 h -8 v -4 h 8 v 4 m -26,18 v 8 h -4 v -8 h 4 m -22,-18 h -8 v -4 h 8 v 4"
+     id="path88"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 513,87 q 3.9,0 7.05,1.85 l -2,3.45 Q 515.8,91 513.05,91 H 513 l -2.75,0.35 q -1.2,0.35 -2.25,0.95 l -2,-3.45 q 1.95,-1.2 4.25,-1.6 L 513,87 m -14,14 q 0,-3.9 1.85,-7 l 3.45,2 q -1.3,2.25 -1.3,5 v 0.05 q 0,2.7 1.3,4.95 l -3.5,2 q -1.8,-3.15 -1.8,-7 m 28,0 q 0,3.9 -1.85,7.05 l -3.45,-2 q 1.3,-2.25 1.3,-5.05 0,-2.8 -1.3,-5.05 l 3.45,-2 Q 527,97.05 527,101 m -14,14 q -3.9,0 -7,-1.8 l 2,-3.5 q 2.2,1.3 5,1.3 2.8,0 5.05,-1.3 l 2,3.45 Q 516.9,115 513,115"
+     id="path90"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 531.4,151.6 Q 523.8,144 513,144 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 543,170 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 483,182.45 483,170 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path92"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 511,144 h 4 v 4 h -4 v -4 m 0,8 h 4 v 4 h -4 v -4 m 0,8 h 4 v 4 h -4 v -4"
+     id="path94"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 507,168 h 12 v 4 h -4 v 4 h 2 v 4 h -2 v 4 h 2 v 4 h -2 v 10 h -4 v -10 h -2 v -4 h 2 v -4 h -2 v -4 h 2 v -4 h -4 v -4"
+     id="path96"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 541,168 v 4 h -18 v -4 h 18 m -56,0 h 18 v 4 h -18 v -4"
+     id="path98"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 681,101 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 621,113.45 621,101 621,88.55 629.75,79.75 638.55,71 651,71 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 M 669.4,82.6 Q 661.8,75 651,75 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path100"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 663.7,88.25 q 5.3,5.3 5.3,12.75 0,7.4 -5.3,12.7 -5.3,5.3 -12.7,5.3 -7.45,0 -12.75,-5.3 Q 633,108.45 633,101 q 0,-7.45 5.25,-12.7 l 0.05,-0.05 Q 643.55,83 651,83 q 7.45,0 12.7,5.25 m -22.6,2.85 q -4.1,4.1 -4.1,9.9 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.75,0 9.85,-4.1 l 0.05,-0.05 q 4.1,-4.1 4.1,-9.85 0,-5.8 -4.1,-9.9 -4.1,-4.1 -9.9,-4.1 -5.8,0 -9.9,4.1"
+     id="path102"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 653,69 v 24 h -4 V 69 h 4 m 0,40 v 24 h -4 v -24 h 4 m 6,-10 h 24 v 4 h -24 v -4 m -40,0 h 24 v 4 h -24 v -4"
+     id="path104"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 649,99 h 4 v 4 h -4 v -4"
+     id="path106"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 665,85 10,-10 2,2 -10,10 -2,-2"
+     id="path108"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 637,85 -2,2 -10,-10 2,-2 10,10"
+     id="path110"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 665,117 2,-2 10,10 -2,2 -10,-10"
+     id="path112"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 637,117 -10,10 -2,-2 10,-10 2,2"
+     id="path114"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 649,168 h 4 v 4 h -4 v -4"
+     id="path116"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 629,150 2,-2 9,9 3,-3 2,2 -3,3 3,3 2,-2 2,2 -6,6 -2,-2 2,-2 -3,-3 -3,3 -2,-2 3,-3 -9,-9"
+     id="path118"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 669.4,151.6 Q 661.8,144 651,144 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 681,170 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 621,182.45 621,170 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path120"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 673,150 -9,9 3,3 -2,2 -3,-3 -3,3 2,2 -2,2 -6,-6 2,-2 2,2 3,-3 -3,-3 2,-2 3,3 9,-9 2,2"
+     id="path122"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 629,190 9,-9 -3,-3 2,-2 3,3 3,-3 -2,-2 2,-2 6,6 -2,2 -2,-2 -3,3 3,3 -2,2 -3,-3 -9,9 -2,-2"
+     id="path124"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 673,190 -2,2 -9,-9 -3,3 -2,-2 3,-3 -3,-3 -2,2 -2,-2 6,-6 2,2 -2,2 3,3 3,-3 2,2 -3,3 9,9"
+     id="path126"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 669.4,220.6 Q 661.8,213 651,213 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 681,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 621,251.45 621,239 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path128"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 653.85,236.2 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8 M 659,239 q 0,3.3 -2.35,5.65 -2.35,2.35 -5.65,2.35 -3.3,0 -5.65,-2.35 Q 643,242.3 643,239 q 0,-3.3 2.35,-5.65 2.35,-2.35 5.65,-2.35 3.3,0 5.65,2.35 2.35,2.35 2.35,5.65"
+     id="path130"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 657,237 h 8 v 4 h -8 v -4"
+     id="path132"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 637,237 h 8 v 4 h -8 v -4"
+     id="path134"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 653,245 v 8 h -4 v -8 h 4"
+     id="path136"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 653,225 v 8 h -4 v -8 h 4"
+     id="path138"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 657,217 v 4 h -12 v -4 h 12"
+     id="path140"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 657,257 v 4 h -12 v -4 h 12"
+     id="path142"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 673,245 h -4 v -12 h 4 v 12"
+     id="path144"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 633,245 h -4 v -12 h 4 v 12"
+     id="path146"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1006,237 h 12 v -4 h 4 v 12 h -4 v -4 h -12 v -4 m -8,-8 h -4 v -12 h -4 v -4 h 12 v 4 h -4 v 12 m -12,8 v 4 h -12 v 4 h -4 v -12 h 4 v 4 h 12 m 12,12 v 12 h 4 v 4 h -12 v -4 h 4 v -12 h 4"
+     id="path148"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 770.6,50.4 q 2.5,2.5 5.4,4.2 l -2,3.45 Q 770.65,56.1 767.75,53.2 764.9,50.35 762.95,47.05 759,40.35 759,32 q 0,-8.35 3.95,-15.05 1.9,-3.3 4.8,-6.2 2.9,-2.9 6.2,-4.8 l 2,3.5 q -2.85,1.65 -5.35,4.15 -2.5,2.5 -4.15,5.4 -3.45,5.75 -3.45,13 0,7.25 3.45,13.05 1.65,2.85 4.15,5.35 m 36.8,-36.8 q -2.5,-2.5 -5.35,-4.15 l 2,-3.5 q 3.25,1.9 6.15,4.8 2.9,2.9 4.85,6.25 3.95,6.65 3.95,15 0,8.35 -3.95,15.05 -1.95,3.25 -4.85,6.15 -2.9,2.9 -6.15,4.85 l -2,-3.45 q 2.85,-1.7 5.35,-4.2 2.5,-2.5 4.2,-5.35 3.4,-5.8 3.4,-13.05 0,-7.25 -3.4,-13 -1.7,-2.9 -4.2,-5.4 M 791,32 q 0,0.8 -0.65,1.35 Q 789.8,34 789,34 788.2,34 787.55,33.35 787,32.8 787,32 787,31.2 787.55,30.55 788.2,30 789,30 q 0.8,0 1.35,0.55 Q 791,31.2 791,32"
+     id="path150"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 770.6,82.6 q -6.15,6.15 -7.3,14.4 h -4.05 q 1.2,-9.9 8.5,-17.25 7.35,-7.3 17.25,-8.5 v 4.05 q -8.25,1.15 -14.4,7.3 m 36.8,36.8 q 6.15,-6.15 7.35,-14.4 h 4 q -1.2,9.9 -8.55,17.2 -7.3,7.35 -17.2,8.55 v -4 q 8.25,-1.2 14.4,-7.35 m 0,-36.8 Q 801.25,76.45 793,75.3 v -4.05 q 9.9,1.2 17.2,8.5 7.35,7.35 8.55,17.25 h -4 q -1.2,-8.25 -7.35,-14.4 M 783,95 h 4 v 4 h -4 v -4 m 8,0 h 4 v 4 h -4 v -4 m 0,8 h 4 v 4 h -4 v -4 m -8,0 h 4 v 4 h -4 v -4 m -12.4,16.4 q 6.15,6.15 14.4,7.35 v 4 q -9.9,-1.2 -17.25,-8.55 -7.3,-7.3 -8.5,-17.2 h 4.05 q 1.15,8.25 7.3,14.4"
+     id="path152"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1300,584 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m -56,0 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 28,-28 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m -9.9,18.1 q -4.1,4.1 -4.1,9.9 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.75,0 9.85,-4.1 l 0.05,-0.05 q 4.1,-4.1 4.1,-9.85 0,-5.8 -4.1,-9.9 -4.1,-4.1 -9.9,-4.1 -5.8,0 -9.9,4.1 m 22.6,-2.85 q 5.3,5.3 5.3,12.75 0,7.4 -5.3,12.7 -5.3,5.3 -12.7,5.3 -7.45,0 -12.75,-5.3 -5.25,-5.25 -5.25,-12.7 0,-7.45 5.25,-12.7 l 0.05,-0.05 q 5.25,-5.25 12.7,-5.25 7.45,0 12.7,5.25 M 1272,612 l -6,-6 2,-2 4,4 4,-4 2,2 -6,6"
+     id="path154"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 789,144 q -7.85,0 -14,4 l -2.85,-2.85 Q 779.5,140 789,140 q 9.5,0 16.9,5.15 L 803,148 q -6.15,-4 -14,-4 m 26,26 q 0,-7.85 -4,-14 l 2.9,-2.85 q 5.1,7.35 5.1,16.85 0,9.5 -5.1,16.9 L 811,184 q 4,-6.15 4,-14 m 4,-26 -12,12 h -4 v -4 l 12,-12 4,4 m -56,-4 12,12 v 4 h -4 l -12,-12 4,-4 m 0,30 q 0,7.85 4,14 l -2.85,2.9 Q 759,179.5 759,170 q 0,-9.5 5.15,-16.85 L 767,156 q -4,6.15 -4,14 m 24,0 2,-2 2,2 -2,2 -2,-2 m 2,26 q 7.85,0 14,-4 l 2.9,2.9 q -7.4,5.1 -16.9,5.1 -9.5,0 -16.85,-5.1 L 775,192 q 6.15,4 14,4 m -26,4 -4,-4 12,-12 h 4 v 4 l -12,12 m 52,0 -12,-12 v -4 h 4 l 12,12 -4,4"
+     id="path156"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1012,584 q 0,6.6 -4.7,11.3 -4.7,4.7 -11.3,4.7 -6.65,0 -11.35,-4.7 Q 980,590.6 980,584 q 0,-6.65 4.65,-11.35 4.7,-4.65 11.35,-4.65 6.6,0 11.3,4.65 4.7,4.7 4.7,11.35 m -7.5,-8.5 q -3.55,-3.5 -8.5,-3.5 -5,0 -8.5,3.5 -3.5,3.5 -3.5,8.5 0,4.95 3.5,8.5 3.5,3.5 8.5,3.5 4.95,0 8.5,-3.5 3.5,-3.55 3.5,-8.5 0,-5 -3.5,-8.5 m -0.5,8.5 q 0,3.3 -2.35,5.65 -2.35,2.35 -5.65,2.35 -3.3,0 -5.65,-2.35 Q 988,587.3 988,584 q 0,-3.3 2.35,-5.65 2.35,-2.35 5.65,-2.35 3.3,0 5.65,2.35 2.35,2.35 2.35,5.65 m -3.75,-4.25 Q 998.5,578 996,578 q -2.5,0 -4.25,1.75 -1.75,1.75 -1.75,4.25 0,2.5 1.75,4.25 1.75,1.75 4.25,1.75 2.5,0 4.25,-1.75 1.75,-1.75 1.75,-4.25 0,-2.5 -1.75,-4.25"
+     id="path158"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 750,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 690,251.45 690,239 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 m -21.5,-5.7 -2.85,-2.85 11.25,-11.25 Q 729.75,213 720,213 q -9.75,0 -16.9,6.2 l 11.25,11.25 -2.85,2.85 -11.25,-11.25 Q 694,229.2 694,239 q 0,9.75 6.2,16.9 l 11.3,-11.3 2.85,2.85 -11.3,11.3 Q 710.2,265 720,265 q 9.8,0 16.95,-6.25 l -11.3,-11.3 2.85,-2.85 11.3,11.3 q 6.2,-7.15 6.2,-16.9 0,-9.8 -6.25,-16.95 L 728.5,233.3"
+     id="path160"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 531,434 h -2 v -4 h -4 v -2 h 6 v 6 m -4,-2 v 10 h -2 v -8 h -8 v -2 h 10 m -32,2 v -6 h 6 v 2 h -4 v 4 h -2 m 32,26 h -10 v -2 h 8 v -8 h 2 v 10 m -28,-28 h 10 v 2 h -8 v 8 h -2 v -10 m 0,28 v -10 h 2 v 8 h 8 v 2 h -10 m -4,-2 h 2 v 4 h 4 v 2 h -6 v -6 m 36,0 v 6 h -6 v -2 h 4 v -4 h 2"
+     id="path162"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1074.9,574.05 q 3.4,3.4 4,7.95 h 4.1 v 4 h -4.1 q -0.65,4.55 -4,7.9 -3.35,3.35 -7.9,4 v 4.1 h -4 v -4.1 q -4.55,-0.6 -7.95,-4 -3.35,-3.35 -3.9,-7.9 H 1047 v -4 h 4.15 q 0.55,-4.55 3.9,-7.9 l 0.05,-0.05 q 3.35,-3.35 7.9,-3.9 V 566 h 4 v 4.15 q 4.55,0.55 7.9,3.9 m -7.05,7.15 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8 m 3.15,2.8 q 0,2.5 -1.75,4.25 -1.75,1.75 -4.25,1.75 -2.5,0 -4.25,-1.75 -1.75,-1.75 -1.75,-4.25 0,-2.5 1.75,-4.25 1.75,-1.75 4.25,-1.75 2.5,0 4.25,1.75 1.75,1.75 1.75,4.25 m -13.1,-7.1 -0.05,0.05 Q 1055,579.9 1055,584 v 0.05 q 0,4.1 2.9,7.05 2.95,2.9 7.1,2.9 4.15,0 7.05,-2.9 l 0.05,-0.05 q 2.9,-2.9 2.9,-7.05 0,-4.15 -2.9,-7.1 -2.95,-2.9 -7.05,-2.9 H 1065 q -4.1,0 -7.05,2.85 l -0.05,0.05"
+     id="path164"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 801.75,248.95 7.05,7.05 q 6.2,-7.2 6.25,-16.95 -0.05,-9.75 -6.3,-16.9 l -7,7 -2.85,-2.85 7,-7 q -7.15,-6.25 -16.9,-6.3 -9.75,0.05 -16.9,6.3 l 7,7 -2.85,2.85 -7,-7 q -6.25,7.15 -6.3,16.9 0.05,9.75 6.25,16.95 l 7.05,-7.05 2.85,2.85 -7.05,7.05 q 7.2,6.2 16.95,6.25 9.75,-0.05 16.95,-6.25 l -7.05,-7.05 2.85,-2.85 m 11.3,11.3 -2.85,2.85 -1.45,-1.45 Q 800.4,269.1 789,269 q -11.4,0.1 -19.75,-7.35 l -1.45,1.45 -2.85,-2.85 1.45,-1.45 Q 759,250.5 759,239 q -0.05,-11.35 7.4,-19.7 l -1.45,-1.45 2.85,-2.85 1.45,1.45 q 8.3,-7.4 19.75,-7.45 11.45,0.05 19.75,7.45 l 1.45,-1.45 2.85,2.85 -1.45,1.45 q 7.45,8.35 7.4,19.7 0,11.5 -7.4,19.8 l 1.45,1.45 M 791,239 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path166"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 868,30 h 22 v 4 h -22 v -4 m -8,12 v 22 h -4 V 42 h 4 m 0,-42 v 22 h -4 V 0 h 4 m -34,30 h 22 v 4 h -22 v -4"
+     id="path168"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 839.6,13.6 q -3.8,3.8 -5.7,8.4 -0.8,1.95 -1.25,4 H 826 v -4 h 3.6 q 2.15,-6.2 7.15,-11.25 5.05,-5 11.25,-7.15 V 0 h 4 v 6.65 q -2.05,0.45 -4,1.25 -4.6,1.9 -8.4,5.7"
+     id="path170"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 876.4,13.6 Q 872.6,9.8 868,7.9 866.05,7.1 864,6.65 V 0 h 4 v 3.6 q 6.2,2.15 11.25,7.15 5,5.05 7.15,11.25 h 3.6 v 4 h -6.65 q -0.45,-2.05 -1.25,-4 -1.9,-4.6 -5.7,-8.4"
+     id="path172"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 839.6,50.4 q 3.8,3.8 8.4,5.7 1.95,0.8 4,1.25 V 64 h -4 V 60.4 Q 841.8,58.25 836.75,53.25 831.75,48.2 829.6,42 H 826 v -4 h 6.65 q 0.45,2.05 1.25,4 1.9,4.6 5.7,8.4"
+     id="path174"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 876.4,50.4 q 3.8,-3.8 5.7,-8.4 l 1.25,-4 H 890 v 4 h -3.6 q -2.15,6.2 -7.15,11.25 -5.05,5 -11.25,7.15 V 64 h -4 v -6.65 q 2.05,-0.45 4,-1.25 4.6,-1.9 8.4,-5.7"
+     id="path176"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 858,127 q 7.25,0 13.05,-3.4 l 2,3.45 Q 866.35,131 858,131 q -8.3,0 -15,-3.9 l 2,-3.5 q 5.8,3.4 13,3.4 m 26,-26 q 0,-7.25 -3.4,-13 l 3.45,-2 q 3.95,6.65 3.95,15 0,8.4 -4,15.1 l -3.45,-2 Q 884,108.25 884,101 m -52,0 q 0,7.3 3.45,13.1 l -3.45,2 q -4,-6.7 -4,-15.1 0,-8.35 3.95,-15 l 3.45,2 q -3.4,5.8 -3.4,13 m 26,-26 q -7.25,0 -13.05,3.45 l -2,-3.5 Q 849.65,71 858,71 q 8.35,0 15.05,3.95 l -2,3.5 Q 865.25,75 858,75"
+     id="path178"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 860,73 0.05,12.05 h -4 V 73 H 860 m 0.05,44.05 V 129 h -4 v -11.95 h 4 m 14,-18 H 886 v 4 h -11.95 v -4 m -44.05,0 h 12.05 v 4 L 830,103 v -3.95"
+     id="path180"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 858,93 q -3.3,0 -5.65,2.3 l -0.05,0.05 Q 850,97.7 850,101 q 0,3.3 2.35,5.65 2.35,2.35 5.65,2.35 3.3,0 5.6,-2.35 l 0.05,-0.05 Q 866,104.3 866,101 866,97.7 863.65,95.35 861.3,93 858,93 m 12,8 q 0,4.95 -3.55,8.45 -3.5,3.55 -8.45,3.55 -4.95,0 -8.5,-3.55 -3.5,-3.5 -3.5,-8.45 0,-4.95 3.5,-8.5 3.55,-3.5 8.5,-3.5 4.95,0 8.45,3.5 3.55,3.55 3.55,8.5"
+     id="path182"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 858,265 q 7.25,0 13.05,-3.4 l 2,3.45 Q 866.35,269 858,269 q -8.3,0 -15,-3.9 l 2,-3.5 q 5.8,3.4 13,3.4 m -26,-26 q 0,7.3 3.45,13.1 l -3.45,2 q -4,-6.7 -4,-15.1 0,-8.35 3.95,-15 l 3.45,2 q -3.4,5.8 -3.4,13 m 52,0 q 0,-7.25 -3.4,-13 l 3.45,-2 q 3.95,6.65 3.95,15 0,8.4 -4,15.1 l -3.45,-2 Q 884,246.25 884,239 m -26,-26 q -7.25,0 -13.05,3.45 l -2,-3.5 Q 849.65,209 858,209 q 8.35,0 15.05,3.95 l -2,3.5 Q 865.25,213 858,213"
+     id="path184"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 850.9,231.9 -0.05,0.05 Q 848,234.9 848,239 v 0.05 q 0,4.1 2.9,7.05 2.95,2.9 7.1,2.9 4.15,0 7.05,-2.9 l 0.05,-0.05 q 2.9,-2.9 2.9,-7.05 0,-4.15 -2.9,-7.1 -2.95,-2.9 -7.05,-2.9 H 858 q -4.1,0 -7.05,2.85 l -0.05,0.05 m 9.1,7.1 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 7.9,-9.95 q 4.1,4.1 4.1,9.95 0,5.8 -4.1,9.9 -4.1,4.1 -9.9,4.1 -5.85,0 -9.95,-4.1 -4.05,-4.1 -4.05,-9.9 0,-5.8 4.05,-9.9 l 0.05,-0.05 q 4.1,-4.05 9.9,-4.05 5.8,0 9.9,4.05"
+     id="path186"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 996,28 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path188"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 996,58 v 4 Q 983.55,62 974.75,53.2 966,44.45 966,32 h 4 q 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 m 18.4,-44.4 Q 1006.8,6 996,6 V 2 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 h -4 q 0,-10.8 -7.6,-18.4"
+     id="path190"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 852,166.4 2.4,-2.4 3.6,3.6 3.6,-3.6 2.4,2.4 -3.6,3.6 3.6,3.6 -2.4,2.4 -3.6,-3.6 -3.6,3.6 -2.4,-2.4 3.6,-3.6 -3.6,-3.6"
+     id="path192"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 882,170 q 0,9.95 -7.05,16.95 -7,7.05 -16.95,7.05 -9.95,0 -17,-7.05 -7,-7 -7,-16.95 0,-9.95 7,-17 7.05,-7 17,-7 9.95,0 16.95,7 7.05,7.05 7.05,17 m -9.85,-14.15 Q 866.3,150 858,150 q -8.3,0 -14.15,5.85 Q 838,161.7 838,170 q 0,8.3 5.85,14.15 5.85,5.85 14.15,5.85 8.3,0 14.1,-5.85 l 0.05,-0.05 Q 878,178.3 878,170 q 0,-8.3 -5.85,-14.15"
+     id="path194"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 860,142 v 6 h -4 v -6 h -4 v -4 h 12 v 4 h -4 m -30,30 v 4 h -4 v -12 h 4 v 4 h 6 v 4 h -6 m 56,0 h -6 v -4 h 6 v -4 h 4 v 12 h -4 v -4 m -26,26 h 4 v 4 h -12 v -4 h 4 v -6 h 4 v 6"
+     id="path196"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 943,237 h 16 v 4 h -16 v -4 m -14,-30 v 16 h -4 v -16 h 4 m -34,30 h 16 v 4 h -16 v -4 m 34,18 v 16 h -4 v -16 h 4"
+     id="path198"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 946.8,219.2 Q 938.6,211 927,211 q -11.6,0 -19.8,8.15 l -0.05,0.05 Q 899,227.4 899,239 q 0,11.6 8.2,19.8 8.2,8.2 19.8,8.2 11.6,0 19.8,-8.2 8.2,-8.2 8.2,-19.8 0,-11.6 -8.2,-19.8 M 957,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 897,251.45 897,239 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path200"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 937,30 h 22 v 4 H 937 V 30 M 929,0 v 22 h -4 V 0 h 4 m -34,30 h 22 v 4 h -22 v -4 m 34,12 v 22 h -4 V 42 h 4"
+     id="path202"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 946.8,12.2 Q 938.6,4 927,4 915.4,4 907.2,12.15 l -0.05,0.05 Q 899,20.4 899,32 q 0,11.6 8.2,19.8 8.2,8.2 19.8,8.2 11.6,0 19.8,-8.2 Q 955,43.6 955,32 955,20.4 946.8,12.2 M 957,32 q 0,12.45 -8.8,21.2 Q 939.45,62 927,62 914.55,62 905.75,53.2 897,44.45 897,32 897,19.55 905.75,10.75 914.55,2 927,2 q 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path204"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 936.9,22.1 Q 932.8,18 927,18 q -5.8,0 -9.9,4.05 l -0.05,0.05 Q 913,26.2 913,32 q 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.8,0 9.9,-4.1 4.1,-4.1 4.1,-9.9 0,-5.8 -4.1,-9.9 M 943,32 q 0,6.65 -4.7,11.3 Q 933.65,48 927,48 920.35,48 915.65,43.3 911,38.65 911,32 911,25.35 915.65,20.65 920.35,16 927,16 q 6.65,0 11.3,4.65 4.7,4.7 4.7,11.35"
+     id="path206"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 905.75,79.75 q 8.1,-8.05 19.25,-8.7 l 2,-0.05 2,0.05 q 11.15,0.65 19.2,8.7 8.1,8.1 8.75,19.25 h -2 Q 954.3,88.65 946.8,81.2 939.35,73.7 929,73.1 l -2,-0.1 -2,0.05 q -10.35,0.65 -17.8,8.1 l -0.05,0.05 q -2.45,2.45 -4.15,5.2 -3.5,5.65 -3.95,12.6 h -2 q 0.55,-9.1 5.95,-16.1 1.25,-1.65 2.75,-3.15 m 32.55,9.9 q 4,4 4.6,9.35 h -2 q -0.65,-4.55 -4,-7.9 -3.35,-3.4 -7.9,-3.95 V 85.1 q 5.35,0.6 9.3,4.55 m -22.65,0 q 4,-3.95 9.35,-4.55 v 2.05 q -4.55,0.55 -7.9,3.9 l -0.05,0.05 q -3.35,3.35 -3.9,7.9 h -2.05 q 0.6,-5.35 4.55,-9.35 m 22.65,22.65 q -3.95,4 -9.3,4.6 v -2 q 4.55,-0.6 7.9,-4 3.4,-3.35 4,-7.9 h 2 q -0.6,5.35 -4.6,9.3 m 9.9,9.9 q -8.05,8.1 -19.2,8.75 l -2,0.05 -2,-0.05 Q 913.85,130.3 905.75,122.2 L 903,119.1 q -5.4,-7.05 -5.95,-16.1 h 2.05 q 0.4,6.9 3.9,12.55 1.7,2.75 4.2,5.25 7.45,7.5 17.8,8.15 l 2,0.05 2,-0.05 q 10.35,-0.65 17.8,-8.15 7.5,-7.45 8.15,-17.8 h 2 q -0.65,11.15 -8.75,19.2 M 929,101.05 q 0,0.8 -0.6,1.35 -0.55,0.6 -1.35,0.6 h -0.1 q -0.8,0 -1.4,-0.6 -0.55,-0.55 -0.55,-1.35 v -0.1 q 0,-0.8 0.55,-1.4 0.6,-0.55 1.4,-0.55 h 0.1 q 0.8,0 1.35,0.55 0.6,0.6 0.6,1.4 v 0.1 m -13.35,11.25 q -3.95,-3.95 -4.55,-9.3 h 2.05 q 0.55,4.55 3.95,7.9 3.35,3.35 7.9,4 v 2 q -5.35,-0.6 -9.35,-4.6"
+     id="path208"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 935,168 h 24 v 4 h -24 v -4 m -10,34 v -2.05 q -11.15,-0.65 -19.25,-8.75 -7.3,-7.3 -8.5,-17.2 h 2 q 1.2,9.05 7.95,15.8 7.85,7.85 18.8,8.2 h 2 q 10.95,-0.35 18.8,-8.2 6.75,-6.75 7.95,-15.8 h 2 q -1.2,9.9 -8.55,17.2 -8.05,8.1 -19.2,8.75 V 202 h -4 m -30,-34 h 24 v 4 h -24 v -4 m 30,0 h 4 v 4 h -4 v -4 m 4,-30 v 2.05 q 11.15,0.65 19.2,8.7 7.35,7.35 8.55,17.25 h -2 q -1.2,-9.05 -7.95,-15.8 -7.85,-7.85 -18.8,-8.2 h -2 q -10.95,0.35 -18.8,8.15 l -0.05,0.05 q -6.7,6.75 -7.9,15.8 h -2 q 1.2,-9.9 8.5,-17.25 8.1,-8.05 19.25,-8.7 V 138 h 4"
+     id="path210"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 986.1,91.1 q -4.1,4.1 -4.1,9.9 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.75,0 9.85,-4.1 l 0.05,-0.05 q 4.1,-4.1 4.1,-9.85 0,-5.8 -4.1,-9.9 -4.1,-4.1 -9.9,-4.1 -5.8,0 -9.9,4.1 m 22.6,-2.85 q 5.3,5.3 5.3,12.75 0,7.4 -5.3,12.7 -5.3,5.3 -12.7,5.3 -7.45,0 -12.75,-5.3 Q 978,108.45 978,101 q 0,-7.45 5.25,-12.7 l 0.05,-0.05 Q 988.55,83 996,83 q 7.45,0 12.7,5.25"
+     id="path212"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 964,99 h 64 v 4 h -64 v -4"
+     id="path214"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 998,69 v 64 h -4 V 69 h 4"
+     id="path216"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 964,95 h 4 v 12 h -4 V 95"
+     id="path218"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1024,95 h 4 v 12 h -4 V 95"
+     id="path220"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1002,69 v 4 h -12 v -4 h 12"
+     id="path222"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1002,129 v 4 h -12 v -4 h 12"
+     id="path224"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1016,91 h 4 v 20 h -4 V 91"
+     id="path226"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 972,91 h 4 v 20 h -4 V 91"
+     id="path228"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 989.3,195.2 4.7,0.75 V 182 h 4 v 13.95 l 4.8,-0.75 1.05,3.85 L 996,200 q -4.05,0 -7.75,-0.95 l 1.05,-3.85 m -18.45,-31.95 q -0.6,2.3 -0.75,4.75 H 984 v 4 h -13.9 q 0.15,2.5 0.75,4.8 l -3.9,1.05 Q 966,174.1 966,170 q 0,-4.1 0.95,-7.8 l 3.9,1.05 m 50.35,13.5 q 0.55,-2.3 0.75,-4.75 H 1008 v -4 h 13.95 q -0.2,-2.45 -0.75,-4.7 l 3.85,-1.05 q 0.95,3.65 0.95,7.75 0,4.1 -0.95,7.75 l -3.85,-1 M 1002.75,144.85 998,144.1 V 158 h -4 v -13.9 l -4.65,0.7 -1.05,-3.85 q 3.65,-0.95 7.7,-0.95 4.1,0 7.8,0.95 l -1.05,3.9"
+     id="path230"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 376,75 v 16 h -2 V 75 h 2 m 9,25 h 16 v 2 h -16 v -2 m -9,11 v 16 h -2 v -16 h 2 m -27,-11 h 16 v 2 h -16 v -2"
+     id="path232"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 239,509 8,-8 4,4 -8,8 h -4 v -4 m -4,0 v 4 h -4 l -8,-8 4,-4 8,8 m 0,12 -8,8 -4,-4 8,-8 h 4 v 4 m 4,0 v -4 h 4 l 8,8 -4,4 -8,-8"
+     id="path234"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 14,170 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 18,0 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 28,170.85 28,170 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 14,0 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6"
+     id="path236"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 107,170 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m -6,0 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 97,170.85 97,170 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -10,0 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6"
+     id="path238"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 162,239 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m 12,0 6,-6 2,2 -4,4 4,4 -2,2 -6,-6"
+     id="path240"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 237,235 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path242"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 237,170 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path244"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 237,170 -6,-6 2,-2 4,4 4,-4 2,2 -6,6"
+     id="path246"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 156,170 6,-6 2,2 -4,4 4,4 -2,2 -6,-6"
+     id="path248"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 180,170 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6"
+     id="path250"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 48,239 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m -36,0 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 16,-2 h 4 v 4 h -4 v -4"
+     id="path252"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 97,237 h 4 v 4 h -4 v -4 m -8,2 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m 20,0 6,-6 2,2 -4,4 4,4 -2,2 -6,-6"
+     id="path254"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 170,69 v 16 h -4 V 69 h 4 m 0,48 v 16 h -4 v -16 h 4 m 14,-18 h 16 v 4 h -16 v -4 m -48,0 h 16 v 4 h -16 v -4"
+     id="path256"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 101,26 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path258"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 32,75 V 91 H 28 V 75 h 4 m 8,24 h 16 v 4 H 40 v -4 m -8,12 v 16 h -4 v -16 h 4 M 4,99 h 16 v 4 H 4 v -4"
+     id="path260"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 101,101 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 97,101.85 97,101 97,100.15 97.55,99.55 98.15,99 99,99 q 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path262"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 239,69 v 16 h -4 V 69 h 4 m 0,48 v 16 h -4 v -16 h 4 M 205,99 h 16 v 4 h -16 v -4 m 48,0 h 16 v 4 h -16 v -4"
+     id="path264"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 239,101 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path266"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 32,32 q 0,0.85 -0.6,1.4 Q 30.85,34 30,34 29.15,34 28.55,33.4 28,32.85 28,32 28,31.15 28.55,30.55 29.15,30 30,30 q 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path268"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 338,103 h -8 v -4 h 8 v 4 M 308,69 v 8 h -4 v -8 h 4 m -26,34 h -8 v -4 h 8 v 4 m 26,22 v 8 h -4 v -8 h 4"
+     id="path270"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 245,28 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 241,28.85 241,28 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -6,8 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 235,36.85 235,36 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -6,-8 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 229,28.85 229,28 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path272"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 166,24 v 6 h -6 v -2 h 4 v -4 h 2 m 4,0 h 2 v 4 h 4 v 2 h -6 v -6 m 0,16 v -6 h 6 v 2 h -4 v 4 h -2 m -4,0 h -2 v -4 h -4 v -2 h 6 v 6"
+     id="path274"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 300,28.4 2.4,-2.4 3.6,3.6 3.6,-3.6 2.4,2.4 -3.6,3.6 3.6,3.6 L 309.6,38 306,34.4 302.4,38 300,35.6 303.6,32 300,28.4"
+     id="path276"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 54,280 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 20 H 54 V 284 H 34 v -4 h 20 m -48,0 h 20 v 4 H 6 v 20 H 2 V 284 Q 2,282.35 3.15,281.2 4.35,280 6,280 m 52,52 q 0,1.65 -1.15,2.8 Q 55.65,336 54,336 H 34 v -4 h 20 v -20 h 4 v 20 M 6,336 Q 4.35,336 3.15,334.8 2,333.65 2,332 v -20 h 4 v 20 h 20 v 4 H 6"
+     id="path278"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 75,280 h 16 v 4 H 75 v 16 h -4 v -16 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 48,0 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 16 h -4 v -16 h -16 v -4 h 16 m -48,56 q -1.65,0 -2.85,-1.2 Q 71,333.65 71,332 v -16 h 4 v 16 h 16 v 4 H 75 m 52,-4 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -16 v -4 h 16 v -16 h 4 v 16"
+     id="path280"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 144,280 h 16 v 4 h -16 v 16 h -4 v -16 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,56 q -1.65,0 -2.85,-1.2 Q 140,333.65 140,332 v -16 h 4 v 16 h 16 v 4 h -16 m 48,-56 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 16 h -4 v -16 h -16 v -4 h 16 m 4,52 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -16 v -4 h 16 v -16 h 4 v 16"
+     id="path282"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 170,302 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path284"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 377,345 v 22 h -4 v -22 h 4 m -34,30 h 22 v 4 h -22 v -4 m 42,0 h 22 v 4 h -22 v -4 m -8,12 v 22 h -4 v -22 h 4"
+     id="path286"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 351,349 h 48 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 48 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -48 q -1.65,0 -2.85,-1.2 Q 347,402.65 347,401 v -48 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,52 h 48 v -48 h -48 v 48"
+     id="path288"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 387,377 q 0,4.95 -3.55,8.45 -3.5,3.55 -8.45,3.55 -4.95,0 -8.5,-3.55 -3.5,-3.5 -3.5,-8.45 0,-4.95 3.5,-8.5 3.55,-3.5 8.5,-3.5 4.95,0 8.45,3.5 3.55,3.55 3.55,8.5 m -12,-8 q -3.3,0 -5.65,2.3 l -0.05,0.05 q -2.3,2.35 -2.3,5.65 0,3.3 2.35,5.65 2.35,2.35 5.65,2.35 3.3,0 5.6,-2.35 l 0.05,-0.05 q 2.35,-2.3 2.35,-5.6 0,-3.3 -2.35,-5.65 Q 378.3,369 375,369"
+     id="path290"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 286,284 h 40 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 40 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -40 q -1.65,0 -2.85,-1.2 Q 282,329.65 282,328 v -40 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,44 h 40 v -40 h -40 v 40"
+     id="path292"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 322,306 h 16 v 4 h -16 v -4 m -14,-30 v 16 h -4 v -16 h 4 m -34,30 h 16 v 4 h -16 v -4 m 34,18 v 16 h -4 v -16 h 4"
+     id="path294"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 83,357 h 6 v -4 h 4 v 8 H 83 v 10 h -8 v -4 h 4 v -6 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,40 q -1.65,0 -2.85,-1.2 Q 79,394.65 79,393 v -6 h -4 v -4 h 8 v 10 h 10 v 8 h -4 v -4 h -6 m 32,-40 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 6 h 4 v 4 h -8 v -10 h -10 v -8 h 4 v 4 h 6 m -18,18 v -4 h 4 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 m 22,18 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -6 v 4 h -4 v -8 h 10 v -10 h 8 v 4 h -4 v 6"
+     id="path296"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 261,336 h -48 q -1.65,0 -2.85,-1.2 Q 209,333.65 209,332 v -48 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 h 48 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 48 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 m -38,-30 v 4 h -10 v 22 h 22 v -10 h 4 v 10 h 22 v -22 h -10 v -4 h 10 v -22 h -22 v 10 h -4 v -10 h -22 v 22 h 10 m 16,2 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path298"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 148,353 h 14 v -8 h 4 v 12 h -18 v 18 h -12 v -4 h 8 v -14 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,48 q -1.65,0 -2.85,-1.2 Q 144,398.65 144,397 v -14 h -8 v -4 h 12 v 18 h 18 v 12 h -4 v -8 h -14 m 40,-48 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 14 h 8 v 4 h -12 v -18 h -18 v -12 h 4 v 8 h 14 m 4,44 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -14 v 8 h -4 v -12 h 18 v -18 h 12 v 4 h -8 v 14"
+     id="path300"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 217,353 h 14 v -8 h 4 v 12 h -18 v 18 h -12 v -4 h 8 v -14 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 22,8 v 12 h -4 v -12 h 4 m -22,40 q -1.65,0 -2.85,-1.2 Q 213,398.65 213,397 v -14 h -8 v -4 h 12 v 18 h 18 v 12 h -4 v -8 h -14 m 22,-20 v 12 h -4 v -12 h 4 m -18,-6 h 12 v 4 h -12 v -4 m 36,-22 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 14 h 8 v 4 h -12 v -18 h -18 v -12 h 4 v 8 h 14 m -16,22 h 12 v 4 h -12 v -4 m 20,22 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -14 v 8 h -4 v -12 h 18 v -18 h 12 v 4 h -8 v 14"
+     id="path302"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 320,375 h 18 v 4 h -18 v -4 m -12,-30 v 18 h -4 v -18 h 4 m -34,30 h 18 v 4 h -18 v -4 m 34,16 v 18 h -4 v -18 h 4"
+     id="path304"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 282,349 h 48 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 48 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -48 q -1.65,0 -2.85,-1.2 Q 278,402.65 278,401 v -48 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,52 h 48 v -48 h -48 v 48"
+     id="path306"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 300,367 h 12 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 12 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -12 q -1.65,0 -2.85,-1.2 Q 296,384.65 296,383 v -12 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 0,16 h 12 v -12 h -12 v 12"
+     id="path308"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 351,288 h 12 v 4 h -12 v 12 h -4 v -12 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 48,0 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 12 h -4 v -12 h -12 v -4 h 12 m -48,40 q -1.65,0 -2.85,-1.2 Q 347,325.65 347,324 v -12 h 4 v 12 h 12 v 4 h -12 m 52,-4 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -12 v -4 h 12 v -12 h 4 v 12"
+     id="path310"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 531.4,289.6 Q 523.8,282 513,282 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 543,308 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 483,320.45 483,308 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path312"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 515,308 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path314"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 600.4,289.6 Q 592.8,282 582,282 q -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4 M 612,308 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 Q 552,320.45 552,308 q 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25"
+     id="path316"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 584,302 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4"
+     id="path318"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 632.6,326.4 q 2.55,2.55 5.4,4.25 l -2,3.45 q -3.3,-1.95 -6.2,-4.85 l -0.05,-0.05 q -2.85,-2.85 -4.8,-6.15 l 3.5,-2 q 1.65,2.85 4.15,5.35 M 625,308 q 0,3.55 0.85,6.8 l -3.9,1.05 Q 621,312.1 621,308 q 0,-4.1 0.95,-7.8 l 3.9,1.05 Q 625,304.45 625,308 m 7.6,-18.4 q -2.5,2.5 -4.15,5.35 l -3.5,-2 q 1.95,-3.3 4.8,-6.2 2.9,-2.9 6.25,-4.8 l 2,3.45 q -2.9,1.7 -5.4,4.2 m 36.8,36.8 q 2.5,-2.5 4.2,-5.4 l 3.45,2 q -1.95,3.3 -4.85,6.2 -2.85,2.9 -6.15,4.85 l -2,-3.45 q 2.85,-1.7 5.35,-4.2 M 651,334 q 3.6,0 6.8,-0.8 l 1.05,3.85 Q 655.1,338 651,338 q -4.05,0 -7.75,-0.95 l 1.05,-3.85 q 3.15,0.8 6.7,0.8 m 26,-26 q 0,-3.55 -0.8,-6.7 l 3.85,-1.05 q 0.95,3.65 0.95,7.75 0,4.1 -0.95,7.75 l -3.85,-1 q 0.8,-3.2 0.8,-6.75 m -7.6,-18.4 q -2.5,-2.5 -5.3,-4.15 l 2,-3.45 q 3.25,1.9 6.1,4.75 l 0.05,0.05 q 2.85,2.85 4.8,6.15 l -3.45,2 q -1.7,-2.85 -4.2,-5.35 M 651,282 q -3.5,0 -6.65,0.8 l -1.05,-3.85 q 3.65,-0.95 7.7,-0.95 4.1,0 7.8,0.95 l -1.05,3.9 Q 654.55,282 651,282"
+     id="path320"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 720,334 6.8,-0.8 q 3.3,-0.9 6.25,-2.6 l 2,3.45 q -3.4,2 -7.2,3 -3.75,0.95 -7.85,0.95 -4.05,0 -7.75,-0.95 -3.85,-1 -7.25,-2.95 l 2,-3.45 q 2.95,1.7 6.3,2.55 l 6.7,0.8 m -26,-26 q 0,3.55 0.85,6.8 0.85,3.3 2.6,6.25 l -3.5,2 q -2,-3.4 -3,-7.2 Q 690,312.1 690,308 q 0,-4.1 0.95,-7.8 1,-3.85 3,-7.25 l 3.5,2 q -1.75,2.95 -2.6,6.3 -0.85,3.2 -0.85,6.75 m 52,0 q 0,-3.55 -0.8,-6.7 -0.85,-3.35 -2.6,-6.35 l 3.45,-2 q 2,3.45 3,7.3 0.95,3.65 0.95,7.75 0,4.1 -0.95,7.75 -1,3.85 -3,7.25 l -3.45,-2 q 1.75,-2.95 2.6,-6.25 0.8,-3.2 0.8,-6.75 m -26,-26 q -3.5,0 -6.65,0.8 -3.4,0.85 -6.35,2.6 l -2,-3.45 q 3.4,-2.05 7.3,-3 3.65,-0.95 7.7,-0.95 4.1,0 7.8,0.95 3.85,1 7.3,3.05 l -2,3.45 q -3,-1.75 -6.35,-2.6 Q 723.55,282 720,282"
+     id="path322"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 807.4,326.4 q 6.15,-6.15 7.35,-14.4 h 4 q -1.2,9.9 -8.55,17.2 -7.3,7.35 -17.2,8.55 v -4 q 8.25,-1.2 14.4,-7.35 m -36.8,0 q 6.15,6.15 14.4,7.35 v 4 q -9.9,-1.2 -17.25,-8.55 -7.3,-7.3 -8.5,-17.2 h 4.05 q 1.15,8.25 7.3,14.4 m 36.8,-36.8 q -6.15,-6.15 -14.4,-7.3 v -4.05 q 9.9,1.2 17.2,8.5 7.35,7.35 8.55,17.25 h -4 q -1.2,-8.25 -7.35,-14.4 m -36.8,0 q -6.15,6.15 -7.3,14.4 h -4.05 q 1.2,-9.9 8.5,-17.25 7.35,-7.3 17.25,-8.5 v 4.05 q -8.25,1.15 -14.4,7.3"
+     id="path324"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 458.15,293.85 Q 452.3,288 444,288 q -8.3,0 -14.15,5.85 Q 424,299.7 424,308 q 0,8.3 5.85,14.15 5.85,5.85 14.15,5.85 8.3,0 14.1,-5.85 l 0.05,-0.05 Q 464,316.3 464,308 q 0,-8.3 -5.85,-14.15 M 468,308 q 0,9.95 -7.05,16.95 -7,7.05 -16.95,7.05 -9.95,0 -17,-7.05 -7,-7 -7,-16.95 0,-9.95 7,-17 7.05,-7 17,-7 9.95,0 16.95,7 7.05,7.05 7.05,17"
+     id="path326"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 873.55,292.45 Q 867.1,286 858,286 q -9.1,0 -15.55,6.4 l -0.05,0.05 Q 836,298.9 836,308 q 0,9.1 6.45,15.55 6.45,6.45 15.55,6.45 9.1,0 15.55,-6.45 Q 880,317.1 880,308 q 0,-9.1 -6.45,-15.55 M 882,308 q 0,9.95 -7.05,16.95 -7,7.05 -16.95,7.05 -9.95,0 -17,-7.05 -7,-7 -7,-16.95 0,-9.95 7,-17 7.05,-7 17,-7 9.95,0 16.95,7 7.05,7.05 7.05,17"
+     id="path328"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 860.85,581.2 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8 M 864,584 q 0,2.5 -1.75,4.25 -1.75,1.75 -4.25,1.75 -2.5,0 -4.25,-1.75 Q 852,586.5 852,584 q 0,-2.5 1.75,-4.25 1.75,-1.75 4.25,-1.75 2.5,0 4.25,1.75 1.75,1.75 1.75,4.25"
+     id="path330"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 797.5,575.5 q -3.55,-3.5 -8.5,-3.5 -5,0 -8.5,3.5 -3.5,3.5 -3.5,8.5 h 24 q 0,-5 -3.5,-8.5 m 7.5,8.5 q 0,6.6 -4.7,11.3 -4.7,4.7 -11.3,4.7 -6.65,0 -11.35,-4.7 Q 773,590.6 773,584 q 0,-6.65 4.65,-11.35 4.7,-4.65 11.35,-4.65 6.6,0 11.3,4.65 4.7,4.7 4.7,11.35"
+     id="path332"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 935.5,575.5 q -3.55,-3.5 -8.5,-3.5 -5,0 -8.5,3.5 -3.5,3.5 -3.5,8.5 0,4.95 3.5,8.5 3.5,3.5 8.5,3.5 4.95,0 8.5,-3.5 3.5,-3.55 3.5,-8.5 0,-5 -3.5,-8.5 m 7.5,8.5 q 0,6.6 -4.7,11.3 -4.7,4.7 -11.3,4.7 -6.65,0 -11.35,-4.7 Q 911,590.6 911,584 q 0,-6.65 4.65,-11.35 4.7,-4.65 11.35,-4.65 6.6,0 11.3,4.65 4.7,4.7 4.7,11.35"
+     id="path334"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 399,418 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 20 h -4 v -20 h -20 v -4 h 20 m 4,52 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -20 v -4 h 20 v -20 h 4 v 20 m 0,-22 h -10 v -4 h 10 v 4 m -26,-30 v 10 h -4 v -10 h 4 m -26,0 h 20 v 4 h -20 v 20 h -4 v -20 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 6,30 h -10 v -4 h 10 v 4 m -6,26 q -1.65,0 -2.85,-1.2 Q 347,471.65 347,470 v -20 h 4 v 20 h 20 v 4 h -20 m 26,-10 v 10 h -4 v -10 h 4"
+     id="path336"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 468,418 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 16 h -4 v -16 h -16 v -4 h 16 m -22,0 v 14 h -4 v -14 h 4 m 26,30 h -14 v -4 h 14 v 4 m -52,-30 h 16 v 4 h -16 v 16 h -4 v -16 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 10,30 h -14 v -4 h 14 v 4 m -10,26 q -1.65,0 -2.85,-1.2 Q 416,471.65 416,470 v -16 h 4 v 16 h 16 v 4 h -16 m 26,-14 v 14 h -4 v -14 h 4 m 26,10 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 h -16 v -4 h 16 v -16 h 4 v 16"
+     id="path338"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 249,430 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 8 h -4 v -8 h -8 v -4 h 8 m -2,14 h 8 v 4 h -8 v -4 m 2,18 h -8 v -4 h 8 v -8 h 4 v 8 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 m -14,-26 v -8 h 4 v 8 h -4 m -10,-6 h 8 v 4 h -8 v 8 h -4 v -8 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m -6,14 h 8 v 4 h -8 v -4 m 6,18 q -1.65,0 -2.85,-1.2 Q 221,459.65 221,458 v -8 h 4 v 8 h 8 v 4 h -8 m 10,-6 h 4 v 8 h -4 v -8"
+     id="path340"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 290,426 h 8 v 4 h -8 v 8 h -4 v -8 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m -8,18 h 8 v 4 h -8 v -4 m 22,-14 v -8 h 4 v 8 h -4 m 18,-4 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 8 h -4 v -8 h -8 v -4 h 8 m 0,40 h -8 v -4 h 8 v -8 h 4 v 8 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 m -32,0 q -1.65,0 -2.85,-1.2 Q 286,463.65 286,462 v -8 h 4 v 8 h 8 v 4 h -8 m 14,-4 h 4 v 8 h -4 v -8 m 18,-18 h 8 v 4 h -8 v -4"
+     id="path342"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 306,231 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m 0,8 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path344"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 375,229 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m 0,8 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m -6,10 h 12 v 2 h -12 v -2"
+     id="path346"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1063,20 h 4 v 4 h -4 v -4 m 4,6 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4 m -14,4 h 4 v 4 h -4 v -4 m 10,10 h 4 v 4 h -4 v -4 m 10,-10 h 4 v 4 h -4 v -4"
+     id="path348"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 608,440 h -2 v -10 h -10 v -2 h 12 v 12 m -52,0 v -12 h 12 v 2 h -10 v 10 h -2 m 4,-8 h 8 v 2 h -6 v 6 h -2 v -8 m 44,0 v 8 h -2 v -6 h -6 v -2 h 8 m 0,28 h -8 v -2 h 6 v -6 h 2 v 8 m 4,-8 v 12 h -12 v -2 h 10 v -10 h 2 m -52,0 h 2 v 10 h 10 v 2 h -12 v -12 m 4,8 v -8 h 2 v 6 h 6 v 2 h -8"
+     id="path350"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1136,8 v 8 h -4 V 8 h 4 m 14,22 h 8 v 4 h -8 v -4 m -14,-4 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 v -4 h 4 m -4,22 h 4 v 8 h -4 v -8 m -22,-18 h 8 v 4 h -8 v -4"
+     id="path352"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 347,170 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 8,0 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 20,-2 2,2 -2,2 -2,-2 2,-2 m 20,2 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m 8,0 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6"
+     id="path354"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1126.9,576.9 -0.05,0.05 q -2.15,2.2 -2.65,5.05 h 3.8 v 4 h -3.8 q 0.5,2.9 2.7,5.1 2.2,2.2 5.1,2.75 V 590 h 4 v 3.85 q 2.9,-0.6 5.05,-2.75 l 0.05,-0.05 q 2.15,-2.15 2.75,-5.05 H 1140 v -4 h 3.85 q -0.55,-2.9 -2.75,-5.1 -2.2,-2.2 -5.1,-2.7 v 3.8 h -4 v -3.8 q -2.85,0.5 -5.05,2.65 l -0.05,0.05 m 9.1,7.1 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 7.9,-9.95 q 4.1,4.1 4.1,9.95 0,5.8 -4.1,9.9 -4.1,4.1 -9.9,4.1 -5.85,0 -9.95,-4.1 -3.35,-3.35 -3.9,-7.9 -0.15,-0.95 -0.15,-2 0,-1.05 0.15,-2 0.55,-4.55 3.9,-7.9 l 0.05,-0.05 q 4.1,-4.05 9.9,-4.05 5.8,0 9.9,4.05"
+     id="path356"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1201,566 h 4 v 12 h -4 v -12 m -4,16 v 4 h -12 v -4 h 12 m 15.9,-7.95 q 2.6,2.6 3.6,5.95 h -4.3 q -0.7,-1.7 -2.1,-3.1 -1.4,-1.4 -3.1,-2.1 v -4.25 q 3.3,0.95 5.9,3.5 m -19.85,0.05 0.05,-0.05 q 2.6,-2.55 5.9,-3.5 v 4.25 q -1.65,0.7 -3.05,2.05 l -0.05,0.05 -0.05,0.05 q -1.35,1.4 -2.05,3.05 h -4.25 q 0.95,-3.3 3.5,-5.9 m 0,19.8 q -2.55,-2.6 -3.5,-5.9 h 4.25 q 0.7,1.7 2.1,3.1 1.4,1.4 3.1,2.1 v 4.3 q -3.35,-1 -5.95,-3.6 M 1205,584 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 4,2 v -4 h 12 v 4 h -12 m 3.9,7.9 q -2.6,2.6 -5.9,3.55 v -4.25 q 1.65,-0.7 3.05,-2.1 l 0.05,-0.05 q 1.4,-1.4 2.1,-3.05 h 4.25 q -0.95,3.3 -3.55,5.9 M 1201,590 h 4 v 12 h -4 v -12"
+     id="path358"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1313,584 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 56,0 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m -28,-2 2,2 -2,2 -2,-2 2,-2 m 0,-26 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m 0,56 -6,-6 2,-2 4,4 4,-4 2,2 -6,6"
+     id="path360"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 306,152 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m 2,18 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -2,18 -6,-6 2,-2 4,4 4,-4 2,2 -6,6"
+     id="path362"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1035,75 4,-4 20,20 -4,4 -20,-20 m 0,52 20,-20 4,4 -20,20 -4,-4 m 60,-52 -20,20 -4,-4 20,-20 4,4 m 0,52 -4,4 -20,-20 4,-4 20,20"
+     id="path364"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1035,75 4,-4 20,20 -4,4 -20,-20 m 0,52 20,-20 4,4 -20,20 -4,-4 m 60,-52 -20,20 -4,-4 20,-20 4,4 m 0,52 -4,4 -20,-20 4,-4 20,20"
+     id="path366"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1144,95 -4,-4 8,-8 4,4 -8,8 m -4,16 4,-4 8,8 -4,4 -8,-8 m -16,-4 4,4 -8,8 -4,-4 8,-8 m 0,-12 -8,-8 4,-4 8,8 -4,4"
+     id="path368"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1219,87 -10,10 h -2 v -2 l 10,-10 2,2 m -32,0 2,-2 10,10 v 2 h -2 l -10,-10 m 0,28 10,-10 h 2 v 2 l -10,10 -2,-2 m 32,0 -2,2 -10,-10 v -2 h 2 l 10,10"
+     id="path370"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1262,115 -10,10 -4,-4 10,-10 h 4 v 4 m 20,-28 10,-10 4,4 -10,10 h -4 v -4 m -24,4 -10,-10 4,-4 10,10 v 4 h -4 m 28,20 10,10 -4,4 -10,-10 v -4 h 4"
+     id="path372"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1296,26 v 12 l -24,24 -24,-24 V 26 l 24,-24 24,24 m -22,6 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -2,-24 -20,20 v 8 l 20,20 20,-20 V 28 L 1272,8"
+     id="path374"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1229,32 -20,-20 h -12 l -20,20 20,20 h 12 l 20,-20 m -18,24 h -16 l -24,-24 24,-24 h 16 l 24,24 -24,24 m -8,-22 q -0.85,0 -1.4,-0.6 -0.6,-0.55 -0.6,-1.4 0,-0.85 0.6,-1.45 0.55,-0.55 1.4,-0.55 0.85,0 1.45,0.55 0.55,0.6 0.55,1.45 0,0.85 -0.55,1.4 -0.6,0.6 -1.45,0.6"
+     id="path376"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1229,32 -20,-20 h -12 l -20,20 20,20 h 12 l 20,-20 m -18,24 h -16 l -24,-24 24,-24 h 16 l 24,24 -24,24 m -8,-22 q -0.85,0 -1.4,-0.6 -0.6,-0.55 -0.6,-1.4 0,-0.85 0.6,-1.45 0.55,-0.55 1.4,-0.55 0.85,0 1.45,0.55 0.55,0.6 0.55,1.45 0,0.85 -0.55,1.4 -0.6,0.6 -1.45,0.6"
+     id="path378"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1229,32 -20,-20 h -12 l -20,20 20,20 h 12 l 20,-20 m -18,24 h -16 l -24,-24 24,-24 h 16 l 24,24 -24,24 m -8,-22 q -0.85,0 -1.4,-0.6 -0.6,-0.55 -0.6,-1.4 0,-0.85 0.6,-1.45 0.55,-0.55 1.4,-0.55 0.85,0 1.45,0.55 0.55,0.6 0.55,1.45 0,0.85 -0.55,1.4 -0.6,0.6 -1.45,0.6"
+     id="path380"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 330,643 v 4 h -8 l -4,-4 h -4 v -4 h 6 l 4,4 h 6 m 0,20 h -6 l -4,4 h -6 v -4 h 4 l 4,-4 h 8 v 4 m -48,-20 h 6 l 4,-4 h 6 v 4 h -4 l -4,4 h -8 v -4 m 0,20 v -4 h 8 l 4,4 h 4 v 4 h -6 l -4,-4 h -6"
+     id="path382"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 667,669 v -4 q 5,0 8.5,-3.5 3.5,-3.5 3.5,-8.5 0,-4.95 -3.5,-8.45 Q 672,641 667,641 v -4 q 6.65,0 11.35,4.7 4.65,4.7 4.65,11.3 0,6.65 -4.65,11.3 -4.7,4.7 -11.35,4.7 m -14,-16 q 0,0.85 -0.55,1.45 -0.6,0.55 -1.45,0.55 -0.85,0 -1.4,-0.55 -0.6,-0.6 -0.6,-1.45 0,-0.85 0.6,-1.4 0.55,-0.6 1.4,-0.6 0.85,0 1.45,0.6 0.55,0.55 0.55,1.4 m -18,16 q -6.65,0 -11.35,-4.7 Q 619,659.65 619,653 q 0,-6.6 4.65,-11.3 4.7,-4.7 11.35,-4.7 v 4 q -5,0 -8.5,3.55 -3.5,3.5 -3.5,8.45 0,5 3.5,8.5 3.5,3.5 8.5,3.5 v 4"
+     id="path384"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 452,653 q 0,3.3 -2.35,5.65 -2.35,2.35 -5.65,2.35 -3.35,0 -5.7,-2.35 -2.3,-2.35 -2.3,-5.65 0,-3.35 2.3,-5.7 2.3,-2.25 5.5,-2.3 h 0.4 q 3.15,0.05 5.45,2.3 2.35,2.35 2.35,5.7 m -6,0 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 2.25,-4.25 Q 446.5,647 444,647 q -2.5,0 -4.25,1.7 l -0.05,0.05 q -1.7,1.75 -1.7,4.25 0,2.5 1.75,4.25 1.75,1.75 4.25,1.75 2.45,0 4.25,-1.75 1.75,-1.8 1.75,-4.25 0,-2.5 -1.75,-4.25 M 412,653 l 10,-10 2,2 -8,8 8,8 -2,2 -10,-10 m 64,0 -10,10 -2,-2 8,-8 -8,-8 2,-2 10,10"
+     id="path386"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1089,637 v 4 h -48 v -4 h 48 m -22,16 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 22,12 v 4 h -48 v -4 h 48"
+     id="path388"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 511,651 h 4 v 4 h -4 v -4 m 26,-4 v 12 l -5,5 -3,-3 4,-4 v -8 l -4,-4 3,-3 5,5 m -48,0 5,-5 3,3 -4,4 v 8 l 4,4 -3,3 -5,-5 v -12"
+     id="path390"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 614,653 -12,12 h -6 v -4 h 4 l 8,-8 -8,-8 h -4 v -4 h 6 l 12,12 m -28,2 q -0.85,0 -1.4,-0.6 -0.6,-0.55 -0.6,-1.4 0,-0.85 0.6,-1.45 0.55,-0.55 1.4,-0.55 0.85,0 1.45,0.55 0.55,0.6 0.55,1.45 0,0.85 -0.55,1.4 -0.6,0.6 -1.45,0.6 m -8,0 q -0.85,0 -1.4,-0.6 -0.6,-0.55 -0.6,-1.4 0,-0.85 0.6,-1.45 0.55,-0.55 1.4,-0.55 0.85,0 1.45,0.55 0.55,0.6 0.55,1.45 0,0.85 -0.55,1.4 -0.6,0.6 -1.45,0.6 m -28,-2 12,-12 h 6 v 4 h -4 l -8,8 8,8 h 4 v 4 h -6 l -12,-12"
+     id="path392"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 399,663 -6.85,6.85 -2.85,-2.85 5.7,-5.7 v -16.6 l -5.7,-5.7 2.85,-2.85 6.85,6.85 v 20 m -48,0 v -20 l 6.85,-6.85 2.85,2.85 -5.7,5.7 v 16.6 l 5.7,5.7 -2.85,2.85 L 351,663 m 22,-12 v 4 h 4 v -4 h -4 m -2,-2 h 8 v 8 h -8 v -8"
+     id="path394"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 180,430 q 1.65,0 2.85,1.2 1.15,1.15 1.15,2.8 v 4 h -4 v -4 h -4 v -4 h 4 m -14,4 v -8 h 4 v 8 h -4 m -10,-4 h 4 v 4 h -4 v 4 h -4 v -4 q 0,-1.65 1.15,-2.8 1.2,-1.2 2.85,-1.2 m 24,14 h 8 v 4 h -8 v -4 m 0,18 h -4 v -4 h 4 v -4 h 4 v 4 q 0,1.65 -1.15,2.8 -1.2,1.2 -2.85,1.2 m -14,-4 h 4 v 8 h -4 v -8 m -10,4 q -1.65,0 -2.85,-1.2 Q 152,459.65 152,458 v -4 h 4 v 4 h 4 v 4 h -4 m -8,-18 h 8 v 4 h -8 v -4"
+     id="path396"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1110,635 h 4 v 36 h -4 v -36 m 22,16 v -4 h 4 v 4 h 4 v 4 h -4 v 4 h -4 v -4 h -4 v -4 h 4 m 22,-16 h 4 v 36 h -4 v -36"
+     id="path398"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1223,639 h 4 v 28 h -4 v -28 m -44,0 h 4 v 28 h -4 v -28 m 26,14 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path400"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1294,639 h 2 v 28 h -2 v -28 m -46,0 h 2 v 28 h -2 v -28 m 30,14 q 0,2.5 -1.75,4.25 -1.75,1.75 -4.25,1.75 -2.5,0 -4.25,-1.75 -1.75,-1.75 -1.75,-4.25 0,-2.5 1.75,-4.25 1.75,-1.75 4.25,-1.75 2.5,0 4.25,1.75 1.75,1.75 1.75,4.25 m -3.15,-2.8 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8 M 1274,653 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path402"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1371,639 h 2 v 28 h -2 v -28 m -62,0 h 2 v 28 h -2 v -28 m 8,8 h 2 v 12 h -2 v -12 m 46,0 h 2 v 12 h -2 v -12 m -16,6 q 0,2.5 -1.75,4.25 -1.75,1.75 -4.25,1.75 -2.5,0 -4.25,-1.75 -1.75,-1.75 -1.75,-4.25 0,-2.5 1.75,-4.25 1.75,-1.75 4.25,-1.75 2.5,0 4.25,1.75 1.75,1.75 1.75,4.25 m -3.15,-2.8 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8"
+     id="path404"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1365,26 v 12 l -5,5 -3,-3 4,-4 v -8 l -4,-4 3,-3 5,5 m -24,-24 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m 2,30 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.4,-0.55 l -0.05,-0.05 Q 1339,32.85 1339,32 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 l 0.05,0.05 q 0.55,0.55 0.55,1.4 m -2,30 -6,-6 2,-2 4,4 4,-4 2,2 -6,6 m -24,-36 5,-5 3,3 -4,4 v 8 l 4,4 -3,3 -5,-5 V 26"
+     id="path406"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 36,629 5,5 -3,3 -4,-4 h -8 l -4,4 -3,-3 5,-5 h 12 m -6,26 q -0.85,0 -1.4,-0.6 -0.6,-0.55 -0.6,-1.4 0,-0.85 0.55,-1.4 l 0.05,-0.05 Q 29.15,651 30,651 q 0.85,0 1.45,0.55 0.55,0.6 0.55,1.45 0,0.85 -0.55,1.4 l -0.05,0.05 Q 30.85,655 30,655 m 6,22 H 24 l -5,-5 3,-3 4,4 h 8 l 4,-4 3,3 -5,5 m -36,-24 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 60,0 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6"
+     id="path408"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1067,170 q 0,0.65 -0.35,1.15 l -0.25,0.25 q -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 l -0.2,-0.25 q -0.35,-0.5 -0.35,-1.15 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -22,12 h 40 l -20,-34 -20,34 m 20,-42 28,46 h -56 l 28,-46"
+     id="path410"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1132,146 h 4 v 22 l 18.9,15.1 -2.9,2.9 -18,-14 -18,14 -2.9,-2.9 18.9,-15.1 v -22"
+     id="path412"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1183,182 10.75,-8.15 q 0.7,1.7 2.15,3.15 l 0.3,0.3 -6.05,4.7 h 25.7 l -6.1,-4.75 0.25,-0.25 q 1.5,-1.45 2.25,-3.2 l 10.75,8.2 -18,-30.6 v 8.8 l -2,-0.2 -2,0.2 v -8.8 l -18,30.6 m 22,-12 q 0,0.65 -0.35,1.15 l -0.25,0.25 q -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 l -0.2,-0.25 q -0.35,-0.5 -0.35,-1.15 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -2,-30 28,46 h -56 l 28,-46"
+     id="path414"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1264.9,162.9 -0.05,0.05 Q 1262,165.9 1262,170 v 0.05 q 0,2.05 0.7,3.8 0.75,1.75 2.2,3.25 l 0.25,0.25 q 2.85,2.65 6.85,2.65 4,0 6.85,-2.7 l 0.2,-0.2 0.05,-0.05 q 1.45,-1.45 2.2,-3.25 0.7,-1.75 0.7,-3.8 0,-4.15 -2.9,-7.1 -2.2,-2.2 -5.1,-2.7 l -1.95,-0.2 H 1272 l -2,0.2 q -2.85,0.5 -5.05,2.65 l -0.05,0.05 M 1270,146 h 4 v 10.15 q 4.55,0.55 7.9,3.9 4.1,4.1 4.1,9.95 0,3.5 -1.5,6.4 l 8.4,6.7 -2.9,2.9 -8,-6.2 -0.1,0.1 q -4.1,4.1 -9.9,4.1 -5.85,0 -9.95,-4.1 l -0.1,-0.1 -7.95,6.2 -2.9,-2.9 8.4,-6.7 q -1.5,-2.9 -1.5,-6.4 0,-5.8 4.05,-9.9 l 0.05,-0.05 q 3.35,-3.35 7.9,-3.9 V 146 m 4,24 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path416"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1320.1,183.1 8.4,-6.7 q 0.9,1.8 2.45,3.4 l -7.95,6.2 -2.9,-2.9 m 20.9,-27.1 -2,0.15 V 146 h 4 v 10.15 l -2,-0.15 m 2,14 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 16,16 -8,-6.2 q 1.55,-1.6 2.5,-3.4 l 8.4,6.7 -2.9,2.9"
+     id="path418"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 463.8,357.2 q -6.85,-6.85 -16,-7.95 l -3.8,3.75 -3.75,-3.75 q -9.2,1.1 -16.05,7.9 l -0.05,0.05 q -6.8,6.85 -7.9,16.05 l 3.75,3.75 -3.75,3.8 q 1.1,9.15 7.95,16 6.85,6.85 16.05,8 l 3.75,-3.8 3.8,3.8 q 9.15,-1.15 16,-8 6.85,-6.85 8,-16 l -3.8,-3.8 3.8,-3.75 q -1.15,-9.2 -8,-16.05 M 474,377 q 0,2.85 -0.45,5.55 -1.55,8.9 -8.35,15.65 -6.75,6.8 -15.65,8.35 L 444,407 438.5,406.55 Q 429.55,405 422.75,398.2 416,391.45 414.5,382.55 414,379.85 414,377 q 0,-2.85 0.5,-5.5 1.5,-8.95 8.25,-15.75 6.8,-6.75 15.75,-8.25 l 5.5,-0.5 5.55,0.5 q 8.9,1.5 15.65,8.25 6.8,6.8 8.35,15.75 0.45,2.65 0.45,5.5"
+     id="path420"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 543,377 q 0,2.85 -0.45,5.55 -1.55,8.9 -8.35,15.65 -6.75,6.8 -15.65,8.35 L 513,407 507.5,406.55 Q 498.55,405 491.75,398.2 485,391.45 483.5,382.55 483,379.85 483,377 q 0,-2.85 0.5,-5.5 1.5,-8.95 8.25,-15.75 6.8,-6.75 15.75,-8.25 l 5.5,-0.5 5.55,0.5 q 8.9,1.5 15.65,8.25 6.8,6.8 8.35,15.75 0.45,2.65 0.45,5.5 m -10.2,-19.8 q -6.85,-6.85 -16,-7.95 l -3.8,3.75 -3.75,-3.75 q -9.2,1.1 -16.05,7.9 l -0.05,0.05 q -6.8,6.85 -7.9,16.05 l 3.75,3.75 -3.75,3.8 q 1.1,9.15 7.95,16 6.85,6.85 16.05,8 l 3.75,-3.8 3.8,3.8 q 9.15,-1.15 16,-8 6.85,-6.85 8,-16 l -3.8,-3.8 3.8,-3.75 q -1.15,-9.2 -8,-16.05"
+     id="path422"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 512,349 h 2 v 56 h -2 v -56"
+     id="path424"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 541,376 v 2 h -56 v -2 h 56"
+     id="path426"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 601.8,357.2 q -6.85,-6.85 -16,-7.95 l -3.8,3.75 -3.75,-3.75 q -9.2,1.1 -16.05,7.9 l -0.05,0.05 q -6.8,6.85 -7.9,16.05 l 3.75,3.75 -3.75,3.8 q 1.1,9.15 7.95,16 6.85,6.85 16.05,8 l 3.75,-3.8 3.8,3.8 q 9.15,-1.15 16,-8 6.85,-6.85 8,-16 l -3.8,-3.8 3.8,-3.75 q -1.15,-9.2 -8,-16.05 M 612,377 q 0,2.85 -0.45,5.55 -1.55,8.9 -8.35,15.65 -6.75,6.8 -15.65,8.35 L 582,407 576.5,406.55 Q 567.55,405 560.75,398.2 554,391.45 552.5,382.55 552,379.85 552,377 q 0,-2.85 0.5,-5.5 1.5,-8.95 8.25,-15.75 6.8,-6.75 15.75,-8.25 l 5.5,-0.5 5.55,0.5 q 8.9,1.5 15.65,8.25 6.8,6.8 8.35,15.75 0.45,2.65 0.45,5.5"
+     id="path428"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 581,349 h 2 v 56 h -2 v -56"
+     id="path430"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 610,376 v 2 h -56 v -2 h 56"
+     id="path432"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 598,377 q 0,6.65 -4.7,11.3 -4.65,4.7 -11.3,4.7 -6.65,0 -11.35,-4.7 Q 566,383.65 566,377 q 0,-6.65 4.65,-11.35 4.7,-4.65 11.35,-4.65 6.65,0 11.3,4.65 4.7,4.7 4.7,11.35 m -6.1,-9.9 q -4.1,-4.1 -9.9,-4.1 -5.8,0 -9.9,4.05 l -0.05,0.05 q -4.05,4.1 -4.05,9.9 0,5.8 4.1,9.9 4.1,4.1 9.9,4.1 5.8,0 9.9,-4.1 4.1,-4.1 4.1,-9.9 0,-5.8 -4.1,-9.9"
+     id="path434"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 660.9,367.1 q -3.75,-3.75 -8.9,-4.05 l -1,-0.05 -1,0.05 q -5.15,0.3 -8.9,4 l -0.05,0.05 q -3.7,3.75 -4,8.9 l -0.05,1 0.05,1 q 0.3,5.15 4.05,8.9 3.75,3.75 8.9,4.1 h 1 1 q 5.15,-0.35 8.9,-4.1 3.75,-3.75 4.1,-8.9 v -1 -1 q -0.35,-5.15 -4.1,-8.9 m -29.75,-9.9 q -6.8,6.85 -7.9,16.05 L 626,376 h 9.05 q 0.3,-6 4.6,-10.35 4.35,-4.3 10.35,-4.6 V 352 l -2.75,-2.75 q -9.2,1.1 -16.05,7.9 l -0.05,0.05 m 39.65,0 q -6.85,-6.85 -16,-7.95 L 652,352 v 9.05 q 6,0.3 10.3,4.6 4.35,4.35 4.7,10.35 h 9 l 2.8,-2.75 q -1.15,-9.2 -8,-16.05 M 681,377 q 0,2.85 -0.45,5.55 -1.55,8.9 -8.35,15.65 -6.75,6.8 -15.65,8.35 L 651,407 645.5,406.55 Q 636.55,405 629.75,398.2 623,391.45 621.5,382.55 621,379.85 621,377 q 0,-2.85 0.5,-5.5 1.5,-8.95 8.25,-15.75 6.8,-6.75 15.75,-8.25 l 5.5,-0.5 5.55,0.5 q 8.9,1.5 15.65,8.25 6.8,6.8 8.35,15.75 0.45,2.65 0.45,5.5 m -28,0 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -21.8,19.8 q 6.85,6.85 16.05,8 L 650,402 v -9 q -6,-0.35 -10.35,-4.7 -4.3,-4.3 -4.6,-10.3 H 626 l -2.75,2.8 q 1.1,9.15 7.95,16 m 39.6,0 q 6.85,-6.85 8,-16 L 676,378 h -9 q -0.35,6 -4.7,10.3 -4.3,4.35 -10.3,4.7 v 9 l 2.8,2.8 q 9.15,-1.15 16,-8"
+     id="path436"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 738.4,358.6 q -6.25,-6.25 -14.65,-7.35 L 720,355 l -3.75,-3.75 q -8.4,1.1 -14.65,7.35 -6.25,6.25 -7.35,14.65 l 3.75,3.75 -3.75,3.75 q 1.1,8.4 7.35,14.65 6.25,6.25 14.65,7.35 L 720,399 l 3.75,3.75 q 8.4,-1.1 14.65,-7.35 6.25,-6.25 7.35,-14.65 L 742,377 l 3.75,-3.75 q -1.1,-8.4 -7.35,-14.65 M 750,377 q 0,3.75 -0.8,7.2 -1.85,7.9 -8,14 -6.1,6.15 -14,8 -3.45,0.8 -7.2,0.8 l -7.2,-0.8 q -7.9,-1.85 -14.05,-8 -6.1,-6.1 -7.95,-14 -0.8,-3.45 -0.8,-7.2 0,-3.75 0.8,-7.2 1.85,-7.9 7.95,-14.05 6.15,-6.1 14.05,-7.95 L 720,347 q 3.75,0 7.2,0.8 7.9,1.85 14,7.95 6.15,6.15 8,14.05 0.8,3.45 0.8,7.2"
+     id="path438"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 819,377 q 0,3.75 -0.8,7.2 -1.85,7.9 -8,14 -6.1,6.15 -14,8 l -7.2,0.8 -7.2,-0.8 q -7.9,-1.85 -14.05,-8 -6.1,-6.1 -7.95,-14 -0.8,-3.45 -0.8,-7.2 0,-3.75 0.8,-7.2 1.85,-7.9 7.95,-14.05 6.15,-6.1 14.05,-7.95 l 7.2,-0.8 7.2,0.8 q 7.9,1.85 14,7.95 6.15,6.15 8,14.05 0.8,3.45 0.8,7.2 m -11.6,-18.4 q -6.25,-6.25 -14.65,-7.35 L 789,355 l -3.75,-3.75 q -8.4,1.1 -14.65,7.35 -6.25,6.25 -7.35,14.65 l 3.75,3.75 -3.75,3.75 q 1.1,8.4 7.35,14.65 6.25,6.25 14.65,7.35 L 789,399 l 3.75,3.75 q 8.4,-1.1 14.65,-7.35 6.25,-6.25 7.35,-14.65 L 811,377 l 3.75,-3.75 q -1.1,-8.4 -7.35,-14.65"
+     id="path440"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 787,349 h 4 v 56 h -4 v -56"
+     id="path442"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 817,375 v 4 h -56 v -4 h 56"
+     id="path444"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 860,377 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path446"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 876.4,358.6 q -6.25,-6.25 -14.65,-7.35 L 858,355 l -3.75,-3.75 q -8.4,1.1 -14.65,7.35 -6.25,6.25 -7.35,14.65 l 3.75,3.75 -3.75,3.75 q 1.1,8.4 7.35,14.65 6.25,6.25 14.65,7.35 L 858,399 l 3.75,3.75 q 8.4,-1.1 14.65,-7.35 6.25,-6.25 7.35,-14.65 L 880,377 l 3.75,-3.75 q -1.1,-8.4 -7.35,-14.65 M 888,377 q 0,3.75 -0.8,7.2 -1.85,7.9 -8,14 -6.1,6.15 -14,8 l -7.2,0.8 -7.2,-0.8 q -7.9,-1.85 -14.05,-8 -6.1,-6.1 -7.95,-14 -0.8,-3.45 -0.8,-7.2 0,-3.75 0.8,-7.2 1.85,-7.9 7.95,-14.05 6.15,-6.1 14.05,-7.95 l 7.2,-0.8 7.2,0.8 q 7.9,1.85 14,7.95 6.15,6.15 8,14.05 0.8,3.45 0.8,7.2"
+     id="path448"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 848,375 v 4 h -18 v -4 h 18"
+     id="path450"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 868,379 v -4 h 18 v 4 h -18"
+     id="path452"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 856,387 h 4 v 18 h -4 v -18"
+     id="path454"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 860,367 h -4 v -18 h 4 v 18"
+     id="path456"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 945.4,358.6 q -6.25,-6.25 -14.65,-7.35 L 927,355 l -3.75,-3.75 q -8.4,1.1 -14.65,7.35 -6.25,6.25 -7.35,14.65 l 3.75,3.75 -3.75,3.75 q 1.1,8.4 7.35,14.65 6.25,6.25 14.65,7.35 L 927,399 l 3.75,3.75 q 8.4,-1.1 14.65,-7.35 6.25,-6.25 7.35,-14.65 L 949,377 l 3.75,-3.75 q -1.1,-8.4 -7.35,-14.65 M 957,377 q 0,3.75 -0.8,7.2 -1.85,7.9 -8,14 -6.1,6.15 -14,8 L 927,407 q -3.75,0 -7.2,-0.8 -7.9,-1.85 -14.05,-8 -6.1,-6.1 -7.95,-14 -0.8,-3.45 -0.8,-7.2 0,-3.75 0.8,-7.2 1.85,-7.9 7.95,-14.05 6.15,-6.1 14.05,-7.95 3.45,-0.8 7.2,-0.8 l 7.2,0.8 q 7.9,1.85 14,7.95 6.15,6.15 8,14.05 0.8,3.45 0.8,7.2"
+     id="path458"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 913,375 v 4 h -18 v -4 h 18"
+     id="path460"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 941,379 v -4 h 18 v 4 h -18"
+     id="path462"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 925,391 h 4 v 18 h -4 v -18"
+     id="path464"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 929,363 h -4 v -18 h 4 v 18"
+     id="path466"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 46,371 h 4 v 4 h -8 v -6 l -4,-4 h -6 v -8 h 4 v 4 h 4 l 6,6 v 4 m -32,0 v -4 l 6,-6 h 4 v -4 h 4 v 8 h -6 l -4,4 v 6 h -8 v -4 h 4 m 0,12 h -4 v -4 h 8 v 6 l 4,4 h 6 v 8 h -4 v -4 h -4 l -6,-6 v -4 m 32,0 v 4 l -6,6 h -4 v 4 h -4 v -8 h 6 l 4,-4 v -6 h 8 v 4 h -4"
+     id="path468"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 927,296 -14,-14 2,-2 12,12 12,-12 2,2 -14,14 m -12,12 -14,14 -2,-2 12,-12 -12,-12 2,-2 14,14 m 24,0 14,-14 2,2 -12,12 12,12 -2,2 -14,-14 m -12,12 14,14 -2,2 -12,-12 -12,12 -2,-2 14,-14"
+     id="path470"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 921,304.4 2.4,-2.4 3.6,3.6 3.6,-3.6 2.4,2.4 -3.6,3.6 3.6,3.6 -2.4,2.4 -3.6,-3.6 -3.6,3.6 -2.4,-2.4 3.6,-3.6 -3.6,-3.6"
+     id="path472"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1000,308 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m -4,4 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m 0,-8 -6,-6 2,-2 4,4 4,-4 2,2 -6,6 m -4,4 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6"
+     id="path474"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 42,444 h -4 v -2 l -4,-4 h -2 v -4 h 4 l 6,6 v 4 m -24,0 v -4 l 6,-6 h 4 v 4 h -2 l -4,4 v 2 h -4 m 24,4 v 4 l -6,6 h -4 v -4 h 2 l 4,-4 v -2 h 4 m -24,0 h 4 v 2 l 4,4 h 2 v 4 h -4 l -6,-6 v -4"
+     id="path476"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 83,440 v -4 l 6,-6 h 4 v 4 h -2 l -4,4 v 2 h -4 m 18,6 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 97,446.85 97,446 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 14,-6 h -4 v -2 l -4,-4 h -2 v -4 h 4 l 6,6 v 4 m 0,12 v 4 l -6,6 h -4 v -4 h 2 l 4,-4 v -2 h 4 m -32,0 h 4 v 2 l 4,4 h 2 v 4 h -4 l -6,-6 v -4"
+     id="path478"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 994,357 h 4 v 4 h -4 v -4 m 2,14 -6,-6 2,-2 4,4 4,-4 2,2 -6,6 m -6,6 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m -14,-2 h 4 v 4 h -4 v -4 m 26,2 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m -6,6 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m -2,10 h 4 v 4 h -4 v -4 m 18,-18 h 4 v 4 h -4 v -4"
+     id="path480"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1089,239 q 0,9.95 -7.05,16.95 -7,7.05 -16.95,7.05 -9.95,0 -17,-7.05 -7,-7 -7,-16.95 0,-9.95 7,-17 7.05,-7 17,-7 9.95,0 16.95,7 7.05,7.05 7.05,17 m -24,20 q 7.3,0 12.65,-4.5 l -28.15,-28.15 q -4.5,5.4 -4.5,12.65 0,8.3 5.85,14.15 5.85,5.85 14.15,5.85 m 14.15,-34.15 Q 1073.3,219 1065,219 q -7.25,0 -12.65,4.5 l 28.15,28.15 q 4.5,-5.35 4.5,-12.65 0,-8.3 -5.85,-14.15"
+     id="path482"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1152.4,220.6 q 7.6,7.6 7.6,18.4 0,10.75 -7.6,18.35 l -0.05,0.05 q -7.6,7.6 -18.35,7.6 -10.8,0 -18.4,-7.6 -7.6,-7.6 -7.6,-18.4 0,-10.75 7.6,-18.4 7.65,-7.6 18.4,-7.6 10.8,0 18.4,7.6 m -33.7,8.8 q -2.7,4.25 -2.7,9.6 0,7.45 5.3,12.75 5.25,5.25 12.7,5.25 5.4,0 9.6,-2.7 l -24.9,-24.9 m 33.3,9.6 q 0,-7.45 -5.25,-12.7 -5.3,-5.3 -12.75,-5.3 -5.35,0 -9.6,2.7 l 24.9,24.9 q 2.7,-4.2 2.7,-9.6"
+     id="path484"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1233,239 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 -8.75,-8.75 -8.75,-21.2 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 m -30,26 q 9.75,0 16.95,-6.2 l -36.7,-36.7 q -6.25,7.15 -6.25,16.9 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 m 18.4,-44.4 q -7.6,-7.6 -18.4,-7.6 -9.75,0 -16.9,6.25 l 36.7,36.7 q 6.2,-7.2 6.2,-16.95 0,-10.8 -7.6,-18.4"
+     id="path486"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1253.6,220.6 q -2.5,2.5 -4.2,5.4 -1.7,2.9 -2.55,6.25 l -3.9,-1.1 q 1,-3.8 2.95,-7.15 1.95,-3.35 4.85,-6.25 2.9,-2.9 6.25,-4.85 3.4,-2 7.2,-3 l 1.1,3.9 q -3.35,0.85 -6.3,2.6 -2.85,1.65 -5.4,4.2 m 36.8,0 q -2.5,-2.5 -5.25,-4.2 -3.05,-1.8 -6.35,-2.6 l 1,-3.9 q 3.85,0.95 7.3,3.1 3.25,1.85 6.15,4.75 2.9,2.9 4.8,6.2 2,3.4 3,7.3 l -3.85,1.05 q -0.9,-3.4 -2.65,-6.35 -1.65,-2.85 -4.15,-5.35 m -0.05,36.75 q 2.55,-2.55 4.2,-5.3 1.8,-3 2.65,-6.35 l 3.85,1.05 q -1,3.8 -3.05,7.25 -1.9,3.3 -4.8,6.2 -2.9,2.9 -6.15,4.75 -3.45,2.05 -7.25,3.05 l -1,-3.9 q 3.3,-0.8 6.25,-2.55 2.8,-1.7 5.3,-4.2 M 1270,242 l -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 0.4,0 0.7,0.3 l 0.3,0.7 m 0,-6 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 0.4,0 0.7,0.3 l 0.3,0.7 m 6,0 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 l 0.7,0.3 0.3,0.7 m 0,6 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 l 0.7,0.3 0.3,0.7 m -22.35,15.35 q 2.5,2.5 5.35,4.25 2.95,1.65 6.25,2.55 l -1.05,3.85 q -3.8,-1 -7.15,-2.95 -3.35,-1.95 -6.25,-4.85 -2.9,-2.9 -4.8,-6.2 -2.05,-3.45 -3.1,-7.2 l 3.9,-1 q 0.85,3.25 2.65,6.25 1.65,2.75 4.2,5.3"
+     id="path488"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1345,236 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 0.4,0 0.7,0.3 l 0.3,0.7 m 0,6 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 0.4,0 0.7,0.3 l 0.3,0.7 m -6,0 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 l 0.7,0.3 0.3,0.7 m 0,-6 -0.3,0.7 -0.7,0.3 q -0.4,0 -0.7,-0.3 -0.3,-0.3 -0.3,-0.7 0,-0.4 0.3,-0.7 0.3,-0.3 0.7,-0.3 l 0.7,0.3 0.3,0.7 m 22,3 h 4 q 0,9.95 -7.05,16.95 -7,7.05 -16.95,7.05 -9.95,0 -17,-7.05 -7,-7 -7,-16.95 h 4 q 0,8.3 5.85,14.15 5.85,5.85 14.15,5.85 8.3,0 14.1,-5.85 l 0.05,-0.05 Q 1361,247.3 1361,239"
+     id="path490"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 8.75,562.75 q 8.1,-8.05 19.25,-8.7 l 2,-0.05 2,0.05 q 11.15,0.65 19.2,8.7 8.1,8.1 8.75,19.25 h -2 Q 57.3,571.65 49.8,564.2 42.35,556.7 32,556.1 l -2,-0.1 -2,0.05 q -10.35,0.65 -17.8,8.1 l -0.05,0.05 Q 7.7,566.65 6,569.4 2.5,575.05 2.05,582 h -2 Q 0.6,572.9 6,565.9 l 2.75,-3.15 M 0,554 h 8 v 4 H 4 v 4 H 0 v -8 m 51.2,51.2 q -8.05,8.1 -19.2,8.75 L 30,614 28,613.95 Q 16.85,613.3 8.75,605.2 L 6,602.1 Q 0.6,595.05 0.05,586 H 2.1 q 0.4,6.9 3.9,12.55 1.7,2.75 4.2,5.25 7.45,7.5 17.8,8.15 l 2,0.05 2,-0.05 q 10.35,-0.65 17.8,-8.15 7.5,-7.45 8.15,-17.8 h 2 Q 59.3,597.15 51.2,605.2 M 18.65,595.3 Q 14.7,591.35 14.1,586 h 2.05 q 0.55,4.55 3.95,7.9 3.35,3.35 7.9,4 v 2 q -5.35,-0.6 -9.35,-4.6 m 0,-22.65 q 4,-3.95 9.35,-4.55 v 2.05 q -4.55,0.55 -7.9,3.9 l -0.05,0.05 q -3.35,3.35 -3.9,7.9 H 14.1 q 0.6,-5.35 4.55,-9.35 M 32,584.05 q 0,0.8 -0.6,1.35 -0.55,0.6 -1.35,0.6 h -0.1 q -0.8,0 -1.4,-0.6 Q 28,584.85 28,584.05 v -0.1 q 0,-0.8 0.55,-1.4 0.6,-0.55 1.4,-0.55 h 0.1 q 0.8,0 1.35,0.55 0.6,0.6 0.6,1.4 v 0.1 m 9.3,-11.4 q 4,4 4.6,9.35 h -2 q -0.65,-4.55 -4,-7.9 -3.35,-3.4 -7.9,-3.95 v -2.05 q 5.35,0.6 9.3,4.55 M 60,554 v 8 h -4 v -4 h -4 v -4 h 8 m -18.7,41.3 q -3.95,4 -9.3,4.6 v -2 q 4.55,-0.6 7.9,-4 3.4,-3.35 4,-7.9 h 2 q -0.6,5.35 -4.6,9.3 M 60,614 h -8 v -4 h 4 v -4 h 4 v 8 m -60,0 v -8 h 4 v 4 h 4 v 4 H 0"
+     id="path492"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 69,554 h 8 v 4 h -4 v 4 h -4 v -8 m 8.75,8.75 q 8.1,-8.05 19.25,-8.7 l 2,-0.05 2,0.05 q 11.15,0.65 19.2,8.7 8.1,8.1 8.75,19.25 h -2 q -0.65,-10.35 -8.15,-17.8 -7.45,-7.5 -17.8,-8.1 l -2,-0.1 -2,0.05 q -10.35,0.65 -17.8,8.1 l -0.05,0.05 q -2.45,2.45 -4.15,5.2 -3.5,5.65 -3.95,12.6 h -2 q 0.55,-9.1 5.95,-16.1 1.25,-1.65 2.75,-3.15 m 42.45,42.45 q -8.05,8.1 -19.2,8.75 L 99,614 97,613.95 Q 85.85,613.3 77.75,605.2 L 75,602.1 Q 69.6,595.05 69.05,586 h 2.05 q 0.4,6.9 3.9,12.55 1.7,2.75 4.2,5.25 7.45,7.5 17.8,8.15 l 2,0.05 2,-0.05 q 10.35,-0.65 17.8,-8.15 7.5,-7.45 8.15,-17.8 h 2 q -0.65,11.15 -8.75,19.2 M 99,566 l 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6 m -18,18 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m 20,0.05 q 0,0.8 -0.6,1.35 -0.55,0.6 -1.35,0.6 h -0.1 q -0.8,0 -1.4,-0.6 Q 97,584.85 97,584.05 v -0.1 q 0,-0.8 0.55,-1.4 0.6,-0.55 1.4,-0.55 h 0.1 q 0.8,0 1.35,0.55 0.6,0.6 0.6,1.4 v 0.1 m 16,-0.05 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m 12,-30 v 8 h -4 v -4 h -4 v -4 h 8 m 0,60 h -8 v -4 h 4 v -4 h 4 v 8 m -60,0 v -8 h 4 v 4 h 4 v 4 h -8 m 30,-12 -6,-6 2,-2 4,4 4,-4 2,2 -6,6"
+     id="path494"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 188,566 -10,10 h -2 v -2 l 10,-10 2,2 m -40,0 2,-2 10,10 v 2 h -2 l -10,-10 m 22,18 2,2 v 2 h -2 l -2,-2 -2,2 h -2 v -2 l 2,-2 -2,-2 v -2 h 2 l 2,2 2,-2 h 2 v 2 l -2,2 m 18,18 -2,2 -10,-10 v -2 h 2 l 10,10 m -40,0 10,-10 h 2 v 2 l -10,10 -2,-2"
+     id="path496"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 225,570 -2,2 -10,-10 v -2 h 2 l 10,10 m 0.65,25.3 q -3.95,-3.95 -4.55,-9.3 h 2.05 q 0.55,4.55 3.95,7.9 3.35,3.35 7.9,4 v 2 q -5.35,-0.6 -9.35,-4.6 m 0,-22.65 q 4,-3.95 9.35,-4.55 v 2.05 q -4.55,0.55 -7.9,3.9 l -0.05,0.05 q -3.35,3.35 -3.9,7.9 h -2.05 q 0.6,-5.35 4.55,-9.35 m 22.65,0 q 4,4 4.6,9.35 h -2 q -0.65,-4.55 -4,-7.9 -3.35,-3.4 -7.9,-3.95 v -2.05 q 5.35,0.6 9.3,4.55 M 249,570 259,560 h 2 v 2 l -10,10 -2,-2 m -0.7,25.3 q -3.95,4 -9.3,4.6 v -2 q 4.55,-0.6 7.9,-4 3.4,-3.35 4,-7.9 h 2 q -0.6,5.35 -4.6,9.3 m 0.7,2.7 2,-2 10,10 v 2 h -2 l -10,-10 m -24,0 -10,10 h -2 v -2 l 10,-10 2,2"
+     id="path498"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 377,32 2,2 v 2 h -2 l -2,-2 -2,2 h -2 v -2 l 2,-2 -2,-2 v -2 h 2 l 2,2 2,-2 h 2 v 2 l -2,2"
+     id="path500"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 692,600 7.1,-11 3.45,2.05 L 700,596 h 6 v 4 h -14 m 28,-46 6.55,11 -3.45,2.05 -3.1,-5.15 -3.05,5.15 -3.45,-2.05 6.5,-11 m 2,30 q 0,0.65 -0.35,1.15 l -0.25,0.25 q -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 l -0.2,-0.25 Q 718,584.65 718,584 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 26,16 h -14 v -4 h 6 l -2.5,-4.95 3.45,-2.05 7.05,11"
+     id="path502"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 289,567 q 5.6,-5.55 13,-6.7 v 4.1 q -5.75,1.05 -10.15,5.45 -2.8,2.8 -4.25,6.15 -0.85,1.9 -1.2,4 H 274 v -4 h 9.3 q 1.7,-4.95 5.7,-9 m 0,33.95 q -4,-4 -5.7,-8.95 H 274 v -4 h 12.4 q 0.35,2.1 1.2,4 1.45,3.35 4.25,6.15 4.4,4.4 10.15,5.5 v 4.05 q -7.4,-1.15 -13,-6.75 M 322.95,567 q 4.05,4.05 5.75,9 h 9.3 v 4 h -12.35 q -0.4,-2.1 -1.25,-4 -1.45,-3.35 -4.25,-6.15 -4.4,-4.4 -10.15,-5.45 v -4.1 q 7.4,1.15 12.95,6.7 m 0,33.95 q -5.55,5.6 -12.95,6.75 v -4.05 q 5.75,-1.15 10.1,-5.5 l 0.05,-0.05 q 2.75,-2.75 4.25,-6.1 0.8,-1.9 1.25,-4 H 338 v 4 h -9.3 q -1.75,4.95 -5.75,8.95"
+     id="path504"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 358.05,600.95 Q 351,593.9 351,584 q 0,-9.9 7.05,-16.95 l 5.65,5.65 v 0.05 Q 359,577.4 359,584 q 0,6.6 4.7,11.3 l -5.65,5.65 M 377,584 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 22,0 q 0,9.9 -7.05,16.95 l -5.65,-5.65 q 4.7,-4.7 4.7,-11.3 0,-6.6 -4.7,-11.3 l 5.65,-5.65 Q 399,574.1 399,584"
+     id="path506"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 308.85,512.2 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8 M 306,507 l -6,-6 2,-2 4,4 4,-4 2,2 -6,6 m 6,8 q 0,2.5 -1.75,4.25 -1.75,1.75 -4.25,1.75 -2.5,0 -4.25,-1.75 Q 300,517.5 300,515 q 0,-2.5 1.75,-4.25 1.75,-1.75 4.25,-1.75 2.5,0 4.25,1.75 1.75,1.75 1.75,4.25 m 2,0 6,-6 2,2 -4,4 4,4 -2,2 -6,-6 m -16,0 -6,6 -2,-2 4,-4 -4,-4 2,-2 6,6 m 8,8 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path508"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1065,284 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path510"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1063,286 h 4 v 44 h -4 v -44"
+     id="path512"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1134,284 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path514"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1133,286 h 2 v 44 h -2 v -44"
+     id="path516"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1191,296 h 24 v 4 h -24 v -4"
+     id="path518"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1203,284 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path520"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1201,286 h 4 v 44 h -4 v -44"
+     id="path522"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1195,304 h 16 v 4 h -16 v -4"
+     id="path524"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1197,314 h 12 v 4 h -12 v -4"
+     id="path526"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1199,326 h 8 v 4 h -8 v -4"
+     id="path528"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1271,286 h 2 v 44 h -2 v -44"
+     id="path530"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1260,296 h 24 v 2 h -24 v -2"
+     id="path532"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1272,284 6,6 -2,2 -4,-4 -4,4 -2,-2 6,-6"
+     id="path534"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1264,304 h 16 v 2 h -16 v -2"
+     id="path536"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1266,314 h 12 v 2 h -12 v -2"
+     id="path538"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1268,328 h 8 v 2 h -8 v -2"
+     id="path540"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1329,292 h 24 v 4 h -10 v 4 h 6 v 4 h -6 v 6 h 4 v 4 h -4 v 6 h 2 v 4 h -8 v -4 h 2 v -6 h -4 v -4 h 4 v -6 h -6 v -4 h 6 v -4 h -10 v -4"
+     id="path542"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 650,428 v -14 h 2 v 14 h -2 m -17,0 v 14 h -2 v -16 h 16 v 2 h -14 m 36,0 h -14 v -2 h 16 v 16 h -2 v -14 m 0,17 h 14 v 2 h -14 v -2 m 0,19 v -14 h 2 v 16 h -16 v -2 h 14 m -36,0 h 14 v 2 h -16 v -16 h 2 v 14 m 17,14 v -14 h 2 v 14 h -2 m -31,-33 h 14 v 2 h -14 v -2"
+     id="path544"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 734,460 v -13 h -4 v -2 h 4 v -13 h -13 v 4 h -2 v -4 h -13 v 13 h 4 v 2 h -4 v 13 h 13 v -4 h 2 v 4 h 13 m -30,2 v -15 h -8 v -2 h 8 v -15 h 15 v -8 h 2 v 8 h 15 v 15 h 8 v 2 h -8 v 15 h -15 v 8 h -2 v -8 h -15"
+     id="path546"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 807,428 h -14 v -2 h 16 v 16 h -2 v -14 m 0,36 v -14 h 2 v 16 h -16 v -2 h 14 m -44,-19 h 10 v -15 h 15 v -10 h 2 v 10 h 15 v 15 h 10 v 2 h -10 v 15 h -15 v 10 h -2 v -10 h -15 v -15 h -10 v -2 m 40,15 v -28 h -28 v 28 h 28 m -32,-32 v 14 h -2 v -16 h 16 v 2 h -14 m 0,36 h 14 v 2 h -16 v -16 h 2 v 14"
+     id="path548"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1333,105 -4,4 -12,-12 4,-4 12,12 m 16,0 12,-12 4,4 -12,12 -4,-4 m -10,-6 h 4 v 4 h -4 v -4"
+     id="path550"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 730,659 12,-12 2,2 -12,12 -2,-2 m -8,-6 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -12,6 -2,2 -12,-12 2,-2 12,12"
+     id="path552"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 757,645 h 4 l 8,8 -8,8 h -4 v -16 m 64,0 v 16 h -4 l -8,-8 8,-8 h 4"
+     id="path554"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 848,647 h 4 v -4 h 12 v 4 h 4 v 12 h -4 v 4 h -12 v -4 h -4 v -12 m 8,4 h -4 v 4 h 4 v 4 h 4 v -4 h 4 v -4 h -4 v -4 h -4 v 4"
+     id="path556"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 895,652 h 24 v 2 h -24 v -2 m 40,0 h 24 v 2 h -24 v -2"
+     id="path558"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 964,651 h 20 v 4 h -20 v -4 m 44,0 h 20 v 4 h -20 v -4 m -10,2 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path560"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 964,444 h 22 v 4 h -22 v -4 m 34,4 v 30 h -4 v -30 h 4 m 8,-4 h 22 v 4 h -22 v -4"
+     id="path562"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 868,444 h 16 v 4 h -16 v -4 m -36,0 h 16 v 4 h -16 v -4 m 28,12 v 16 h -4 v -16 h 4"
+     id="path564"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 937,444 h 16 v 4 h -16 v -4 m -36,0 h 16 v 4 h -16 v -4 m 28,12 v 16 h -4 v -16 h 4"
+     id="path566"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 929,446 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path568"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 253,647 -4,-4 h -4 v -4 h 6 l 4,4 h 14 v 4 h -16 m 0,12 h 16 v 4 h -14 l -4,4 h -6 v -4 h 4 l 4,-4 m -10,-6 q 0,2.45 -1.8,4.2 -1.75,1.8 -4.2,1.8 -2.45,0 -4.25,-1.8 -1.75,-1.75 -1.75,-4.2 0,-2.45 1.75,-4.25 1.8,-1.75 4.25,-1.75 2.45,0 4.2,1.75 1.8,1.8 1.8,4.25 m -4.6,-1.4 q -0.6,-0.6 -1.4,-0.6 -0.8,0 -1.35,0.55 l -0.1,0.1 Q 235,652.2 235,653 q 0,0.8 0.6,1.4 0.6,0.6 1.4,0.6 0.75,0 1.35,-0.6 l 0.05,-0.05 q 0.6,-0.6 0.6,-1.35 0,-0.8 -0.6,-1.4 M 205,647 v -4 h 14 l 4,-4 h 6 v 4 h -4 l -4,4 h -16 m 0,12 h 16 l 4,4 h 4 v 4 h -6 l -4,-4 h -14 v -4"
+     id="path570"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1064.9,369.05 q -7.35,0.1 -14.6,7.95 7.25,7.85 14.6,8 7.3,-0.15 14.8,-8 -7.5,-7.85 -14.8,-7.95 m 2.1,7.85 q 0,-0.8 -0.6,-1.4 -0.6,-0.6 -1.4,-0.6 -0.8,0 -1.4,0.55 l -0.05,0.05 q -0.55,0.6 -0.55,1.4 0,0.8 0.6,1.4 0.6,0.6 1.4,0.6 0.8,0 1.35,-0.55 l 0.1,-0.1 q 0.55,-0.55 0.55,-1.35 m 2.2,4.25 q -1.75,1.75 -4.2,1.75 -2.5,0 -4.25,-1.75 -1.75,-1.75 -1.75,-4.25 0,-2.45 1.7,-4.2 l 0.05,-0.05 0.05,-0.05 q 1.75,-1.7 4.2,-1.7 2.5,0 4.25,1.75 1.75,1.75 1.75,4.25 0,2.45 -1.75,4.2 l -0.05,0.05 m -4.3,-16.1 q 9.4,-0.1 18.9,10.6 l 1.2,1.35 -1.2,1.35 q -9.5,10.75 -18.9,10.65 -9.45,0.1 -18.7,-10.65 l -1.15,-1.35 1.15,-1.3 q 9.25,-10.75 18.7,-10.65"
+     id="path572"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1133.9,365.05 q 9.4,-0.1 18.9,10.6 l 1.2,1.35 -1.2,1.35 q -9.5,10.75 -18.9,10.65 -9.45,0.1 -18.7,-10.65 l -1.15,-1.35 1.15,-1.3 q 9.25,-10.75 18.7,-10.65 M 1136,377 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -2.1,-7.95 q -7.35,0.1 -14.6,7.95 7.25,7.85 14.6,8 7.3,-0.15 14.8,-8 -7.5,-7.85 -14.8,-7.95"
+     id="path574"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1183.9,375.8 2.2,-3.35 q 16.7,10.8 33.85,-0.05 l 2.15,3.4 q -19.3,12.25 -38.2,0"
+     id="path576"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1267.35,373.4 v 0.05 h -0.1 l -1.8,1.1 -0.05,0.05 q -0.15,0.05 -1.95,1.35 l -0.9,0.6 0.15,0.3 0.05,0.05 1.4,1.55 v 0.05 q 2.4,2 6.45,2.4 l 0.05,0.05 4.8,-0.35 h -0.05 q 2.7,-0.65 4.5,-2.15 l 1.35,-1.6 0.15,-0.35 -0.8,-0.45 -0.1,-0.1 -2.25,-1.6 q -1.2,-0.8 -2.2,-1.2 l -0.8,-0.15 h -0.15 l -0.8,0.15 -0.1,0.05 -0.25,0.2 0.1,-0.05 q -0.95,0.85 -1.7,0.9 l -0.45,0.05 -0.3,-0.1 -1.1,-0.4 -0.15,-0.1 -0.1,-0.1 -0.45,-0.4 -1.1,-0.2 h -0.1 l -0.45,0.05 -0.1,0.05 -0.7,0.3 m -0.45,-4.15 h 0.05 l 2,-0.25 q 1.95,0.1 3.05,0.9 l 0.7,-0.4 q 1.1,-0.5 2.4,-0.5 l 2.35,0.4 0.1,0.05 2.85,1.55 2.4,1.7 q 0.75,0.5 1.5,0.65 l 2.2,0.4 -0.55,2.05 q -0.45,1.6 -1.25,3.05 -0.9,1.5 -2.2,2.65 -2.4,2.05 -6.15,3 h -0.05 l -6.15,0.4 q -5.4,-0.55 -8.55,-3.35 h -0.05 q -1.35,-1.15 -2.25,-2.6 v -0.05 q -0.9,-1.45 -1.25,-3.15 l -0.45,-1.95 2.05,-0.45 q 0.75,-0.15 1.5,-0.7 v 0.05 l 2.05,-1.45 h -0.05 l 2.3,-1.35 0.1,-0.05 1.35,-0.6"
+     id="path578"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1341,380.85 q 5.8,0 12,-1.85 v 2 q -5.1,3.85 -12,3.85 -6.9,0 -12,-3.85 v -2 q 6.2,1.85 12,1.85 M 1329,377 v -4 l 6,-3.9 0.6,0.2 5.4,1.7 5.4,-1.7 0.6,-0.2 6,3.9 v 4 q -3.55,-0.45 -6.6,-3.45 -2.4,0.9 -4.1,2.35 l -1.3,1.1 -1.3,-1.1 q -1.7,-1.45 -4.1,-2.35 -3.05,3 -6.6,3.45"
+     id="path580"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 397,497 -4,4 -4,-4 4,-4 4,4 m -16,8 6,-6 4,4 -6,6 h -4 v -4 m -12,0 v 4 h -4 l -6,-6 4,-4 6,6 m 0,20 -6,6 -4,-4 6,-6 h 4 v 4 m 12,0 v -4 h 4 l 6,6 -4,4 -6,-6 m 16,8 -4,4 -4,-4 4,-4 4,4 m -44,0 4,-4 4,4 -4,4 -4,-4 m 0,-36 4,-4 4,4 -4,4 -4,-4"
+     id="path582"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 446,515 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 8,-6 -4,-4 6,-6 4,4 -6,6 m 0,12 6,6 -4,4 -6,-6 4,-4 m -20,-12 -6,-6 4,-4 6,6 -4,4 m 0,12 4,4 -6,6 -4,-4 6,-6"
+     id="path584"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="M 30,491 54,515 30,539 6,515 30,491 M 29.95,493.85 8.8,515 30,536.2 51.15,515.05 29.95,493.85 M 28,513 h 4 v 4 h -4 v -4"
+     id="path586"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 101,515 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 97,515.85 97,515 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 M 98.95,493.85 95.4,497.4 94,496 l 5,-5 5,5 -1.45,1.45 -3.6,-3.6 m 21.2,21.2 -3.6,-3.6 1.45,-1.45 5,5 -5,5 -1.4,-1.4 3.55,-3.55 M 111,511 h 2 v 8 h -2 v -8 m -26,0 h 2 v 8 h -2 v -8 m 14,25.2 3.6,-3.6 1.4,1.4 -5,5 -5,-5 1.4,-1.4 3.6,3.6 M 77.8,515 l 3.6,3.6 -1.4,1.4 -5,-5 5,-5 1.4,1.4 -3.6,3.6"
+     id="path588"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 173,496 14,14 -1.45,1.45 -14,-14 L 173,496 m -4,7 v 6 h -2 v -6 h 2 m -20,7 14,-14 1.4,1.4 -14,14 -1.4,-1.4 m 21,5 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -14,-1 h 6 v 2 h -6 v -2 m 18,0 h 6 v 2 h -6 v -2 m -5,7 v 6 h -2 v -6 h 2 m 18,-1 -14,14 -1.4,-1.4 14,-14 1.4,1.4 m -24,14 -14,-14 1.4,-1.4 14,14 -1.4,1.4"
+     id="path590"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 543,487 -25,25 -2,-2 25,-25 2,2 m -28,28 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 26,30 -25,-25 2,-2 25,25 -2,2 m -58,-58 2,-2 25,25 -2,2 -25,-25 m 2,58 -2,-2 25,-25 2,2 -25,25"
+     id="path592"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 590,505 2,2 -4,4 -2,-2 4,-4 m -18,2 2,-2 4,4 -2,2 -4,-4 m 12,8 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -10,10 -2,-2 4,-4 2,2 -4,4 m 18,-2 -2,2 -4,-4 2,-2 4,4"
+     id="path594"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 661,507 -4,4 -2,-2 4,-4 2,2 m 8,-8 -4,4 -2,-2 4,-4 2,2 m 8,-8 -4,4 -2,-2 4,-4 2,2 m -24,24 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 16,16 -2,2 -4,-4 2,-2 4,4 m -8,-8 -2,2 -4,-4 2,-2 4,4 m 16,16 -2,2 -4,-4 2,-2 4,4 m -52,-48 2,-2 4,4 -2,2 -4,-4 m 8,8 2,-2 4,4 -2,2 -4,-4 m 8,8 2,-2 4,4 -2,2 -4,-4 m -16,32 4,-4 2,2 -4,4 -2,-2 m 8,-8 4,-4 2,2 -4,4 -2,-2 m 8,-8 4,-4 2,2 -4,4 -2,-2"
+     id="path596"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 456,584 q 0,-3.5 -1.7,-6.25 l -2.3,2.25 -4,-4 2.3,-2.25 Q 447.5,572 444,572 q -3.5,0 -6.25,1.75 l 2.25,2.25 -4,4 -2.25,-2.25 Q 432,580.5 432,584 q 0,3.5 1.75,6.3 l 2.25,-2.3 4,4 -2.25,2.3 q 2.75,1.7 6.25,1.7 3.5,0 6.3,-1.7 l -2.3,-2.3 4,-4 2.3,2.3 q 1.7,-2.8 1.7,-6.3 m 4,0 q 0,5.15 -2.85,9.15 l 2.85,2.85 -4,4 -2.85,-2.85 -1.15,0.75 q -3.55,2.1 -8,2.1 -5.15,0 -9.15,-2.85 L 432,600 l -4,-4 2.85,-2.85 q -2.85,-4 -2.85,-9.15 0,-5.2 2.85,-9.15 L 428,572 l 4,-4 2.85,2.85 Q 438.8,568 444,568 q 4.45,0 8,2.1 l 1.15,0.75 2.85,-2.85 4,4 -2.85,2.85 q 2.85,4 2.85,9.15"
+     id="path598"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 515,556 v 8 h -4 v -8 h 4 m -18,28 q 0,-5.2 2.85,-9.15 l 2.9,2.9 Q 501,580.5 501,584 q 0,3.5 1.75,6.3 l -2.9,2.85 Q 497,589.15 497,584 m -12,-2 h 8 v 4 h -8 v -4 m 28,-14 q 4.45,0 8,2.1 l 1.15,0.75 -2.85,2.9 Q 516.5,572 513,572 q -3.5,0 -6.25,1.75 l -2.9,-2.9 Q 507.8,568 513,568 m 16,16 q 0,5.15 -2.85,9.15 l -2.85,-2.85 q 1.7,-2.8 1.7,-6.3 0,-3.5 -1.7,-6.25 l 2.85,-2.9 q 2.85,4 2.85,9.15 m 4,-2 h 8 v 4 h -8 v -4 m -12,15.9 q -3.55,2.1 -8,2.1 -5.15,0 -9.15,-2.85 l 2.9,-2.85 q 2.75,1.7 6.25,1.7 3.5,0 6.3,-1.7 l 2.85,2.85 -1.15,0.75 m -10,6.1 h 4 v 8 h -4 v -8"
+     id="path600"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 562,584 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 31.3,-11.35 q 3.2,3.2 4.25,7.35 h -4.2 q -0.85,-2.5 -2.85,-4.5 -2,-2 -4.5,-2.85 L 584,572 v -20 h 2 v 16.5 q 4.1,1 7.3,4.15 m -22.65,0 q 3.2,-3.2 7.35,-4.15 V 552 h 2 v 20 l -2,0.65 q -2.5,0.85 -4.5,2.85 -2,2 -2.85,4.5 h -4.15 q 0.95,-4.15 4.15,-7.35 m 22.65,22.7 q -3.2,3.15 -7.3,4.15 V 616 h -2 v -20 l 2,-0.65 q 2.5,-0.85 4.5,-2.85 2,-2 2.85,-4.5 h 4.2 q -1.05,4.15 -4.25,7.35 m -22.65,0 q -3.2,-3.2 -4.15,-7.35 h 4.15 q 0.85,2.5 2.85,4.5 2,2 4.5,2.85 l 2,0.65 v 20 h -2 v -16.5 q -4.15,-0.95 -7.35,-4.15 M 606,584 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path602"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 667,584 q 0,4.3 -2,7.8 v 4.2 h -3.45 q -4.45,4 -10.55,4 -6.15,0 -10.6,-4 H 637 v -4.15 q -2,-3.5 -2,-7.85 0,-4.35 2,-7.85 V 572 h 3.35 q 4.5,-4 10.65,-4 6.1,0 10.6,4 h 3.4 v 4.15 q 2,3.5 2,7.85 m -7.5,-8.5 q -3.45,-3.4 -8.2,-3.5 h -0.6 q -4.8,0.1 -8.2,3.5 -3.5,3.5 -3.5,8.5 0,4.95 3.5,8.5 3.4,3.4 8.2,3.5 h 0.6 q 4.75,-0.1 8.2,-3.5 3.5,-3.55 3.5,-8.5 0,-5 -3.5,-8.5 M 653,584 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path604"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1071,446 20,-6 2,4 -8,2 8,2 -2,4 -20,-6 m -12,0 -20,6 -2,-4 8,-2 -8,-2 2,-4 20,6"
+     id="path606"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1136,446 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 4,0 20,-8 2,4 -10,4 10,4 -2,4 -20,-8 m -12,0 -20,8 -2,-4 10,-4 -10,-4 2,-4 20,8"
+     id="path608"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1233,432 2,2 -12,12 12,12 -2,2 -14,-14 14,-14 m -28,14 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -6,0 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m 12,0 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -38,-14 14,14 -14,14 -2,-2 12,-12 -12,-12 2,-2"
+     id="path610"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1274.85,443.2 q -1.2,-1.2 -2.85,-1.2 -1.65,0 -2.8,1.2 -1.2,1.15 -1.2,2.8 0,1.65 1.2,2.85 1.15,1.15 2.8,1.15 1.65,0 2.85,-1.15 1.15,-1.2 1.15,-2.85 0,-1.65 -1.15,-2.8 M 1300,446 q 0,-9.95 -6.4,-17.15 l 2.8,-2.85 q 7.6,8.4 7.6,20 0,11.6 -7.65,20 l -2.8,-2.8 Q 1300,455.95 1300,446 m -20,0 q 0,3.3 -2.35,5.65 -2.35,2.35 -5.65,2.35 -3.3,0 -5.65,-2.35 -2.35,-2.35 -2.35,-5.65 0,-3.3 2.35,-5.65 2.35,-2.35 5.65,-2.35 3.3,0 5.65,2.35 2.35,2.35 2.35,5.65 m -36,0 q 0,9.95 6.45,17.2 l -2.85,2.8 q -7.6,-8.4 -7.6,-20 0,-11.6 7.6,-20 l 2.85,2.85 Q 1244,436.05 1244,446"
+     id="path612"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1343,446 q 0,0.85 -0.55,1.45 -0.6,0.55 -1.45,0.55 -0.85,0 -1.4,-0.55 -0.6,-0.6 -0.6,-1.45 0,-0.85 0.6,-1.4 0.55,-0.6 1.4,-0.6 0.85,0 1.45,0.6 0.55,0.55 0.55,1.4 m -30,0 q 0,7.05 3.25,12.75 l 2.75,-2.75 3.85,3.85 -6.25,6.15 q -1.85,-2.05 -3.25,-4.3 -4.35,-6.95 -4.35,-15.7 0,-11.6 7.6,-20 l 6.4,6.4 -4,4 -2.9,-2.9 q -3.1,5.6 -3.1,12.5 m 56,0 q 0,-6.9 -3.05,-12.45 l -2.5,2.45 -4,-4 5.95,-6 q 2,2.2 3.45,4.6 4.15,6.85 4.15,15.4 0,8.6 -4.2,15.45 l -3.45,4.55 -6.35,-6.35 4,-4 2.9,2.9 Q 1369,452.9 1369,446"
+     id="path614"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 101,653 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 97,653.85 97,653 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -14,8 H 67 v -4 h 22 l 10,10 10,-10 h 22 v 4 H 111 L 99,673 87,661 m 0,-16 12,-12 12,12 h 20 v 4 H 109 L 99,639 89,649 H 67 v -4 h 20"
+     id="path616"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 200,657 v 2 h -20 l -12,12 -12,-12 h -20 v -2 h 22 l 10,10 10,-10 h 22 m 0,-8 h -22 l -10,-10 -10,10 h -22 v -2 h 20 l 12,-12 12,12 h 20 v 2 m -30,4 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path618"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 799,495 h 4 v 40 h -4 v -40"
+     id="path620"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 803,495 h 10 v 4 h -10 v -4"
+     id="path622"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 803,503 h 8 v 4 h -8 v -4"
+     id="path624"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 803,511 h 6 v 4 h -6 v -4"
+     id="path626"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 803,519 h 4 v 4 h -4 v -4"
+     id="path628"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 803,527 h 2 v 4 h -2 v -4"
+     id="path630"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 779,495 v 40 h -4 v -40 h 4"
+     id="path632"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 775,495 v 4 h -10 v -4 h 10"
+     id="path634"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 775,503 v 4 h -8 v -4 h 8"
+     id="path636"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 775,511 v 4 h -6 v -4 h 6"
+     id="path638"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 775,519 v 4 h -4 v -4 h 4"
+     id="path640"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 775,527 v 4 h -2 v -4 h 2"
+     id="path642"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 791,515 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path644"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 846,491 v 48 h -4 v -8 h -4 v -4 h 4 v -8 h -8 v -4 h 8 v -8 h -12 v -4 h 12 v -8 h -16 v -4 h 20 m 24,0 h 20 v 4 h -16 v 8 h 12 v 4 h -12 v 8 h 8 v 4 h -8 v 8 h 4 v 4 h -4 v 8 h -4 v -48 m -10,24 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -3,-16 h 2 v 10 h -2 v -10 m 0,22 h 2 v 10 h -2 v -10"
+     id="path646"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1097,495 v 4 h -20 v -4 h 20 m -16,12 h 16 v 4 h -16 v -4 m 16,24 v 4 h -8 v -4 h 8 m 0,-12 v 4 h -12 v -4 h 12"
+     id="path648"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1033,495 h 20 v 4 h -20 v -4 m 16,12 v 4 h -16 v -4 h 16 m -16,12 h 12 v 4 h -12 v -4 m 0,12 h 8 v 4 h -8 v -4"
+     id="path650"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1067,515 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path652"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1064,505 h 2 v 6 h -2 v -6"
+     id="path654"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1064,519 h 2 v 6 h -2 v -6"
+     id="path656"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1055,516 v -2 h 6 v 2 h -6"
+     id="path658"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1069,516 v -2 h 6 v 2 h -6"
+     id="path660"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1136,515 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path662"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1148,495 h 10 v 2 h -10 v -2 m 0,16 h 6 v 2 h -6 v -2 m -4,-16 h 2 v 40 h -2 v -40 m 4,32 h 2 v 2 h -2 v -2"
+     id="path664"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1120,527 v 2 h -2 v -2 h 2 m 4,-32 v 40 h -2 v -40 h 2 m -4,0 v 2 h -10 v -2 h 10 m 0,16 v 2 h -6 v -2 h 6"
+     id="path666"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1000,491 h 20 v 4 h -16 v 8 h 12 v 4 h -12 v 8 h 8 v 4 h -8 v 8 h 4 v 4 h -4 v 8 h -4 v -48"
+     id="path668"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 992,491 v 48 h -4 v -8 h -4 v -4 h 4 v -8 h -8 v -4 h 8 v -8 h -12 v -4 h 12 v -8 h -16 v -4 h 20"
+     id="path670"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 929,495 h 14 v 4 h -10 v 4 h 8 v 4 h -8 v 4 h 6 v 4 h -6 v 4 h 4 v 4 h -4 v 4 h 2 v 4 h -2 v 4 h -4 v -40"
+     id="path672"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 925,495 v 40 h -4 v -4 h -2 v -4 h 2 v -4 h -4 v -4 h 4 v -4 h -6 v -4 h 6 v -4 h -8 v -4 h 8 v -4 h -10 v -4 h 14"
+     id="path674"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 708,499 h 24 v 2 h -11 v 6 h 7 v 2 h -7 v 8 h 5 v 2 h -5 v 10 h 3 v 2 h -8 v -2 h 3 v -10 h -5 v -2 h 5 v -8 h -7 v -2 h 7 v -6 h -11 v -2"
+     id="path676"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1205,515 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45 m -8,8 v -2 h 12 v 2 h -12 m 0,-14 v -2 h 12 v 2 h -12 m -4,2 v -14 h -10 v -2 h 12 v 40 h -2 v -6 h -2 v -2 h 2 v -14 h -6 v -2 h 6 m 18,-16 h 12 v 2 h -10 v 14 h 6 v 2 h -6 v 14 h 2 v 2 h -2 v 6 h -2 v -40"
+     id="path678"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1282,495 h 6 v 2 h -4 v 38 h -2 v -40 m -18,28 v -2 h 16 v 2 h -16 m -4,-26 h -4 v -2 h 6 v 40 h -2 v -38 m 4,12 v -2 h 16 v 2 h -16"
+     id="path680"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 1345,516 v -2 h 10 v 2 h -10 m 12,-8 h 16 v 2 h -16 v -2 m 16,-12 v 2 h -20 v -2 h 20 m -33,23 h 2 v 6 h -2 v -6 m -13,-5 h 10 v 2 h -10 v -2 m 13,-9 h 2 v 6 h -2 v -6 m 33,27 v 2 h -8 v -2 h 8 m 0,-12 v 2 h -12 v -2 h 12 m -64,-24 h 20 v 2 h -20 v -2 m 16,12 v 2 h -16 v -2 h 16 m -16,24 h 8 v 2 h -8 v -2 m 0,-12 h 12 v 2 h -12 v -2"
+     id="path682"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 101,91 q 0,0.85 -0.6,1.4 Q 99.85,93 99,93 98.15,93 97.55,92.4 97,91.85 97,91 97,90.15 97.55,89.55 98.15,89 99,89 q 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path684"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 91,101 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 87,101.85 87,101 87,100.15 87.55,99.55 88.15,99 89,99 q 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path686"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 111,101 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 -0.55,-0.55 -0.55,-1.4 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path688"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 101,111 q 0,0.85 -0.6,1.4 -0.55,0.6 -1.4,0.6 -0.85,0 -1.45,-0.6 Q 97,111.85 97,111 q 0,-0.85 0.55,-1.45 0.6,-0.55 1.45,-0.55 0.85,0 1.4,0.55 0.6,0.6 0.6,1.45"
+     id="path690"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-opacity:1;paint-order:stroke fill markers;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 418.05704,-103.55612 v 16 h -4 v -16 h 4 m 14,30 h 16 v 4 h -16 v -4 m -48,0 h 16 v 4 h -16 v -4 m 34,18 v 16 h -4 v -16 h 4"
+     id="path3259"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers;stroke-width:2.5;stroke-dasharray:none"
+     inkscape:export-filename="../Projects/Godot/Godot4/IsoNameless/Assets/UI/cursor.png"
+     inkscape:export-xdpi="46.195488"
+     inkscape:export-ydpi="46.195488" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 446.05704,-71.55612 q 0,12.45 -8.8,21.2 -8.75,8.8 -21.2,8.8 -12.45,0 -21.25,-8.8 -8.75,-8.75 -8.75,-21.2 0,-12.45 8.75,-21.25 8.8,-8.75 21.25,-8.75 12.45,0 21.2,8.75 8.8,8.8 8.8,21.25 m -11.6,-18.4 q -7.6,-7.6 -18.4,-7.6 -10.8,0 -18.4,7.6 -7.6,7.6 -7.6,18.4 0,10.8 7.6,18.4 7.6,7.6 18.4,7.6 10.8,0 18.4,-7.6 7.6,-7.6 7.6,-18.4 0,-10.8 -7.6,-18.4"
+     id="path3261"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers;stroke-width:2.5;stroke-dasharray:none" />
+  <path
+     stroke="none"
+     fill="#333333"
+     d="m 304.34452,-102.83102 40.1703,21.420498 v 13.39008 l -26.78019,-14.280327 v 26.780166 l -13.39011,-7.14017 v -40.170247 m 18.4468,29.152501 26.21508,13.098471 c 0,0 0.0237,4.471746 -0.0227,9.04126 -0.0464,4.569513 -12.86005,13.00775 -17.42785,10.895977 -4.5678,-2.111773 -8.70281,-4.251276 -8.70281,-4.251276 l -0.0616,-28.784432"
+     id="path3389"
+     style="mix-blend-mode:screen;fill:#ffffff;fill-opacity:1;stroke:#6c1212;stroke-width:3.95019;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+     inkscape:export-filename="../Projects/Godot/Godot4/IsoNameless/Assets/UI/cursor_arrow.png"
+     inkscape:export-xdpi="46.195488"
+     inkscape:export-ydpi="46.195488"
+     sodipodi:nodetypes="ccccccccczzcc" />
+</svg>
