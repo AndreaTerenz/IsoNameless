@@ -36,6 +36,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://Assets/Fonts/good timing bd.ttf"
+
 [input]
 
 ui_cancel={

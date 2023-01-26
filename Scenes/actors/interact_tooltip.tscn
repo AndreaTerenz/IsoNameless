@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct8hs41kaqk3d"]
+[gd_scene load_steps=7 format=3 uid="uid://ct8hs41kaqk3d"]
 
 [ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="1_madl4"]
 [ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="1_ogkag"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="2_ls63q"]
 
-[sub_resource type="GDScript" id="GDScript_8y4f1"]
+[sub_resource type="GDScript" id="GDScript_b4auy"]
 script/source = "extends Sprite3D
 
 @export
-var viewport_size := Vector2i.ONE*256
+var size_override := Vector2i.ZERO
 
 @onready
 var ui := $Control
@@ -22,8 +22,14 @@ func _ready():
 	subview.transparent_bg = true
 	subview.disable_3d = true
 	
-	ui.size = viewport_size
+	if size_override.x * size_override.y != 0.:
+		ui.size = size_override
+	
 	subview.size = ui.size
+	ui.item_rect_changed.connect(
+		func ():
+			subview.size = ui.size
+	)
 	
 	label.text = text
 	
@@ -33,51 +39,55 @@ func _ready():
 	texture = subview.get_texture()
 "
 
-[sub_resource type="LabelSettings" id="LabelSettings_rj8au"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbjxc"]
+content_margin_left = 15.0
+bg_color = Color(0.199219, 0.199219, 0.199219, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_d4qdj"]
 font_size = 30
 
 [node name="Tooltip" type="Sprite3D"]
 billboard = 1
 texture = ExtResource("1_ogkag")
-script = SubResource("GDScript_8y4f1")
+script = SubResource("GDScript_b4auy")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 256.0
-offset_bottom = 256.0
+[node name="Control" type="PanelContainer" parent="."]
+offset_right = 159.0
+offset_bottom = 82.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbjxc")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 35
-theme_override_constants/margin_right = 35
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 2
-alignment = 2
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Interact"
-label_settings = SubResource("LabelSettings_rj8au")
+text = "ugabuga"
+label_settings = SubResource("LabelSettings_d4qdj")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ActionIcon" type="TextureRect" parent="Control/MarginContainer/HBoxContainer"]
+[node name="ActionIcon" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_madl4")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_ls63q")
 action_name = &"fire"

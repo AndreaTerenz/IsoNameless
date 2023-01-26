@@ -63,7 +63,7 @@ func _ready():
 	if tooltip_origin:
 		tooltip = tooltip_scene.instantiate()
 		tooltip.visible = false
-		tooltip.text = tooltip_text
+		tooltip.text = tooltip_text.trim_prefix(" ").trim_suffix(" ")
 		tooltip_origin.add_child(tooltip)
 
 func interact():

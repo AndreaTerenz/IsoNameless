@@ -22,10 +22,8 @@ unique_name_in_owner = true
 [node name="Interactable" type="Area3D" parent="." node_paths=PackedStringArray("tooltip_origin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("3_fuxog")
-tooltip_text = "Talk "
+tooltip_text = "Talk"
 tooltip_origin = NodePath("Node3D")
-mode = null
-start_enabled = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
 shape = SubResource("CapsuleShape3D_wapxf")
