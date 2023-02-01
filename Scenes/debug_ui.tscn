@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bokhgdrbnrduy"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="FontFile" uid="uid://b1rgquheeicsd" path="res://Assets/Fonts/debug_font.ttf" id="1_5coar"]
-[ext_resource type="Script" path="res://Scripts/DebugUI.gd" id="1_6k8ji"]
+[ext_resource type="Script" path="res://Scripts/UIs/DebugUI.gd" id="1_6k8ji"]
 [ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="2_r687s"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="3_rg60s"]
+
 
 [sub_resource type="Theme" id="Theme_4g1ec"]
 default_font = ExtResource("1_5coar")

@@ -29,6 +29,7 @@ const MIN_DB_LEVEL := DEBUG_MSG_MODE.LOG
 
 var player : Player = null
 var debug_ui : DebugUI = null
+var world_env : WorldEnvironment = null
 var start_time := -1.
 
 var log_timestamp := true
@@ -93,3 +94,15 @@ func set_cursor_mode(mode: CURSOR_MODE):
 			return
 	
 	DisplayServer.cursor_set_custom_image(load("res://Assets/UI/%s.png" % cursor_img))
+	
+func set_env_property(prop_name: String, value: Variant):
+	if not world_env:
+		push_error("World environment object not set")
+		return null
+		
+	if not (prop_name in world_env.environment):
+		push_error("Tried to set non-existant environment property '%s'" % prop_name)
+		return null
+		
+	world_env.environment.set(prop_name, value)
+	return value

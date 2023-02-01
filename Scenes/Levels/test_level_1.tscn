@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_qu1om"]
 [ext_resource type="PackedScene" uid="uid://bpqlmx315rwpv" path="res://Scenes/actors/test_interactable.tscn" id="4_73vlm"]
 [ext_resource type="Material" uid="uid://dxkr3knpjdqi6" path="res://Materials/Grids/yellow_grid.tres" id="4_jxqma"]
-[ext_resource type="PackedScene" uid="uid://bq5xdgw0ai7g0" path="res://Scenes/Player.tscn" id="6_4v2tq"]
+[ext_resource type="PackedScene" uid="uid://j5tsuu0t3qik" path="res://Scenes/Player.tscn" id="6_4v2tq"]
 [ext_resource type="Script" path="res://Scripts/EnvElements/Door.gd" id="9_eao6j"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="9_kep4t"]
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bq5xdgw0ai7g0"]
+[gd_scene load_steps=21 format=3 uid="uid://j5tsuu0t3qik"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_eudix"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
 [ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="2_26olt"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
 [ext_resource type="PackedScene" uid="uid://cwowhjdlhepqk" path="res://Scenes/UI.tscn" id="4_mdx2w"]
-[ext_resource type="Script" path="res://Scripts/PlayerStats.gd" id="5_5c2a4"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerStats.gd" id="5_hi0eq"]
 
 [sub_resource type="Curve" id="Curve_vr3k8"]
 _data = [Vector2(0, 0.263636), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.442229, 0.0, 0, 0]
@@ -134,7 +134,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.910256, 0.222222)
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_eudix")
+script = ExtResource("1_qsd5a")
 H_SPEED_CURVE = SubResource("Curve_vr3k8")
 
 [node name="Body" type="MeshInstance3D" parent="."]
@@ -215,7 +215,7 @@ lower_fade = 0.15
 
 [node name="Stats" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("5_5c2a4")
+script = ExtResource("5_hi0eq")
 
 [connection signal="entered_door" from="." to="CameraPivot/OutsideFade" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/OutsideFade" method="_on_player_exited_door"]

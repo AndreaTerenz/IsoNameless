@@ -3,7 +3,7 @@ extends Node3D
 @export var debug_ui_scn : PackedScene = preload("res://Scenes/debug_ui.tscn")
 @export var debug_ui_on_start := false
 
-var debug_ui : Control = null
+var debug_ui : Control = null 
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -17,6 +17,12 @@ func _ready():
 		debug_ui.visible = debug_ui_on_start
 		
 	rotate_y(TAU/8.)
+	
+	for kid in get_children():
+		if kid is WorldEnvironment:
+			Globals.world_env = kid
+			break
+	
 	Globals.start_level()
 
 func _process(_delta):

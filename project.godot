@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 Globals="*res://Scripts/Autoloads/Globals.gd"
 Utils="*res://Scripts/Autoloads/Utils.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GSManager="*res://Scripts/Autoloads/GSManager.gd"
 
 [display]
 
