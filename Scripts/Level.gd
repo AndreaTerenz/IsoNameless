@@ -1,20 +1,22 @@
 extends Node3D
 
 @export var debug_ui_scn : PackedScene = preload("res://Scenes/debug_ui.tscn")
+@export var settings_ui_scn : PackedScene = preload("res://Scenes/UIs/settings_ui.tscn")
 @export var debug_ui_on_start := false
-
-var debug_ui : Control = null 
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	if debug_ui_scn:
-		debug_ui = debug_ui_scn.instantiate()
+		var debug_ui : Control = debug_ui_scn.instantiate()
 		add_child(debug_ui)
 		
 		Globals.debug_ui = debug_ui
-		
 		debug_ui.visible = debug_ui_on_start
+	
+	if settings_ui_scn:
+		var settings_ui : Control = settings_ui_scn.instantiate()
+		add_child(settings_ui)
 		
 	rotate_y(TAU/8.)
 	

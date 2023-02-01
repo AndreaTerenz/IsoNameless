@@ -44,9 +44,12 @@ func store_value(destination_file : ConfigFile = config_file):
 func reset_value():
 	current_value = stored_value
 	
-func apply_value(no_store := false, dest_file: ConfigFile = config_file):
-	if not no_store:
-		store_value(dest_file)
+func apply_value(dest_file: ConfigFile = config_file):
+	if not dest_file:
+		push_error("Tried writing setting '%s/%s' to null ConfigFile" % [category, name])
+	elif changed:
+		dest_file.set_value(category, name, current_value)
+		stored_value = current_value
 		
 	if on_apply:
 		on_apply.call(self)

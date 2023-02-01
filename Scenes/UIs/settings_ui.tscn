@@ -1,4 +1,58 @@
-[gd_scene format=3 uid="uid://blr14acg6v1gp"]
+[gd_scene load_steps=5 format=3 uid="uid://blr14acg6v1gp"]
+
+[ext_resource type="Script" path="res://Scripts/UIs/Settings/BooleanSettingContainer.gd" id="1_flw7d"]
+
+[sub_resource type="GDScript" id="GDScript_g06ku"]
+script/source = "extends Control
+
+func _ready():
+	visible = false
+
+func _input(event):
+	if Input.is_action_just_pressed(\"options\"):
+		visible = not visible
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xtau"]
+bg_color = Color(0.244776, 0.244776, 0.244776, 1)
+shadow_size = 5
+
+[sub_resource type="GDScript" id="GDScript_flmdh"]
+script/source = "extends HBoxContainer
+
+@onready
+var cancel_btn := $CancelBtn
+@onready
+var apply_btn := $ApplyBtn
+@onready
+var defaults_btn := $DefaultsBtn
+
+var settings_edited : bool :
+	set(value):
+		settings_edited = value
+		cancel_btn.disabled = not settings_edited
+		apply_btn.disabled = not settings_edited
+
+func _ready():
+	GSManager.setting_changed.connect(
+		func (c, n, v):
+			settings_edited = true
+	)
+	
+	settings_edited = false
+
+func _on_cancel_btn_pressed():
+	GSManager.reset_settings()
+	settings_edited = false
+
+func _on_apply_btn_pressed():
+	GSManager.apply_settings()
+	settings_edited = false
+
+func _on_defaults_btn_pressed():
+	#TODO: Implement reset-all-to-default button
+	pass # Replace with function body.
+"
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -7,3 +61,184 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_g06ku")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -205.0
+offset_right = 234.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xtau")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Graphics" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="GridContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("check_btn", "reset_btn", "default_btn")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_flw7d")
+check_btn = NodePath("CheckButton")
+setting_category = "Graphics"
+setting_name = "SSAO"
+reset_btn = NodePath("Reset")
+default_btn = NodePath("Default")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "SS Ambient Occlusion
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "R"
+
+[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "D"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("check_btn", "reset_btn", "default_btn")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_flw7d")
+check_btn = NodePath("CheckButton")
+setting_category = "Graphics"
+setting_name = "SSIL"
+reset_btn = NodePath("Reset")
+default_btn = NodePath("Default")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "SS Indirect Lighting"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "R"
+
+[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "D"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("check_btn", "reset_btn", "default_btn")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_flw7d")
+check_btn = NodePath("CheckButton")
+setting_category = "Graphics"
+setting_name = "Glow"
+reset_btn = NodePath("Reset")
+default_btn = NodePath("Default")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Glow"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "R"
+
+[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "D"
+
+[node name="Controls" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
+script = SubResource("GDScript_flmdh")
+
+[node name="CancelBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "Cancel"
+
+[node name="ApplyBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "Apply"
+
+[node name="DefaultsBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Defaults"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/CancelBtn" to="PanelContainer/VBoxContainer/HBoxContainer" method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/ApplyBtn" to="PanelContainer/VBoxContainer/HBoxContainer" method="_on_apply_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/DefaultsBtn" to="PanelContainer/VBoxContainer/HBoxContainer" method="_on_defaults_btn_pressed"]

@@ -2,7 +2,6 @@ extends Node
 
 signal reset
 signal loaded
-signal stored
 signal applied
 signal setting_changed(c, n, v)
 
@@ -29,13 +28,14 @@ var settings = {
 	),
 }
 
-var debug_force_default := true
+var debug_force_default := false
 
 func _ready():
-	if debug_force_default or not ResourceLoader.exists(CONFIG_PATH):
+	var config_exists := FileAccess.file_exists(CONFIG_PATH)
+	
+	if debug_force_default or not config_exists:
 		push_warning("Config file '%s' not found" % CONFIG_PATH)
 		load_settings(DEFAULT_CONFIG_PATH)
-		store_settings(CONFIG_PATH)
 	else:
 		load_settings(CONFIG_PATH)
 	
@@ -46,20 +46,13 @@ func _ready():
 	
 func load_settings(path := CONFIG_PATH):
 	config_file.load(path)
-	
 	_foreach_setting(func (setting): setting.load_value())
 	
 	loaded.emit()
-		
-func store_settings(path := CONFIG_PATH):
-	_foreach_setting(func (setting): setting.store_value())
-		
-	config_file.save(path)
 	
-	stored.emit()
-	
-func apply_settings():
+func apply_settings(path := CONFIG_PATH):
 	_foreach_setting(func (setting): setting.apply_value())
+	config_file.save(path)
 	
 	applied.emit()
 		
@@ -82,3 +75,26 @@ func set_value(s_category: String, s_name: String, value : Variant = null):
 		return true
 		
 	return false
+	
+func reset_value(s_category: String, s_name: String):
+	var key := "%s:%s" % [s_category, s_name]
+	var setting = settings.get(key)
+	
+	if setting:
+		setting.reset_value()
+		setting_changed.emit(s_category, s_name, setting.current_value)
+		return true
+		
+	return false
+	
+func get_setting_key(s_category: String, s_name: String):
+	var key := "%s:%s" % [s_category, s_name]
+	
+	if key in settings.keys():
+		return key
+		
+	return ""
+	
+func get_setting(s_category: String, s_name: String):
+	var setting_key = get_setting_key(s_category, s_name)
+	return settings.get(setting_key)

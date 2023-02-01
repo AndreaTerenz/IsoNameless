@@ -206,7 +206,7 @@ vertical_alignment = 1
 [node name="ActionIcon4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_ndwia")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_e7878")
 action_name = &"move"
@@ -221,7 +221,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_ndwia")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_e7878")
 action_name = &"sprint"
@@ -235,7 +235,7 @@ vertical_alignment = 1
 [node name="ActionIcon3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_ndwia")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_e7878")
 action_name = &"toggle_debug_ui"
@@ -249,7 +249,7 @@ vertical_alignment = 1
 [node name="ActionIcon2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_ndwia")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_e7878")
 action_name = &"quit"

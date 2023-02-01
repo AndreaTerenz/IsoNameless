@@ -60,10 +60,6 @@ var current_mode := MODE.NORMAL :
 	get:
 		return current_mode
 	set(new_mode):
-		if new_mode == MODE.DIALOGUE and talking_to == null:
-			push_error("Tried to set Player mode to Dialogue without talking to an NPC")
-			new_mode = MODE.NORMAL
-		
 		current_mode = new_mode
 		
 		match current_mode:
@@ -239,12 +235,15 @@ func _physics_process(delta):
 			sprinting_collided = true
 	
 func _input(_event):
-	if Input.is_action_just_pressed("fire"):
-		interact()
-		
-	if Input.is_action_just_pressed("toggle_combat") and current_mode != MODE.DIALOGUE:
-
-		current_mode = MODE.COMBAT if (current_mode == MODE.NORMAL) else MODE.NORMAL
+	if Input.is_action_just_pressed("options"):
+		current_mode = MODE.DIALOGUE if (current_mode == MODE.NORMAL) else MODE.NORMAL
+	
+	if current_mode != MODE.DIALOGUE:
+		if Input.is_action_just_pressed("fire"):
+			interact()
+			
+		if Input.is_action_just_pressed("toggle_combat"):
+			current_mode = MODE.COMBAT if (current_mode == MODE.NORMAL) else MODE.NORMAL
 			
 func interact():
 	var ray_length = global_position.distance_to(Globals.player.global_position) + 30.
