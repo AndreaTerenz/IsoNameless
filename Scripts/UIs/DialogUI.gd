@@ -22,7 +22,7 @@ var close_btn = %CloseBtn
 
 var parent_npc : NPC = null
 var next_id := ""
-var responses : Array[DialogueResponse] = []
+var responses : Array = []
 var stop := false
 
 func setup(diag_f : DialogueResource, n: String, propic: Texture, skip := true, par : NPC = get_parent()):

@@ -51,7 +51,7 @@ func _ready():
 		opt_buttons_cont.remove_child(kid)
 		kid.queue_free()
 
-func show_options(opts : Array[DialogueResponse]):
+func show_options(opts : Array):
 	var existing_btns := opt_buttons_cont.get_child_count()
 	var min_len = min(len(opts), existing_btns)
 	var delta = abs(len(opts) - existing_btns)

@@ -283,7 +283,7 @@ func check_condition(data: Dictionary, extra_game_states: Array) -> bool:
 
 # Make a change to game state or run a method
 func mutate(mutation: Dictionary, extra_game_states: Array) -> void:
-	var expression: Array[Dictionary] = mutation.expression
+	var expression: Array = mutation.expression
 	
 	# Handle built in mutations
 	if expression[0].type == DialogueConstants.TOKEN_FUNCTION and expression[0].function in ["wait", "emit", "debug"]:

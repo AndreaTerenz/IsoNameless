@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://blr14acg6v1gp"]
+[gd_scene load_steps=6 format=3 uid="uid://blr14acg6v1gp"]
 
 [ext_resource type="Script" path="res://Scripts/UIs/Settings/BooleanSettingContainer.gd" id="1_flw7d"]
+[ext_resource type="Script" path="res://Scripts/UIs/Settings/NumberSettingContainer.gd" id="2_654xw"]
 
-[sub_resource type="GDScript" id="GDScript_g06ku"]
+[sub_resource type="GDScript" id="GDScript_bj2mg"]
 script/source = "extends Control
 
 func _ready():
@@ -11,13 +12,14 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed(\"options\"):
 		visible = not visible
+		GSManager.reset_settings()
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xtau"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s55pa"]
 bg_color = Color(0.244776, 0.244776, 0.244776, 1)
 shadow_size = 5
 
-[sub_resource type="GDScript" id="GDScript_flmdh"]
+[sub_resource type="GDScript" id="GDScript_vuc46"]
 script/source = "extends HBoxContainer
 
 @onready
@@ -37,6 +39,11 @@ func _ready():
 	GSManager.setting_changed.connect(
 		func (c, n, v):
 			settings_edited = true
+	)
+	
+	GSManager.reset.connect(
+		func ():
+			settings_edited = false
 	)
 	
 	settings_edited = false
@@ -61,7 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_g06ku")
+script = SubResource("GDScript_bj2mg")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -76,7 +83,7 @@ offset_right = 234.0
 offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4xtau")
+theme_override_styles/panel = SubResource("StyleBoxFlat_s55pa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -203,6 +210,75 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "D"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("check_btn", "reset_btn", "default_btn")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_flw7d")
+check_btn = NodePath("CheckButton")
+setting_category = "Graphics"
+setting_name = "Vsync"
+reset_btn = NodePath("Reset")
+default_btn = NodePath("Default")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Use Vsync"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "R"
+
+[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "D"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("range_node", "reset_btn", "default_btn")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_654xw")
+range_node = NodePath("SpinBox")
+setting_category = "Graphics"
+setting_name = "Max_fps"
+reset_btn = NodePath("Reset")
+default_btn = NodePath("Default")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "FPS Limit"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 300.0
+update_on_text_changed = true
+
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "R"
+
+[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "D"
+
 [node name="Controls" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -217,7 +293,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 40
 alignment = 1
-script = SubResource("GDScript_flmdh")
+script = SubResource("GDScript_vuc46")
 
 [node name="CancelBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 30)
