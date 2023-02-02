@@ -32,6 +32,13 @@ func _ready():
 			reset_btn.disabled = true
 	)
 	
+	GSManager.loaded_defaults.connect(
+		func ():
+			if _ui_value() != current_setting_value:
+				_setting_to_ui(current_setting_value)
+				reset_btn.disabled = true
+	)
+	
 	GSManager.applied.connect(
 		func ():
 			reset_btn.disabled = true
@@ -43,10 +50,13 @@ func set_value(val):
 	GSManager.set_value(setting_category, setting_name, val)
 	reset_btn.disabled = false
 
-# VIRTUAL - update setting value from UI state
-func _ui_to_setting():
-	pass
+func ui_to_setting():
+	set_value(_ui_value())
 
 # VIRTUAL - update UI state from setting value
 func _setting_to_ui(value):
 	pass
+
+# VIRTUAL - return UI state
+func _ui_value():
+	return null

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://blr14acg6v1gp"]
+[gd_scene load_steps=7 format=3 uid="uid://blr14acg6v1gp"]
 
 [ext_resource type="Script" path="res://Scripts/UIs/Settings/BooleanSettingContainer.gd" id="1_flw7d"]
+[ext_resource type="Texture2D" uid="uid://bctvx5ryv8o2i" path="res://Assets/UI/Icons/undo_arrow.svg" id="2_67qc1"]
 [ext_resource type="Script" path="res://Scripts/UIs/Settings/NumberSettingContainer.gd" id="2_654xw"]
 
-[sub_resource type="GDScript" id="GDScript_bj2mg"]
+[sub_resource type="GDScript" id="GDScript_nchg2"]
 script/source = "extends Control
 
 func _ready():
@@ -15,11 +16,11 @@ func _input(event):
 		GSManager.reset_settings()
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s55pa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nofbu"]
 bg_color = Color(0.244776, 0.244776, 0.244776, 1)
 shadow_size = 5
 
-[sub_resource type="GDScript" id="GDScript_vuc46"]
+[sub_resource type="GDScript" id="GDScript_ri8so"]
 script/source = "extends HBoxContainer
 
 @onready
@@ -37,7 +38,7 @@ var settings_edited : bool :
 
 func _ready():
 	GSManager.setting_changed.connect(
-		func (c, n, v):
+		func (_c, _n, _v):
 			settings_edited = true
 	)
 	
@@ -57,8 +58,8 @@ func _on_apply_btn_pressed():
 	settings_edited = false
 
 func _on_defaults_btn_pressed():
-	#TODO: Implement reset-all-to-default button
-	pass # Replace with function body.
+	GSManager.load_default_settings()
+	settings_edited = true
 "
 
 [node name="Settings" type="Control"]
@@ -68,7 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_bj2mg")
+script = SubResource("GDScript_nchg2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -83,7 +84,7 @@ offset_right = 234.0
 offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_s55pa")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nofbu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -137,9 +138,10 @@ size_flags_horizontal = 2
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
-text = "R"
+icon = ExtResource("2_67qc1")
 
 [node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "D"
@@ -170,9 +172,10 @@ size_flags_horizontal = 2
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
-text = "R"
+icon = ExtResource("2_67qc1")
 
 [node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "D"
@@ -203,9 +206,10 @@ size_flags_horizontal = 2
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
-text = "R"
+icon = ExtResource("2_67qc1")
 
 [node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer3"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "D"
@@ -236,9 +240,10 @@ size_flags_horizontal = 2
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
-text = "R"
+icon = ExtResource("2_67qc1")
 
 [node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "D"
@@ -272,9 +277,10 @@ update_on_text_changed = true
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
-text = "R"
+icon = ExtResource("2_67qc1")
 
 [node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer5"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "D"
@@ -293,7 +299,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 40
 alignment = 1
-script = SubResource("GDScript_vuc46")
+script = SubResource("GDScript_ri8so")
 
 [node name="CancelBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 30)

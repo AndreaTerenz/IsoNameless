@@ -1,7 +1,8 @@
 extends Node
 
 signal reset
-signal loaded
+signal loaded(from)
+signal loaded_defaults
 signal applied
 signal setting_changed(c, n, v)
 
@@ -59,7 +60,11 @@ func load_settings(path := CONFIG_PATH):
 	config_file.load(path)
 	_foreach_setting(func (setting): setting.load_value())
 	
-	loaded.emit()
+	loaded.emit(path)
+	
+func load_default_settings():
+	load_settings(DEFAULT_CONFIG_PATH)
+	loaded_defaults.emit()
 	
 func apply_settings(path := CONFIG_PATH):
 	_foreach_setting(func (setting): setting.apply_value())

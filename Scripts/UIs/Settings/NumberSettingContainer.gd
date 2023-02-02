@@ -9,13 +9,15 @@ func _ready():
 	
 	range_node.value_changed.connect(
 		func (_value):
-			_ui_to_setting()
+			ui_to_setting()
 	)
 
-# VIRTUAL - update setting value from UI state
-func _ui_to_setting():
-	set_value(range_node.value)
+func _ui_value():
+	return range_node.value
 
-# VIRTUAL - update UI state from setting value
 func _setting_to_ui(value):
 	range_node.set_value_no_signal(value)
+	
+	if range_node is SpinBox:
+		# Immense anger 
+		range_node.get_line_edit().text = str(value)
