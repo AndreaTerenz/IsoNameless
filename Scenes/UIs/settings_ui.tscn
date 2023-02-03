@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://blr14acg6v1gp"]
+[gd_scene load_steps=9 format=3 uid="uid://blr14acg6v1gp"]
 
 [ext_resource type="Script" path="res://Scripts/UIs/Settings/BooleanSettingContainer.gd" id="1_flw7d"]
 [ext_resource type="Texture2D" uid="uid://bctvx5ryv8o2i" path="res://Assets/UI/Icons/undo_arrow.svg" id="2_67qc1"]
 [ext_resource type="Script" path="res://Scripts/UIs/Settings/NumberSettingContainer.gd" id="2_654xw"]
+[ext_resource type="Script" path="res://Scripts/UIs/Settings/OptionsSettingContainer.gd" id="3_pl4nq"]
 
-[sub_resource type="GDScript" id="GDScript_nchg2"]
+[sub_resource type="GDScript" id="GDScript_umatk"]
 script/source = "extends Control
 
 func _ready():
@@ -16,11 +17,24 @@ func _input(event):
 		GSManager.reset_settings()
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nofbu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nolf0"]
 bg_color = Color(0.244776, 0.244776, 0.244776, 1)
 shadow_size = 5
 
-[sub_resource type="GDScript" id="GDScript_ri8so"]
+[sub_resource type="GDScript" id="GDScript_fbrhf"]
+script/source = "extends OptionButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	clear()
+	add_item(\"Enabled\", DisplayServer.VSYNC_ENABLED)
+	add_item(\"Disabled\", DisplayServer.VSYNC_DISABLED)
+	add_item(\"Adaptive\", DisplayServer.VSYNC_ADAPTIVE)
+	add_item(\"Mailbox\", DisplayServer.VSYNC_MAILBOX)
+"
+
+[sub_resource type="GDScript" id="GDScript_xl7i0"]
 script/source = "extends HBoxContainer
 
 @onready
@@ -69,7 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_nchg2")
+script = SubResource("GDScript_umatk")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -84,7 +98,7 @@ offset_right = 234.0
 offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nofbu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nolf0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -214,35 +228,37 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "D"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("check_btn", "reset_btn", "default_btn")]
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer" node_paths=PackedStringArray("option_btn", "reset_btn", "default_btn")]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("1_flw7d")
-check_btn = NodePath("CheckButton")
+script = ExtResource("3_pl4nq")
+option_btn = NodePath("OptionButton")
 setting_category = "Graphics"
-setting_name = "Vsync"
+setting_name = "Vsync_mode"
 reset_btn = NodePath("Reset")
 default_btn = NodePath("Default")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Use Vsync"
+text = "Vsync mode"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer6"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = SubResource("GDScript_fbrhf")
 
-[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+[node name="Reset" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer6"]
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 icon = ExtResource("2_67qc1")
 
-[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer4"]
+[node name="Default" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/HBoxContainer6"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 4
@@ -299,7 +315,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 40
 alignment = 1
-script = SubResource("GDScript_ri8so")
+script = SubResource("GDScript_xl7i0")
 
 [node name="CancelBtn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 30)

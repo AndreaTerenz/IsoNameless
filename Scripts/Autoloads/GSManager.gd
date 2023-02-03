@@ -27,10 +27,9 @@ var settings = {
 			Globals.set_env_property("glow_enabled", setting.current_value)
 			pass\
 	),
-	"Graphics:Vsync": GameSetting.new("Graphics", "Vsync", config_file, \
+	"Graphics:Vsync_mode": GameSetting.new("Graphics", "Vsync_mode", config_file, \
 		func (setting : GameSetting):
-			var vsync_mode := DisplayServer.VSYNC_ENABLED if setting.current_value else DisplayServer.VSYNC_DISABLED
-			DisplayServer.window_set_vsync_mode(vsync_mode)
+			DisplayServer.window_set_vsync_mode(setting.current_value)
 			pass\
 	),
 	"Graphics:Max_fps": GameSetting.new("Graphics", "Max_fps", config_file, \
