@@ -12,8 +12,6 @@ static func vec_sub(v, s: String):
 	
 	var regex = RegEx.new()
 	
-	var regex_str :=  ""
-	
 	if v is Vector2:
 		regex.compile("^[xy0]{2,4}$")
 	elif v is Vector3:
