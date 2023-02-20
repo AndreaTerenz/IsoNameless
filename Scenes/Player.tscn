@@ -36,15 +36,20 @@ albedo_color = Color(0.952941, 0.858824, 0.611765, 0.376471)
 [sub_resource type="GDScript" id="GDScript_o1kn3"]
 script/source = "extends Node3D
 
+@export_range(0., 1., .001)
+var position_delay_factor = .85
+
 var initial_rot := Vector3.ZERO
 
 func _ready():
 	await Globals.level_started
 	initial_rot = global_rotation
+	top_level = true
 
 func _process(delta):
 	# Ignore player rotation
 	global_rotation = initial_rot
+	global_position = lerp(global_position, get_parent().global_position, 1. - position_delay_factor)
 "
 
 [sub_resource type="GDScript" id="GDScript_pbuh2"]
@@ -195,7 +200,7 @@ script = SubResource("GDScript_8giqv")
 
 [node name="AO Decal" type="Decal" parent="."]
 layers = 4
-extents = Vector3(0.5, 1.28092, 0.5)
+size = Vector3(1, 2.56184, 1)
 texture_albedo = ExtResource("3_s0417")
 upper_fade = 2.85409
 lower_fade = 2.85409
@@ -208,7 +213,7 @@ process_mode = 3
 [node name="SprintDecal" type="Decal" parent="."]
 unique_name_in_owner = true
 top_level = true
-extents = Vector3(0.5, 0.33, 0.5)
+size = Vector3(1, 0.66, 1)
 texture_albedo = SubResource("GradientTexture2D_2wbcu")
 upper_fade = 0.15
 lower_fade = 0.15
