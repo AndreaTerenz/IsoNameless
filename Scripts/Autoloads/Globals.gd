@@ -39,7 +39,7 @@ var started:
 		return start_time >= 0.
 
 func _ready():
-	set_cursor_mode(CURSOR_MODE.NORMAL)
+	#set_cursor_mode(CURSOR_MODE.NORMAL)
 	enforce_display_size()
 	
 func enforce_display_size():
@@ -115,7 +115,7 @@ func set_cursor_mode(mode: CURSOR_MODE):
 			
 	var img = load("res://Assets/UI/%s.png" % cursor_img)
 	
-	DisplayServer.cursor_set_custom_image(img, 0, center_cursor * img.get_size()/2.)
+	DisplayServer.cursor_set_custom_image(img, DisplayServer.CURSOR_ARROW, center_cursor * img.get_size()/2.)
 	
 func set_env_property(prop_name: String, value: Variant):
 	if not world_env:

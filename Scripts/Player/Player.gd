@@ -77,16 +77,15 @@ var talking_to : NPC = null :
 		talking_to = new_val
 		current_mode = MODE.DIALOGUE if talking_to else MODE.NORMAL
 
-var gianfranco : MeshInstance3D = null
-
 func _ready():
 	Globals.set_player(self)
 	current_mode = initial_mode
 	sprint_decal.visible = false
 
 func get_h_direction() -> Vector2:
-	# Get the input direction and handle the movement/deceleration.
 	target_dir = Input.get_vector("right", "left", "backward", "forward")
+	# Direction is screen-dependant, so it has to account for camera rotation
+	target_dir = target_dir.rotated(-camera_pivot.target_rot)
 	current_dir = current_dir.lerp(target_dir, ROT_SPEED)
 	
 	return current_dir
