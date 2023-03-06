@@ -22,7 +22,7 @@
 script = ExtResource("2_npikm")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.1835, -2.38419e-07, -21.4229)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="test_interactable" parent="." index="1" instance=ExtResource("4_73vlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6976, 4.37253, 0)

@@ -31,7 +31,7 @@ var player : Player = null
 var debug_ui : DebugUI = null
 var world_env : WorldEnvironment = null
 var start_time := -1.
-
+var log_queue := []
 var log_timestamp := true
 
 var started:
@@ -39,7 +39,17 @@ var started:
 		return start_time >= 0.
 
 func _ready():
-	pass
+	set_cursor_mode(CURSOR_MODE.NORMAL)
+	enforce_display_size()
+	
+func enforce_display_size():
+	var size := DisplayServer.window_get_size()
+	var w = ProjectSettings.get_setting("display/window/size/viewport_width")
+	var h = ProjectSettings.get_setting("display/window/size/viewport_height")
+	var expected_size := Vector2i(int(w), int(h))
+	
+	if size != expected_size:
+		DisplayServer.window_set_size(Vector2i(int(w),int(h)))
 	
 func _input(_event):
 	if Input.is_action_just_pressed("quit"):
@@ -47,6 +57,11 @@ func _input(_event):
 		
 func start_level():
 	start_time = Time.get_unix_time_from_system()
+	
+	for obj in log_queue:
+		log_msg(obj)
+	log_queue.clear()
+	
 	Globals.log_msg("Level started")
 	level_started.emit()
 
@@ -78,22 +93,29 @@ func log_msg(obj, mode: DEBUG_MSG_MODE = DEBUG_MSG_MODE.LOG, print_stdout := tru
 		
 		if print_stdout:
 			print(s)
+	elif not started:
+		log_queue.append(obj)
 	
 	return obj
 	
 func set_cursor_mode(mode: CURSOR_MODE):
 	var cursor_img = ""
+	var center_cursor := -1.
 	
 	match mode:
 		CURSOR_MODE.NORMAL:
 			cursor_img = "cursor_arrow"
+			center_cursor = 0.
 		CURSOR_MODE.COMBAT:
 			cursor_img = "cursor_combat"
+			center_cursor = 1.
 		_:
 			push_warning("Invalid cursor mode (%s)" % mode)
 			return
+			
+	var img = load("res://Assets/UI/%s.png" % cursor_img)
 	
-	DisplayServer.cursor_set_custom_image(load("res://Assets/UI/%s.png" % cursor_img))
+	DisplayServer.cursor_set_custom_image(img, 0, center_cursor * img.get_size()/2.)
 	
 func set_env_property(prop_name: String, value: Variant):
 	if not world_env:

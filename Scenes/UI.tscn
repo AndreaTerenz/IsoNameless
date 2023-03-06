@@ -187,6 +187,7 @@ script = SubResource("GDScript_p72p2")
 stat_name = "stamina"
 
 [node name="MarginContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 176.0
 offset_bottom = 229.0

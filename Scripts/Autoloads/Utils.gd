@@ -80,7 +80,7 @@ func isect_line_plane_v3(p0: Vector3, p1: Vector3, p_co: Vector3, p_no: Vector3,
 	# The segment is parallel to plane.
 	return null
 
-func create_debug_mesh(mesh: Mesh, global_pos: Vector3, material : Material = preload("res://Materials/Grids/white_grid.tres")):
+func create_debug_mesh(global_pos: Vector3, mesh: Mesh = SphereMesh.new(), material : Material = preload("res://Materials/Grids/white_grid.tres")):
 	if mute_debug_meshes:
 		return null
 	
@@ -88,8 +88,10 @@ func create_debug_mesh(mesh: Mesh, global_pos: Vector3, material : Material = pr
 	mesh_inst.mesh = mesh
 	mesh_inst.set_surface_override_material(0, material)
 	
-	get_tree().root.add_child.call_deferred((mesh_inst))
-	await mesh_inst.tree_entered
+	get_tree().root.add_child(mesh_inst)
+	
+
+	
 	mesh_inst.global_position = global_pos
 	
 	return mesh_inst

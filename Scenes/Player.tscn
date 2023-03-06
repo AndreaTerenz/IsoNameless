@@ -1,10 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://j5tsuu0t3qik"]
+[gd_scene load_steps=26 format=3 uid="uid://j5tsuu0t3qik"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
 [ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="2_26olt"]
+[ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_ks13a"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
+[ext_resource type="Material" uid="uid://bgvpmepmf5xgn" path="res://Materials/Grids/purple_grid.tres" id="4_glhws"]
 [ext_resource type="PackedScene" uid="uid://cwowhjdlhepqk" path="res://Scenes/UI.tscn" id="4_mdx2w"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerStats.gd" id="5_hi0eq"]
+[ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="6_4ucgw"]
 
 [sub_resource type="Curve" id="Curve_vr3k8"]
 _data = [Vector2(0, 0.263636), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.442229, 0.0, 0, 0]
@@ -31,6 +34,11 @@ diffuse_mode = 3
 disable_ambient_light = true
 albedo_color = Color(0.952941, 0.858824, 0.611765, 0.376471)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_tnghl"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 3.0
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpuet"]
 
 [sub_resource type="GDScript" id="GDScript_o1kn3"]
@@ -50,6 +58,49 @@ func _process(delta):
 	# Ignore player rotation
 	global_rotation = initial_rot
 	global_position = lerp(global_position, get_parent().global_position, 1. - position_delay_factor)
+"
+
+[sub_resource type="GDScript" id="GDScript_3r0yw"]
+script/source = "extends Camera3D
+
+var player : Player :
+	get:
+		if not Globals.player:
+			await Globals.player_set
+		return Globals.player
+var dist_to_player : float :
+	get:
+		return global_position.distance_to(player.global_position)
+
+func get_mouse_ray(length := 1.) -> Array[Vector3]:
+	var mouse_pos := get_viewport().get_mouse_position()
+	var from := project_ray_origin(mouse_pos)
+	var to := project_position(mouse_pos, length)
+	
+	return [from, to]
+
+func mouse_ground_projection() -> Vector3:
+	var mouse_ray := get_mouse_ray(dist_to_player + 15.)
+	var A := mouse_ray[0]
+	var B := mouse_ray[1]
+	
+	var P : Vector3 = player.global_position
+	var N : Vector3 = (Vector3.UP)
+	
+	# FIXME : Check if point is actually reachable
+	
+	var output = Utils.isect_line_plane_v3(A,B,P,N)
+	
+	return output
+
+func get_mouse_rotation() -> float:
+	var viewport := get_viewport()
+	var mouse_pos = viewport.get_mouse_position()
+	var screen_size := viewport.get_visible_rect().size
+	var screen_center = screen_size / 2.
+	var mouse_delta : Vector2 = screen_center - mouse_pos
+	
+	return -mouse_delta.angle() + TAU / 8.
 "
 
 [sub_resource type="GDScript" id="GDScript_pbuh2"]
@@ -138,6 +189,61 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.910256, 0.222222)
 
+[sub_resource type="GDScript" id="GDScript_c6h3w"]
+script/source = "extends Node
+
+signal dialogue_start(other)
+signal dialogue_end
+
+var player : Player = null
+var interact_ray = null
+var camera : Camera3D = null
+var talking_to : NPC = null :
+	get:
+		return talking_to
+	set(new_val):
+		talking_to = new_val
+		if talking_to:
+			dialogue_start.emit(talking_to)
+		else:
+			dialogue_end.emit()
+var enabled := false
+
+func _ready():
+	if not Globals.player:
+		await Globals.player_set
+		
+	player = Globals.player
+	interact_ray = player.interact_ray
+	camera = player.camera
+
+func _input(_event):
+	if enabled:
+		if Input.is_action_just_pressed(\"fire\"):
+			interact()
+				
+func interact():
+	var ray_length = camera.dist_to_player + 15.
+	var m_ray : Array[Vector3] = camera.get_mouse_ray(ray_length)
+	
+	var from = m_ray[0]
+	var to = m_ray[1]
+	
+	var interactable = interact_ray.check(from, to)
+	if interactable:
+		interactable.interact()
+		
+		if interactable.get_parent() is NPC:
+			talking_to = interactable.get_parent()
+			talking_to.dialogue_done.connect(
+				func ():
+					talking_to = null
+			)
+
+func _on_player_mode_changed(md):
+	enabled = (md != Player.MODE.DIALOGUE)
+"
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_qsd5a")
 H_SPEED_CURVE = SubResource("Curve_vr3k8")
@@ -149,13 +255,35 @@ gi_mode = 2
 mesh = SubResource("CapsuleMesh_kb6wn")
 surface_material_override/0 = SubResource("StandardMaterial3D_18b2u")
 
+[node name="DBAxes" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
+
+[node name="Y" type="MeshInstance3D" parent="Body/DBAxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_tnghl")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("6_4ucgw")
+
+[node name="X" type="MeshInstance3D" parent="Body/DBAxes"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("CylinderMesh_tnghl")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_ks13a")
+
+[node name="Z" type="MeshInstance3D" parent="Body/DBAxes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1)
+mesh = SubResource("CylinderMesh_tnghl")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("4_glhws")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_gpuet")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, -0.5, -0.5, 0, 1, 0)
+transform = Transform3D(-0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, -0.5, -0.5, 0, 0, 0)
 script = SubResource("GDScript_o1kn3")
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
@@ -165,6 +293,7 @@ projection = 1
 size = 14.0
 near = 0.001
 far = 280.04
+script = SubResource("GDScript_3r0yw")
 
 [node name="InteractRay" type="RayCast3D" parent="CameraPivot/Camera"]
 unique_name_in_owner = true
@@ -222,6 +351,13 @@ lower_fade = 0.15
 unique_name_in_owner = true
 script = ExtResource("5_hi0eq")
 
+[node name="InteractManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = SubResource("GDScript_c6h3w")
+
 [connection signal="entered_door" from="." to="CameraPivot/OutsideFade" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/OutsideFade" method="_on_player_exited_door"]
+[connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
 [connection signal="stat_changed" from="Stats" to="UI" method="_on_stats_stat_changed"]
+[connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
+[connection signal="dialogue_start" from="InteractManager" to="." method="_on_interact_manager_dialogue_start"]

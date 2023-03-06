@@ -77,6 +77,8 @@ var talking_to : NPC = null :
 		talking_to = new_val
 		current_mode = MODE.DIALOGUE if talking_to else MODE.NORMAL
 
+var gianfranco : MeshInstance3D = null
+
 func _ready():
 	Globals.set_player(self)
 	current_mode = initial_mode
@@ -117,30 +119,10 @@ func get_v_velocity(current: float, delta: float) -> Vector3:
 		output *= current
 		
 	return output
-	
-func get_mouse_rotation() -> float:
-	var viewport := get_viewport()
-	var mouse_pos = viewport.get_mouse_position()
-	var screen_center = viewport.get_visible_rect().size / 2.
-	var mouse_delta : Vector2 = screen_center - mouse_pos
-	
-	return -mouse_delta.angle() + TAU / 8.
-
-func mouse_ground_projection() -> Vector3:
-	var mouse_ray := get_mouse_ray()
-	var A := mouse_ray[0]
-	var B := mouse_ray[1]
-	
-	var P : Vector3 = global_position
-	var N : Vector3 = (Vector3.UP)
-	
-	# FIXME : Check if point is actually reachable
-	
-	return Utils.isect_line_plane_v3(A,B,P,N)
 
 func check_sprinting():
 	if not sprinting and Input.is_action_just_pressed("sprint") and current_mode == MODE.NORMAL:
-		sprint_to = mouse_ground_projection()
+		sprint_to = camera.mouse_ground_projection()
 		# There should always be a plane-ray intersection
 		# so this check should be redundant
 		if sprint_to == null:
@@ -220,7 +202,9 @@ func _physics_process(delta):
 		if current_mode == MODE.NORMAL:
 			rotation.y = dir_to_rotation(h_dir)
 		elif current_mode == MODE.COMBAT:
-			rotation.y = get_mouse_rotation()
+			var spot = camera.mouse_ground_projection()
+			look_at(spot)
+			rotate_y(TAU/2.)
 		
 		h_vel = get_h_velocity(velocity, h_dir)
 		v_vel = get_v_velocity(velocity.y, delta)
@@ -239,36 +223,8 @@ func _input(_event):
 		current_mode = MODE.DIALOGUE if (current_mode == MODE.NORMAL) else MODE.NORMAL
 	
 	if current_mode != MODE.DIALOGUE:
-		if Input.is_action_just_pressed("fire"):
-			interact()
-			
 		if Input.is_action_just_pressed("toggle_combat"):
 			current_mode = MODE.COMBAT if (current_mode == MODE.NORMAL) else MODE.NORMAL
-			
-func interact():
-	var ray_length = global_position.distance_to(Globals.player.global_position) + 30.
-	var m_ray := get_mouse_ray(ray_length)
-	
-	var from = m_ray[0]
-	var to = m_ray[1]
-	
-	var interactable = interact_ray.check(from, to)
-	if interactable:
-		interactable.interact()
-		
-		if interactable.get_parent() is NPC:
-			talking_to = interactable.get_parent()
-			talking_to.dialogue_done.connect(
-				func ():
-					talking_to = null
-			)
-
-func get_mouse_ray(length := 1.) -> Array[Vector3]:
-	var mouse_pos := get_viewport().get_mouse_position()
-	var from := camera.project_ray_origin(mouse_pos)
-	var to := camera.project_position(mouse_pos, length)
-	
-	return [from, to]
 	
 func enter_door(d: Area3D):
 	if not current_door:
@@ -279,3 +235,11 @@ func exit_door(d: Area3D):
 	if d == current_door:
 		current_door = null
 		exited_door.emit(d)
+
+
+func _on_interact_manager_dialogue_start(other):
+	current_mode = MODE.DIALOGUE
+
+
+func _on_interact_manager_dialogue_end():
+	current_mode = MODE.NORMAL

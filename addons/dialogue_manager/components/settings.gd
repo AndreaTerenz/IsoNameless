@@ -56,7 +56,7 @@ static func get_user_value(key: String, default = null):
 
 
 static func add_recent_file(path: String) -> void:
-	var recent_files: Array[String] = get_user_value("recent_files", [])
+	var recent_files: Array = get_user_value("recent_files", [])
 	if path in recent_files:
 		recent_files.erase(path)
 	recent_files.insert(0, path)
@@ -78,7 +78,7 @@ static func remove_recent_file(path: String) -> void:
 	set_user_value("recent_files", recent_files)
 
 
-static func get_recent_files() -> Array[String]:
+static func get_recent_files() -> Array:
 	return get_user_value("recent_files", [])
 
 
