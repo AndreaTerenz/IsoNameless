@@ -33,14 +33,20 @@ var world_env : WorldEnvironment = null
 var start_time := -1.
 var log_queue := []
 var log_timestamp := true
+var blur_rect : ColorRect = null
 
 var started:
 	get:
 		return start_time >= 0.
 
+var quit_on_esc := true
+
 func _ready():
-	#set_cursor_mode(CURSOR_MODE.NORMAL)
 	enforce_display_size()
+	
+	blur_rect = await Utils.make_background_colorrect()
+	blur_rect.visible = false
+	blur_rect.material = preload("res://Materials/screen_blur_mat.tres")
 	
 func enforce_display_size():
 	var size := DisplayServer.window_get_size()
@@ -52,8 +58,11 @@ func enforce_display_size():
 		DisplayServer.window_set_size(Vector2i(int(w),int(h)))
 	
 func _input(_event):
-	if Input.is_action_just_pressed("quit"):
+	if Input.is_action_just_pressed("quit") and quit_on_esc:
 		get_tree().quit()
+		
+func toggle_screen_blur(vis : bool):
+	blur_rect.visible = vis
 		
 func start_level():
 	start_time = Time.get_unix_time_from_system()

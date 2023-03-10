@@ -90,11 +90,21 @@ func create_debug_mesh(global_pos: Vector3, mesh: Mesh = SphereMesh.new(), mater
 	
 	get_tree().root.add_child(mesh_inst)
 	
-
-	
 	mesh_inst.global_position = global_pos
 	
 	return mesh_inst
 	
 func length_geq(vec, dist: float):
 	return vec.length_squared() >= dist**2
+	
+func make_background_colorrect(parent : Node = get_tree().root, z_index := -100):
+	var cr := ColorRect.new()
+	
+	parent.add_child.call_deferred(cr)
+	await cr.tree_entered
+	
+	cr.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	cr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	cr.z_index = z_index
+	
+	return cr

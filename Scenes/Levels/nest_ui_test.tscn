@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7uipyjbuulfg"]
+
+[ext_resource type="PackedScene" uid="uid://c1o23agnye10u" path="res://Scenes/Levels/nest_ui_a.tscn" id="1_50r7q"]
+[ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="2_85n8h"]
+
+[sub_resource type="GDScript" id="GDScript_8iqcu"]
+script/source = "extends Control
+
+@onready var nest_ui_a = $NestUI_A
+
+
+func _ready():
+	Globals.quit_on_esc = false
+"
+
+[sub_resource type="TorusMesh" id="TorusMesh_cpt7w"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u5jyf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_htfia"]
+noise_type = 2
+frequency = 0.031
+cellular_distance_function = 1
+cellular_jitter = 1.019
+cellular_return_type = 6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ojp3"]
+noise = SubResource("FastNoiseLite_htfia")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ff73x"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rjj6u"]
+noise = SubResource("FastNoiseLite_ff73x")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_acd73"]
+as_normal_map = true
+bump_strength = 18.1
+noise = SubResource("FastNoiseLite_htfia")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md837"]
+albedo_color = Color(0.619608, 0.619608, 0.619608, 1)
+albedo_texture = SubResource("NoiseTexture2D_8ojp3")
+normal_texture = SubResource("NoiseTexture2D_acd73")
+heightmap_scale = 5.941
+heightmap_texture = SubResource("NoiseTexture2D_rjj6u")
+uv1_triplanar_sharpness = 5.0
+
+[node name="nest_ui_test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_8iqcu")
+
+[node name="NestUI_A" parent="." instance=ExtResource("1_50r7q")]
+layout_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_cpt7w")
+surface_material_override/0 = ExtResource("2_85n8h")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.724146, -0.428353, 0.540487, 0, 0.783716, 0.621119, -0.689647, 0.449781, -0.567525, 2.13526, 2.4538, -2.24207)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.16068, 0, 0, 0, 1, 0, 0, 0, 3.124, 0, -0.566557, 0)
+mesh = SubResource("PlaneMesh_u5jyf")
+surface_material_override/0 = SubResource("StandardMaterial3D_md837")
