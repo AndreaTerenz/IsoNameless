@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwowhjdlhepqk"]
+[gd_scene load_steps=10 format=3 uid="uid://cwowhjdlhepqk"]
 
 [ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="1_ndwia"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="2_e7878"]
+[ext_resource type="PackedScene" uid="uid://bxu3k1yybrbix" path="res://Scenes/UIs/pause_ui.tscn" id="3_xq6wt"]
 
 [sub_resource type="GDScript" id="GDScript_yy6mv"]
 script/source = "extends Control
@@ -82,6 +83,7 @@ content_margin_bottom = 15.0
 bg_color = Color(0.164706, 0.164706, 0.164706, 0.552941)
 
 [node name="UI" type="Control"]
+z_index = -5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -254,3 +256,9 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_e7878")
 action_name = &"quit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="PauseUI" parent="CanvasLayer" instance=ExtResource("3_xq6wt")]
+toggle_action = "pause"

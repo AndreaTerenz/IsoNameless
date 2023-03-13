@@ -2,6 +2,7 @@ extends Node
 
 signal player_set(p)
 signal level_started
+signal paused_changed(p)
 
 enum DEBUG_MSG_MODE {
 	LOG, #Default
@@ -35,6 +36,22 @@ var log_queue := []
 var log_timestamp := true
 var blur_rect : ColorRect = null
 
+var paused := false :
+	set(p):
+		paused = p
+		if paused == get_tree().paused:
+			return
+		
+		if paused:
+			log_msg("Paused")
+			await toggle_screen_blur(true)
+			get_tree().paused = true
+		else:
+			log_msg("Resumed")
+			get_tree().paused = false
+			toggle_screen_blur(false)
+			
+		paused_changed.emit(p)
 var started:
 	get:
 		return start_time >= 0.
@@ -42,27 +59,30 @@ var started:
 var quit_on_esc := true
 
 func _ready():
-	enforce_display_size()
+	#enforce_screen_size()
 	
 	blur_rect = await Utils.make_background_colorrect()
-	blur_rect.visible = false
 	blur_rect.material = preload("res://Materials/screen_blur_mat.tres")
 	
-func enforce_display_size():
-	var size := DisplayServer.window_get_size()
-	var w = ProjectSettings.get_setting("display/window/size/viewport_width")
-	var h = ProjectSettings.get_setting("display/window/size/viewport_height")
-	var expected_size := Vector2i(int(w), int(h))
+func enforce_screen_size():
+	var w_size := DisplayServer.window_get_size()
+	var s_size := DisplayServer.screen_get_size()
 	
-	if size != expected_size:
-		DisplayServer.window_set_size(Vector2i(int(w),int(h)))
+	if w_size != s_size:
+		DisplayServer.window_set_size(s_size)
 	
 func _input(_event):
 	if Input.is_action_just_pressed("quit") and quit_on_esc:
 		get_tree().quit()
 		
 func toggle_screen_blur(vis : bool):
-	blur_rect.visible = vis
+	#blur_rect.visible = vis
+	var alpha = 1.0 if vis else 0.0
+	var mat := (blur_rect.material as ShaderMaterial)
+	
+	var t := get_tree().create_tween()
+	t.tween_property(mat, "shader_parameter/alpha", alpha, .1).from_current()
+	await t.finished
 		
 func start_level():
 	start_time = Time.get_unix_time_from_system()
@@ -71,8 +91,12 @@ func start_level():
 		log_msg(obj)
 	log_queue.clear()
 	
-	Globals.log_msg("Level started")
+	Globals.log_msg("Started")
 	level_started.emit()
+	
+func restart_level():
+	Globals.log_msg("Restarting...")
+	get_tree().reload_current_scene()
 
 func set_player(p: Player):
 	if not player:

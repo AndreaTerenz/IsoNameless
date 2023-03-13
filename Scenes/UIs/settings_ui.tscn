@@ -6,15 +6,14 @@
 [ext_resource type="Script" path="res://Scripts/UIs/Settings/OptionsSettingContainer.gd" id="3_pl4nq"]
 
 [sub_resource type="GDScript" id="GDScript_7ejs2"]
-script/source = "extends Control
+script/source = "extends NestedUI
 
 func _ready():
-	visible = false
+	super._ready()
 
-func _input(event):
-	if Input.is_action_just_pressed(\"options\"):
-		visible = not visible
-		GSManager.reset_settings()
+func _on_hide():
+	# Reset to last saved value
+	GSManager.reset_settings()
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_venbv"]

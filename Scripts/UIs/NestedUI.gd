@@ -63,15 +63,9 @@ func toggle():
 
 func _on_hide():
 	hide()
-		
-	if previous == null:
-		Globals.toggle_screen_blur(false)
 	
 func _on_show():
 	show()
-		
-	if previous == null:
-		Globals.toggle_screen_blur(true)
 
 func _on_next_shown():
 	next_shown = true

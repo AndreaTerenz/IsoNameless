@@ -14,8 +14,9 @@ func _ready():
 		Globals.debug_ui = debug_ui
 		debug_ui.visible = debug_ui_on_start
 	
-	if settings_ui_scn:
+	if settings_ui_scn and false:
 		var settings_ui : Control = settings_ui_scn.instantiate()
+		Globals.log_msg("Settings loaded from Level.gd")
 		add_child(settings_ui)
 		
 	rotate_y(TAU/8.)

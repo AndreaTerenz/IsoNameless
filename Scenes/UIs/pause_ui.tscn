@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxu3k1yybrbix"]
+
+[ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_gvbf1"]
+
+[sub_resource type="GDScript" id="GDScript_75oie"]
+script/source = "extends NestedUI
+
+var settings_ui_scn : PackedScene = preload(\"res://Scenes/UIs/settings_ui.tscn\")
+
+func _on_show():
+	super._on_show()
+	Globals.paused = true
+
+func _on_hide():
+	super._on_hide()
+	Globals.paused = false
+
+func _on_quit_btn_pressed():
+	get_tree().quit()
+
+func _on_resume_btn_pressed():
+	go_back()
+
+func _on_restart_btn_pressed():
+	Globals.restart_level()
+
+
+func _on_settings_btn_pressed():
+	show_next(settings_ui_scn)
+"
+
+[sub_resource type="Theme" id="Theme_1sjvi"]
+default_font = ExtResource("1_gvbf1")
+default_font_size = 31
+
+[node name="PauseUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_75oie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1sjvi")
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="ResumeBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="SettingsBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

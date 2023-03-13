@@ -1,7 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://j5tsuu0t3qik"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
-[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="2_26olt"]
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_ks13a"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
 [ext_resource type="Material" uid="uid://bgvpmepmf5xgn" path="res://Materials/Grids/purple_grid.tres" id="4_glhws"]
@@ -115,57 +114,66 @@ func get_mouse_rotation() -> float:
 	return -mouse_delta.angle() + TAU / 8.
 "
 
-[sub_resource type="Shader" id="Shader_fewc4"]
-code = "shader_type canvas_item;
+[sub_resource type="Shader" id="Shader_16pk4"]
+code = "shader_type spatial;
+render_mode unshaded, ambient_light_disabled, shadows_disabled;
 
 uniform sampler2D text : hint_default_transparent;
 uniform float strength : hint_range(0.0, 1.0, 0.01) = .5;
 
 void fragment() {
+	vec3 color = texture(text, SCREEN_UV).rgb;
 	float val = texture(text, SCREEN_UV).a;
-	COLOR.a = (1. - val) * strength;
+	ALPHA = (1. - val) * strength;
+	ALBEDO = color;
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ianme"]
-resource_local_to_scene = true
-shader = SubResource("Shader_fewc4")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7omt"]
+render_priority = 0
+shader = SubResource("Shader_16pk4")
 shader_parameter/strength = 0.5
-shader_parameter/text = ExtResource("2_26olt")
 
-[sub_resource type="GDScript" id="GDScript_c1r1e"]
-script/source = "extends SubViewportContainer
+[sub_resource type="QuadMesh" id="QuadMesh_dpiae"]
+size = Vector2(30, 30)
 
+[sub_resource type="GDScript" id="GDScript_oitt7"]
+script/source = "extends MeshInstance3D
+
+@export
+var viewport : Viewport
 @export_range(0., 1., .001)
 var fx_strength := .7
-
-@onready
-var viewport := $SubViewport
 
 var run := false
 var current_fact := 0.
 
 func _ready():
-	var mat : ShaderMaterial = material as ShaderMaterial
-	mat.set_shader_parameter(\"text\", viewport.get_texture())
-	mat.set_shader_parameter(\"strength\", 0.)
+	if viewport != null:
+		if not viewport.is_inside_tree():
+			await viewport.ready
+		var mat : ShaderMaterial = material_override as ShaderMaterial
+		#dsassert(material_override != null)
+		assert(mat != null)
+		mat.set_shader_parameter(\"text\", viewport.get_texture())
+		mat.set_shader_parameter(\"strength\", 0.)
 
 func _process(_delta):
 	if run:
 		var door = Globals.player.current_door
 		current_fact = clampf(1. - door.get_player_depth(), 0., fx_strength)
 		
-		var mat : ShaderMaterial = material as ShaderMaterial
+		var mat : ShaderMaterial = material_override as ShaderMaterial
 		mat.set_shader_parameter(\"strength\", current_fact)
 
-func _on_player_entered_door(_d):
+
+func _on_player_entered_door(d):
 	visible = true
 	run = true
 
 
-func _on_player_exited_door(_d):
+func _on_player_exited_door(d):
 	run = false
-	
 "
 
 [sub_resource type="GDScript" id="GDScript_8giqv"]
@@ -307,23 +315,22 @@ near = 0.001
 far = 280.04
 script = SubResource("GDScript_3r0yw")
 
-[node name="OutsideFade" type="SubViewportContainer" parent="CameraPivot"]
-material = SubResource("ShaderMaterial_ianme")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-script = SubResource("GDScript_c1r1e")
+[node name="InsideFilter" type="MeshInstance3D" parent="CameraPivot/Camera" node_paths=PackedStringArray("viewport")]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, -0.683607)
+material_override = SubResource("ShaderMaterial_j7omt")
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("QuadMesh_dpiae")
+script = SubResource("GDScript_oitt7")
+viewport = NodePath("../../SubViewport")
 
-[node name="SubViewport" type="SubViewport" parent="CameraPivot/OutsideFade"]
+[node name="SubViewport" type="SubViewport" parent="CameraPivot"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="InCamera" type="Camera3D" parent="CameraPivot/OutsideFade/SubViewport"]
+[node name="InCamera" type="Camera3D" parent="CameraPivot/SubViewport"]
 unique_name_in_owner = true
 cull_mask = 1048568
 projection = 1
@@ -367,8 +374,8 @@ collide_with_areas = true
 collide_with_bodies = false
 script = SubResource("GDScript_pbuh2")
 
-[connection signal="entered_door" from="." to="CameraPivot/OutsideFade" method="_on_player_entered_door"]
-[connection signal="exited_door" from="." to="CameraPivot/OutsideFade" method="_on_player_exited_door"]
+[connection signal="entered_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_entered_door"]
+[connection signal="exited_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_exited_door"]
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
 [connection signal="stat_changed" from="Stats" to="UI" method="_on_stats_stat_changed"]
 [connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
