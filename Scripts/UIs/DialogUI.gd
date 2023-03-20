@@ -4,21 +4,14 @@ extends Control
 signal dialog_started
 signal dialog_done
 
-@export
-var dialogue_file = preload("res://Dialogue/diag_test_ncr.dialogue")
-@export
-var skippable := true
+@export var dialogue_file = preload("res://Dialogue/diag_blank.dialogue")
+@export var skippable := true
 
-@onready
-var diag_line = %DialogueLabel
-@onready
-var opts_cont = %OptionsCont
-@onready
-var name_lbl = %NameLbl
-@onready
-var portrait = %Portrait
-@onready
-var close_btn = %CloseBtn
+@onready var diag_line = %DialogueLabel
+@onready var opts_cont = %OptionsCont
+@onready var name_lbl = %NameLbl
+@onready var portrait = %Portrait
+@onready var close_btn = %CloseBtn
 
 var parent_npc : NPC = null
 var next_id := ""

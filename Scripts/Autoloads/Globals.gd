@@ -3,7 +3,6 @@ extends Node
 signal player_set(p)
 signal level_started
 signal paused_changed(p)
-signal new_actor(a)
 
 enum DEBUG_MSG_MODE {
 	LOG, #Default
@@ -74,27 +73,6 @@ func _ready():
 		func (k,v):
 			log_msg("New Global fact: [%s | %s]" % [k,v])
 	)
-
-# TODO: Entries should be of a dedicated "Actor" type
-func add_actor(actor: Node):
-	if actor == self:
-		push_error("Wtf do u think u r doing u lousy mf")
-		return
-		
-	if actor == player or (not player and actor is Player):
-		push_error("Player object cannot be added as a generic actor")
-		return
-		
-	if actors.has(actor.name):
-		push_error("Actor %s is already registered" % actor.name)
-		return
-		
-	if not actor.is_inside_tree():
-		push_error("Actor %s is not yet in the scene tree" % actor.name)
-		return
-		
-	actors[actor.name] = actor
-	new_actor.emit(actor)
 	
 func enforce_screen_size():
 	var w_size := DisplayServer.window_get_size()

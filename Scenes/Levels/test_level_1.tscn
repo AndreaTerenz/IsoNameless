@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=16 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://l1kwvfllnngd" path="res://Scenes/actors/npc_white.tscn" id="12_6n8ic"]
 [ext_resource type="PackedScene" uid="uid://mo41jkqkymf" path="res://Scenes/actors/npc_red.tscn" id="13_35u1s"]
 [ext_resource type="Texture2D" uid="uid://dw1fwoonptjfj" path="res://Assets/Portraits/NCR.png" id="14_q7825"]
-[ext_resource type="Resource" uid="uid://xccl3407j476" path="res://Dialogue/diag_test_ncr.dialogue" id="15_3bhkp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
 
@@ -78,7 +77,6 @@ surface_material_override/0 = ExtResource("2_goaju")
 [node name="NCR Trooper" parent="." index="5" instance=ExtResource("12_6n8ic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2413, 0, -25.0666)
 npc_portrait = ExtResource("14_q7825")
-dialogue_file = ExtResource("15_3bhkp")
 
 [node name="Chesani" parent="." index="6" instance=ExtResource("13_35u1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.846, 0, -21.3217)

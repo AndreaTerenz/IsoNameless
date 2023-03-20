@@ -51,7 +51,7 @@ static func set_user_value(key: String, value) -> void:
 	save_user_config(user_config)
 
 
-static func get_user_value(key: String, default = null):
+static func get_user_value(key: String, default = null) -> Variant:
 	return get_user_config().get(key, default)
 
 
@@ -72,7 +72,7 @@ static func move_recent_file(from_path: String, to_path: String) -> void:
 
 
 static func remove_recent_file(path: String) -> void:
-	var recent_files: Array[String] = get_user_value("recent_files", [])
+	var recent_files: Array = get_user_value("recent_files", [])
 	if path in recent_files:
 		recent_files.erase(path)
 	set_user_value("recent_files", recent_files)

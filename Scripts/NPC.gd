@@ -6,22 +6,18 @@ signal dialogue_done
 signal learned(k,v)
 
 @export_group("Character")
-@export
-var npc_name := "Gigio"
-@export
-var npc_portrait := preload("res://icon.png")
+@export var npc_name := "Gigio"
+@export var npc_portrait := preload("res://icon.png")
 
 @export_group("Dialogue")
-@export
-var dialogue_file = preload("res://Dialogue/diag_test_ncr.dialogue")
-@export
-var dialogue_skippable := true
+@export var dialogue_file = preload("res://Dialogue/diag_blank.dialogue")
+@export var dialogue_skippable := true
 
 @onready var dialog_ui : DialogUI = %dialogUI
 @onready var memory = %Memory
 
 func _ready():
-	Globals.add_actor(self)
+	add_to_group("ACTORS")
 	dialog_ui.setup(dialogue_file, npc_name, npc_portrait, dialogue_skippable)
 
 func _on_interacted():
