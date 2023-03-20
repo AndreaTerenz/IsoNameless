@@ -64,7 +64,8 @@ var quit_on_esc := true
 var actors := {}
 
 func _ready():
-	#enforce_screen_size()
+	enforce_screen_size()
+	
 	blur_rect = await Utils.make_background_colorrect()
 	blur_rect.material = preload("res://Materials/screen_blur_mat.tres")
 	

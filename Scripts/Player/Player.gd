@@ -206,11 +206,8 @@ func _physics_process(delta):
 			sprinting_collided = true
 	
 func _input(_event):
-	if Input.is_action_just_pressed("options"):
-		current_mode = MODE.DIALOGUE if (current_mode == MODE.NORMAL) else MODE.NORMAL
-	
-	if current_mode != MODE.DIALOGUE:
-		if Input.is_action_just_pressed("toggle_combat"):
+	if Input.is_action_just_pressed("toggle_combat"):
+		if current_mode != MODE.DIALOGUE:
 			current_mode = MODE.COMBAT if (current_mode == MODE.NORMAL) else MODE.NORMAL
 	
 func enter_door(d: Area3D):
