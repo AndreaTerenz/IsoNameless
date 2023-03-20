@@ -9,7 +9,7 @@
 script/source = "extends NPC
 
 func _predialogue():
-	if dialogue_memory.has(\"FRANCESCO\"):
+	if memory.has_value(\"FRANCESCO\"):
 		dialog_ui.dialogue_file = preload(\"res://Dialogue/diag_chesani_2.dialogue\")
 		dialog_ui.skippable = true
 "
@@ -26,7 +26,3 @@ dialogue_skippable = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
 mesh = SubResource("CapsuleMesh_pw34j")
 surface_material_override/0 = ExtResource("2_ltho0")
-
-[node name="Interactable" parent="." index="2"]
-mode = 0
-start_enabled = true

@@ -5,7 +5,7 @@ signal dialog_started
 signal dialog_done
 
 @export
-var dialogue_file = preload("res://Dialogue/diag_test_1.dialogue")
+var dialogue_file = preload("res://Dialogue/diag_test_ncr.dialogue")
 @export
 var skippable := true
 
@@ -62,7 +62,8 @@ func setup(diag_f : DialogueResource, n: String, propic: Texture, skip := true, 
 
 func update_line():
 	var from : String = "start" if next_id == "" else next_id
-	var current_line : DialogueLine = await DialogueManager.get_next_dialogue_line(dialogue_file, from, [parent_npc])
+	var current_line : DialogueLine = \
+		await DialogueManager.get_next_dialogue_line(dialogue_file, from, [parent_npc, Globals, Globals.player])
 	
 	if current_line == null:
 		_hide()

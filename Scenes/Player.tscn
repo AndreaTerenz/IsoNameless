@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://j5tsuu0t3qik"]
+[gd_scene load_steps=27 format=3 uid="uid://j5tsuu0t3qik"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_ks13a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwowhjdlhepqk" path="res://Scenes/UI.tscn" id="4_mdx2w"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerStats.gd" id="5_hi0eq"]
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="6_4ucgw"]
+[ext_resource type="Script" path="res://Scripts/Memory.gd" id="8_oorkv"]
 
 [sub_resource type="Curve" id="Curve_vr3k8"]
 _data = [Vector2(0, 0.263636), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.442229, 0.0, 0, 0]
@@ -202,12 +203,15 @@ signal dialogue_end
 var player : Player = null
 var interact_ray = null
 var camera : Camera3D = null
+
 var talking_to : NPC = null :
-	get:
-		return talking_to
 	set(new_val):
 		talking_to = new_val
 		if talking_to:
+			talking_to.dialogue_done.connect(
+				func ():
+					talking_to = null
+			)
 			dialogue_start.emit(talking_to)
 		else:
 			dialogue_end.emit()
@@ -235,14 +239,11 @@ func interact():
 	
 	var interactable = interact_ray.check(from, to)
 	if interactable:
-		interactable.interact()
+		var p = interactable.get_parent()
+		if p is NPC:
+			talking_to = p
 		
-		if interactable.get_parent() is NPC:
-			talking_to = interactable.get_parent()
-			talking_to.dialogue_done.connect(
-				func ():
-					talking_to = null
-			)
+		interactable.interact()
 
 func _on_player_mode_changed(md):
 	enabled = (md != Player.MODE.DIALOGUE)
@@ -374,9 +375,14 @@ collide_with_areas = true
 collide_with_bodies = false
 script = SubResource("GDScript_pbuh2")
 
+[node name="Memory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_oorkv")
+
 [connection signal="entered_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_exited_door"]
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
 [connection signal="stat_changed" from="Stats" to="UI" method="_on_stats_stat_changed"]
 [connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
 [connection signal="dialogue_start" from="InteractManager" to="." method="_on_interact_manager_dialogue_start"]
+[connection signal="learned" from="Memory" to="." method="_on_memory_learned"]

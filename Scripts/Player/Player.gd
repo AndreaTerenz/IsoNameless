@@ -11,7 +11,6 @@ signal entered_door(d)
 signal exited_door(d)
 signal mode_changed(md)
 
-
 @export var initial_mode := MODE.NORMAL
 @export_group("Movement")
 # If true, W moves towards isometric forward (and so on)
@@ -30,20 +29,16 @@ signal mode_changed(md)
 @export_group("Stats")
 @export_range(.001, 1., .0005) var STAMINA_RATE := .5
 
-@onready
-var body := %Body
-@onready
-var camera : Camera3D = %Camera
-@onready
-var camera_pivot := %CameraPivot
-@onready
-var interact_ray := %InteractRay
-@onready
-var ui := %UI
-@onready
-var sprint_decal := %SprintDecal
-@onready
-var stats := %Stats
+@onready var body := %Body
+@onready var camera : Camera3D = %Camera
+@onready var camera_pivot := %CameraPivot
+@onready var interact_ray := %InteractRay
+@onready var ui := %UI
+@onready var sprint_decal := %SprintDecal
+@onready var stats := %Stats
+@onready var interact_manager = %InteractManager
+@onready var memory = %Memory
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -69,13 +64,6 @@ var current_mode := MODE.NORMAL :
 				Globals.set_cursor_mode(Globals.CURSOR_MODE.COMBAT)
 		
 		mode_changed.emit(current_mode)
-		
-var talking_to : NPC = null :
-	get:
-		return talking_to
-	set(new_val):
-		talking_to = new_val
-		current_mode = MODE.DIALOGUE if talking_to else MODE.NORMAL
 
 func _ready():
 	Globals.set_player(self)
@@ -235,10 +223,17 @@ func exit_door(d: Area3D):
 		current_door = null
 		exited_door.emit(d)
 
-
 func _on_interact_manager_dialogue_start(other):
 	current_mode = MODE.DIALOGUE
 
-
 func _on_interact_manager_dialogue_end():
 	current_mode = MODE.NORMAL
+
+func memory_get(key: String, default : Variant = null):
+	return memory.get_value(key, default)
+
+func player_memorize(key: String, value):
+	memory.set_value(key, value)
+
+func _on_memory_learned(k, v):
+	Globals.log_msg("New Player fact: [%s | %s]" % [k, v])
