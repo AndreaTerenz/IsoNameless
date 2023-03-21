@@ -21,7 +21,6 @@ signal mode_changed(md)
 @export_range(.01, 50., .005) var H_SPEED := 5.
 @export_range(.01,  2., .005) var H_DECELERATION := .5
 @export_range(.01,  8., .005) var H_SPRINT_MULT := 6.
-@export var H_SPEED_CURVE : Curve = null
 @export_subgroup("Sprinting")
 @export_range(.01,  30., .005) var SPRINT_MAX_DIST := 8.
 @export_range(1.,  5., .005) var SPRINT_IGNORE_DIST_MULT := 2.5
@@ -140,7 +139,8 @@ func check_sprinting():
 			return false
 			
 		var gp : Vector3 = Utils.vec_sub(global_position, "x0z")
-		if not Utils.length_geq((sprint_to - gp), .4):
+		var st : Vector3 = Utils.vec_sub(sprint_to, "x0z")
+		if not Utils.length_geq((st - gp), .4):
 			return false
 		
 	return sprinting
