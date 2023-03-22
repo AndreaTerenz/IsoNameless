@@ -39,7 +39,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/FileSystemView/plugin.cfg")
 
 [gui]
 
