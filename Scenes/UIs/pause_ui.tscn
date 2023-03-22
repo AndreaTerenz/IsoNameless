@@ -7,6 +7,13 @@ script/source = "extends NestedUI
 
 var settings_ui_scn : PackedScene = preload(\"res://Scenes/UIs/settings_ui.tscn\")
 
+func _ready():
+	Globals.paused_changed.connect(
+		func (paused):
+			if paused != visible and paused:
+				toggle()
+	)
+
 func _on_show():
 	super._on_show()
 	Globals.paused = true

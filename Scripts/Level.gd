@@ -1,3 +1,4 @@
+class_name Level
 extends Node3D
 
 @export var debug_ui_scn : PackedScene = preload("res://Scenes/debug_ui.tscn")
@@ -22,11 +23,10 @@ func _ready():
 	rotate_y(TAU/8.)
 	
 	for kid in get_children():
-		if kid is WorldEnvironment:
+		if Globals.world_env == null and kid is WorldEnvironment:
 			Globals.world_env = kid
-			break
 	
-	Globals.start_level()
+	Globals.level = self
 
 func _process(_delta):
 	var p := Globals.player

@@ -28,7 +28,22 @@ const debug_msg_names := {
 
 const MIN_DB_LEVEL := DEBUG_MSG_MODE.LOG
 
-var player : Player = null
+var player : Player :
+	set(p):
+		if not player:
+			player = p
+			player_set.emit(p)
+var level : Level :
+	set(l):
+		level = l
+		start_time = Time.get_unix_time_from_system()
+		
+		for obj in log_queue:
+			log_msg(obj)
+		log_queue.clear()
+		
+		Globals.log_msg("Started")
+		level_started.emit()
 var debug_ui : DebugUI = null
 var world_env : WorldEnvironment = null
 var start_time := -1.
@@ -38,7 +53,11 @@ var blur_rect : ColorRect = null
 
 var paused := false :
 	set(p):
+		if paused == p:
+			return
+		
 		paused = p
+		
 		if paused == get_tree().paused:
 			return
 		
@@ -57,7 +76,6 @@ var started:
 		return start_time >= 0.
 		
 var memory := Memory.new()
-var quit_on_esc := true
 
 # key: node name
 # value: Node object
@@ -81,10 +99,13 @@ func enforce_screen_size():
 	
 	if w_size != s_size:
 		DisplayServer.window_set_size(s_size)
-	
-func _input(_event):
-	if Input.is_action_just_pressed("quit") and quit_on_esc:
-		get_tree().quit()
+		
+func _notification(what):
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
+		Globals.log_msg("Focus in")
+	elif what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		Globals.log_msg("Focus out")
+		paused = true
 		
 func toggle_screen_blur(vis : bool):
 	#blur_rect.visible = vis
@@ -94,25 +115,10 @@ func toggle_screen_blur(vis : bool):
 	var t := get_tree().create_tween()
 	t.tween_property(mat, "shader_parameter/alpha", alpha, .1).from_current()
 	await t.finished
-		
-func start_level():
-	start_time = Time.get_unix_time_from_system()
-	
-	for obj in log_queue:
-		log_msg(obj)
-	log_queue.clear()
-	
-	Globals.log_msg("Started")
-	level_started.emit()
 	
 func restart_level():
 	Globals.log_msg("Restarting...")
 	get_tree().reload_current_scene()
-
-func set_player(p: Player):
-	if not player:
-		player = p
-		player_set.emit(p)
 		
 func start_log_seq():
 	log_msg("")

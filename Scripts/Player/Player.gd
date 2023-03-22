@@ -65,9 +65,10 @@ var current_mode := MODE.NORMAL :
 		mode_changed.emit(current_mode)
 
 func _ready():
-	Globals.set_player(self)
 	current_mode = initial_mode
 	sprint_decal.visible = false
+	
+	Globals.player = self
 
 func get_h_direction() -> Vector2:
 	target_dir = Input.get_vector("right", "left", "backward", "forward")
