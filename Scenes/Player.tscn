@@ -9,10 +9,6 @@
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="6_4ucgw"]
 [ext_resource type="Script" path="res://Scripts/Memory.gd" id="8_oorkv"]
 
-[sub_resource type="Curve" id="Curve_vr3k8"]
-_data = [Vector2(0, 0.263636), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.442229, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kb6wn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pyynk"]
@@ -153,9 +149,9 @@ func _ready():
 	if viewport != null:
 		if not viewport.is_inside_tree():
 			await viewport.ready
+		
 		var mat : ShaderMaterial = material_override as ShaderMaterial
-		#dsassert(material_override != null)
-		assert(mat != null)
+		
 		mat.set_shader_parameter(\"text\", viewport.get_texture())
 		mat.set_shader_parameter(\"strength\", 0.)
 
@@ -267,7 +263,6 @@ func check(from, to):
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_qsd5a")
-H_SPEED_CURVE = SubResource("Curve_vr3k8")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -323,17 +318,17 @@ cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("QuadMesh_dpiae")
 script = SubResource("GDScript_oitt7")
-viewport = NodePath("../../SubViewport")
+viewport = NodePath("../../InsideViewport")
 
-[node name="SubViewport" type="SubViewport" parent="CameraPivot"]
+[node name="InsideViewport" type="SubViewport" parent="CameraPivot"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="InCamera" type="Camera3D" parent="CameraPivot/SubViewport"]
+[node name="InCamera" type="Camera3D" parent="CameraPivot/InsideViewport"]
 unique_name_in_owner = true
-cull_mask = 1048568
+transform = Transform3D(0.707107, 0.5, -0.5, -4.21471e-08, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -11.7636, 16.6363, 11.7637)
 projection = 1
 size = 14.0
 near = 0.001

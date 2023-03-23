@@ -4,8 +4,6 @@
 I have lots of hair on the back of my head - is this stament true?:
 - Yes
 	do memorize("LOTS_OF_HAIR", true)
-	do global_memorize("BAZINGA", 420)
-	do player_memorize("UGABUGA", 69)
 	AAAAAAAAAAAAAAAAAAAAA I wish
 - No
 	do memorize("LOTS_OF_HAIR", false)

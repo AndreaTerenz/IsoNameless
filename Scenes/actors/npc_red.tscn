@@ -8,10 +8,12 @@
 [sub_resource type="GDScript" id="GDScript_gnath"]
 script/source = "extends NPC
 
-func _predialogue():
-	if memory.has_value(\"FRANCESCO\"):
+func _on_memory_learned(k,v):
+	if k == \"FRANCESCO\":
 		dialog_ui.dialogue_file = preload(\"res://Dialogue/diag_chesani_2.dialogue\")
 		dialog_ui.skippable = true
+	if k == \"LOTS_OF_HAIR\":
+		interact_enabled = false
 "
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pw34j"]

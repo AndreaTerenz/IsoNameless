@@ -38,4 +38,3 @@ unique_name_in_owner = true
 script = ExtResource("4_careh")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interacted"]
-[connection signal="learned" from="Memory" to="." method="_on_memory_learned"]

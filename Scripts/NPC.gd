@@ -24,6 +24,14 @@ var interact_enabled : bool :
 func _ready():
 	add_to_group("ACTORS")
 	dialog_ui.setup(dialogue_file, npc_name, npc_portrait, dialogue_skippable)
+	
+	memory.learned.connect(
+		func (k, v):
+			# Repeat learned signal
+			Globals.log_msg("New NPC %s fact: [%s | %s]" % [name, k, v])
+			_on_memory_learned(k,v)
+			learned.emit(k,v)
+	)
 
 func _on_interacted():
 	_predialogue()
@@ -49,8 +57,6 @@ func _dialogue_started():
 	
 func _dialogue_done():
 	pass
-
-func _on_memory_learned(k, v):
-	# Repeat learned signal
-	Globals.log_msg("New NPC %s fact: [%s | %s]" % [name, k, v])
-	learned.emit(k,v)
+	
+func _on_memory_learned(k,v):
+	pass
