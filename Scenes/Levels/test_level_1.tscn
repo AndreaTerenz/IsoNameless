@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=15 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -13,7 +13,6 @@
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]
 [ext_resource type="PackedScene" uid="uid://l1kwvfllnngd" path="res://Scenes/actors/npc_white.tscn" id="12_6n8ic"]
 [ext_resource type="PackedScene" uid="uid://mo41jkqkymf" path="res://Scenes/actors/npc_red.tscn" id="13_35u1s"]
-[ext_resource type="Texture2D" uid="uid://dw1fwoonptjfj" path="res://Assets/Portraits/NCR.png" id="14_q7825"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
 
@@ -37,21 +36,22 @@ directional_shadow_blend_splits = true
 environment = ExtResource("2_je60b")
 
 [node name="Ground" parent="Env" index="0"]
-layers = 5
+layers = 21
 material_override = ExtResource("2_goaju")
 surface_material_override/0 = ExtResource("3_qu1om")
 
 [node name="Platform" parent="Env" index="1"]
-layers = 5
+layers = 21
 surface_material_override/0 = ExtResource("4_jxqma")
 
 [node name="Ramp" parent="Env" index="2"]
-layers = 5
+layers = 21
 material_override = ExtResource("3_qu1om")
 surface_material_override/0 = ExtResource("4_jxqma")
 
 [node name="Room" parent="Env" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7507, 1.00004, -8.31769)
+layers = 17
 surface_material_override/0 = ExtResource("10_i710y")
 
 [node name="Door" type="Area3D" parent="Env/Room/DoorPos" index="0" node_paths=PackedStringArray("outside_mesh")]
@@ -66,17 +66,17 @@ shape = SubResource("BoxShape3D_hapeh")
 metadata/_edit_lock_ = true
 
 [node name="Room_In" parent="Env/Room" index="1"]
-layers = 9
+layers = 25
 surface_material_override/0 = ExtResource("3_qu1om")
 surface_material_override/1 = ExtResource("9_kep4t")
 
 [node name="Wall" parent="Env" index="4"]
+layers = 17
 material_override = ExtResource("9_kep4t")
 surface_material_override/0 = ExtResource("2_goaju")
 
 [node name="NCR Trooper" parent="." index="5" instance=ExtResource("12_6n8ic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2413, 0, -25.0666)
-npc_portrait = ExtResource("14_q7825")
 
 [node name="Chesani" parent="." index="6" instance=ExtResource("13_35u1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.846, 0, -21.3217)

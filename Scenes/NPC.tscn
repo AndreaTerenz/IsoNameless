@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://brl0ha628jxif"]
+[gd_scene load_steps=8 format=3 uid="uid://brl0ha628jxif"]
 
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_txgmd"]
 [ext_resource type="PackedScene" uid="uid://2xhtwxpgnyd8" path="res://Scenes/UIs/dialog_ui_npc.tscn" id="2_kkecn"]
 [ext_resource type="Script" path="res://Scripts/EnvElements/Interactable.gd" id="3_fuxog"]
 [ext_resource type="Script" path="res://Scripts/Memory.gd" id="4_careh"]
+[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="5_vns7w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ka84"]
 
@@ -36,5 +37,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66539, 0)
 [node name="Memory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_careh")
+
+[node name="MapDecal" type="Decal" parent="."]
+layers = 16
+size = Vector3(1.2, 0.304, 1.2)
+texture_albedo = ExtResource("5_vns7w")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interacted"]

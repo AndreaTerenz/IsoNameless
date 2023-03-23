@@ -122,6 +122,7 @@ pause={
 3d_render/layer_2="Player"
 3d_render/layer_3="AO Decals"
 3d_render/layer_4="RoomsInside"
+3d_render/layer_5="Mappable"
 3d_physics/layer_2="Interactables"
 
 [rendering]

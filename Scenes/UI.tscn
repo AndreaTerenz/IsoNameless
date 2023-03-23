@@ -1,8 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwowhjdlhepqk"]
+[gd_scene load_steps=12 format=3 uid="uid://cwowhjdlhepqk"]
 
-[ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="1_ndwia"]
-[ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="2_e7878"]
+[ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_ykedv"]
 [ext_resource type="PackedScene" uid="uid://bxu3k1yybrbix" path="res://Scenes/UIs/pause_ui.tscn" id="3_xq6wt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwsfa"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyogd"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.831373, 0.831373, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jilvm"]
+bg_color = Color(0.831373, 0.831373, 0.831373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_hna1t"]
+default_font = ExtResource("1_ykedv")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_lwsfa")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_hyogd")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jilvm")
 
 [sub_resource type="GDScript" id="GDScript_yy6mv"]
 script/source = "extends Control
@@ -23,7 +58,7 @@ func _on_stats_stat_changed(s, from, to):
 	pass
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwsfa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1g20"]
 content_margin_left = 25.0
 content_margin_top = 10.0
 content_margin_right = 25.0
@@ -31,25 +66,6 @@ content_margin_bottom = 10.0
 bg_color = Color(0.0784314, 0.0784314, 0.0784314, 0.843137)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyogd"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.831373, 0.831373, 0.831373, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jilvm"]
-bg_color = Color(0.831373, 0.831373, 0.831373, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="GDScript" id="GDScript_p72p2"]
 script/source = "extends ProgressBar
@@ -75,12 +91,25 @@ func _ready():
 		
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm4id"]
-content_margin_left = 15.0
-content_margin_top = 15.0
-content_margin_right = 15.0
-content_margin_bottom = 15.0
-bg_color = Color(0.164706, 0.164706, 0.164706, 0.552941)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7kof"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+corner_radius_top_right = 10
+
+[sub_resource type="GDScript" id="GDScript_w0uqw"]
+script/source = "extends SubViewportContainer
+
+func _ready():
+	await Globals.player_set
+
+	# I sincerely hate this porcamadonna
+	var viewport = Globals.player.map_camera.get_parent()
+	if viewport is SubViewport:
+		viewport.reparent(self)
+"
 
 [node name="UI" type="Control"]
 z_index = -5
@@ -90,6 +119,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_hna1t")
 script = SubResource("GDScript_yy6mv")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -103,7 +133,7 @@ offset_top = -87.0
 offset_right = 293.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_lwsfa")
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1g20")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -127,8 +157,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_hyogd")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jilvm")
 max_value = 1.0
 step = 0.0
 value = 0.31
@@ -153,8 +181,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_hyogd")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jilvm")
 max_value = 1.0
 step = 0.0
 value = 0.31
@@ -179,8 +205,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_hyogd")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jilvm")
 max_value = 1.0
 step = 0.0
 value = 0.31
@@ -188,77 +212,24 @@ show_percentage = false
 script = SubResource("GDScript_p72p2")
 stat_name = "stamina"
 
-[node name="MarginContainer" type="PanelContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 176.0
-offset_bottom = 229.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pm4id")
-metadata/_edit_group_ = true
+[node name="MapContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -295.0
+offset_right = 295.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i7kof")
 
-[node name="HBoxContainer" type="GridContainer" parent="MarginContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MapContainer"]
 layout_mode = 2
-columns = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Move"
-vertical_alignment = 1
-
-[node name="ActionIcon4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_ndwia")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("2_e7878")
-action_name = &"move"
-
-[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Sprint"
-vertical_alignment = 1
-
-[node name="ActionIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("1_ndwia")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("2_e7878")
-action_name = &"sprint"
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Debug UI"
-vertical_alignment = 1
-
-[node name="ActionIcon3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_ndwia")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("2_e7878")
-action_name = &"toggle_debug_ui"
-
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Quit"
-vertical_alignment = 1
-
-[node name="ActionIcon2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_ndwia")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("2_e7878")
-action_name = &"quit"
+stretch = true
+script = SubResource("GDScript_w0uqw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 20
 
 [node name="PauseUI" parent="CanvasLayer" instance=ExtResource("3_xq6wt")]
+visible = false
 toggle_action = "pause"

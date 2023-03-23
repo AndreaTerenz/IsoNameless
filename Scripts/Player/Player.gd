@@ -37,6 +37,7 @@ signal mode_changed(md)
 @onready var stats := %Stats
 @onready var interact_manager = %InteractManager
 @onready var memory = %Memory
+@onready var map_camera = %MapCamera
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

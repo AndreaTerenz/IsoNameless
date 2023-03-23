@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://l1kwvfllnngd"]
+[gd_scene load_steps=7 format=3 uid="uid://l1kwvfllnngd"]
 
 [ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="1_p0tpl"]
+[ext_resource type="Resource" uid="uid://xccl3407j476" path="res://Dialogue/diag_test_ncr.dialogue" id="2_g8bwl"]
+[ext_resource type="Texture2D" uid="uid://dw1fwoonptjfj" path="res://Assets/Portraits/NCR.png" id="2_mvokn"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="2_ojl3k"]
 
 [sub_resource type="GDScript" id="GDScript_b5ux8"]
@@ -11,6 +13,8 @@ script/source = "extends NPC
 
 [node name="NPC" instance=ExtResource("1_p0tpl")]
 script = SubResource("GDScript_b5ux8")
+npc_portrait = ExtResource("2_mvokn")
+dialogue_file = ExtResource("2_g8bwl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" index="0"]
 mesh = SubResource("CapsuleMesh_wlwo2")
