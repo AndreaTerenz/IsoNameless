@@ -1,6 +1,8 @@
 extends Node
 
 var mute_debug_meshes := false
+var phys_layers : Dictionary = {}
+var render_layers : Dictionary = {}
 
 static func vec_sub(v, s: String):
 	# WHY IS THERE NO VECTIR BASE CLASS DIOCANEEEEE
@@ -107,3 +109,92 @@ func make_background_colorrect(parent : Node = get_tree().root):
 	cr.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	return cr
+
+############################################## LAYERS
+
+func _ready() -> void:
+	for i in range(0, 32):
+		var p_layer = get_layer_name(i, "3d_physics")
+		if not p_layer in [null, ""]:
+			phys_layers[p_layer] = i+1
+			
+		var r_layer = get_layer_name(i, "3d_render")
+		if not r_layer in [null, ""]:
+			render_layers[r_layer] = i+1
+		
+func get_layer_name(idx: int, category: String):
+	return ProjectSettings.get_setting("layer_names/%s/layer_%d" % [category, idx+1])
+	
+func get_phys_layer_idx(l_name: String) -> int:
+	if not phys_layers.has(l_name):
+		return -1
+		
+	return phys_layers[l_name]
+	
+func get_render_layer_idx(l_name: String) -> int:
+	if not render_layers.has(l_name):
+		return -1
+		
+	return render_layers[l_name]
+	
+func get_layer_bit(obj: CollisionObject3D, l_name: String) -> bool:
+	if not phys_layers.has(l_name):
+		push_error("Layer %s not found!" % l_name)
+		return false
+		
+	return obj.get_collision_layer_value(phys_layers[l_name])
+	
+func get_mask_bit(obj: Node3D, l_name: String) -> bool:
+	var has_mask := obj.has_method("get_collision_mask_value")
+	
+	if not has_mask:
+		push_error("Object has no collision_mask property!")
+		return false
+	
+	if not phys_layers.has(l_name):
+		push_error("Layer %s not found!" % l_name)
+		return false
+	
+	return obj.get_collision_mask_value(phys_layers[l_name])
+	
+func set_layer_bit(obj: CollisionObject3D, l_name: String, value := true, exclusive := false) -> bool:
+	if not phys_layers.has(l_name):
+		push_error("Layer %s not found!" % l_name)
+		return false
+	
+	if exclusive:
+		obj.collision_layer *= 0
+	
+	obj.set_collision_layer_value(phys_layers[l_name], value)
+	return true
+	
+func set_mask_bit(obj: Node3D, l_name: String, value := true, exclusive := false) -> bool:
+	var has_mask := obj.has_method("set_collision_mask_value")
+	
+	if not has_mask:
+		push_error("Object has no collision_mask property!")
+		return false
+	
+	if not phys_layers.has(l_name):
+		push_error("Layer %s not found!" % l_name)
+		return false
+	
+	if exclusive:
+		obj.collision_mask *= 0
+	
+	obj.set_collision_mask_value(phys_layers[l_name], value)
+	return true
+	
+func set_layer_bits(obj: CollisionObject3D, l_names: Array[String], value := true, exclusive := false):
+	for idx in range(len(l_names)):
+		var ln = l_names[idx]
+		var ex = (exclusive and (idx == 0))
+		if not set_layer_bit(obj, ln, value, ex):
+			return
+	
+func set_mask_bits(obj: Node3D, l_names: Array[String], value := true, exclusive := false):
+	for idx in range(len(l_names)):
+		var ln = l_names[idx]
+		var ex = (exclusive and (idx == 0))
+		if not set_mask_bit(obj, ln, value, ex):
+			return

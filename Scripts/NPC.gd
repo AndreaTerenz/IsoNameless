@@ -15,6 +15,11 @@ signal learned(k,v)
 
 @onready var dialog_ui : DialogUI = %dialogUI
 @onready var memory = %Memory
+@onready var interactable : Interactable = %Interactable
+
+var interact_enabled : bool :
+	set(val):
+		interactable.enabled = val
 
 func _ready():
 	add_to_group("ACTORS")
