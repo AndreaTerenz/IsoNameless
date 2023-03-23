@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwowhjdlhepqk"]
+[gd_scene load_steps=11 format=3 uid="uid://cwowhjdlhepqk"]
 
 [ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_ykedv"]
 [ext_resource type="PackedScene" uid="uid://bxu3k1yybrbix" path="res://Scenes/UIs/pause_ui.tscn" id="3_xq6wt"]
@@ -38,25 +38,6 @@ default_font = ExtResource("1_ykedv")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_lwsfa")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_hyogd")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_jilvm")
-
-[sub_resource type="GDScript" id="GDScript_yy6mv"]
-script/source = "extends Control
-
-@onready
-var health_bar = %HealthBar
-@onready
-var armor_bar = %ArmorBar
-@onready
-var stamina_bar = %StaminaBar
-
-var p_stats : PlayerStats = null
-
-func _ready():
-	pass
-
-func _on_stats_stat_changed(s, from, to):
-	pass
-"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1g20"]
 content_margin_left = 25.0
@@ -120,7 +101,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_hna1t")
-script = SubResource("GDScript_yy6mv")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0

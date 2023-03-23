@@ -13,8 +13,6 @@ var next_shown := false
 var mouse_filter_rect : ColorRect = null
 
 func _ready():
-	Globals.quit_on_esc = false
-	
 	# Create mouse filtering ColorRect
 	mouse_filter_rect = await Utils.make_background_colorrect(self)
 	mouse_filter_rect.visible = false
@@ -62,10 +60,10 @@ func toggle():
 		_on_show()
 
 func _on_hide():
-	hide()
+	visible = false
 	
 func _on_show():
-	show()
+	visible = true
 
 func _on_next_shown():
 	next_shown = true
