@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://j5tsuu0t3qik"]
+[gd_scene load_steps=24 format=3 uid="uid://j5tsuu0t3qik"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
@@ -125,7 +125,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j7omt"]
 render_priority = 0
 shader = SubResource("Shader_16pk4")
-shader_parameter/strength = 0.5
+shader_parameter/strength = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_dpiae"]
 size = Vector2(30, 30)
@@ -232,6 +232,7 @@ script/source = "extends Node
 
 signal dialogue_start(other)
 signal dialogue_end
+signal pickup_fail
 
 var player : Player = null
 var interact_ray = null
@@ -272,6 +273,21 @@ func interact():
 	
 	var interactable = interact_ray.check(from, to)
 	if interactable:
+		if interactable is Pickup:
+			var item : InventoryItem = interactable.item
+			var amount : int = interactable.amount
+			var ok := item != null and amount > 0
+			
+			if not ok:
+				pickup_fail.emit()
+				push_error(\"Pickup object has invalid parameters!\")
+				return
+			
+			ok = player.inventory.add_item(interactable.item, interactable.amount)
+			if not ok:
+				pickup_fail.emit()
+				return
+		
 		var p = interactable.get_parent()
 		if p is NPC:
 			talking_to = p
@@ -405,9 +421,14 @@ script = SubResource("GDScript_pbuh2")
 unique_name_in_owner = true
 script = ExtResource("8_oorkv")
 
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_vaqld")
+
 [connection signal="entered_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_exited_door"]
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
 [connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
 [connection signal="dialogue_start" from="InteractManager" to="." method="_on_interact_manager_dialogue_start"]
 [connection signal="learned" from="Memory" to="." method="_on_memory_learned"]
+[connection signal="item_amount_changed" from="Inventory" to="." method="_on_inventory_item_amount_changed"]

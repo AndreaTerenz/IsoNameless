@@ -107,6 +107,10 @@ func _notification(what):
 		paused = true
 		
 func toggle_screen_blur(vis : bool):
+	if not blur_rect:
+		push_warning("Tried setting screen blur before blur_rect was initialized")
+		return
+		
 	#blur_rect.visible = vis
 	var alpha = 1.0 if vis else 0.0
 	var mat := (blur_rect.material as ShaderMaterial)

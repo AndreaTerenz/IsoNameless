@@ -38,7 +38,7 @@ signal mode_changed(md)
 @onready var interact_manager = %InteractManager
 @onready var memory = %Memory
 @onready var map_camera = %MapCamera
-
+@onready var inventory : Inventory = %Inventory
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -236,3 +236,7 @@ func player_memorize(key: String, value):
 
 func _on_memory_learned(k, v):
 	Globals.log_msg("New Player fact: [%s | %s]" % [k, v])
+
+
+func _on_inventory_item_amount_changed(idx: int, item: InventoryItem, new_amount: int, delta: int):
+	Globals.log_msg("Picked up %d units of %s" % [delta, item])

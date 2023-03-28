@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6txvndio28u"]
+
+[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="1_xcy2k"]
+
+[sub_resource type="GDScript" id="GDScript_edb3j"]
+script/source = "extends HBoxContainer
+
+@onready var icon = %Icon
+@onready var name_label = %Name
+@onready var count_label = %Count
+
+func setup(slot: Inventory.InventorySlot):
+	var item := slot.item
+	
+	icon.texture = item.icon
+	name_label.text = item.name
+	count_label.text = str(slot.amount)
+
+func update(new_amnt: int):
+	count_label.text = str(new_amnt)
+"
+
+[node name="InvSlot_UI" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1765.0
+offset_bottom = -1030.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_edb3j")
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_xcy2k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "giancarlo"
+vertical_alignment = 2
+
+[node name="Count" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"

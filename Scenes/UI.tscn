@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwowhjdlhepqk"]
+[gd_scene load_steps=14 format=3 uid="uid://cwowhjdlhepqk"]
 
 [ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_ykedv"]
+[ext_resource type="PackedScene" uid="uid://dd6txvndio28u" path="res://Scenes/UIs/inventory_ui_slot.tscn" id="3_vwog5"]
 [ext_resource type="PackedScene" uid="uid://bxu3k1yybrbix" path="res://Scenes/UIs/pause_ui.tscn" id="3_xq6wt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwsfa"]
@@ -90,6 +91,52 @@ func _ready():
 	var viewport = Globals.player.map_camera.get_parent()
 	if viewport is SubViewport:
 		viewport.reparent(self)
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj4wi"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id="GDScript_4je7o"]
+script/source = "extends VBoxContainer
+
+@export var slot_ui_scn : PackedScene = preload(\"res://Scenes/UIs/inventory_ui_slot.tscn\")
+
+var slot_uis : Array[Control] = []
+
+func _ready():
+	var kids := get_children()
+	for k in kids:
+		remove_child(k)
+	
+	if not Globals.player:
+		await Globals.player_set
+		
+	var inv : Inventory = Globals.player.inventory
+	
+	inv.item_amount_changed.connect(
+		func (idx, item: InventoryItem, amnt, delta):
+			if idx < len(slot_uis):
+				udpate_item(idx, amnt)
+			else:
+				new_item(inv.slots[idx])
+	)
+	
+func udpate_item(idx, amnt):
+	slot_uis[idx].update(amnt)
+
+func new_item(slot: Inventory.InventorySlot):
+	var slot_ui := slot_ui_scn.instantiate()
+	
+	add_child(slot_ui)
+	slot_uis.append(slot_ui)
+	
+	slot_ui.setup(slot)
 "
 
 [node name="UI" type="Control"]
@@ -213,3 +260,25 @@ layer = 20
 [node name="PauseUI" parent="CanvasLayer" instance=ExtResource("3_xq6wt")]
 visible = false
 toggle_action = "pause"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -130.0
+offset_bottom = 130.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yj4wi")
+
+[node name="InventoryContainer" type="VBoxContainer" parent="PanelContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+script = SubResource("GDScript_4je7o")
+
+[node name="InvSlot_UI" parent="PanelContainer2/InventoryContainer" instance=ExtResource("3_vwog5")]
+layout_mode = 2
