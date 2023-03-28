@@ -1,12 +1,10 @@
 [gd_scene load_steps=27 format=3 uid="uid://j5tsuu0t3qik"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
-[ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_ks13a"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
-[ext_resource type="Material" uid="uid://bgvpmepmf5xgn" path="res://Materials/Grids/purple_grid.tres" id="4_glhws"]
 [ext_resource type="PackedScene" uid="uid://cwowhjdlhepqk" path="res://Scenes/UI.tscn" id="4_mdx2w"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerStats.gd" id="5_hi0eq"]
-[ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="6_4ucgw"]
+[ext_resource type="Script" path="res://Scripts/Player/Inventory.gd" id="6_vaqld"]
 [ext_resource type="Script" path="res://Scripts/Memory.gd" id="8_oorkv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kb6wn"]
@@ -29,11 +27,6 @@ shading_mode = 0
 diffuse_mode = 3
 disable_ambient_light = true
 albedo_color = Color(0.952941, 0.858824, 0.611765, 0.376471)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_tnghl"]
-top_radius = 0.2
-bottom_radius = 0.2
-height = 3.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpuet"]
 
@@ -191,12 +184,11 @@ func _process(_delta):
 [sub_resource type="GDScript" id="GDScript_81d8n"]
 script/source = "extends Camera3D
 
-var pos_delta := Vector3.ZERO
+var height_delta := 0.
 
 var inside_mode : bool :
 	set(val):
 		inside_mode = val
-		
 		var inside_idx = Utils.get_render_layer_idx(\"RoomsInside\")
 		var mappable_idx = Utils.get_render_layer_idx(\"Mappable\")
 
@@ -208,29 +200,21 @@ func _ready():
 	
 	var player_idx = Utils.get_render_layer_idx(\"Player\")
 	set_cull_mask_value(player_idx, true)
-		
+	
 	inside_mode = false
-	
-	await Globals.player_set
-	
-	global_rotation.y = Globals.player.global_rotation.y #- TAU / 8.
-	pos_delta = global_position - Globals.player.global_position
+	height_delta = global_position.y
 
 func _process(delta):
-	global_position = Globals.player.global_position + pos_delta
+	global_rotation.y = Globals.player.camera_pivot.global_rotation.y + TAU/2. # WHY????
+	global_position = Globals.player_pos + Vector3.UP * height_delta
 
 	var door = Globals.player.current_door
 	
 	if door != null:
 		var f = round(1. - door.get_player_depth())
 		inside_mode = bool(f)
+		
 
-
-func _on_player_entered_door(d):
-	pass
-
-func _on_player_exited_door(d):
-	pass #inside_mode = not inside_mode
 "
 
 [sub_resource type="Gradient" id="Gradient_uujw2"]
@@ -325,28 +309,6 @@ gi_mode = 2
 mesh = SubResource("CapsuleMesh_kb6wn")
 surface_material_override/0 = SubResource("StandardMaterial3D_18b2u")
 
-[node name="DBAxes" type="Node3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-visible = false
-
-[node name="Y" type="MeshInstance3D" parent="Body/DBAxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CylinderMesh_tnghl")
-skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("6_4ucgw")
-
-[node name="X" type="MeshInstance3D" parent="Body/DBAxes"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("CylinderMesh_tnghl")
-skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("3_ks13a")
-
-[node name="Z" type="MeshInstance3D" parent="Body/DBAxes"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1)
-mesh = SubResource("CylinderMesh_tnghl")
-skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("4_glhws")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_gpuet")
@@ -398,7 +360,7 @@ render_target_update_mode = 4
 
 [node name="MapCamera" type="Camera3D" parent="CameraPivot/MapViewport"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.0642, -1.33941e-07)
 cull_mask = 1048562
 projection = 1
 size = 18.0
@@ -444,11 +406,8 @@ unique_name_in_owner = true
 script = ExtResource("8_oorkv")
 
 [connection signal="entered_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_entered_door"]
-[connection signal="entered_door" from="." to="CameraPivot/MapViewport/MapCamera" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_exited_door"]
-[connection signal="exited_door" from="." to="CameraPivot/MapViewport/MapCamera" method="_on_player_exited_door"]
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
-[connection signal="stat_changed" from="Stats" to="UI" method="_on_stats_stat_changed"]
 [connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
 [connection signal="dialogue_start" from="InteractManager" to="." method="_on_interact_manager_dialogue_start"]
 [connection signal="learned" from="Memory" to="." method="_on_memory_learned"]

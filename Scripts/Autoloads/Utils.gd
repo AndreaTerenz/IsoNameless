@@ -109,7 +109,34 @@ func make_background_colorrect(parent : Node = get_tree().root):
 	cr.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	return cr
-
+	
+func debug_axes(parent: Node3D, length = 2., radius = .5):
+	if mute_debug_meshes:
+		return
+	
+	var cyl_mesh := CylinderMesh.new()
+	cyl_mesh.top_radius = radius
+	cyl_mesh.bottom_radius = radius
+	cyl_mesh.height = length
+	
+	var materials := [
+		preload("res://Assets/Grids/grid_red.png"),
+		preload("res://Assets/Grids/grid_purple.png"),
+		preload("res://Assets/Grids/grid_green.png"),
+	]
+	
+	var pos := [
+		Vector3.LEFT,
+		Vector3.BACK,
+		Vector3.UP
+	]
+	
+	var rot := [
+		Vector3.BACK * TAU / 4.,
+		Vector3.ZERO,
+		Vector3.LEFT * TAU / 4.,
+	]
+	
 ############################################## LAYERS
 
 func _ready() -> void:

@@ -13,7 +13,7 @@ signal player_exited
 signal enabled_changed(en)
 
 @export
-var tooltip_text := "Interact"
+var tooltip_text : String = "Interact"
 @export
 var tooltip_origin : Node3D = null
 @export
@@ -34,8 +34,22 @@ var enabled :
 var interact_data:
 	get:
 		return get_interact_data()
-		
-var player_inside := false
+var _text : String : 
+	set(t):
+		_text = t
+		if tooltip and tooltip.is_inside_tree():
+			tooltip.text = _text
+		#
+var player_inside : bool = false:
+	set(pi):
+		player_inside = pi
+		tooltip.visible = pi
+		if player_inside:
+			_on_player_entered()
+			player_entered.emit()
+		else:
+			_on_player_exited()
+			player_exited.emit()
 
 func _ready():
 	enabled = start_enabled
@@ -46,25 +60,24 @@ func _ready():
 	body_entered.connect(
 		func (body):
 			if body == Globals.player:
-				tooltip.visible = true
 				player_inside = true
-				_on_player_entered()
-				player_entered.emit()
 	)
 	body_exited.connect(
 		func (body):
 			if body == Globals.player:
-				tooltip.visible = false
 				player_inside = false
-				_on_player_exited()
-				player_exited.emit()
 	)
+	
+	_text = tooltip_text
 	
 	if tooltip_origin:
 		tooltip = tooltip_scene.instantiate()
+		tooltip_origin.add_child.call_deferred(tooltip)
+		
+		await tooltip.ready
+		
 		tooltip.visible = false
-		tooltip.text = tooltip_text.trim_prefix(" ").trim_suffix(" ")
-		tooltip_origin.add_child(tooltip)
+		tooltip.text = _text
 
 func interact():
 	if not enabled:

@@ -69,21 +69,23 @@ var _visible : bool :
 	get:
 		return ignore_visibility or is_visible_in_tree()
 
-var _base_path: String
+const DEFAULT_BASE_PATH := "res://addons/ActionIcon/"
+
+var _base_path := DEFAULT_BASE_PATH
 var _use_joypad: bool
 var _pending_refresh: bool
 var _cached_model: String
 
 func _init():
 	add_to_group(&"action_icons")
-	texture = load("res://addons/ActionIcon/Keyboard/Blank.png")
+	texture = load(DEFAULT_BASE_PATH + "/Keyboard/Blank.png")
 	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
 func _ready() -> void:
-	_base_path = scene_file_path.get_base_dir()
-	if _base_path.is_empty():
-		_base_path = "res://addons/ActionIcon/"
+	var bd = scene_file_path.get_base_dir()
+	if not bd.is_empty():
+		_base_path = bd
 	
 	_use_joypad = not Input.get_connected_joypads().is_empty()
 	
@@ -179,13 +181,10 @@ func _refresh():
 func get_keyboard(key: int) -> Texture:
 	var str = ""
 	
-	if KEY_0 <= key and key <= KEY_9:
+	if (key in range(KEY_0, KEY_9)) or (key in range(KEY_A, KEY_Z)):
 		# Convert key to ASCII character
 		str = char(key)
-	elif KEY_A <= key and key <= KEY_Z:
-		# Convert key to ASCII character and make uppercase
-		str = char(key)#.to_upper()
-	elif KEY_F1 <= key and key <= KEY_F12:
+	elif key in range(KEY_F1, KEY_F12):
 		# Convert key to Function button name
 		str = "F%d" % [key - KEY_F1 + 1]
 	else:
@@ -256,103 +255,82 @@ func get_joypad_model(device: int) -> String:
 
 func get_joypad(button: int, device: int) -> Texture:
 	var model := get_joypad_model(device) + "/"
+	var buttons := {
+		JOY_BUTTON_A: "A",
+		JOY_BUTTON_B: "B",
+		JOY_BUTTON_X: "X",
+		JOY_BUTTON_Y: "Y",
+		JOY_BUTTON_LEFT_SHOULDER: "LB",
+		JOY_BUTTON_RIGHT_SHOULDER: "RB",
+		JOY_BUTTON_LEFT_STICK: "L",
+		JOY_BUTTON_RIGHT_STICK: "R",
+		JOY_BUTTON_GUIDE: "Select",
+		JOY_BUTTON_START: "Start",
+		JOY_BUTTON_DPAD_UP: "DPadUp",
+		JOY_BUTTON_DPAD_DOWN: "DPadDown",
+		JOY_BUTTON_DPAD_LEFT: "DPadLeft",
+		JOY_BUTTON_DPAD_RIGHT: "DPadRight"
+	}
 	
-	match button:
-		JOY_BUTTON_A:
-			return get_image(JOYPAD, model + "A")
-		JOY_BUTTON_B:
-			return get_image(JOYPAD, model + "B")
-		JOY_BUTTON_X:
-			return get_image(JOYPAD, model + "X")
-		JOY_BUTTON_Y:
-			return get_image(JOYPAD, model + "Y")
-		JOY_BUTTON_LEFT_SHOULDER:
-			return get_image(JOYPAD, model + "LB")
-		JOY_BUTTON_RIGHT_SHOULDER:
-			return get_image(JOYPAD, model + "RB")
-		JOY_BUTTON_LEFT_STICK:
-			return get_image(JOYPAD, model + "L")
-		JOY_BUTTON_RIGHT_STICK:
-			return get_image(JOYPAD, model + "R")
-		JOY_BUTTON_GUIDE:
-			return get_image(JOYPAD, model + "Select")
-		JOY_BUTTON_START:
-			return get_image(JOYPAD, model + "Start")
-		JOY_BUTTON_DPAD_UP:
-			return get_image(JOYPAD, model + "DPadUp")
-		JOY_BUTTON_DPAD_DOWN:
-			return get_image(JOYPAD, model + "DPadDown")
-		JOY_BUTTON_DPAD_LEFT:
-			return get_image(JOYPAD, model + "DPadLeft")
-		JOY_BUTTON_DPAD_RIGHT:
-			return get_image(JOYPAD, model + "DPadRight")
-	return null
+	return get_image(JOYPAD, model + buttons.get(button, ""))
 
 func get_joypad_axis(axis: int, value: float, device: int) -> Texture:
 	var model := get_joypad_model(device) + "/"
+	var stick := ""
 	
-	match axis:
-		JOY_AXIS_LEFT_X:
-			if value < 0:
-				return get_image(JOYPAD, model + "LeftStickLeft")
-			elif value > 0:
-				return get_image(JOYPAD, model + "LeftStickRight")
-			else:
-				return get_image(JOYPAD, model + "LeftStick")
-		JOY_AXIS_LEFT_Y:
-			if value < 0:
-				return get_image(JOYPAD, model + "LeftStickUp")
-			elif value > 0:
-				return get_image(JOYPAD, model + "LeftStickDown")
-			else:
-				return get_image(JOYPAD, model + "LeftStick")
-		JOY_AXIS_RIGHT_X:
-			if value < 0:
-				return get_image(JOYPAD, model + "RightStickLeft")
-			elif value > 0:
-				return get_image(JOYPAD, model + "RightStickRight")
-			else:
-				return get_image(JOYPAD, model + "RightStick")
-		JOY_AXIS_RIGHT_Y:
-			if value < 0:
-				return get_image(JOYPAD, model + "RightStickUp")
-			elif value > 0:
-				return get_image(JOYPAD, model + "RightStickDown")
-			else:
-				return get_image(JOYPAD, model + "RightStick")
-		JOY_AXIS_TRIGGER_LEFT:
-			return get_image(JOYPAD, model + "LT")
-		JOY_AXIS_TRIGGER_RIGHT:
-			return get_image(JOYPAD, model + "RT")
-	return null
+	var sticks := {
+		JOY_AXIS_LEFT_X:"LeftStick",
+		JOY_AXIS_LEFT_Y:"LeftStick",
+		JOY_AXIS_RIGHT_X:"RightStick",
+		JOY_AXIS_RIGHT_Y:"RightStick",
+		JOY_AXIS_TRIGGER_LEFT:"LT",
+		JOY_AXIS_TRIGGER_RIGHT:"RT",
+	}
+	
+	if value < 0:
+		sticks[JOY_AXIS_LEFT_X] += "Left"
+		sticks[JOY_AXIS_LEFT_Y] += "Up"
+		sticks[JOY_AXIS_RIGHT_X] += "Left"
+		sticks[JOY_AXIS_RIGHT_Y] += "Up"
+	elif value > 0:
+		sticks[JOY_AXIS_LEFT_X] += "Right"
+		sticks[JOY_AXIS_LEFT_Y] += "Down"
+		sticks[JOY_AXIS_RIGHT_X] += "Right"
+		sticks[JOY_AXIS_RIGHT_Y] += "Down"
+			
+	return get_image(JOYPAD, model + sticks.get(axis, ""))
 
 func get_mouse(button: int) -> Texture:
-	match button:
-		MOUSE_BUTTON_LEFT:
-			return get_image(MOUSE, "Left")
-		MOUSE_BUTTON_RIGHT:
-			return get_image(MOUSE, "Right")
-		MOUSE_BUTTON_MIDDLE:
-			return get_image(MOUSE, "Middle")
-		MOUSE_BUTTON_WHEEL_DOWN:
-			return get_image(MOUSE, "WheelDown")
-		MOUSE_BUTTON_WHEEL_LEFT:
-			return get_image(MOUSE, "WheelLeft")
-		MOUSE_BUTTON_WHEEL_RIGHT:
-			return get_image(MOUSE, "WheelRight")
-		MOUSE_BUTTON_WHEEL_UP:
-			return get_image(MOUSE, "WheelUp")
-	return null
+	var img = ""
+	var buttons := {
+		MOUSE_BUTTON_LEFT: "Left",
+		MOUSE_BUTTON_RIGHT: "Right",
+		MOUSE_BUTTON_MIDDLE: "Middle",
+		MOUSE_BUTTON_WHEEL_DOWN: "WheelDown",
+		MOUSE_BUTTON_WHEEL_LEFT: "WheelLeft",
+		MOUSE_BUTTON_WHEEL_RIGHT: "WheelRight",
+		MOUSE_BUTTON_WHEEL_UP: "WheelUp",
+	}
+	
+	return get_image(MOUSE, buttons.get(button, ""))
 
 func get_image(type: int, image: String) -> Texture2D:
+	var dir := ""
 	match type:
 		KEYBOARD:
-			return load(_base_path + "/Keyboard/" + image + ".png") as Texture
+			dir = "Keyboard"
 		MOUSE:
-			return load(_base_path + "/Mouse/" + image + ".png") as Texture
+			dir = "Mouse"
 		JOYPAD:
-			return load(_base_path + "/Joypad/" + image + ".png") as Texture
-	return null
+			dir = "Joypad"
+		_:
+			return null
+	
+	var full_path = "%s/%s/%s.png" % [_base_path, dir, image]
+	if not ResourceLoader.exists(full_path):
+		return null
+		
+	return load(full_path) as Texture
 
 func on_joy_connection_changed(device: int, connected: bool):
 	if connected:

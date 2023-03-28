@@ -27,12 +27,24 @@ const debug_msg_names := {
 }
 
 const MIN_DB_LEVEL := DEBUG_MSG_MODE.LOG
+var debug_ui : DebugUI = null
+var world_env : WorldEnvironment = null
+var start_time := -1.
+var log_queue := []
+var log_timestamp := true
+var blur_rect : ColorRect = null
+var memory := Memory.new()
 
 var player : Player :
 	set(p):
 		if not player:
 			player = p
 			player_set.emit(p)
+var player_pos : Vector3 :
+	get:
+		if not player:
+			return Vector3.ZERO
+		return player.global_position
 var level : Level :
 	set(l):
 		level = l
@@ -44,13 +56,6 @@ var level : Level :
 		
 		Globals.log_msg("Started")
 		level_started.emit()
-var debug_ui : DebugUI = null
-var world_env : WorldEnvironment = null
-var start_time := -1.
-var log_queue := []
-var log_timestamp := true
-var blur_rect : ColorRect = null
-
 var paused := false :
 	set(p):
 		if paused == p:
@@ -74,12 +79,6 @@ var paused := false :
 var started:
 	get:
 		return start_time >= 0.
-		
-var memory := Memory.new()
-
-# key: node name
-# value: Node object
-var actors := {}
 
 func _ready():
 	enforce_screen_size()
