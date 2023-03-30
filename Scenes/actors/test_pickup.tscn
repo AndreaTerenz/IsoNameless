@@ -1,7 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://bottmrulsuajr"]
+[gd_scene load_steps=8 format=3 uid="uid://bottmrulsuajr"]
 
-[ext_resource type="Texture2D" uid="uid://bcqbmp2es2h4n" path="res://Assets/Portraits/chesani.png" id="1_xtrm4"]
-[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="2_l001v"]
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_rmm82"]
 
 [sub_resource type="GDScript" id="GDScript_5obif"]
@@ -27,13 +25,6 @@ func toggle_hightlight(t: bool):
 	highliht_mesh.visible = t
 "
 
-[sub_resource type="Resource" id="Resource_yfvnx"]
-script = ExtResource("2_l001v")
-name = "chesani"
-icon = ExtResource("1_xtrm4")
-max_stack = 32
-weight = 0.001
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_ocax4"]
 radius = 0.7
 
@@ -56,8 +47,6 @@ emission_energy_multiplier = 11.86
 
 [node name="test_pickup" type="Area3D" node_paths=PackedStringArray("tooltip_origin")]
 script = SubResource("GDScript_5obif")
-item = SubResource("Resource_yfvnx")
-amount = 10
 tooltip_origin = NodePath("TooltipPos")
 metadata/_edit_group_ = true
 

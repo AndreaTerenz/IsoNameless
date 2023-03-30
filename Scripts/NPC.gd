@@ -13,7 +13,6 @@ signal learned(k,v)
 @export var dialogue_file = preload("res://Dialogue/diag_blank.dialogue")
 @export var dialogue_skippable := true
 
-@onready var dialog_ui : DialogUI = %dialogUI
 @onready var memory = %Memory
 @onready var interactable : Interactable = %Interactable
 
@@ -23,7 +22,6 @@ var interact_enabled : bool :
 
 func _ready():
 	add_to_group("ACTORS")
-	dialog_ui.setup(dialogue_file, npc_name, npc_portrait, dialogue_skippable)
 	
 	memory.learned.connect(
 		func (k, v):
@@ -35,7 +33,6 @@ func _ready():
 
 func _on_interacted():
 	_predialogue()
-	dialog_ui.visible = true
 	
 func _on_dialog_done():
 	dialogue_done.emit()

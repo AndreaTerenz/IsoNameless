@@ -283,7 +283,7 @@ func interact():
 				push_error(\"Pickup object has invalid parameters!\")
 				return
 			
-			ok = player.inventory.add_item(interactable.item, interactable.amount)
+			ok = player.receive_item(interactable.item, interactable.amount)
 			if not ok:
 				pickup_fail.emit()
 				return

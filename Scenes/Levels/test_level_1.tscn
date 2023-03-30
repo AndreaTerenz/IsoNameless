@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=18 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bottmrulsuajr" path="res://Scenes/actors/test_pickup.tscn" id="4_a6mb5"]
 [ext_resource type="Material" uid="uid://dxkr3knpjdqi6" path="res://Materials/Grids/yellow_grid.tres" id="4_jxqma"]
 [ext_resource type="PackedScene" uid="uid://j5tsuu0t3qik" path="res://Scenes/Player.tscn" id="6_4v2tq"]
+[ext_resource type="Resource" uid="uid://bsxffs7lscc43" path="res://Items/chesani_item.tres" id="6_sdsv4"]
+[ext_resource type="Resource" uid="uid://dk1fjxm4i3oyq" path="res://Items/torroni_item.tres" id="7_0aw1p"]
 [ext_resource type="Script" path="res://Scripts/EnvElements/Door.gd" id="9_eao6j"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="9_kep4t"]
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]
@@ -21,16 +23,19 @@
 script = ExtResource("2_npikm")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16.1457, 3.6046, 1.3077)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.2733, 0, -21.9127)
 
 [node name="test_interactable" parent="." index="1" instance=ExtResource("4_73vlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6976, 4.37253, 0)
 
 [node name="test_pickup" parent="." index="2" instance=ExtResource("4_a6mb5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6976, 4.37253, 2.17318)
+item = ExtResource("6_sdsv4")
 
 [node name="test_pickup2" parent="." index="3" instance=ExtResource("4_a6mb5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0091, 4.37253, 3.81449)
+item = ExtResource("7_0aw1p")
+amount = 5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="4"]
 transform = Transform3D(-0.566755, -0.576082, 0.588998, -0.296208, 0.809576, 0.506801, -0.768798, 0.112766, -0.629471, 0, 0, 0)

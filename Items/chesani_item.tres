@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bsxffs7lscc43"]
+
+[ext_resource type="Texture2D" uid="uid://bcqbmp2es2h4n" path="res://Assets/Portraits/chesani.png" id="1_qqolb"]
+[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="2_2ltwi"]
+
+[resource]
+script = ExtResource("2_2ltwi")
+name = "chesani"
+icon = ExtResource("1_qqolb")
+max_stack = 32
+weight = 0.001

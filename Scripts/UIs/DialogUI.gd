@@ -18,17 +18,20 @@ var next_id := ""
 var responses : Array = []
 var stop := false
 
-func setup(diag_f : DialogueResource, n: String, propic: Texture, skip := true, par : NPC = get_parent()):
+func _ready():
+	visible = false
+
+func setup(npc : NPC):
 	visible = false
 	
-	parent_npc = par
+	parent_npc = npc
 	self.dialog_done.connect(parent_npc._on_dialog_done)
 	
-	skippable = skip
+	skippable = npc.dialogue_skippable
 	close_btn.visible = skippable
-	name_lbl.text = n
-	dialogue_file = diag_f
-	portrait.texture = propic
+	name_lbl.text = npc.npc_name
+	dialogue_file = npc.dialogue_file
+	portrait.texture = npc.npc_portrait
 
 	visibility_changed.connect(
 		func ():

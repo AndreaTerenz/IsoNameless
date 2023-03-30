@@ -1,25 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://mo41jkqkymf"]
+[gd_scene load_steps=10 format=3 uid="uid://mo41jkqkymf"]
 
 [ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="1_aanv6"]
 [ext_resource type="Texture2D" uid="uid://bcqbmp2es2h4n" path="res://Assets/Portraits/chesani.png" id="2_7a57x"]
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="2_ltho0"]
+[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="2_uuesq"]
+[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="3_6d85i"]
 [ext_resource type="Resource" uid="uid://ctjychwne8fx5" path="res://Dialogue/diag_chesani_1.dialogue" id="3_pwisr"]
 
 [sub_resource type="GDScript" id="GDScript_gnath"]
 script/source = "extends NPC
 
+@export var gift : InventoryItem
+
 func _on_memory_learned(k,v):
 	if k == \"FRANCESCO\":
-		dialog_ui.dialogue_file = preload(\"res://Dialogue/diag_chesani_2.dialogue\")
-		dialog_ui.skippable = true
+		dialogue_file = preload(\"res://Dialogue/diag_chesani_2.dialogue\")
+		dialogue_skippable = true
 	if k == \"LOTS_OF_HAIR\":
 		interact_enabled = false
+		
+		if gift:
+			Globals.player.receive_item(gift, 1)
 "
+
+[sub_resource type="Resource" id="Resource_6y56q"]
+script = ExtResource("3_6d85i")
+name = "gigio"
+icon = ExtResource("2_uuesq")
+max_stack = 32
+weight = 0.001
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pw34j"]
 
 [node name="Chesani" instance=ExtResource("1_aanv6")]
 script = SubResource("GDScript_gnath")
+gift = SubResource("Resource_6y56q")
 npc_name = "Chesani"
 npc_portrait = ExtResource("2_7a57x")
 dialogue_file = ExtResource("3_pwisr")

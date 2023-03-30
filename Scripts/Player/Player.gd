@@ -224,6 +224,7 @@ func exit_door(d: Area3D):
 
 func _on_interact_manager_dialogue_start(other):
 	current_mode = MODE.DIALOGUE
+	ui.start_dialogue(other)
 
 func _on_interact_manager_dialogue_end():
 	current_mode = MODE.NORMAL
@@ -240,3 +241,12 @@ func _on_memory_learned(k, v):
 
 func _on_inventory_item_amount_changed(idx: int, item: InventoryItem, new_amount: int, delta: int):
 	Globals.log_msg("Picked up %d units of %s" % [delta, item])
+	
+func receive_item(item: InventoryItem, amount: int) -> bool:
+	var ok := inventory.add_item(item, amount)
+	
+	if not ok:
+		push_error("Failed to give %d of item %s to Player!" % [amount, item])
+		
+	return ok
+		

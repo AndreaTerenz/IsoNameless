@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dk1fjxm4i3oyq"]
+
+[ext_resource type="Texture2D" uid="uid://mdadthkcoq3t" path="res://Assets/Portraits/torroni.png" id="1_xp28t"]
+[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="2_54rt7"]
+
+[resource]
+script = ExtResource("2_54rt7")
+name = "torroni"
+icon = ExtResource("1_xp28t")
+max_stack = 32
+weight = 0.001
