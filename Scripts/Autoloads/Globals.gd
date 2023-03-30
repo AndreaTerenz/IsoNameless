@@ -26,6 +26,9 @@ const debug_msg_names := {
 	DEBUG_MSG_MODE.ERROR: "Error",
 }
 
+const ACTORS_GROUP = "Actors"
+const TRIGGERS_GROUP = "Triggers"
+
 const MIN_DB_LEVEL := DEBUG_MSG_MODE.LOG
 var debug_ui : DebugUI = null
 var world_env : WorldEnvironment = null

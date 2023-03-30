@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://do8vm5dn4t0d"]
+
+[ext_resource type="Script" path="res://Scripts/EnvElements/Trigger.gd" id="1_37eyp"]
+[ext_resource type="Texture2D" uid="uid://bibvkw6fudncr" path="res://Assets/Triggers/trigger_tex.png" id="1_csar7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8irb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lye0x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkj5d"]
+shading_mode = 0
+albedo_texture = ExtResource("1_csar7")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[node name="Trigger" type="Area3D"]
+script = ExtResource("1_37eyp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_a8irb")
+
+[node name="DebugMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lye0x")
+surface_material_override/0 = SubResource("StandardMaterial3D_kkj5d")

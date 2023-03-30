@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=20 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://l1kwvfllnngd" path="res://Scenes/actors/npc_white.tscn" id="12_6n8ic"]
 [ext_resource type="PackedScene" uid="uid://mo41jkqkymf" path="res://Scenes/actors/npc_red.tscn" id="13_35u1s"]
 [ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="16_phkn8"]
+[ext_resource type="PackedScene" uid="uid://do8vm5dn4t0d" path="res://Scenes/EnvElements/trigger.tscn" id="17_n57p0"]
 
 [sub_resource type="GDScript" id="GDScript_qt3l8"]
 script/source = "extends Level
@@ -29,6 +30,11 @@ func _ready():
 		await Globals.player_set
 		
 	Globals.player.interact_with(offscreen_npc.interactable)
+
+
+func _on_dialogue_trigger_player_inside_changed(pi):
+	if pi:
+		Globals.player.interact_with(offscreen_npc.interactable)
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
@@ -109,3 +115,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.846, 0, -21.3217)
 
 [node name="Offscreen_NPC" parent="." index="9" instance=ExtResource("16_phkn8")]
 interact_enabled = false
+
+[node name="dialogue_trigger" parent="." index="10" instance=ExtResource("17_n57p0")]
+transform = Transform3D(6.0368, 0, 0, 0, 5.8968, 0, 0, 0, 6.7, -5.40086, 2.9484, -18.4112)
+mode = 1
+
+[connection signal="player_inside_changed" from="dialogue_trigger" to="." method="_on_dialogue_trigger_player_inside_changed"]
