@@ -4,10 +4,25 @@ extends CharacterBody3D
 signal dialogue_started
 signal dialogue_done
 signal learned(k,v)
+signal interactable_changed(i)
 
 @export_group("Character")
 @export var npc_name := "Gigio"
 @export var npc_portrait := preload("res://icon.png")
+@export var interact_enabled := true :
+	set(val):
+		if val == interact_enabled:
+			return
+			
+		if not is_inside_tree():
+			await ready
+			
+		interactable.enabled = val
+		collision_layer = default_layers if val else 0
+		collision_mask = default_mask if val else 0
+		map_decal.visible = val
+		
+		interactable_changed.emit(val)
 
 @export_group("Dialogue")
 @export var dialogue_file = preload("res://Dialogue/diag_blank.dialogue")
@@ -15,12 +30,14 @@ signal learned(k,v)
 
 @onready var memory = %Memory
 @onready var interactable : Interactable = %Interactable
-
-var interact_enabled : bool :
-	set(val):
-		interactable.enabled = val
+@onready var map_decal = %MapDecal
+		
+var default_layers : int
+var default_mask : int
 
 func _ready():
+	default_layers = collision_layer
+	default_mask = collision_mask
 	add_to_group("ACTORS")
 	
 	memory.learned.connect(

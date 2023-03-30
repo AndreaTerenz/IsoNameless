@@ -31,7 +31,6 @@ signal mode_changed(md)
 @onready var body := %Body
 @onready var camera : Camera3D = %Camera
 @onready var camera_pivot := %CameraPivot
-@onready var interact_ray := %InteractRay
 @onready var ui := %UI
 @onready var sprint_decal := %SprintDecal
 @onready var stats := %Stats
@@ -225,7 +224,10 @@ func exit_door(d: Area3D):
 func _on_interact_manager_dialogue_start(other):
 	current_mode = MODE.DIALOGUE
 	ui.start_dialogue(other)
-
+	
+func interact_with(other: Interactable):
+	interact_manager.interact(other)
+	
 func _on_interact_manager_dialogue_end():
 	current_mode = MODE.NORMAL
 

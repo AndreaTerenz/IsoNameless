@@ -10,7 +10,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wapxf"]
 radius = 0.673729
 
-[node name="NPC" type="CharacterBody3D"]
+[node name="NPC_Body" type="CharacterBody3D"]
 script = ExtResource("1_txgmd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -35,6 +35,7 @@ unique_name_in_owner = true
 script = ExtResource("4_careh")
 
 [node name="MapDecal" type="Decal" parent="."]
+unique_name_in_owner = true
 layers = 16
 size = Vector3(1.2, 0.304, 1.2)
 texture_albedo = ExtResource("5_vns7w")

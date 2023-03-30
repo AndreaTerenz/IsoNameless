@@ -234,8 +234,9 @@ signal dialogue_start(other)
 signal dialogue_end
 signal pickup_fail
 
+@onready var interact_ray = %InteractRay
+
 var player : Player = null
-var interact_ray = null
 var camera : Camera3D = null
 
 var talking_to : NPC = null :
@@ -256,7 +257,6 @@ func _ready():
 		await Globals.player_set
 		
 	player = Globals.player
-	interact_ray = player.interact_ray
 	camera = player.camera
 
 func _input(_event):
@@ -264,35 +264,38 @@ func _input(_event):
 		if Input.is_action_just_pressed(\"fire\"):
 			interact()
 				
-func interact():
-	var ray_length = camera.dist_to_player + 15.
-	var m_ray : Array[Vector3] = camera.get_mouse_ray(ray_length)
-	
-	var from = m_ray[0]
-	var to = m_ray[1]
-	
-	var interactable = interact_ray.check(from, to)
-	if interactable:
-		if interactable is Pickup:
-			var item : InventoryItem = interactable.item
-			var amount : int = interactable.amount
-			var ok := item != null and amount > 0
-			
-			if not ok:
-				pickup_fail.emit()
-				push_error(\"Pickup object has invalid parameters!\")
-				return
-			
-			ok = player.receive_item(interactable.item, interactable.amount)
-			if not ok:
-				pickup_fail.emit()
-				return
+func interact(other: Interactable = null):
+	if other == null:
+		var ray_length = camera.dist_to_player + 15.
+		var m_ray : Array[Vector3] = camera.get_mouse_ray(ray_length)
 		
-		var p = interactable.get_parent()
-		if p is NPC:
-			talking_to = p
+		var from = m_ray[0]
+		var to = m_ray[1]
+	
+		other = interact_ray.check(from, to)
+		if not other:
+			return
 		
-		interactable.interact()
+	if other is Pickup:
+		var item : InventoryItem = other.item
+		var amount : int = other.amount
+		var ok := item != null and amount > 0
+		
+		if not ok:
+			pickup_fail.emit()
+			push_error(\"Pickup object has invalid parameters!\")
+			return
+		
+		ok = player.receive_item(other.item, other.amount)
+		if not ok:
+			pickup_fail.emit()
+			return
+	
+	var p = other.get_parent()
+	if p is NPC:
+		talking_to = p
+	
+	other.interact()
 
 func _on_player_mode_changed(md):
 	enabled = (md != Player.MODE.DIALOGUE)

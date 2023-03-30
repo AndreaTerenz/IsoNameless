@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=19 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
 [ext_resource type="Environment" uid="uid://bqyqg4xr6e0aj" path="res://default_env.tres" id="2_je60b"]
-[ext_resource type="Script" path="res://Scripts/Level.gd" id="2_npikm"]
 [ext_resource type="Material" uid="uid://0asu4367xipf" path="res://Materials/Grids/red_grid.tres" id="3_qu1om"]
 [ext_resource type="PackedScene" uid="uid://bpqlmx315rwpv" path="res://Scenes/actors/test_interactable.tscn" id="4_73vlm"]
 [ext_resource type="PackedScene" uid="uid://bottmrulsuajr" path="res://Scenes/actors/test_pickup.tscn" id="4_a6mb5"]
@@ -16,11 +15,26 @@
 [ext_resource type="Material" uid="uid://cr6t6bvgx0uic" path="res://Materials/Grids/green_grid.tres" id="10_i710y"]
 [ext_resource type="PackedScene" uid="uid://l1kwvfllnngd" path="res://Scenes/actors/npc_white.tscn" id="12_6n8ic"]
 [ext_resource type="PackedScene" uid="uid://mo41jkqkymf" path="res://Scenes/actors/npc_red.tscn" id="13_35u1s"]
+[ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="16_phkn8"]
+
+[sub_resource type="GDScript" id="GDScript_qt3l8"]
+script/source = "extends Level
+
+@onready var offscreen_npc = $Offscreen_NPC
+
+func _ready():
+	super._ready()
+	
+	if not Globals.player:
+		await Globals.player_set
+		
+	Globals.player.interact_with(offscreen_npc.interactable)
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
 
 [node name="test_level_1" instance=ExtResource("1_blvs2")]
-script = ExtResource("2_npikm")
+script = SubResource("GDScript_qt3l8")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.2733, 0, -21.9127)
@@ -92,3 +106,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2413, 0, -25.0666)
 
 [node name="Chesani" parent="." index="8" instance=ExtResource("13_35u1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.846, 0, -21.3217)
+
+[node name="Offscreen_NPC" parent="." index="9" instance=ExtResource("16_phkn8")]
+interact_enabled = false
