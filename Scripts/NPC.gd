@@ -18,8 +18,6 @@ signal interactable_changed(i)
 			await ready
 			
 		interactable.enabled = val
-		collision_layer = default_layers if val else 0
-		collision_mask = default_mask if val else 0
 		map_decal.visible = val
 		
 		interactable_changed.emit(val)
@@ -38,7 +36,7 @@ var default_mask : int
 func _ready():
 	default_layers = collision_layer
 	default_mask = collision_mask
-	add_to_group("ACTORS")
+	add_to_group(Globals.ACTORS_GROUP)
 	
 	memory.learned.connect(
 		func (k, v):
@@ -57,6 +55,17 @@ func _on_dialog_done():
 
 func memorize(key: String, data : Variant = null):
 	memory.set_value(key, data)
+	
+func give_player(item_path: String, amount := 1):
+	if not item_path.begins_with(Globals.DEFAULT_ITEMS_DIR):
+		item_path = Globals.DEFAULT_ITEMS_DIR.path_join(item_path)
+		
+	if not ResourceLoader.exists(item_path):
+		push_error("Tried to give player non-existant item! ('%s')" % item_path)
+		return
+		
+	var item: InventoryItem = load(item_path)
+	Globals.player.receive_item(item, amount)
 
 func _on_dialog_started():
 	dialogue_started.emit()

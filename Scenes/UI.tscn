@@ -44,11 +44,22 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_jilvm")
 [sub_resource type="GDScript" id="GDScript_o4w5c"]
 script/source = "extends Control
 
+signal dialogue_done
+signal dialogue_interrupted
+
 @onready var dialog_ui = %DialogUI
 
 func start_dialogue(npc : NPC):
 	dialog_ui.setup(npc)
 	dialog_ui.visible = true
+
+
+func _on_dialog_ui_interrupted():
+	dialogue_interrupted.emit()
+
+
+func _on_dialog_ui_done():
+	dialogue_done.emit()
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1g20"]
@@ -299,3 +310,6 @@ layer = 20
 [node name="PauseUI" parent="CanvasLayer" instance=ExtResource("3_xq6wt")]
 visible = false
 toggle_action = "pause"
+
+[connection signal="done" from="DialogUI" to="." method="_on_dialog_ui_done"]
+[connection signal="interrupted" from="DialogUI" to="." method="_on_dialog_ui_interrupted"]

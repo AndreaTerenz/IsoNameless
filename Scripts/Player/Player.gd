@@ -67,6 +67,7 @@ var current_mode := MODE.NORMAL :
 func _ready():
 	current_mode = initial_mode
 	sprint_decal.visible = false
+	add_to_group(Globals.ACTORS_GROUP)
 	
 	Globals.player = self
 
@@ -220,16 +221,22 @@ func exit_door(d: Area3D):
 	if d == current_door:
 		current_door = null
 		exited_door.emit(d)
+	
+func interact_with(other: Interactable):
+	interact_manager.interact(other)
 
 func _on_interact_manager_dialogue_start(other):
 	current_mode = MODE.DIALOGUE
 	ui.start_dialogue(other)
 	
-func interact_with(other: Interactable):
-	interact_manager.interact(other)
-	
 func _on_interact_manager_dialogue_end():
 	current_mode = MODE.NORMAL
+
+func _on_ui_dialogue_interrupted():
+	interact_manager.end_dialogue()
+
+func _on_ui_dialogue_done():
+	interact_manager.end_dialogue()
 
 func memory_get(key: String, default : Variant = null):
 	return memory.get_value(key, default)
@@ -251,4 +258,3 @@ func receive_item(item: InventoryItem, amount: int) -> bool:
 		push_error("Failed to give %d of item %s to Player!" % [amount, item])
 		
 	return ok
-		

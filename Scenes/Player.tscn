@@ -247,9 +247,14 @@ var talking_to : NPC = null :
 				func ():
 					talking_to = null
 			)
+			interact_ray.enabled = false
 			dialogue_start.emit(talking_to)
 		else:
+			interact_ray.enabled = true
 			dialogue_end.emit()
+var dialogue_ongoing : bool :
+	get:
+		return talking_to != null
 var enabled := false
 
 func _ready():
@@ -296,6 +301,13 @@ func interact(other: Interactable = null):
 		talking_to = p
 	
 	other.interact()
+	
+func end_dialogue():
+	if not dialogue_ongoing:
+		push_error(\"No ongoing dialogue to end!\")
+		return 
+	talking_to._on_dialog_done()
+	talking_to = null
 
 func _on_player_mode_changed(md):
 	enabled = (md != Player.MODE.DIALOGUE)
@@ -431,6 +443,8 @@ script = ExtResource("6_vaqld")
 [connection signal="entered_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_exited_door"]
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
+[connection signal="dialogue_done" from="UI" to="." method="_on_ui_dialogue_done"]
+[connection signal="dialogue_interrupted" from="UI" to="." method="_on_ui_dialogue_interrupted"]
 [connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
 [connection signal="dialogue_start" from="InteractManager" to="." method="_on_interact_manager_dialogue_start"]
 [connection signal="learned" from="Memory" to="." method="_on_memory_learned"]

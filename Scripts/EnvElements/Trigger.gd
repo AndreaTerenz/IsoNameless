@@ -21,6 +21,10 @@ var player_inside := false :
 			
 		player_inside = pi
 		player_inside_changed.emit(player_inside)
+		
+		if (player_inside and mode == MODE.ONESHOT_ENTER) or \
+			(not player_inside and mode == MODE.ONESHOT_EXIT):
+			enabled = false
 var enabled := true :
 	set(e):
 		if e == enabled:
@@ -29,8 +33,8 @@ var enabled := true :
 		enabled = e
 		enabled_changed.emit(e)
 		player_inside = false
-		monitorable = enabled
-		monitoring = enabled
+		set_deferred("monitorable", enabled)
+		set_deferred("monitoring", enabled)
 
 func _ready():
 	add_to_group(Globals.TRIGGERS_GROUP)
@@ -38,16 +42,12 @@ func _ready():
 
 	body_entered.connect(
 		func (body):
-			if enabled and body == Globals.player:
+			if body == Globals.player:
 				player_inside = true
-				if mode == MODE.ONESHOT_ENTER:
-					enabled = false
 	)
 	
 	body_exited.connect(
 		func (body):
-			if enabled and body == Globals.player:
+			if body == Globals.player:
 				player_inside = false
-				if mode == MODE.ONESHOT_EXIT:
-					enabled = false
 	)

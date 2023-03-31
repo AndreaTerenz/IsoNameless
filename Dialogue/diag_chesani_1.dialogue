@@ -4,9 +4,11 @@
 I have lots of hair on the back of my head - is this stament true?:
 - Yes
 	do memorize("LOTS_OF_HAIR", true)
+	do give_player("chesani_item.tres", 10)
 	AAAAAAAAAAAAAAAAAAAAA I wish
 - No
 	do memorize("LOTS_OF_HAIR", false)
+	set interact_enabled = false
 	You just failed the exam.
 - I hate you => Francesco
 - (run away) => END
@@ -16,6 +18,7 @@ For more information see Virtuale[next=2.0]
 ~ Francesco
 
 do memorize("FRANCESCO")
+set dialogue_skippable = true
 Francesco??[wait=2.0]\nWhat are you doing here??[next=2.0]
 GET BACK IN THE EVA[next=2.0]
 => END
