@@ -44,6 +44,7 @@ script = SubResource("GDScript_qt3l8")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.2733, 0, -21.9127)
+ui_modules = 0
 
 [node name="test_interactable" parent="." index="1" instance=ExtResource("4_73vlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6976, 4.37253, 0)

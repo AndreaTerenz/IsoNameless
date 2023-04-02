@@ -137,6 +137,9 @@ func debug_axes(parent: Node3D, length = 2., radius = .5):
 		Vector3.LEFT * TAU / 4.,
 	]
 	
+static func check_bit(value: int, bit_idx: int) -> bool:
+	return value & (1 << abs(bit_idx))
+	
 ############################################## LAYERS
 
 func _ready() -> void:

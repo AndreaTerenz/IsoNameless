@@ -12,6 +12,16 @@ signal exited_door(d)
 signal mode_changed(md)
 
 @export var initial_mode := MODE.NORMAL
+@export_flags("Inventory", "Map", "StatBars") var ui_modules = 7 :
+	set(m):
+		if m == ui_modules:
+			return
+			
+		if ui == null:
+			await ready
+		
+		ui.modules = m
+		
 @export_group("Movement")
 # If true, W moves towards isometric forward (and so on)
 # If false, W moves towards top of the screen (and so on)

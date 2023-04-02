@@ -47,6 +47,31 @@ script/source = "extends Control
 signal dialogue_done
 signal dialogue_interrupted
 
+enum MODULES {
+	INVENTORY,
+	MAP,
+	STATS,
+	ALL = 7
+}
+
+@export_flags(\"Inventory\", \"Map\", \"StatBars\") var modules = (2**MODULES.size() - 1) :
+	set(m):
+		if m == modules:
+			return
+			
+		# HACK: tf is this tomfoolery lmao
+		if null in [stats, map, inventory]:
+			await ready
+			
+		modules = m
+		
+		stats.visible 	  = Utils.check_bit(modules, MODULES.INVENTORY)
+		map.visible 	  = Utils.check_bit(modules, MODULES.MAP)
+		inventory.visible = Utils.check_bit(modules, MODULES.STATS)
+
+@onready var stats = %Stats
+@onready var map = %MapContainer
+@onready var inventory = %Inventory
 @onready var dialog_ui = %DialogUI
 
 func start_dialogue(npc : NPC):
@@ -171,8 +196,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_hna1t")
 script = SubResource("GDScript_o4w5c")
+modules = 7
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Stats" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -185,24 +212,24 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j1g20")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats"]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Stats/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Stats/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "HEALTH"
 
-[node name="HealthBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="HealthBar" type="ProgressBar" parent="Stats/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -214,19 +241,19 @@ show_percentage = false
 script = SubResource("GDScript_p72p2")
 stat_name = "health"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Stats/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Stats/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "ARMOR"
 
-[node name="ArmorBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+[node name="ArmorBar" type="ProgressBar" parent="Stats/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -238,19 +265,19 @@ show_percentage = false
 script = SubResource("GDScript_p72p2")
 stat_name = "armor"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Stats/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "STAMINA"
 
-[node name="StaminaBar" type="ProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="StaminaBar" type="ProgressBar" parent="Stats/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -263,6 +290,7 @@ script = SubResource("GDScript_p72p2")
 stat_name = "stamina"
 
 [node name="MapContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -277,12 +305,8 @@ layout_mode = 2
 stretch = true
 script = SubResource("GDScript_w0uqw")
 
-[node name="DialogUI" parent="." instance=ExtResource("2_ropun")]
+[node name="Inventory" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
-layout_mode = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -296,13 +320,18 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yj4wi")
 
-[node name="InventoryContainer" type="VBoxContainer" parent="PanelContainer2"]
+[node name="InventoryContainer" type="VBoxContainer" parent="Inventory"]
 unique_name_in_owner = true
 layout_mode = 2
 script = SubResource("GDScript_4je7o")
 
-[node name="InvSlot_UI" parent="PanelContainer2/InventoryContainer" instance=ExtResource("3_vwog5")]
+[node name="InvSlot_UI" parent="Inventory/InventoryContainer" instance=ExtResource("3_vwog5")]
 layout_mode = 2
+
+[node name="DialogUI" parent="." instance=ExtResource("2_ropun")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 20
