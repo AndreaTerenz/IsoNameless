@@ -28,13 +28,18 @@ func _ready():
 	
 	if not Globals.player:
 		await Globals.player_set
-		
-	Globals.player.interact_with(offscreen_npc.interactable)
 
 
 func _on_dialogue_trigger_player_inside_changed(pi):
 	if pi:
 		Globals.player.interact_with(offscreen_npc.interactable)
+
+
+func _on_zoom_trigger_player_inside_changed(pi):
+	var target := 4. if pi else 15.
+	
+	var tween := get_tree().create_tween()
+	tween.tween_property(Globals.player, \"camera_size\", target, .2)
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hapeh"]
@@ -121,4 +126,8 @@ interact_enabled = false
 transform = Transform3D(6.0368, 0, 0, 0, 5.8968, 0, 0, 0, 6.7, -5.40086, 2.9484, -18.4112)
 mode = 1
 
+[node name="zoom_trigger" parent="." index="11" instance=ExtResource("17_n57p0")]
+transform = Transform3D(6.0368, 0, 0, 0, 3.31978, 0, 0, 0, 6.7, 4.31905, 1.65989, -12.3433)
+
 [connection signal="player_inside_changed" from="dialogue_trigger" to="." method="_on_dialogue_trigger_player_inside_changed"]
+[connection signal="player_inside_changed" from="zoom_trigger" to="." method="_on_zoom_trigger_player_inside_changed"]

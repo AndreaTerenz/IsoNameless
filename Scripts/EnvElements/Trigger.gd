@@ -11,6 +11,7 @@ enum MODE {
 }
 
 @export var mode := MODE.NORMAL
+@export var show := false
 
 @onready var debug_mesh = $DebugMesh
 
@@ -38,7 +39,7 @@ var enabled := true :
 
 func _ready():
 	add_to_group(Globals.TRIGGERS_GROUP)
-	debug_mesh.visible = false
+	debug_mesh.visible = show
 
 	body_entered.connect(
 		func (body):

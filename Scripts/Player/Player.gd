@@ -20,7 +20,15 @@ signal mode_changed(md)
 		if ui == null:
 			await ready
 		
-		ui.modules = m
+		ui_modules = m
+		ui.modules = ui_modules
+@export_range(.001, 40., .001) var camera_size = 15. :
+	set(cs):
+		if camera == null:
+			await ready
+		
+		camera_size = cs
+		camera.size = camera_size
 		
 @export_group("Movement")
 # If true, W moves towards isometric forward (and so on)
