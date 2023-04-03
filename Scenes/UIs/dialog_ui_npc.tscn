@@ -75,6 +75,8 @@ func show_options(opts : Array):
 			
 			button_i.text = opts[idx].text
 			button_i.custom_minimum_size.y = 50
+			button_i.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			button_i.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			button_i.pressed.connect(
 				func ():
 					select(idx)
@@ -100,13 +102,14 @@ theme = SubResource("Theme_o3cdy")
 script = ExtResource("1_140ja")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -385.0
-offset_top = -242.0
-offset_right = 385.0
-offset_bottom = 242.0
+offset_left = -494.0
+offset_top = -212.0
+offset_right = 494.0
+offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wgvcq")
@@ -122,25 +125,34 @@ label_settings = SubResource("LabelSettings_tmvqk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 57
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Portrait" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.8
 texture = ExtResource("1_sdyv2")
-expand_mode = 1
+expand_mode = 2
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DialogueLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -148,42 +160,62 @@ size_flags_vertical = 3
 script = ExtResource("3_mn7km")
 skip_action = "skip_dialogue"
 
-[node name="OptionsCont" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="OptionsCont" type="ScrollContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 220)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 3
 vertical_scroll_mode = 2
 script = SubResource("GDScript_6ym8x")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont"]
+[node name="VBoxContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionsCont"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
+size_flags_horizontal = 3
+size_flags_vertical = 6
+columns = 2
 
-[node name="Opt0" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
+[node name="Opt0" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 6
+focus_neighbor_right = NodePath("../Opt1")
+focus_neighbor_bottom = NodePath("../Opt2")
+focus_next = NodePath("../Opt1")
+focus_previous = NodePath("../Opt3")
 text = "Opt A"
 
-[node name="Opt1" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
+[node name="Opt1" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../Opt0")
+focus_neighbor_bottom = NodePath("../Opt3")
+focus_next = NodePath("../Opt2")
+focus_previous = NodePath("../Opt0")
 text = "Opt A"
 
-[node name="Opt2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
+[node name="Opt2" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 6
+focus_neighbor_top = NodePath("../Opt0")
+focus_neighbor_right = NodePath("../Opt3")
+focus_next = NodePath("../Opt3")
+focus_previous = NodePath("../Opt1")
 text = "Opt A"
 
-[node name="Opt3" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
+[node name="Opt3" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionsCont/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 6
+focus_neighbor_left = NodePath("../Opt2")
+focus_neighbor_top = NodePath("../Opt1")
+focus_next = NodePath("../Opt0")
+focus_previous = NodePath("../Opt2")
 text = "Opt A"
 
 [node name="CloseBtn" type="Button" parent="PanelContainer"]
@@ -194,6 +226,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
 
-[connection signal="finished_typing" from="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_label_finished_typing"]
-[connection signal="selected" from="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsCont" to="." method="_on_options_cont_selected"]
+[connection signal="finished_typing" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_label_finished_typing"]
+[connection signal="selected" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/OptionsCont" to="." method="_on_options_cont_selected"]
 [connection signal="pressed" from="PanelContainer/CloseBtn" to="." method="_on_close_pressed"]
