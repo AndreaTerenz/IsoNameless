@@ -1,6 +1,9 @@
 ~ start
 
 [[Hi|Hello|Howdy]], I am Brad Pitt.[next=2.0]
+do switch_diag_propic()
+[[Hi|Hello|Howdy]], Mr Pitt.[next=2.0]
+do switch_diag_propic()
 I have lots of hair on the back of my head - is this stament true?:
 - Yes
 	do memorize("LOTS_OF_HAIR", true)

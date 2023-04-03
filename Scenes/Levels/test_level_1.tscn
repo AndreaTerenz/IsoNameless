@@ -23,12 +23,6 @@ script/source = "extends Level
 
 @onready var offscreen_npc = $Offscreen_NPC
 
-func _ready():
-	super._ready()
-	
-	if not Globals.player:
-		await Globals.player_set
-
 
 func _on_dialogue_trigger_player_inside_changed(pi):
 	if pi:

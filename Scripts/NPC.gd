@@ -5,10 +5,17 @@ signal dialogue_started
 signal dialogue_done
 signal learned(k,v)
 signal interactable_changed(i)
+signal portrait_changed(p)
 
 @export_group("Character")
 @export var npc_name := "Gigio"
-@export var npc_portrait := preload("res://icon.png")
+@export var npc_portrait := preload("res://icon.png") :
+	set(p):
+		if p == npc_portrait:
+			return
+		
+		npc_portrait = p
+		portrait_changed.emit(p)
 @export var interact_enabled := true :
 	set(val):
 		if val == interact_enabled:
@@ -26,10 +33,11 @@ signal interactable_changed(i)
 @export var dialogue_file = preload("res://Dialogue/diag_blank.dialogue")
 @export var dialogue_skippable := true
 
-@onready var memory = %Memory
+@onready var memory : Memory = %Memory
 @onready var interactable : Interactable = %Interactable
 @onready var map_decal = %MapDecal
-		
+@onready var mover : NPCMover = %Mover
+
 var default_layers : int
 var default_mask : int
 
@@ -70,6 +78,12 @@ func give_player(item_path: String, amount := 1):
 func _on_dialog_started():
 	dialogue_started.emit()
 	_dialogue_started()
+	
+func _process(delta):
+	velocity = mover.update_velocity(delta)
+	
+	if velocity != Vector3.ZERO:
+		move_and_slide()
 	
 # VIRTUAL
 func _predialogue():

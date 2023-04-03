@@ -50,6 +50,7 @@ signal mode_changed(md)
 @onready var camera : Camera3D = %Camera
 @onready var camera_pivot := %CameraPivot
 @onready var ui := %UI
+@onready var dialog_ui : DialogUI = ui.dialog_ui
 @onready var sprint_decal := %SprintDecal
 @onready var stats := %Stats
 @onready var interact_manager = %InteractManager

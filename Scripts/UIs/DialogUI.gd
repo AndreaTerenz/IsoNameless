@@ -13,12 +13,27 @@ signal interrupted
 @onready var portrait = %Portrait
 @onready var close_btn = %CloseBtn
 
+const player_propic := preload("res://Assets/Portraits/player.png")
+const NPC_TURN := 0
+const PLAYER_TURN := 1
+
 var target_npc : NPC = null
 var next_id := ""
 var responses : Array = []
 var stop := false
 var typing := false
 var line_update_timer := Timer.new()
+
+var current_propic := NPC_TURN :
+	set(p):
+		if p == current_propic or not(p in [NPC_TURN, PLAYER_TURN]):
+			return
+			
+		if portrait == null:
+			await ready
+			
+		current_propic = p
+		portrait.texture = target_npc.npc_portrait if p == NPC_TURN else player_propic
 
 func _ready():
 	visible = false
@@ -39,14 +54,21 @@ func _ready():
 			update_line()
 	)
 
-func setup(_npc : NPC):
-	target_npc = _npc
+func setup(npc : NPC):
+	target_npc = npc
 	
-	skippable = _npc.dialogue_skippable
+	var propic_changed_func = \
+		func (p):
+			portrait.texture = target_npc.npc_portrait
+	
+	if not target_npc.portrait_changed.is_connected(propic_changed_func):
+		target_npc.portrait_changed.connect(propic_changed_func)
+	
+	skippable = target_npc.dialogue_skippable
 	close_btn.visible = skippable
-	name_lbl.text = _npc.npc_name
-	dialogue_file = _npc.dialogue_file
-	portrait.texture = _npc.npc_portrait
+	name_lbl.text = target_npc.npc_name
+	dialogue_file = target_npc.dialogue_file
+	portrait.texture = target_npc.npc_portrait
 	
 	reset()
 
@@ -61,7 +83,10 @@ func reset():
 func update_line():
 	var from : String = "start" if next_id == "" else next_id
 	var current_line : DialogueLine = \
-		await DialogueManager.get_next_dialogue_line(dialogue_file, from, [target_npc, Globals, Globals.player])
+		await DialogueManager.get_next_dialogue_line(\
+			dialogue_file, from, 
+			[target_npc, Globals, Globals.player, Globals.player.dialog_ui]
+		)
 	
 	if current_line == null:
 		visible = false
@@ -95,3 +120,7 @@ func _on_label_finished_typing():
 func _on_options_cont_selected(opt_id):
 	next_id = responses[opt_id].next_id
 	update_line()
+	
+	
+func switch_diag_propic():
+	current_propic = PLAYER_TURN if current_propic == NPC_TURN else NPC_TURN
