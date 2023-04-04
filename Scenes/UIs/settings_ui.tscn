@@ -15,7 +15,7 @@ func _ready():
 
 func _on_show():
 	super._on_show()
-	graphics.grab_focus.call_deferred()
+	grab_focus.call_deferred()
 
 func _on_hide():
 	super._on_hide()
@@ -89,6 +89,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_next = NodePath("PanelContainer/VBoxContainer/TabContainer/Graphics")
+focus_mode = 2
 script = SubResource("GDScript_7ejs2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -112,10 +114,11 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+tab_alignment = 1
+use_hidden_tabs_for_min_size = true
 
 [node name="Graphics" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("MarginContainer/GridContainer/HBoxContainer/CheckButton")
 focus_next = NodePath("../Controls")
 focus_previous = NodePath("../Audio")
 focus_mode = 2
@@ -315,16 +318,10 @@ text = "D"
 [node name="Controls" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
-focus_next = NodePath("../Audio")
-focus_previous = NodePath("../Graphics")
-focus_mode = 2
 
 [node name="Audio" type="TabBar" parent="PanelContainer/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
-focus_next = NodePath("../Graphics")
-focus_previous = NodePath("../Controls")
-focus_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)

@@ -103,10 +103,10 @@ func dir_to_rotation(dir : Vector2) -> float:
 	var rot_angle = -dir.angle()+TAU/8.
 	rot_angle = snappedf(rot_angle, TAU/8.)
 	
-	if Utils.length_geq(dir, .001):
+	if Utils.length_geq(dir, .01):
 		return lerp_angle(rotation.y, rot_angle, ROT_SPEED)
-		
-	return rot_angle
+	
+	return rotation.y
 	
 func get_h_velocity(current: Vector3, dir := get_h_direction()) -> Vector3:
 	if dir:
