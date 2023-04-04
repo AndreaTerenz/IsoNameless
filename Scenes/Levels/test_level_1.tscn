@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xxlp26s1av6w"]
+[gd_scene load_steps=21 format=3 uid="uid://xxlp26s1av6w"]
 
 [ext_resource type="PackedScene" uid="uid://wja52f18klx4" path="res://Assets/Models/Levels/test_level_1.blend" id="1_blvs2"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_goaju"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://mo41jkqkymf" path="res://Scenes/actors/npc_red.tscn" id="13_35u1s"]
 [ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="16_phkn8"]
 [ext_resource type="PackedScene" uid="uid://do8vm5dn4t0d" path="res://Scenes/EnvElements/trigger.tscn" id="17_n57p0"]
+[ext_resource type="PackedScene" uid="uid://bjonn5r577f04" path="res://Scenes/EnvElements/dmg_trigger.tscn" id="18_n0adu"]
 
 [sub_resource type="GDScript" id="GDScript_qt3l8"]
 script/source = "extends Level
@@ -43,7 +44,7 @@ script = SubResource("GDScript_qt3l8")
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.2733, 0, -21.9127)
-ui_modules = 0
+ui_modules = 4
 
 [node name="test_interactable" parent="." index="1" instance=ExtResource("4_73vlm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6976, 4.37253, 0)
@@ -119,9 +120,16 @@ interact_enabled = false
 [node name="dialogue_trigger" parent="." index="10" instance=ExtResource("17_n57p0")]
 transform = Transform3D(6.0368, 0, 0, 0, 5.8968, 0, 0, 0, 6.7, -5.40086, 2.9484, -18.4112)
 mode = 1
+show = true
 
 [node name="zoom_trigger" parent="." index="11" instance=ExtResource("17_n57p0")]
 transform = Transform3D(6.0368, 0, 0, 0, 3.31978, 0, 0, 0, 6.7, 4.31905, 1.65989, -12.3433)
+show = true
+
+[node name="Dmg Trigger" parent="." index="12" instance=ExtResource("18_n0adu")]
+transform = Transform3D(6.0368, 0, 0, 0, 4.30226, 0, 0, 0, 6.7, 12.6311, 2.15113, 1.96808)
+oneshot_damage = true
+show = true
 
 [connection signal="player_inside_changed" from="dialogue_trigger" to="." method="_on_dialogue_trigger_player_inside_changed"]
 [connection signal="player_inside_changed" from="zoom_trigger" to="." method="_on_zoom_trigger_player_inside_changed"]

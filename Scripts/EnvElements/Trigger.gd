@@ -23,6 +23,11 @@ var player_inside := false :
 		player_inside = pi
 		player_inside_changed.emit(player_inside)
 		
+		if pi:
+			_on_player_entered()
+		else:
+			_on_player_left()
+		
 		if (player_inside and mode == MODE.ONESHOT_ENTER) or \
 			(not player_inside and mode == MODE.ONESHOT_EXIT):
 			enabled = false
@@ -33,9 +38,15 @@ var enabled := true :
 			
 		enabled = e
 		enabled_changed.emit(e)
+		
 		player_inside = false
 		set_deferred("monitorable", enabled)
 		set_deferred("monitoring", enabled)
+		
+		if e:
+			_on_enabled()
+		else:
+			_on_disabled()
 
 func _ready():
 	add_to_group(Globals.TRIGGERS_GROUP)
@@ -52,3 +63,17 @@ func _ready():
 			if body == Globals.player:
 				player_inside = false
 	)
+
+###### VIRTUAL
+
+func _on_player_entered():
+	pass
+
+func _on_player_left():
+	pass
+
+func _on_enabled():
+	pass
+	
+func _on_disabled():
+	pass

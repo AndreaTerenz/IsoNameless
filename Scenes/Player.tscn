@@ -456,6 +456,7 @@ script = ExtResource("6_vaqld")
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
 [connection signal="dialogue_done" from="UI" to="." method="_on_ui_dialogue_done"]
 [connection signal="dialogue_interrupted" from="UI" to="." method="_on_ui_dialogue_interrupted"]
+[connection signal="stat_changed" from="Stats" to="." method="_on_stats_stat_changed"]
 [connection signal="dialogue_end" from="InteractManager" to="." method="_on_interact_manager_dialogue_end"]
 [connection signal="dialogue_start" from="InteractManager" to="." method="_on_interact_manager_dialogue_start"]
 [connection signal="learned" from="Memory" to="." method="_on_memory_learned"]

@@ -10,6 +10,7 @@ enum MODE {
 signal entered_door(d)
 signal exited_door(d)
 signal mode_changed(md)
+signal stat_changed(s, from, to)
 
 @export var initial_mode := MODE.NORMAL
 @export_flags("Inventory", "Map", "StatBars") var ui_modules = 7 :
@@ -277,3 +278,19 @@ func receive_item(item: InventoryItem, amount: int) -> bool:
 		push_error("Failed to give %d of item %s to Player!" % [amount, item])
 		
 	return ok
+
+func get_stat(s_name: String):
+	return stats.get_stat_value(s_name)
+
+func set_stat(s_name: String, value: float):
+	stats.set_stat_value(s_name, value)
+
+func change_stat(s_name: String, delta: float):
+	stats.change_stat_value(s_name, delta)
+
+func _on_stats_stat_changed(s, from, to):
+	stat_changed.emit(s, from, to)
+	
+	if s.name == "health" and to <= .0001:
+		Globals.log_msg("PLAYER DIED")
+		Globals.restart_level()

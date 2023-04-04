@@ -65,9 +65,9 @@ enum MODULES {
 			
 		modules = m
 		
-		stats.visible 	  = Utils.check_bit(modules, MODULES.INVENTORY)
+		inventory.visible = Utils.check_bit(modules, MODULES.INVENTORY)
 		map.visible 	  = Utils.check_bit(modules, MODULES.MAP)
-		inventory.visible = Utils.check_bit(modules, MODULES.STATS)
+		stats.visible 	  = Utils.check_bit(modules, MODULES.STATS)
 
 @onready var stats = %Stats
 @onready var map = %MapContainer
@@ -102,21 +102,18 @@ script/source = "extends ProgressBar
 @export
 var stat_name := \"\"
 
-var p_stats : PlayerStats = null
-
 func _ready():
 	if stat_name != \"\":
 		if not Globals.player:
 			await Globals.player_set
 
-		p_stats = Globals.player.stats
-		p_stats.stat_changed.connect(
+		Globals.player.stat_changed.connect(
 			func (s, from, to):
 				if s.name == stat_name:
 					value = to
 		)
 		
-		value = p_stats.get_stat_value(stat_name)
+		value = Globals.player.get_stat(stat_name)
 		
 "
 
