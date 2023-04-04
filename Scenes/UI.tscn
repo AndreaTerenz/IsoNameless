@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwowhjdlhepqk"]
+[gd_scene load_steps=16 format=3 uid="uid://bdhtcxbtvyd6f"]
 
 [ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_ykedv"]
 [ext_resource type="PackedScene" uid="uid://2xhtwxpgnyd8" path="res://Scenes/UIs/dialog_ui_npc.tscn" id="2_ropun"]

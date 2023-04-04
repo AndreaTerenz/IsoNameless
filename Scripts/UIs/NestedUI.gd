@@ -2,7 +2,7 @@ class_name NestedUI
 extends Control
 
 @export
-var toggle_action := "quit"
+var toggle_action := "close_ui"
 @export
 var force_toggle_action := false
 @export
@@ -48,6 +48,7 @@ func show_next(next_ui_scn : PackedScene):
 			next_ui.force_toggle_action = true
 		
 		add_child.call_deferred(next_ui)
+		await next_ui.ready
 		next_ui._on_show()
 		_on_next_shown()
 	else:

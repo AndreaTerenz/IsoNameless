@@ -128,7 +128,6 @@ show = true
 
 [node name="Dmg Trigger" parent="." index="12" instance=ExtResource("18_n0adu")]
 transform = Transform3D(6.0368, 0, 0, 0, 4.30226, 0, 0, 0, 6.7, 12.6311, 2.15113, 1.96808)
-oneshot_damage = true
 show = true
 
 [connection signal="player_inside_changed" from="dialogue_trigger" to="." method="_on_dialogue_trigger_player_inside_changed"]

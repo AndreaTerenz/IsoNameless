@@ -7,6 +7,12 @@ script/source = "extends NestedUI
 
 var settings_ui_scn : PackedScene = preload(\"res://Scenes/UIs/settings_ui.tscn\")
 
+@onready var resume_btn = $VBoxContainer/ResumeBtn
+@onready var restart_btn = $VBoxContainer/RestartBtn
+@onready var settings_btn = $VBoxContainer/SettingsBtn
+@onready var quit_btn = $VBoxContainer/QuitBtn
+
+
 func _ready():
 	super._ready()
 	Globals.paused_changed.connect(
@@ -20,6 +26,7 @@ func _ready():
 
 func _on_show():
 	super._on_show()
+	resume_btn.grab_focus.call_deferred()
 	Globals.paused = true
 
 func _on_hide():
@@ -72,18 +79,32 @@ alignment = 1
 
 [node name="ResumeBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../RestartBtn")
+focus_next = NodePath("../RestartBtn")
+focus_previous = NodePath("../QuitBtn")
 text = "Resume"
 
 [node name="RestartBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeBtn")
+focus_neighbor_bottom = NodePath("../SettingsBtn")
+focus_next = NodePath("../SettingsBtn")
+focus_previous = NodePath("../ResumeBtn")
 text = "Restart"
 
 [node name="SettingsBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../RestartBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
+focus_next = NodePath("../QuitBtn")
+focus_previous = NodePath("../RestartBtn")
 text = "Settings"
 
 [node name="QuitBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsBtn")
+focus_next = NodePath("../ResumeBtn")
+focus_previous = NodePath("../SettingsBtn")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
