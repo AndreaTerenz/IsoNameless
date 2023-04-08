@@ -1,0 +1,18 @@
+~ start
+
+Go get the breastplate stretcher, NOW!
+set dialogue_start_id = "waiting"
+=> END
+
+~ waiting
+
+% Your mother was a whore
+% Gods was I strong then
+% BESSIE! THANK THE GODS FOR BESSIE (And her tits)!
+=> END
+
+~ taken
+
+Took you long enough
+set dialogue_start_id = "start"
+do Globals.restart_level()

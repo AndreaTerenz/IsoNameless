@@ -13,12 +13,15 @@ func _ready():
 	toggle_hightlight(false)
 
 func _on_player_entered():
+	super._on_interact()
 	toggle_hightlight(true)
 
 func _on_player_exited():
+	super._on_interact()
 	toggle_hightlight(false)
 	
 func _on_interact():
+	super._on_interact()
 	toggle_hightlight(false)
 
 func toggle_hightlight(t: bool):

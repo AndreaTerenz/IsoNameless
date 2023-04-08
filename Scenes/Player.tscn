@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://j5tsuu0t3qik"]
+[gd_scene load_steps=23 format=3 uid="uid://j5tsuu0t3qik"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_qsd5a"]
 [ext_resource type="Texture2D" uid="uid://djynh8htvq22y" path="res://Assets/fake_AO_decal.png" id="3_s0417"]
@@ -17,16 +17,6 @@ transparency = 1
 diffuse_mode = 3
 albedo_texture = SubResource("CompressedTexture2D_pyynk")
 uv1_offset = Vector3(-0.125, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18b2u"]
-render_priority = -1
-next_pass = SubResource("StandardMaterial3D_d1gfr")
-transparency = 1
-no_depth_test = true
-shading_mode = 0
-diffuse_mode = 3
-disable_ambient_light = true
-albedo_color = Color(0.952941, 0.858824, 0.611765, 0.376471)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpuet"]
 
@@ -83,9 +73,6 @@ var dist_to_player : float :
 func _ready():
 	size = default_size
 	set_cull_mask_value(Utils.get_render_layer_idx(\"Mappable\"), false)
-
-func _process(delta):
-	pass #look_at(get_parent().global_position)#Globals.player.body.global_position)
 
 func get_mouse_ray(length := 1.) -> Array[Vector3]:
 	var mouse_pos := get_viewport().get_mouse_position()
@@ -203,6 +190,10 @@ func _process(_delta):
 [sub_resource type="GDScript" id="GDScript_81d8n"]
 script/source = "extends Camera3D
 
+@export_range(1., 50., .0001) var min_size = 10.
+@export_range(10., 200., .0001) var max_size = 60.
+@export_range(1., 10., .0001) var camera_size_scale = 1.5
+
 var height_delta := 0.
 
 var inside_mode : bool :
@@ -224,6 +215,7 @@ func _ready():
 	height_delta = global_position.y
 
 func _process(delta):
+	size = clamp(Globals.player.camera.size * camera_size_scale, min_size, max_size)
 	global_rotation.y = Globals.player.camera_pivot.global_rotation.y + TAU/2. # WHY????
 	global_position = Globals.player_pos + Vector3.UP * height_delta
 
@@ -357,7 +349,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 layers = 3
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_kb6wn")
-surface_material_override/0 = SubResource("StandardMaterial3D_18b2u")
+surface_material_override/0 = SubResource("StandardMaterial3D_d1gfr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -415,6 +407,7 @@ cull_mask = 1048562
 projection = 1
 size = 18.0
 script = SubResource("GDScript_81d8n")
+camera_size_scale = 2.0
 
 [node name="AO Decal" type="Decal" parent="."]
 layers = 4

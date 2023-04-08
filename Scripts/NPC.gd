@@ -32,6 +32,7 @@ signal portrait_changed(p)
 @export_group("Dialogue")
 @export var dialogue_file = preload("res://Dialogue/diag_blank.dialogue")
 @export var dialogue_skippable := true
+@export var dialogue_start_id = "start"
 
 @onready var memory : Memory = %Memory
 @onready var interactable : Interactable = %Interactable
@@ -74,6 +75,13 @@ func give_player(item_path: String, amount := 1):
 		
 	var item: InventoryItem = load(item_path)
 	Globals.player.receive_item(item, amount)
+	
+func change_dialogue_file(path: String):
+	if not ResourceLoader.exists(path) or not path.ends_with(".dialogue"):
+		push_error("Invalid path for dialogue file!")
+		return
+		
+	dialogue_file = load(path)
 
 func _on_dialog_started():
 	dialogue_started.emit()

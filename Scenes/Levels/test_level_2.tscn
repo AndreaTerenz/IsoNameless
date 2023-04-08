@@ -1,0 +1,208 @@
+[gd_scene load_steps=27 format=3 uid="uid://d2mko4tphoj6m"]
+
+[ext_resource type="PackedScene" uid="uid://dak1uk7d2oum3" path="res://Assets/Models/Levels/test_level_2.blend" id="1_pic43"]
+[ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_wrm7j"]
+[ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="3_oa6bd"]
+[ext_resource type="PackedScene" uid="uid://bottmrulsuajr" path="res://Scenes/actors/test_pickup.tscn" id="3_uw1vn"]
+[ext_resource type="PackedScene" uid="uid://j5tsuu0t3qik" path="res://Scenes/Player.tscn" id="3_wqvp6"]
+[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="4_ctxk1"]
+[ext_resource type="PackedScene" uid="uid://bjonn5r577f04" path="res://Scenes/EnvElements/dmg_trigger.tscn" id="5_5nkv7"]
+[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="5_mh3jd"]
+[ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="6_rwoj8"]
+[ext_resource type="Texture2D" uid="uid://reaaol7sre1b" path="res://Assets/Portraits/RobbieBratheon.png" id="7_ntudw"]
+[ext_resource type="Resource" uid="uid://cjy4ledydeor8" path="res://Dialogue/diag_tl2_1.dialogue" id="7_r1hw3"]
+[ext_resource type="PackedScene" uid="uid://do8vm5dn4t0d" path="res://Scenes/EnvElements/trigger.tscn" id="9_oo0lg"]
+
+[sub_resource type="GDScript" id="GDScript_ejrvs"]
+script/source = "extends Level
+
+@onready var offscreen_npc : NPC = $OffscreenNPC
+
+func _on_dialog_trig_player_inside_changed(pi):
+	if pi:
+		Globals.player.interact_with(offscreen_npc.interactable)
+
+
+func _on_test_pickup_taken():
+	# FIXME: This should be done in the dialogue file itself,
+	# with some method to query the player's inventory
+	# and check if they have the item or not
+	offscreen_npc.dialogue_start_id = \"taken\"
+"
+
+[sub_resource type="Shader" id="Shader_jah1d"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+#include \"res://Materials/Shaders/shader_utils.gdshaderinc\"
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform sampler2D texture_normal : hint_roughness_normal,filter_linear_mipmap,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+
+uniform vec3 mountain_tint: source_color;
+uniform vec3 ground_tint: source_color;
+uniform sampler2D tint_blend_curve: hint_default_transparent;
+uniform float tint_blend_width: hint_range(0.0, 1.0, .0001) = .8;
+uniform float height : hint_range(-5., 5, .0001) = .5;
+uniform float brightness : hint_range(0.0, 2.0, .0001) = .8;
+uniform float carlo : hint_range(0.0, 1.0, 0.1) = .4;
+
+vec3 gigi(vec3 vert, mat4 ivm) {
+	vec3 p = (ivm * vec4(vert, 1.0)).xyz;
+	vec3 output = albedo.rgb;
+	float h = p.y - height;
+	float h_wdith = tint_blend_width/2.;
+	
+	if (h <= -h_wdith) {
+		output *= ground_tint; 
+	}
+	else if (h >= h_wdith) {
+		output *= mountain_tint; 
+	}
+	else {
+		float h_uv = remap_clamped(h, -h_wdith, +h_wdith, 0., 1.);
+		float fact = texture(tint_blend_curve, vec2(h_uv, 0.)).r;
+		output *= mix(ground_tint, mountain_tint, fact);
+	}
+	
+	return output;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = gigi(VERTEX, INV_VIEW_MATRIX) * albedo_tex.rgb * brightness;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bfmtm"]
+fractal_lacunarity = 4.093
+fractal_gain = 0.824
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_00ilu"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_bfmtm")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f4gue"]
+frequency = 0.052
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t2jhn"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_f4gue")
+
+[sub_resource type="Curve" id="Curve_eqaky"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5dmcj"]
+texture_mode = 1
+curve = SubResource("Curve_eqaky")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjws7"]
+render_priority = 0
+shader = SubResource("Shader_jah1d")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.18
+shader_parameter/normal_scale = 0.49
+shader_parameter/mountain_tint = Color(0.247059, 0.176471, 0.0392157, 1)
+shader_parameter/ground_tint = Color(0.568627, 0.588235, 0.290196, 1)
+shader_parameter/tint_blend_width = 0.2103
+shader_parameter/height = 0.1811
+shader_parameter/brightness = 0.8
+shader_parameter/carlo = 0.0
+shader_parameter/texture_albedo = SubResource("NoiseTexture2D_00ilu")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_t2jhn")
+shader_parameter/tint_blend_curve = SubResource("CurveTexture_5dmcj")
+
+[sub_resource type="Resource" id="Resource_kq2k0"]
+script = ExtResource("5_mh3jd")
+name = "stretcher"
+icon = ExtResource("4_ctxk1")
+max_stack = 32
+weight = 0.001
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hiec3"]
+load_path = "res://.godot/imported/panorama_image.png-9b498c21a0633c3fab1426ec78f9573a.s3tc.ctex"
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q1u61"]
+panorama = SubResource("CompressedTexture2D_hiec3")
+
+[sub_resource type="Sky" id="Sky_x58k7"]
+sky_material = SubResource("PanoramaSkyMaterial_q1u61")
+
+[sub_resource type="Environment" id="Environment_y5ejt"]
+background_mode = 1
+background_energy_multiplier = 2.75
+background_intensity = 0.62
+sky = SubResource("Sky_x58k7")
+ambient_light_source = 3
+tonemap_mode = 3
+ssil_enabled = true
+glow_normalized = true
+glow_strength = 1.47
+glow_blend_mode = 4
+fog_enabled = true
+fog_light_color = Color(0.184314, 0.203922, 0.231373, 1)
+fog_sky_affect = 0.302
+fog_height_density = 0.5912
+adjustment_brightness = 1.07
+adjustment_contrast = 0.86
+
+[node name="test_level_2" instance=ExtResource("1_pic43")]
+script = SubResource("GDScript_ejrvs")
+
+[node name="Mountains" parent="." index="0"]
+layers = 17
+surface_material_override/0 = SubResource("ShaderMaterial_qjws7")
+
+[node name="Platform" parent="." index="1"]
+layers = 17
+surface_material_override/0 = ExtResource("2_wrm7j")
+
+[node name="test_pickup" parent="Platform" index="1" instance=ExtResource("3_uw1vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71417, 5.05328, -2.21809)
+item = SubResource("Resource_kq2k0")
+
+[node name="Bridge" parent="." index="2"]
+layers = 17
+surface_material_override/0 = ExtResource("3_oa6bd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="3"]
+environment = SubResource("Environment_y5ejt")
+
+[node name="Player" parent="." index="4" instance=ExtResource("3_wqvp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8957, 0, 29.0221)
+
+[node name="Dmg Trigger" parent="." index="5" instance=ExtResource("5_5nkv7")]
+transform = Transform3D(62.3891, 0, 0, 0, 1, 0, 0, 0, 52.9727, 0, -5.42308, 0)
+dps = -1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="6"]
+transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OffscreenNPC" parent="." index="7" instance=ExtResource("6_rwoj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.25783, 0)
+npc_name = "Robert Baratheon"
+npc_portrait = ExtResource("7_ntudw")
+dialogue_file = ExtResource("7_r1hw3")
+dialogue_skippable = false
+
+[node name="DialogTrig" parent="." index="8" instance=ExtResource("9_oo0lg")]
+transform = Transform3D(18.5, 0, 0, 0, 1, 0, 0, 0, 20.91, -27.7763, 0, 31.6036)
+
+[connection signal="taken" from="Platform/test_pickup" to="." method="_on_test_pickup_taken"]
+[connection signal="player_inside_changed" from="DialogTrig" to="." method="_on_dialog_trig_player_inside_changed"]

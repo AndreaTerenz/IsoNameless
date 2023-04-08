@@ -90,6 +90,11 @@ func _ready():
 	add_to_group(Globals.ACTORS_GROUP)
 	
 	Globals.player = self
+	
+	var p = get_parent()
+	if not(p is Level):
+		push_error("This scene is not supposed to be run!")
+		get_tree().quit()
 
 func get_h_direction() -> Vector2:
 	target_dir = Input.get_vector("right", "left", "backward", "forward")

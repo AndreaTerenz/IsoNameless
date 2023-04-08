@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://rjx68wj1nc4p"]
+
+[sub_resource type="Shader" id="Shader_a3mgx"]
+code = "shader_type spatial;
+render_mode blend_add;
+
+uniform vec3 mountain_tint: source_color;
+uniform vec3 ground_tint: source_color;
+uniform float h : hint_range(-5., 5, .0001) = .5;
+uniform float b : hint_range(0.0, 2.0, .0001) = .8;
+
+void fragment() {
+    // .5 is obviously an arbitrary threshold
+	vec3 p = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+    if (p.y >= h) {
+        ALBEDO = mountain_tint;
+    }
+    else {
+        ALBEDO = ground_tint; //pretend this is brown...
+    }
+	
+	ALBEDO *= b;
+	ALPHA = 1.;
+}"
+
+[resource]
+render_priority = 1
+shader = SubResource("Shader_a3mgx")
+shader_parameter/mountain_tint = Color(0.368627, 0.262745, 0.0588235, 1)
+shader_parameter/ground_tint = Color(0.901961, 0.713726, 0.360784, 1)
+shader_parameter/h = 0.1839
+shader_parameter/b = 1.2267

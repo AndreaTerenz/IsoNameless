@@ -41,7 +41,6 @@ func _ready():
 	visibility_changed.connect(
 		func ():
 			if visible:
-				next_id = ""
 				#dialog_started.emit()
 				update_line()
 	)
@@ -69,6 +68,7 @@ func setup(npc : NPC):
 	name_lbl.text = target_npc.npc_name
 	dialogue_file = target_npc.dialogue_file
 	portrait.texture = target_npc.npc_portrait
+	next_id = target_npc.dialogue_start_id
 	
 	reset()
 
@@ -76,12 +76,12 @@ func reset():
 	typing = false
 	line_update_timer.stop()
 	responses = []
-	next_id = ""
 	visible = false
 	opts_cont.visible = false
 
 func update_line():
 	var from : String = "start" if next_id == "" else next_id
+	
 	var current_line : DialogueLine = \
 		await DialogueManager.get_next_dialogue_line(\
 			dialogue_file, from, 
