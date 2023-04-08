@@ -163,6 +163,7 @@ adjustment_contrast = 0.86
 
 [node name="test_level_2" instance=ExtResource("1_pic43")]
 script = SubResource("GDScript_ejrvs")
+debug_ui_on_start = true
 
 [node name="Mountains" parent="." index="0"]
 layers = 17

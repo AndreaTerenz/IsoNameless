@@ -30,6 +30,9 @@ var pos_lerp_strength = .85
 var rot_lerp_strength = .85
 
 var target_rot := 0.
+var target_pos : Vector3 :
+	get:
+		return get_parent().global_position + Vector3.UP*height_delta
 var height_delta := 0.
 
 func _ready():
@@ -41,8 +44,6 @@ func _ready():
 
 func _process(delta):
 	global_rotation.y = lerp_angle(global_rotation.y, target_rot, 1. - rot_lerp_strength)
-	
-	var target_pos = get_parent().global_position + Vector3.UP*height_delta
 	global_position = global_position.lerp(target_pos, 1. - pos_lerp_strength)
 
 func _input(event):
@@ -54,6 +55,11 @@ func _input(event):
 		rot_dir = 1.
 		
 	target_rot += rot_dir * TAU/4.
+
+
+func _on_player_mode_changed(md):
+	if md == Globals.player.MODE.DIALOGUE:
+		global_position = target_pos
 "
 
 [sub_resource type="GDScript" id="GDScript_3r0yw"]
@@ -454,6 +460,7 @@ script = ExtResource("6_vaqld")
 
 [connection signal="entered_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_entered_door"]
 [connection signal="exited_door" from="." to="CameraPivot/Camera/InsideFilter" method="_on_player_exited_door"]
+[connection signal="mode_changed" from="." to="CameraPivot" method="_on_player_mode_changed"]
 [connection signal="mode_changed" from="." to="InteractManager" method="_on_player_mode_changed"]
 [connection signal="dialogue_done" from="UI" to="." method="_on_ui_dialogue_done"]
 [connection signal="dialogue_interrupted" from="UI" to="." method="_on_ui_dialogue_interrupted"]

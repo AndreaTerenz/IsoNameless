@@ -70,17 +70,22 @@ var current_dir := Vector2.ZERO
 var sprinting_collided := false
 
 var current_door = null
+var stop_next_frame := false
 var current_mode := MODE.NORMAL :
 	get:
 		return current_mode
 	set(new_mode):
+		if current_mode == new_mode:
+			return
+			
 		current_mode = new_mode
 		
-		match current_mode:
-			MODE.NORMAL, MODE.DIALOGUE:
-				Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
-			MODE.COMBAT:
-				Globals.set_cursor_mode(Globals.CURSOR_MODE.COMBAT)
+		if current_mode == MODE.COMBAT:
+			Globals.set_cursor_mode(Globals.CURSOR_MODE.COMBAT)
+		else:
+			stop_next_frame = true
+				
+			Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
 		
 		mode_changed.emit(current_mode)
 
@@ -97,6 +102,8 @@ func _ready():
 		get_tree().quit()
 
 func get_h_direction() -> Vector2:
+	if current_mode == MODE.DIALOGUE:
+		return Vector2.ZERO
 	target_dir = Input.get_vector("right", "left", "backward", "forward")
 	# Direction is screen-dependant, so it has to account for camera rotation
 	target_dir = target_dir.rotated(-camera_pivot.target_rot)
@@ -104,25 +111,31 @@ func get_h_direction() -> Vector2:
 	
 	return current_dir
 	
-func dir_to_rotation(dir : Vector2) -> float:
+func dir_to_rotation(dir : Vector2, lerp := true) -> float:
 	var rot_angle = -dir.angle()+TAU/8.
 	rot_angle = snappedf(rot_angle, TAU/8.)
 	
 	if Utils.length_geq(dir, .01):
+		if not lerp:
+			return rot_angle
 		return lerp_angle(rotation.y, rot_angle, ROT_SPEED)
 	
 	return rotation.y
 	
-func get_h_velocity(current: Vector3, dir := get_h_direction()) -> Vector3:
+func get_h_velocity(dir := get_h_direction()) -> Vector3:
+	if current_mode == MODE.DIALOGUE:
+		return Vector3.ZERO
+		
 	if dir:
 		return Utils.vec_sub(dir * H_SPEED, "x0y")
 	
 	if is_on_floor():
-		return current.lerp(Vector3.ZERO, H_DECELERATION)
+		return velocity.lerp(Vector3.ZERO, H_DECELERATION)
 		
-	return current
+	return velocity
 	
-func get_v_velocity(current: float, delta: float) -> Vector3:
+func get_v_velocity(delta: float) -> Vector3:
+	var current := velocity.y
 	var output := Vector3.UP
 	
 	# Add the gravity.
@@ -180,13 +193,22 @@ func apply_h_velocity(h_vel: Vector2):
 # point, it stops completely as it istantly gets out of the
 # sprinting state
 func _physics_process(delta):
+	if stop_next_frame:
+		velocity *= 0.
+		current_dir = target_dir
+		rotation.y = dir_to_rotation(current_dir, false)
+		target_dir *= 0.
+		
+		move_and_slide()
+		
+		stop_next_frame = false
+		return
+	
 	if current_mode == MODE.DIALOGUE:
 		return
 	
 	var h_vel : Vector3 = Utils.vec_sub(velocity, "x0z")
 	var v_vel := Vector3.ZERO
-	
-	var slide := true
 	
 	var _spr = check_sprinting()
 	# sprint status just changed
@@ -206,8 +228,6 @@ func _physics_process(delta):
 			
 		sprinting = _spr
 	
-	slide = not sprinting
-	
 	if not sprinting:
 		sprint_decal.visible = false
 		
@@ -220,12 +240,12 @@ func _physics_process(delta):
 			look_at(spot)
 			rotate_y(TAU/2.)
 		
-		h_vel = get_h_velocity(velocity, h_dir)
-		v_vel = get_v_velocity(velocity.y, delta)
+		h_vel = get_h_velocity(h_dir)
+		v_vel = get_v_velocity(delta)
 		
 	velocity = h_vel + v_vel
 	
-	if slide:
+	if not sprinting:
 		move_and_slide()
 	else:
 		var collision := move_and_collide(velocity * delta)
