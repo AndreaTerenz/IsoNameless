@@ -41,6 +41,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/FileSystemView/plugin.cfg")
 
+[global]
+
+user_levels_dir="extralevels"
+
 [gui]
 
 theme/custom="res://default_theme.tres"
@@ -127,6 +131,11 @@ close_ui={
 3d_render/layer_4="RoomsInside"
 3d_render/layer_5="Mappable"
 3d_physics/layer_2="Interactables"
+
+[levels]
+
+user_levels_dir="extralevels"
+game_levels_dir="Scenes/Levels"
 
 [rendering]
 
