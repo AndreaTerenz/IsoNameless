@@ -13,6 +13,7 @@ script/source = "extends Control
 var levels : Array[Dictionary] = []
 
 func _ready():
+	Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
 	levels_list.clear()
 	
 	var l_paths := Utils.ls_directory(default_levels_dir, [\".tscn\", \".scn\"])
@@ -20,23 +21,16 @@ func _ready():
 	
 	for path in l_paths:
 		var level_scene : PackedScene = load(path)
-#		var state : SceneState = level_scene.get_state()
-#
-#		print(state.get_node_name(0))
-#		var c = state.get_node_property_count(0)
-#		print(c)
-#		for i in range(c):
-#			print(state.get_node_property_name(0, i), state.get_node_property_value(0, i))
+		var state : SceneState = level_scene.get_state()
+		var root_metas := scenestate_to_root_meta(state, 2)
 		
-		var level : Node = level_scene.instantiate()
-		
-		if not level.has_meta(\"map_name\"):
+		if not root_metas.has(\"map_name\"):
 			continue
 		
 		var level_data := {
 			\"scene\": path,
-			\"name\": level.get_meta(\"map_name\"),
-			\"description\": level.get_meta(\"description\", \"\")
+			\"name\": root_metas[\"map_name\"],
+			\"description\": root_metas.get(\"description\", \"\")
 		}
 		
 		levels.append(level_data)
@@ -44,8 +38,31 @@ func _ready():
 		levels_list.add_item(level_data[\"name\"])
 		if level_data[\"description\"] != \"\":
 			levels_list.set_item_tooltip(levels_list.item_count-1, level_data[\"description\"])
+		
+func scenestate_to_root_meta(ss: SceneState, max_meta := -1) -> Dictionary:
+	if ss.get_node_count() == 0:
+		return {}
+	
+	var count = ss.get_node_property_count(0)
+	if count < 2:
+		return {}
+		
+	var output := {}
+	var meta_prefix = \"metadata/\"
+	
+	for i in range(count):
+		var pname := ss.get_node_property_name(0, i).to_lower()
+		
+		if pname.begins_with(meta_prefix):
+			var pval = ss.get_node_property_value(0, i)
 			
-		level.free()
+			pname = pname.trim_prefix(meta_prefix)
+			output[pname] = pval
+			
+			if max_meta > 0 and len(output.keys()) >= max_meta:
+				break
+	
+	return output
 
 func _on_quit_btn_pressed():
 	get_tree().quit()
