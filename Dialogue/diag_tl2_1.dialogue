@@ -6,13 +6,11 @@ set dialogue_start_id = "waiting"
 
 ~ waiting
 
-% Your mother was a whore
-% Gods was I strong then
-% BESSIE! THANK THE GODS FOR BESSIE (And her tits)!
-=> END
-
-~ taken
-
-Took you long enough
-set dialogue_start_id = "start"
-do Globals.restart_level()
+if query_player_inv("stretcher_item.tres", 1)
+	Took you long enough
+	set dialogue_start_id = "start"
+	do Globals.restart_level()
+else
+	% Your mother was a whore
+	% Gods was I strong then
+	% BESSIE! THANK THE GODS FOR BESSIE (And her tits)!

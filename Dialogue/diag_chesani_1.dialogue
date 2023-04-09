@@ -7,7 +7,7 @@ do switch_diag_propic()
 I have lots of hair on the back of my head - is this stament true?:
 - Yes
 	do memorize("LOTS_OF_HAIR", true)
-	do give_player("chesani_item.tres", 10)
+	do give("chesani_item.tres", 10)
 	AAAAAAAAAAAAAAAAAAAAA I wish
 - No
 	do memorize("LOTS_OF_HAIR", false)

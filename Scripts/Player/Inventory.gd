@@ -39,7 +39,7 @@ var current_weight : float = 0 :
 	
 func item_idx(item: InventoryItem, not_found_fail := false) -> int:
 	if len(slots) == 0:
-		return 0
+		return -1 if not_found_fail else 0
 	
 	for idx in range(len(slots)):
 		var slot := slots[idx]
@@ -101,6 +101,14 @@ func _change_item_amnt(idx: int, delta_amnt := 1):
 	if slots[idx].amount <= 0:
 		slots.remove_at(idx)
 		slot_count_changed.emit(len(slots))
+		
+func check_item_amount(item: InventoryItem) -> int:
+	var idx := item_idx(item, true)
+	
+	if idx == -1:
+		return -1
+		
+	return slots[idx].amount
 		
 func _to_string():
 	var tmp := {}

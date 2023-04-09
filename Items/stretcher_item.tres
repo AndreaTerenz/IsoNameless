@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://onrsttb7n1sb"]
+
+[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="1_eqg84"]
+[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="2_bwsjq"]
+
+[resource]
+script = ExtResource("2_bwsjq")
+name = "stretcher"
+icon = ExtResource("1_eqg84")
+max_stack = 32
+weight = 0.001

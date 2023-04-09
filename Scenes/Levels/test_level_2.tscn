@@ -1,13 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2mko4tphoj6m"]
+[gd_scene load_steps=25 format=3 uid="uid://d2mko4tphoj6m"]
 
 [ext_resource type="PackedScene" uid="uid://dak1uk7d2oum3" path="res://Assets/Models/Levels/test_level_2.blend" id="1_pic43"]
 [ext_resource type="Material" uid="uid://bpx67m1nldfe" path="res://Materials/Grids/black_grid.tres" id="2_wrm7j"]
 [ext_resource type="Material" uid="uid://r4utfykrmpew" path="res://Materials/Grids/white_grid.tres" id="3_oa6bd"]
 [ext_resource type="PackedScene" uid="uid://bottmrulsuajr" path="res://Scenes/actors/test_pickup.tscn" id="3_uw1vn"]
 [ext_resource type="PackedScene" uid="uid://j5tsuu0t3qik" path="res://Scenes/Player.tscn" id="3_wqvp6"]
-[ext_resource type="Texture2D" uid="uid://x8dib5g7o24i" path="res://icon.png" id="4_ctxk1"]
+[ext_resource type="Resource" uid="uid://onrsttb7n1sb" path="res://Items/stretcher_item.tres" id="4_oa22m"]
 [ext_resource type="PackedScene" uid="uid://bjonn5r577f04" path="res://Scenes/EnvElements/dmg_trigger.tscn" id="5_5nkv7"]
-[ext_resource type="Script" path="res://Scripts/Player/InventoryItem.gd" id="5_mh3jd"]
 [ext_resource type="PackedScene" uid="uid://brl0ha628jxif" path="res://Scenes/NPC.tscn" id="6_rwoj8"]
 [ext_resource type="Texture2D" uid="uid://reaaol7sre1b" path="res://Assets/Portraits/RobbieBratheon.png" id="7_ntudw"]
 [ext_resource type="Resource" uid="uid://cjy4ledydeor8" path="res://Dialogue/diag_tl2_1.dialogue" id="7_r1hw3"]
@@ -21,13 +20,6 @@ script/source = "extends Level
 func _on_dialog_trig_player_inside_changed(pi):
 	if pi:
 		Globals.player.interact_with(offscreen_npc.interactable)
-
-
-func _on_test_pickup_taken():
-	# FIXME: This should be done in the dialogue file itself,
-	# with some method to query the player's inventory
-	# and check if they have the item or not
-	offscreen_npc.dialogue_start_id = \"taken\"
 "
 
 [sub_resource type="Shader" id="Shader_jah1d"]
@@ -127,13 +119,6 @@ shader_parameter/texture_albedo = SubResource("NoiseTexture2D_00ilu")
 shader_parameter/texture_normal = SubResource("NoiseTexture2D_t2jhn")
 shader_parameter/tint_blend_curve = SubResource("CurveTexture_5dmcj")
 
-[sub_resource type="Resource" id="Resource_kq2k0"]
-script = ExtResource("5_mh3jd")
-name = "stretcher"
-icon = ExtResource("4_ctxk1")
-max_stack = 32
-weight = 0.001
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hiec3"]
 load_path = "res://.godot/imported/panorama_image.png-9b498c21a0633c3fab1426ec78f9573a.s3tc.ctex"
 
@@ -163,7 +148,6 @@ adjustment_contrast = 0.86
 
 [node name="test_level_2" instance=ExtResource("1_pic43")]
 script = SubResource("GDScript_ejrvs")
-debug_ui_on_start = true
 
 [node name="Mountains" parent="." index="0"]
 layers = 17
@@ -175,7 +159,7 @@ surface_material_override/0 = ExtResource("2_wrm7j")
 
 [node name="test_pickup" parent="Platform" index="1" instance=ExtResource("3_uw1vn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71417, 5.05328, -2.21809)
-item = SubResource("Resource_kq2k0")
+item = ExtResource("4_oa22m")
 
 [node name="Bridge" parent="." index="2"]
 layers = 17
@@ -199,11 +183,11 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.25783, 0)
 npc_name = "Robert Baratheon"
 npc_portrait = ExtResource("7_ntudw")
+interact_enabled = false
 dialogue_file = ExtResource("7_r1hw3")
 dialogue_skippable = false
 
 [node name="DialogTrig" parent="." index="8" instance=ExtResource("9_oo0lg")]
 transform = Transform3D(18.5, 0, 0, 0, 1, 0, 0, 0, 20.91, -27.7763, 0, 31.6036)
 
-[connection signal="taken" from="Platform/test_pickup" to="." method="_on_test_pickup_taken"]
 [connection signal="player_inside_changed" from="DialogTrig" to="." method="_on_dialog_trig_player_inside_changed"]

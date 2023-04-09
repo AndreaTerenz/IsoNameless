@@ -65,17 +65,36 @@ func _on_dialog_done():
 func memorize(key: String, data : Variant = null):
 	memory.set_value(key, data)
 	
-func give_player(item_path: String, amount := 1):
-	if not item_path.begins_with(Globals.DEFAULT_ITEMS_DIR):
-		item_path = Globals.DEFAULT_ITEMS_DIR.path_join(item_path)
+func itempath_to_item(path: String, err_msg : String = ""):
+	if not path.begins_with(Globals.DEFAULT_ITEMS_DIR):
+		path = Globals.DEFAULT_ITEMS_DIR.path_join(path)
 		
-	if not ResourceLoader.exists(item_path):
-		push_error("Tried to give player non-existant item! ('%s')" % item_path)
-		return
+	if not ResourceLoader.exists(path):
+		if err_msg != "":
+			push_error("Tried to give player a non-existant item! ('%s')" % path)
+		return null
 		
-	var item: InventoryItem = load(item_path)
-	Globals.player.receive_item(item, amount)
+	return load(path)
 	
+func give(item_path: String, amount := 1):
+	var item: InventoryItem = itempath_to_item(item_path,
+		"Tried to give player a non-existant item! ('%s')" % item_path)
+	if item != null:
+		Globals.player.receive_item(item, amount)
+	
+func take(item_path: String, amount := 1):
+	var item: InventoryItem = itempath_to_item(item_path,
+		"Tried to take from player a non-existant item! ('%s')" % item_path)
+	if item != null:
+		Globals.player.give_item(item, amount)
+	
+func query_player_inv(item_path: String, amount := -1):
+	var item: InventoryItem = itempath_to_item(item_path,
+		"Tried to take from player a non-existant item! ('%s')" % item_path)
+	if item != null:
+		return Globals.player.query_inventory(item, amount) 
+	return false
+		
 func change_dialogue_file(path: String):
 	if not ResourceLoader.exists(path) or not path.ends_with(".dialogue"):
 		push_error("Invalid path for dialogue file!")

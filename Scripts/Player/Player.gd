@@ -144,7 +144,10 @@ func get_v_velocity(delta: float) -> Vector3:
 
 func check_sprinting():
 	if not sprinting and Input.is_action_just_pressed("sprint") and current_mode == MODE.NORMAL:
+		#TODO: Find sprint_to point with a proper raycast
+		# instead of this geometry tomfoolery
 		sprint_to = camera.mouse_ground_projection()
+		
 		# There should always be a plane-ray intersection
 		# so this check should be redundant
 		if sprint_to == null:
@@ -296,9 +299,25 @@ func receive_item(item: InventoryItem, amount: int) -> bool:
 	var ok := inventory.add_item(item, amount)
 	
 	if not ok:
-		push_error("Failed to give %d of item %s to Player!" % [amount, item])
+		push_error("Failed to add %d of item %s to inventory!" % [amount, item])
 		
 	return ok
+	
+func give_item(item: InventoryItem, amount: int) -> bool:
+	var ok := inventory.remove_item(item, amount)
+	
+	if not ok:
+		push_error("Failed to remove %d of item %s from inventory!" % [amount, item])
+		
+	return ok
+	
+func query_inventory(item: InventoryItem, amount := -1) -> bool:
+	var amnt_present = inventory.check_item_amount(item)
+	
+	if amount <= -1:
+		return amnt_present > 0
+	else:
+		return amnt_present == amount
 
 func get_stat(s_name: String):
 	return stats.get_stat_value(s_name)
