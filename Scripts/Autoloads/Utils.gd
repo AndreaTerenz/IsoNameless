@@ -110,35 +110,57 @@ func make_background_colorrect(parent : Node = get_tree().root):
 	
 	return cr
 	
-func debug_axes(parent: Node3D, length = 2., radius = .5):
-	if mute_debug_meshes:
-		return
-	
-	var cyl_mesh := CylinderMesh.new()
-	cyl_mesh.top_radius = radius
-	cyl_mesh.bottom_radius = radius
-	cyl_mesh.height = length
-	
-	var materials := [
-		preload("res://Assets/Grids/grid_red.png"),
-		preload("res://Assets/Grids/grid_purple.png"),
-		preload("res://Assets/Grids/grid_green.png"),
-	]
-	
-	var pos := [
-		Vector3.LEFT,
-		Vector3.BACK,
-		Vector3.UP
-	]
-	
-	var rot := [
-		Vector3.BACK * TAU / 4.,
-		Vector3.ZERO,
-		Vector3.LEFT * TAU / 4.,
-	]
+#func debug_axes(parent: Node3D, length = 2., radius = .5):
+#	if mute_debug_meshes:
+#		return
+#
+#	var cyl_mesh := CylinderMesh.new()
+#	cyl_mesh.top_radius = radius
+#	cyl_mesh.bottom_radius = radius
+#	cyl_mesh.height = length
+#
+#	var materials := [
+#		preload("res://Assets/Grids/grid_red.png"),
+#		preload("res://Assets/Grids/grid_purple.png"),
+#		preload("res://Assets/Grids/grid_green.png"),
+#	]
+#
+#	var pos := [
+#		Vector3.LEFT,
+#		Vector3.BACK,
+#		Vector3.UP
+#	]
+#
+#	var rot := [
+#		Vector3.BACK * TAU / 4.,
+#		Vector3.ZERO,
+#		Vector3.LEFT * TAU / 4.,
+#	]
 	
 static func check_bit(value: int, bit_idx: int) -> bool:
 	return value & (1 << abs(bit_idx))
+	
+static func ls_directory(path: String, filter := [], full_paths := true) -> PackedStringArray:
+	var dir = DirAccess.open(path)
+	
+	if not dir:
+		push_error("Failed to read directory '%s'!" % path)
+		return []
+		
+	var output : PackedStringArray = []
+	filter = filter.map(func (e: String) -> String : return e.trim_prefix("."))
+	
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if dir.current_is_dir():
+			continue
+		if filter.is_empty() or file_name.get_extension() in filter:
+			var tmp = path.path_join(file_name) if full_paths else file_name
+			output.append(tmp)
+		file_name = dir.get_next()
+		
+	return output
 	
 ############################################## LAYERS
 

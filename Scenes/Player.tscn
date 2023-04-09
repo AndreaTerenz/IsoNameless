@@ -214,9 +214,6 @@ var inside_mode : bool :
 func _ready():
 	cull_mask *= 0
 	
-	var player_idx = Utils.get_render_layer_idx(\"Player\")
-	#set_cull_mask_value(player_idx, true)
-	
 	inside_mode = false
 	height_delta = global_position.y
 

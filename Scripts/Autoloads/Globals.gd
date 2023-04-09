@@ -105,11 +105,12 @@ func enforce_screen_size():
 		DisplayServer.window_set_size(s_size)
 		
 func _notification(what):
-	if what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
-		Globals.log_msg("Focus in")
-	elif what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
-		Globals.log_msg("Focus out")
-		paused = true
+	if level != null:
+		if what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
+			Globals.log_msg("Focus in")
+		elif what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+			Globals.log_msg("Focus out")
+			paused = true
 		
 func toggle_screen_blur(vis : bool):
 	if not blur_rect:

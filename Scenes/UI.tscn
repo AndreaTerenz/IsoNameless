@@ -1,46 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdhtcxbtvyd6f"]
+[gd_scene load_steps=13 format=3 uid="uid://bdhtcxbtvyd6f"]
 
-[ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_ykedv"]
 [ext_resource type="Texture2D" uid="uid://ddunfqjom5ygk" path="res://Assets/UI/map_direction.svg" id="2_0m6ds"]
 [ext_resource type="PackedScene" uid="uid://2xhtwxpgnyd8" path="res://Scenes/UIs/dialog_ui_npc.tscn" id="2_ropun"]
 [ext_resource type="PackedScene" uid="uid://dd6txvndio28u" path="res://Scenes/UIs/inventory_ui_slot.tscn" id="3_vwog5"]
 [ext_resource type="PackedScene" uid="uid://bxu3k1yybrbix" path="res://Scenes/UIs/pause_ui.tscn" id="3_xq6wt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwsfa"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyogd"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.831373, 0.831373, 0.831373, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jilvm"]
-bg_color = Color(0.831373, 0.831373, 0.831373, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="Theme" id="Theme_hna1t"]
-default_font = ExtResource("1_ykedv")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_lwsfa")
-ProgressBar/styles/background = SubResource("StyleBoxFlat_hyogd")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_jilvm")
 
 [sub_resource type="GDScript" id="GDScript_o4w5c"]
 script/source = "extends Control
@@ -203,7 +166,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_hna1t")
 script = SubResource("GDScript_o4w5c")
 modules = 7
 

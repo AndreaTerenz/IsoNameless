@@ -41,6 +41,8 @@ func _on_zoom_trigger_player_inside_changed(pi):
 
 [node name="test_level_1" instance=ExtResource("1_blvs2")]
 script = SubResource("GDScript_qt3l8")
+metadata/map_name = "tl1"
+metadata/Description = ""
 
 [node name="Player" parent="." index="0" instance=ExtResource("6_4v2tq")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.2733, 0, -21.9127)

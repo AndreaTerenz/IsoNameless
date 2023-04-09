@@ -43,6 +43,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 
 [gui]
 
+theme/custom="res://default_theme.tres"
 theme/custom_font="res://Assets/Fonts/good timing bd.ttf"
 
 [input]
