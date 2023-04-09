@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://knakj6gamdm8"]
+
+[sub_resource type="GDScript" id="GDScript_sawxm"]
+script/source = "extends Control
+
+@onready var progress_bar = $VBoxContainer/ProgressBar
+
+var path: String = \"\" :
+	set(p):
+		path = p
+		print(path)
+		if p == \"\":
+			return
+			
+		visible = true
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		ResourceLoader.load_threaded_request(path)
+
+func _ready():
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+func _process(delta):
+	var mah := []
+	var status = ResourceLoader.load_threaded_get_status(path, mah)
+	
+	progress_bar.value = mah[0]
+	
+	if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		print(mah)
+	elif status == ResourceLoader.THREAD_LOAD_LOADED:
+		var scene = ResourceLoader.load_threaded_get(path)
+		get_tree().change_scene_to_packed(scene)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv1jx"]
+font_size = 62
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_sawxm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "LOADING..."
+label_settings = SubResource("LabelSettings_cv1jx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0

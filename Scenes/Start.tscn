@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8l6lpf100vwb"]
+[gd_scene load_steps=7 format=3 uid="uid://b8l6lpf100vwb"]
+
+[ext_resource type="PackedScene" uid="uid://knakj6gamdm8" path="res://Scenes/UIs/loading_scene.tscn" id="1_vuduh"]
 
 [sub_resource type="GDScript" id="GDScript_3rbdr"]
 script/source = "extends Control
@@ -6,24 +8,33 @@ script/source = "extends Control
 @export_dir var default_levels_dir := \"res://Scenes/Levels\"
 
 @onready var levels_list = %LevelsList
+@onready var loading_ui = %LoadingUI
 
 var levels : Array[Dictionary] = []
 
 func _ready():
-	var l_paths := Utils.ls_directory(default_levels_dir, [\".tscn\", \".scn\"])
 	levels_list.clear()
+	
+	var l_paths := Utils.ls_directory(default_levels_dir, [\".tscn\", \".scn\"])
+	print(l_paths)
 	
 	for path in l_paths:
 		var level_scene : PackedScene = load(path)
-		var level : Node = level_scene.instantiate()
+#		var state : SceneState = level_scene.get_state()
+#
+#		print(state.get_node_name(0))
+#		var c = state.get_node_property_count(0)
+#		print(c)
+#		for i in range(c):
+#			print(state.get_node_property_name(0, i), state.get_node_property_value(0, i))
 		
-		print(\"Path: '%s'\" % path)
+		var level : Node = level_scene.instantiate()
 		
 		if not level.has_meta(\"map_name\"):
 			continue
 		
 		var level_data := {
-			\"scene\": level_scene,
+			\"scene\": path,
 			\"name\": level.get_meta(\"map_name\"),
 			\"description\": level.get_meta(\"description\", \"\")
 		}
@@ -33,14 +44,17 @@ func _ready():
 		levels_list.add_item(level_data[\"name\"])
 		if level_data[\"description\"] != \"\":
 			levels_list.set_item_tooltip(levels_list.item_count-1, level_data[\"description\"])
+			
+		level.free()
 
 func _on_quit_btn_pressed():
 	get_tree().quit()
 
 
 func _on_levels_list_item_activated(index):
+	print(\"AOAOAOAOAO\")
 	var level_data = levels[index]
-	get_tree().change_scene_to_packed(level_data[\"scene\"])
+	loading_ui.path = level_data[\"scene\"]
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_v6l1o"]
@@ -67,6 +81,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_3rbdr")
 metadata/_edit_lock_ = true
+
+[node name="LoadingUI" parent="." instance=ExtResource("1_vuduh")]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
