@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdhtcxbtvyd6f"]
+[gd_scene load_steps=18 format=3 uid="uid://bdhtcxbtvyd6f"]
 
 [ext_resource type="FontFile" uid="uid://bghnnfl08kb3b" path="res://Assets/Fonts/good timing bd.ttf" id="1_ykedv"]
+[ext_resource type="Texture2D" uid="uid://ddunfqjom5ygk" path="res://Assets/UI/map_direction.svg" id="2_0m6ds"]
 [ext_resource type="PackedScene" uid="uid://2xhtwxpgnyd8" path="res://Scenes/UIs/dialog_ui_npc.tscn" id="2_ropun"]
 [ext_resource type="PackedScene" uid="uid://dd6txvndio28u" path="res://Scenes/UIs/inventory_ui_slot.tscn" id="3_vwog5"]
 [ext_resource type="PackedScene" uid="uid://bxu3k1yybrbix" path="res://Scenes/UIs/pause_ui.tscn" id="3_xq6wt"]
@@ -135,6 +136,17 @@ func _ready():
 	var viewport = Globals.player.map_camera.get_parent()
 	if viewport is SubViewport:
 		viewport.reparent(self)
+"
+
+[sub_resource type="GDScript" id="GDScript_wu4qi"]
+script/source = "extends Control
+
+func _process(delta):
+	var player = Globals.player
+	var player_rot = player.global_rotation.y
+	var pivot_rot = player.camera_pivot.global_rotation.y
+	
+	rotation = pivot_rot - player_rot
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj4wi"]
@@ -301,6 +313,31 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_i7kof")
 layout_mode = 2
 stretch = true
 script = SubResource("GDScript_w0uqw")
+
+[node name="Control" type="Control" parent="MapContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_wu4qi")
+
+[node name="TextureRect" type="TextureRect" parent="MapContainer/Control"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 10.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_0m6ds")
+expand_mode = 2
 
 [node name="Inventory" type="PanelContainer" parent="."]
 unique_name_in_owner = true

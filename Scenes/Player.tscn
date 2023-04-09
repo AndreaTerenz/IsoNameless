@@ -215,7 +215,7 @@ func _ready():
 	cull_mask *= 0
 	
 	var player_idx = Utils.get_render_layer_idx(\"Player\")
-	set_cull_mask_value(player_idx, true)
+	#set_cull_mask_value(player_idx, true)
 	
 	inside_mode = false
 	height_delta = global_position.y
@@ -409,7 +409,7 @@ render_target_update_mode = 4
 [node name="MapCamera" type="Camera3D" parent="CameraPivot/MapViewport"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.0642, -1.33941e-07)
-cull_mask = 1048562
+cull_mask = 16
 projection = 1
 size = 18.0
 script = SubResource("GDScript_81d8n")

@@ -32,15 +32,11 @@ signal stat_changed(s, from, to)
 		camera.size = camera_size
 		
 @export_group("Movement")
-# If true, W moves towards isometric forward (and so on)
-# If false, W moves towards top of the screen (and so on)
-@export var ISOMETRIC_WASD := false
 @export_range(.001, 1., .001) var ROT_SPEED := .3
-@export_subgroup("Ground movement")
 @export_range(.01, 50., .005) var H_SPEED := 5.
 @export_range(.01,  2., .005) var H_DECELERATION := .5
-@export_range(.01,  8., .005) var H_SPRINT_MULT := 6.
 @export_subgroup("Sprinting")
+@export_range(.01,  8., .005) var H_SPRINT_MULT := 6.
 @export_range(.01,  30., .005) var SPRINT_MAX_DIST := 8.
 @export_range(1.,  5., .005) var SPRINT_IGNORE_DIST_MULT := 2.5
 
