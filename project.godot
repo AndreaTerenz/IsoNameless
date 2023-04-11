@@ -21,8 +21,8 @@ config/icon="res://icon.png"
 
 Globals="*res://Scripts/Autoloads/Globals.gd"
 Utils="*res://Scripts/Autoloads/Utils.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GSManager="*res://Scripts/Autoloads/GSManager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
@@ -39,7 +39,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/FileSystemView/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/ActionIcon/plugin.cfg", "res://addons/ColorPreview/plugin.cfg", "res://addons/FileSystemView/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [global]
 
@@ -123,6 +123,10 @@ close_ui={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue/diag_blank.dialogue", "res://Dialogue/diag_chesani_1.dialogue", "res://Dialogue/diag_chesani_2.dialogue", "res://Dialogue/diag_test_ncr.dialogue", "res://Dialogue/diag_tl2_1.dialogue")
 
 [layer_names]
 

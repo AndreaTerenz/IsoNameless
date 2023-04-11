@@ -17,6 +17,9 @@ var temporary_game_states: Array = []
 ## See if we are waiting for the player
 var is_waiting_for_input: bool = false
 
+## See if we are running a long mutation and should hide the balloon
+var will_hide_balloon: bool = false
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
@@ -28,17 +31,17 @@ var dialogue_line: DialogueLine:
 		
 		# Remove any previous responses
 		for child in responses_menu.get_children():
-			child.free()
+			responses_menu.remove_child(child)
+			child.queue_free()
 		
 		dialogue_line = next_dialogue_line
 		
 		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = dialogue_line.character
+		character_label.text = tr(dialogue_line.character, "dialogue")
 		
 		dialogue_label.modulate.a = 0
-		dialogue_label.size.x = dialogue_label.get_parent().size.x - 1
+		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1
 		dialogue_label.dialogue_line = dialogue_line
-		await dialogue_label.reset_height()
 
 		# Show any responses we have
 		responses_menu.modulate.a = 0
@@ -55,7 +58,8 @@ var dialogue_line: DialogueLine:
 				responses_menu.add_child(item)
 		
 		# Show our balloon
-		balloon.visible = true
+		balloon.show()
+		will_hide_balloon = false
 		
 		dialogue_label.modulate.a = 1
 		if not dialogue_line.text.is_empty():
@@ -83,20 +87,26 @@ func _ready() -> void:
 	balloon.hide()
 	balloon.custom_minimum_size.x = balloon.get_viewport_rect().size.x
 	
-	DialogueManager.mutation.connect(_on_mutation)
+	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+
+
+func _unhandled_input(_event: InputEvent) -> void:
+	# Only the balloon is allowed to handle input while it's showing
+	get_viewport().set_input_as_handled()
 
 
 ## Start some dialogue
-func start(dialogue_resource: Resource, title: String, extra_game_states: Array = []) -> void:
+func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
 	temporary_game_states = extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
-	self.dialogue_line = await DialogueManager.get_next_dialogue_line(resource, title, temporary_game_states)
+	
+	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 
 
 ## Go to the next line
 func next(next_id: String) -> void:
-	self.dialogue_line = await DialogueManager.get_next_dialogue_line(resource, next_id, temporary_game_states)
+	self.dialogue_line = await resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
 ### Helpers
@@ -160,9 +170,14 @@ func handle_resize() -> void:
 ### Signals
 
 
-func _on_mutation() -> void:
+func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
-	balloon.hide()
+	will_hide_balloon = true
+	get_tree().create_timer(0.1).timeout.connect(func():
+		if will_hide_balloon:
+			will_hide_balloon = false
+			balloon.hide()
+	)
 
 
 func _on_response_mouse_entered(item: Control) -> void:

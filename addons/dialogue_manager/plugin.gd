@@ -4,11 +4,13 @@ extends EditorPlugin
 
 const DialogueConstants = preload("res://addons/dialogue_manager/constants.gd")
 const DialogueImportPlugin = preload("res://addons/dialogue_manager/import_plugin.gd")
+const DialogueTranslationParserPlugin = preload("res://addons/dialogue_manager/editor_translation_parser_plugin.gd")
 const DialogueSettings = preload("res://addons/dialogue_manager/components/settings.gd")
 const MainView = preload("res://addons/dialogue_manager/views/main_view.tscn")
 
 
 var import_plugin: DialogueImportPlugin
+var translation_parser_plugin: DialogueTranslationParserPlugin
 var main_view
 
 var dialogue_file_cache: Dictionary = {}
@@ -19,9 +21,14 @@ func _enter_tree() -> void:
 	add_custom_type("DialogueLabel", "RichTextLabel", preload("res://addons/dialogue_manager/dialogue_label.gd"), _get_plugin_icon())
 	
 	if Engine.is_editor_hint():
+		DialogueSettings.prepare()
+		
 		import_plugin = DialogueImportPlugin.new()
 		import_plugin.editor_plugin = self
 		add_import_plugin(import_plugin)
+		
+		translation_parser_plugin = DialogueTranslationParserPlugin.new()
+		add_translation_parser_plugin(translation_parser_plugin)
 		
 		main_view = MainView.instantiate()
 		main_view.editor_plugin = self
@@ -42,6 +49,9 @@ func _exit_tree() -> void:
 	
 	remove_import_plugin(import_plugin)
 	import_plugin = null
+	
+	remove_translation_parser_plugin(translation_parser_plugin)
+	translation_parser_plugin = null
 	
 	if is_instance_valid(main_view):
 		main_view.queue_free()
@@ -70,11 +80,11 @@ func _get_plugin_icon() -> Texture2D:
 
 
 func _handles(object) -> bool:
-	return object is Resource and object.has_meta("dialogue_manager_version")
+	return object is DialogueResource
 
 
 func _edit(object) -> void:
-	if is_instance_valid(main_view):
+	if is_instance_valid(main_view) and is_instance_valid(object):
 		main_view.open_resource(object)
 
 
@@ -102,7 +112,7 @@ func _build() -> bool:
 
 
 ## Keep track of known files and their dependencies
-func add_to_dialogue_file_cache(path: String, resource_path: String, parse_results: Dictionary) -> void:
+func add_to_dialogue_file_cache(path: String, resource_path: String, parse_results: DialogueManagerParseResult) -> void:
 	dialogue_file_cache[path] = {
 		path = path,
 		resource_path = resource_path,
@@ -182,11 +192,29 @@ func update_dialogue_file_cache() -> void:
 	# Scan for dialogue files
 	var current_files: PackedStringArray = _get_dialogue_files_in_filesystem()
 	
+	# Add any files to POT generation
+	var files_for_pot: PackedStringArray = ProjectSettings.get_setting("internationalization/locale/translations_pot_files", [])
+	var files_for_pot_changed: bool = false
+	for path in current_files:
+		if not files_for_pot.has(path):
+			files_for_pot.append(path)
+			files_for_pot_changed = true
+	
 	# Remove any files that don't exist any more
 	for path in cache.keys():
 		if not path in current_files:
 			cache.erase(path)
 			DialogueSettings.remove_recent_file(path)
+			
+			# Remove missing files from POT generation
+			if files_for_pot.has(path):
+				files_for_pot.remove_at(files_for_pot.find(path))
+				files_for_pot_changed = true
+	
+	# Update project settings if POT changed
+	if files_for_pot_changed:
+		ProjectSettings.set_setting("internationalization/locale/translations_pot_files", files_for_pot)
+		ProjectSettings.save()
 	
 	dialogue_file_cache = cache
 
@@ -233,19 +261,19 @@ func _copy_dialogue_balloon() -> void:
 		var file_contents: String = file.get_as_text().replace("res://addons/dialogue_manager/example_balloon/example_balloon.gd", path + "/balloon.gd")
 		file = FileAccess.open(path + "/balloon.tscn", FileAccess.WRITE)
 		file.store_string(file_contents)
-		file.flush()
+		file.close()
 		
 		file = FileAccess.open("res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn", FileAccess.READ)
 		file_contents = file.get_as_text().replace("res://addons/dialogue_manager/example_balloon/example_balloon.gd", path + "/balloon.gd")
 		file = FileAccess.open(path + "/small_balloon.tscn", FileAccess.WRITE)
 		file.store_string(file_contents)
-		file.flush()
+		file.close()
 		
 		file = FileAccess.open("res://addons/dialogue_manager/example_balloon/example_balloon.gd", FileAccess.READ)
 		file_contents = file.get_as_text()
 		file = FileAccess.open(path + "/balloon.gd", FileAccess.WRITE)
 		file.store_string(file_contents)
-		file.flush()
+		file.close()
 		
 		get_editor_interface().get_resource_filesystem().scan()
 		get_editor_interface().get_file_system_dock().call_deferred("navigate_to_path", path + "/balloon.tscn")

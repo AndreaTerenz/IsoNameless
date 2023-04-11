@@ -5,9 +5,8 @@ extends EditorImportPlugin
 signal compiled_resource(resource: Resource)
 
 
-const DialogueParser = preload("res://addons/dialogue_manager/components/parser.gd")
 const DialogueResource = preload("res://addons/dialogue_manager/dialogue_resource.gd")
-const compiler_version = 4
+const compiler_version = 8
 
 
 var editor_plugin
@@ -62,7 +61,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, platfo
 	return compile_file(source_file, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func compile_file(path: String, resource_path: String, will_cascade_cache_data: bool = true) -> int:
+func compile_file(path: String, resource_path: String, will_cascade_cache_data: bool = true) -> Error:
 	# Get the raw file contents
 	if not FileAccess.file_exists(path): return ERR_FILE_NOT_FOUND
 	
@@ -70,9 +69,9 @@ func compile_file(path: String, resource_path: String, will_cascade_cache_data: 
 	var raw_text: String = file.get_as_text()
 	
 	# Parse the text
-	var parser: DialogueParser = DialogueParser.new()
-	var err: int = parser.parse(raw_text)
-	var data: Dictionary = parser.get_data()
+	var parser: DialogueManagerParser = DialogueManagerParser.new()
+	var err: Error = parser.parse(raw_text)
+	var data: DialogueManagerParseResult = parser.get_data()
 	var errors: Array[Dictionary] = parser.get_errors()
 	parser.free()
 	
@@ -87,11 +86,13 @@ func compile_file(path: String, resource_path: String, will_cascade_cache_data: 
 	var version: String = config.get_value("plugin", "version")
 	
 	# Save the results to a resource
-	var resource = DialogueResource.new()
+	var resource: DialogueResource = DialogueResource.new()
 	resource.set_meta("dialogue_manager_version", version)
-	resource.set_meta("titles", data.titles)
-	resource.set_meta("first_title", data.first_title)
-	resource.set_meta("lines", data.lines)
+	
+	resource.titles = data.titles
+	resource.first_title = data.first_title
+	resource.character_names = data.character_names
+	resource.lines = data.lines
 	
 	if will_cascade_cache_data:
 		editor_plugin.add_to_dialogue_file_cache(path, resource_path, data)
