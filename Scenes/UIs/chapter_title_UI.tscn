@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://0e1x0e5kovy"]
+
+[sub_resource type="GDScript" id="GDScript_7oxtl"]
+script/source = "extends Control
+
+signal fx_done
+
+@export_range(.1, 10., .0001) var fx_length = 2.
+@export_range(.1, 10., .0001) var fx_delay = 2.
+
+@onready var color_rect = $ColorRect
+@onready var label = $Label
+
+var fx_tot_len : float :
+	get:
+		return fx_length + fx_delay
+		
+var failed := false
+
+func _ready():
+	var p : Level = get_parent() as Level
+	
+	if not p:
+		push_error(\"Chapter title UI should be child of Level node!\")
+		failed = true
+	
+	if failed:
+		return
+		
+	var t : String = p.chapter_title
+	
+	if t != \"\":
+		label.text = t
+				
+		var tween := create_tween()
+		tween.tween_property(self, \"modulate:a\", 0., fx_length).set_delay(fx_delay)
+		tween.finished.connect(
+			func ():
+				fx_done.emit()
+		)
+	else:
+		failed = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_hquwp"]
+font_size = 72
+
+[node name="Control" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_7oxtl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Chapter Title"
+label_settings = SubResource("LabelSettings_hquwp")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -4,7 +4,7 @@ extends CharacterBody3D
 enum MODE {
 	NORMAL,
 	COMBAT,
-	DIALOGUE
+	FROZEN,
 }
 
 signal entered_door(d)
@@ -65,6 +65,9 @@ var target_dir := Vector2.ZERO
 var current_dir := Vector2.ZERO
 var sprinting_collided := false
 
+var movement_enabled := true
+var diosberla := false
+
 var current_door = null
 var stop_next_frame := false
 var current_mode := MODE.NORMAL :
@@ -73,33 +76,45 @@ var current_mode := MODE.NORMAL :
 	set(new_mode):
 		if current_mode == new_mode:
 			return
-			
+		
 		current_mode = new_mode
 		
-		if current_mode == MODE.COMBAT:
-			Globals.set_cursor_mode(Globals.CURSOR_MODE.COMBAT)
-		else:
-			stop_next_frame = true
-				
-			Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
+		match (current_mode):
+			MODE.NORMAL:
+				movement_enabled = true
+#				process_mode = Node.PROCESS_MODE_PAUSABLE
+				Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
+			MODE.COMBAT:
+				movement_enabled = true
+#				process_mode = Node.PROCESS_MODE_PAUSABLE
+				Globals.set_cursor_mode(Globals.CURSOR_MODE.COMBAT)
+			MODE.FROZEN:
+				movement_enabled = false
+#				process_mode = Node.PROCESS_MODE_DISABLED
 		
 		mode_changed.emit(current_mode)
 
 func _ready():
-	current_mode = initial_mode
+	var p = get_parent()
+	if not(p is Level):
+		push_error("Player shouldn't be in this scene!")
+		get_tree().quit()
+	
+	current_mode = MODE.FROZEN
 	sprint_decal.visible = false
 	add_to_group(Globals.ACTORS_GROUP)
 	
-	Globals.player = self
+	Globals.level_started.connect(
+		func ():
+			current_mode = initial_mode
+	)
 	
-	var p = get_parent()
-	if not(p is Level):
-		push_error("This scene is not supposed to be run!")
-		get_tree().quit()
+	Globals.player = self
 
 func get_h_direction() -> Vector2:
-	if current_mode == MODE.DIALOGUE:
+	if current_mode == MODE.FROZEN:
 		return Vector2.ZERO
+		
 	target_dir = Input.get_vector("right", "left", "backward", "forward")
 	# Direction is screen-dependant, so it has to account for camera rotation
 	target_dir = target_dir.rotated(-camera_pivot.target_rot)
@@ -108,7 +123,7 @@ func get_h_direction() -> Vector2:
 	return current_dir
 	
 func dir_to_rotation(dir : Vector2, do_lerp := true) -> float:
-	var rot_angle = -dir.angle()+TAU/8.
+	var rot_angle = -dir.angle()+TAU/4. #why tf 90° ???
 	rot_angle = snappedf(rot_angle, TAU/8.)
 	
 	if Utils.length_geq(dir, .01):
@@ -119,7 +134,7 @@ func dir_to_rotation(dir : Vector2, do_lerp := true) -> float:
 	return rotation.y
 	
 func get_h_velocity(dir := get_h_direction()) -> Vector3:
-	if current_mode == MODE.DIALOGUE:
+	if current_mode == MODE.FROZEN:
 		return Vector3.ZERO
 		
 	if dir:
@@ -192,6 +207,9 @@ func apply_h_velocity(h_vel: Vector2):
 # point, it stops completely as it istantly gets out of the
 # sprinting state
 func _physics_process(delta):
+	if not movement_enabled:
+		return
+		
 	if stop_next_frame:
 		velocity *= 0.
 		current_dir = target_dir
@@ -201,9 +219,6 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		stop_next_frame = false
-		return
-	
-	if current_mode == MODE.DIALOGUE:
 		return
 	
 	var h_vel : Vector3 = Utils.vec_sub(velocity, "x0z")
@@ -253,7 +268,7 @@ func _physics_process(delta):
 	
 func _input(_event):
 	if Input.is_action_just_pressed("toggle_combat"):
-		if current_mode != MODE.DIALOGUE:
+		if current_mode != MODE.FROZEN:
 			current_mode = MODE.COMBAT if (current_mode == MODE.NORMAL) else MODE.NORMAL
 	
 func enter_door(d: Area3D):
@@ -270,7 +285,7 @@ func interact_with(other: Interactable):
 	interact_manager.interact(other)
 
 func _on_interact_manager_dialogue_start(other):
-	current_mode = MODE.DIALOGUE
+	current_mode = MODE.FROZEN
 	ui.start_dialogue(other)
 	
 func _on_interact_manager_dialogue_end():

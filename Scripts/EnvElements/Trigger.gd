@@ -21,6 +21,8 @@ var player_inside := false :
 			return
 			
 		player_inside = pi
+		
+		Globals.log_msg("Player inside: %s" % player_inside)
 		player_inside_changed.emit(player_inside)
 		
 		if pi:
@@ -31,15 +33,15 @@ var player_inside := false :
 		if (player_inside and mode == MODE.ONESHOT_ENTER) or \
 			(not player_inside and mode == MODE.ONESHOT_EXIT):
 			enabled = false
-var enabled := true :
+var enabled := false :
 	set(e):
 		if e == enabled:
 			return
 			
 		enabled = e
-		enabled_changed.emit(e)
 		
-		player_inside = false
+		enabled_changed.emit(e)
+
 		set_deferred("monitorable", enabled)
 		set_deferred("monitoring", enabled)
 		
@@ -55,12 +57,16 @@ func _ready():
 	body_entered.connect(
 		func (body):
 			if body == Globals.player:
+				# Not sure why this is useful tbh
+				await Globals.await_level()
+				Globals.log_msg("Player entered trigger")
 				player_inside = true
 	)
 	
 	body_exited.connect(
 		func (body):
 			if body == Globals.player:
+				Globals.log_msg("Player left trigger")
 				player_inside = false
 	)
 

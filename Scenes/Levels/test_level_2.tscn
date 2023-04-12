@@ -19,6 +19,7 @@ script/source = "extends Level
 
 func _on_dialog_trig_player_inside_changed(pi):
 	if pi:
+		Globals.log_msg(\"CULO\")
 		Globals.player.interact_with(offscreen_npc.interactable)
 "
 
@@ -150,6 +151,8 @@ adjustment_contrast = 0.86
 script = SubResource("GDScript_ejrvs")
 metadata/description = "ur mom lmao"
 metadata/level_name = "tl2"
+metadata/chapter_id = 1
+metadata/chapter_sub_idx = 0
 
 [node name="Mountains" parent="." index="0"]
 layers = 17

@@ -25,3 +25,8 @@ func new_msg(s: String, color: Color):
 	$"ScrollContainer".scroll_vertical += lbl.get_rect().size.y*2
 	
 	return lbl.text
+
+func clear_all():
+	var kids = db_messages_cont.get_children()
+	for kid in kids:
+		kid.queue_free()

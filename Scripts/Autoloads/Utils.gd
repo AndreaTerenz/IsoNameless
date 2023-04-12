@@ -4,7 +4,7 @@ var mute_debug_meshes := false
 var phys_layers : Dictionary = {}
 var render_layers : Dictionary = {}
 
-static func vec_sub(v, s: String):
+func vec_sub(v, s: String):
 	# WHY IS THERE NO VECTIR BASE CLASS DIOCANEEEEE
 	if not (v is Vector2 or v is Vector3 or v is Vector4) or (v == null):
 		return v
@@ -137,14 +137,16 @@ func make_background_colorrect(parent : Node = get_tree().root):
 #		Vector3.LEFT * TAU / 4.,
 #	]
 	
-static func check_bit(value: int, bit_idx: int) -> bool:
+func check_bit(value: int, bit_idx: int) -> bool:
 	return value & (1 << abs(bit_idx))
 	
-static func ls_directory(path: String, filter := [], full_paths := true) -> PackedStringArray:
+func ls_directory(path: String, filter := [], full_paths := true) -> PackedStringArray:
 	var dir = DirAccess.open(path)
 	
 	if not dir:
-		push_error("Failed to read directory '%s'!" % path)
+		var err = DirAccess.get_open_error()
+		
+		push_warning("Failed to read directory '%s'! (%s)" % [path, error_string(err)])
 		return []
 		
 	var output : PackedStringArray = []
@@ -161,6 +163,9 @@ static func ls_directory(path: String, filter := [], full_paths := true) -> Pack
 		file_name = dir.get_next()
 		
 	return output
+	
+func sleep(time: float):
+	await get_tree().create_timer(time).timeout
 	
 ############################################## LAYERS
 

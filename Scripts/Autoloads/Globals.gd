@@ -32,6 +32,7 @@ const TRIGGERS_GROUP := "Triggers"
 const DEFAULT_ITEMS_DIR := "res://Items"
 const MIN_DB_LEVEL := DEBUG_MSG_MODE.LOG
 
+var debug_ui_scn : PackedScene = preload("res://Scenes/debug_ui.tscn")
 var debug_ui : DebugUI = null
 var world_env : WorldEnvironment = null
 var start_time := -1.
@@ -50,16 +51,13 @@ var player_pos : Vector3 :
 		if not player:
 			return Vector3.ZERO
 		return player.global_position
-var level : Level :
+var level : Level = null :
 	set(l):
 		level = l
-		start_time = Time.get_unix_time_from_system()
 		
-		for obj in log_queue:
-			log_msg(obj)
-		log_queue.clear()
+		debug_ui.visible = level.debug_ui_on_start
 		
-		Globals.log_msg("Started")
+		log_msg("Started")
 		level_started.emit()
 var paused := false :
 	set(p):
@@ -83,9 +81,10 @@ var paused := false :
 		paused_changed.emit(p)
 var started:
 	get:
-		return start_time >= 0.
-
+		return level != null
+		
 func _ready():
+	start_time = Time.get_ticks_msec()
 	enforce_screen_size()
 	
 	blur_rect = await Utils.make_background_colorrect()
@@ -96,6 +95,21 @@ func _ready():
 		func (k,v):
 			log_msg("New Global fact: [%s | %s]" % [k,v])
 	)
+	
+	debug_ui = debug_ui_scn.instantiate()
+	add_child(debug_ui)
+	debug_ui.visible = false
+	
+	var r = get_tree().root
+	
+	for kid in r.get_children():
+		if kid is Level:
+			debug_ui.visible = kid.debug_ui_on_start
+			break
+	
+	for tmp in log_queue:
+		_print_to_db_ui(tmp[0], tmp[1], tmp[2])
+	log_queue.clear()
 	
 func enforce_screen_size():
 	var w_size := DisplayServer.window_get_size()
@@ -126,7 +140,9 @@ func toggle_screen_blur(vis : bool):
 	await t.finished
 	
 func restart_level():
+	debug_ui.clear_all()
 	Globals.log_msg("Restarting...")
+	start_time = Time.get_ticks_msec() 
 	get_tree().reload_current_scene()
 		
 func start_log_seq():
@@ -137,26 +153,30 @@ func end_log_seq():
 	log_timestamp = true
 
 func log_msg(obj, mode: DEBUG_MSG_MODE = DEBUG_MSG_MODE.LOG, print_stdout := true):
-	if started and mode >= MIN_DB_LEVEL:
-		var s := str(obj)
-		var time = "%.3f" % (Time.get_unix_time_from_system() - Globals.start_time)
-		var mode_name = debug_msg_names.get(mode, "")
+	var s := str(obj)
+	var time := (Time.get_ticks_msec() - start_time) / 1000.
+	var mode_name = debug_msg_names.get(mode, "")
+	
+	if mode_name != "":
+		mode_name = "%s | " % mode_name
 		
-		if mode_name != "":
-			mode_name = "%s | " % mode_name
-			
-		if log_timestamp:
-			s = "-- [%s%s] -- \n%s" % [mode_name.to_upper(), time, s]
-			
-		debug_ui.new_msg(s, debug_msg_colors[mode])
-		
-		if print_stdout:
-			print(s)
-	elif not started:
-		log_queue.append(obj)
+	if log_timestamp:
+		s = "-- [%s%.3f] -- \n%s" % [mode_name.to_upper(), time, s]
+	
+	if mode >= MIN_DB_LEVEL:
+		if debug_ui:
+			_print_to_db_ui(s, debug_msg_colors[mode], print_stdout)
+		else:
+			log_queue.append([s, debug_msg_colors[mode], print_stdout])
 	
 	return obj
+
+func _print_to_db_ui(s, col, ps):
+	debug_ui.new_msg(s, col)
 	
+	if ps:
+		print(s)
+
 func set_cursor_mode(mode: CURSOR_MODE):
 	var cursor_img = ""
 	var center_cursor := -1.
@@ -193,3 +213,11 @@ func global_memory_get(key: String, default : Variant = null):
 
 func global_memorize(key: String, value):
 	memory.set_value(key, value)
+
+func await_player():
+	if not player:
+		await player_set
+
+func await_level():
+	if not level:
+		await level_started

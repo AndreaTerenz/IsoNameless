@@ -1,12 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://br5qwbqtbukwg"]
+[gd_scene load_steps=11 format=3 uid="uid://br5qwbqtbukwg"]
 
 [ext_resource type="FontFile" uid="uid://b1rgquheeicsd" path="res://Assets/Fonts/debug_font.ttf" id="1_5coar"]
 [ext_resource type="Script" path="res://Scripts/UIs/DebugUI.gd" id="1_6k8ji"]
 [ext_resource type="Texture2D" uid="uid://3atcvgk846sw" path="res://addons/ActionIcon/Keyboard/Blank.png" id="2_r687s"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="3_rg60s"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufc0g"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.164706, 0.164706, 0.164706, 0.764706)
+
 [sub_resource type="Theme" id="Theme_r375p"]
 default_font = ExtResource("1_5coar")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ufc0g")
 
 [sub_resource type="Theme" id="Theme_wnhwd"]
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -100,6 +108,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ufc0g")
 
 [node name="DB messages" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
 unique_name_in_owner = true

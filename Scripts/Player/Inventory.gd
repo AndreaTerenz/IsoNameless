@@ -20,7 +20,7 @@ class InventorySlot:
 				return 0.
 			return item.weight
 			
-	func _init(i: InventoryItem, a: float):
+	func _init(i: InventoryItem, a: int):
 		item = i
 		amount = a
 
