@@ -109,6 +109,11 @@ func _ready():
 			log_msg("New Global fact: [%s | %s]" % [k,v])
 	)
 	
+	var user_levels = ProjectSettings.get_setting("levels/user_levels_dir")
+	if not ResourceLoader.exists("user://" + user_levels):
+		var da = DirAccess.open("user://")
+		da.make_dir_recursive(user_levels)
+		
 func enforce_screen_size():
 	var w_size := DisplayServer.window_get_size()
 	var s_size := DisplayServer.screen_get_size()
