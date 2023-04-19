@@ -1,49 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://0e1x0e5kovy"]
+[gd_scene load_steps=6 format=3 uid="uid://0e1x0e5kovy"]
 
 [sub_resource type="GDScript" id="GDScript_7oxtl"]
 script/source = "extends Control
 
 signal fx_done
 
-@export_range(.1, 10., .0001) var fx_length = 2.
-@export_range(.1, 10., .0001) var fx_delay = 2.
+@export_range(.1, 10., .0001) var fx_multiplier = .5
 
 @onready var color_rect = $ColorRect
 @onready var label = $Label
-
-var fx_tot_len : float :
-	get:
-		return fx_length + fx_delay
-		
-var failed := false
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	var p : Level = get_parent() as Level
 	
 	if not p:
 		push_error(\"Chapter title UI should be child of Level node!\")
-		failed = true
-	
-	if failed:
+		queue_free()
 		return
 		
-	var t : String = p.chapter_title
-	
-	if t != \"\":
-		label.text = t
-				
-		var tween := create_tween()
-		tween.tween_property(self, \"modulate:a\", 0., fx_length).set_delay(fx_delay)
-		tween.finished.connect(
-			func ():
-				fx_done.emit()
-		)
-	else:
-		failed = true
+	label.text = p.chapter_title
+	animation_player.play(\"fade_out\", -1, fx_multiplier)
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_hquwp"]
 font_size = 72
+
+[sub_resource type="Animation" id="Animation_j773u"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_sydb5"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"fx_done"],
+"method": &"emit_signal"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8n4s"]
+_data = {
+"RESET": SubResource("Animation_j773u"),
+"fade_out": SubResource("Animation_sydb5")
+}
 
 [node name="Control" type="Control"]
 z_index = 2
@@ -81,3 +125,8 @@ text = "Chapter Title"
 label_settings = SubResource("LabelSettings_hquwp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f8n4s")
+}

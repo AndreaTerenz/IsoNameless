@@ -2,6 +2,7 @@ extends Node
 
 signal player_set(p)
 signal level_started
+signal level_playable
 signal paused_changed(p)
 
 enum DEBUG_MSG_MODE {
@@ -54,8 +55,20 @@ var player_pos : Vector3 :
 var level : Level = null :
 	set(l):
 		level = l
+		level.playable_changed.connect(
+			func (p):
+				if p:
+					level_playable.emit()
+		)
 		
+		debug_ui = debug_ui_scn.instantiate()
+		add_child(debug_ui)
+
 		debug_ui.visible = level.debug_ui_on_start
+		
+		for tmp in log_queue:
+			_print_to_db_ui(tmp[0], tmp[1], tmp[2])
+		log_queue.clear()
 		
 		log_msg("Started")
 		level_started.emit()
@@ -95,21 +108,6 @@ func _ready():
 		func (k,v):
 			log_msg("New Global fact: [%s | %s]" % [k,v])
 	)
-	
-	debug_ui = debug_ui_scn.instantiate()
-	add_child(debug_ui)
-	debug_ui.visible = false
-	
-	var r = get_tree().root
-	
-	for kid in r.get_children():
-		if kid is Level:
-			debug_ui.visible = kid.debug_ui_on_start
-			break
-	
-	for tmp in log_queue:
-		_print_to_db_ui(tmp[0], tmp[1], tmp[2])
-	log_queue.clear()
 	
 func enforce_screen_size():
 	var w_size := DisplayServer.window_get_size()
@@ -221,3 +219,8 @@ func await_player():
 func await_level():
 	if not level:
 		await level_started
+		
+func await_playable():
+	await await_level()
+	if not level.is_playable:
+		await level_playable

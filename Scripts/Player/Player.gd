@@ -70,7 +70,7 @@ var diosberla := false
 
 var current_door = null
 var stop_next_frame := false
-var current_mode := MODE.NORMAL :
+var current_mode := MODE.FROZEN :
 	get:
 		return current_mode
 	set(new_mode):
@@ -104,12 +104,12 @@ func _ready():
 	sprint_decal.visible = false
 	add_to_group(Globals.ACTORS_GROUP)
 	
-	Globals.level_started.connect(
+	Globals.player = self
+	
+	Globals.level_playable.connect(
 		func ():
 			current_mode = initial_mode
 	)
-	
-	Globals.player = self
 
 func get_h_direction() -> Vector2:
 	if current_mode == MODE.FROZEN:

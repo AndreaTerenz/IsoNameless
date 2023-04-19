@@ -1,6 +1,8 @@
 class_name Level
 extends Node3D
 
+signal playable_changed(p)
+
 @export var chtitle_ui_scn : PackedScene = preload("res://Scenes/UIs/chapter_title_UI.tscn")
 @export var debug_ui_on_start := false
 
@@ -13,6 +15,14 @@ var chapter_sub_idx : int :
 var chapter_title : String :
 	get:
 		return ProjectSettings.get_setting("levels/ch_name_%d" % chapter_id, "")
+		
+var is_playable := false :
+	set (p):
+		if p == is_playable:
+			return
+			
+		is_playable = p
+		playable_changed.emit(is_playable)
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -21,14 +31,18 @@ func _ready():
 		if Globals.world_env == null and kid is WorldEnvironment:
 			Globals.world_env = kid
 	
-	if chapter_id >= 0 and chapter_sub_idx == 0:
+	Globals.level = self
+	
+	if chapter_title != "" and chapter_sub_idx == 0:
 		var chtitle_ui : Control = chtitle_ui_scn.instantiate()
 		
 		add_child(chtitle_ui)
 		
-		if not chtitle_ui.failed:
-			await chtitle_ui.fx_done
-		
-		chtitle_ui.queue_free()
+		await chtitle_ui.fx_done
+	else:
+		if chapter_id < 0 and chapter_sub_idx >= 0:
+			push_warning("Level has a chapter index (%d) but no assigned chapter!" % chapter_sub_idx)
+		elif chapter_id >= 0 and chapter_sub_idx < 0:
+			push_warning("Level has an assigned chapter ('%s') but no chapter index!" % chapter_title)
 	
-	Globals.level = self
+	is_playable = true
