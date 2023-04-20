@@ -27,8 +27,7 @@ var local_player_pos:
 		return shape.to_local(Globals.player.global_position) + outside_face
 
 func _ready():
-	if not Globals.started:
-		await Globals.level_started
+	await Globals.await_level()
 
 	var shape_size := (shape.shape as BoxShape3D).size
 	

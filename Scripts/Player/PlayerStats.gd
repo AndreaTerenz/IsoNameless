@@ -42,8 +42,7 @@ func _ready():
 	for s in stats.values():
 		add_child(s)
 	
-	if not Globals.player:
-		await Globals.player_set
+	await Globals.await_player()
 		
 	stats["stamina"].refill_rate = Globals.player.STAMINA_RATE
 		

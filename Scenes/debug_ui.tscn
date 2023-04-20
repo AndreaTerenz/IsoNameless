@@ -39,11 +39,9 @@ var icons := {
 }
 
 func _input(event):
-	var any_pressed := false
 	for action in icons.keys():
 		if Input.is_action_pressed(action):
 			icons[action].modulate.a = 1.
-			any_pressed = true
 		else:
 			icons[action].modulate.a = .2
 "

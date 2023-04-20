@@ -50,8 +50,7 @@ func _ready():
 	else:
 		load_settings(CONFIG_PATH)
 	
-	if not Globals.started:
-		await Globals.level_started
+	await Globals.await_level()
 	
 	apply_settings()
 	

@@ -6,6 +6,12 @@ signal playable_changed(p)
 @export var chtitle_ui_scn : PackedScene = preload("res://Scenes/UIs/chapter_title_UI.tscn")
 @export var debug_ui_on_start := false
 
+var level_name : String :
+	get:
+		return get_meta("level_name", "")
+var level_description : String :
+	get:
+		return get_meta("description", "")
 var chapter_id : int :
 	get:
 		return get_meta("chapter_id", -1)

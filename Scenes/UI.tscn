@@ -68,8 +68,7 @@ var stat_name := \"\"
 
 func _ready():
 	if stat_name != \"\":
-		if not Globals.player:
-			await Globals.player_set
+		await Globals.await_player()
 
 		Globals.player.stat_changed.connect(
 			func (s, from, to):
@@ -93,7 +92,7 @@ corner_radius_top_right = 10
 script/source = "extends SubViewportContainer
 
 func _ready():
-	await Globals.player_set
+	await Globals.await_player()
 
 	# I sincerely hate this porcamadonna
 	var viewport = Globals.player.map_camera.get_parent()
@@ -132,9 +131,8 @@ func _ready():
 	var kids := get_children()
 	for k in kids:
 		remove_child(k)
-	
-	if not Globals.player:
-		await Globals.player_set
+		
+	await Globals.await_player()
 		
 	var inv : Inventory = Globals.player.inventory
 	

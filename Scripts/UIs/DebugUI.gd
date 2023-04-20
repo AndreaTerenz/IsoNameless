@@ -3,8 +3,7 @@ extends Control
 
 const MAX_DEBUG_MSG = 48
 
-@onready
-var db_messages_cont := %"DB messages"
+@onready var db_messages_cont := %"DB messages"
 
 func _input(_event):
 	if Input.is_action_just_pressed("toggle_debug_ui"):

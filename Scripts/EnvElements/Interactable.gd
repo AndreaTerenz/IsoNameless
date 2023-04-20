@@ -54,8 +54,7 @@ var player_inside : bool = false:
 func _ready():
 	enabled = start_enabled
 	
-	if not Globals.player:
-		await Globals.player_set
+	await Globals.await_player()
 		
 	body_entered.connect(
 		func (body):
