@@ -12,6 +12,7 @@ enum MODE {
 
 @export var mode := MODE.NORMAL
 @export var show := false
+@export var start_enabled := true
 
 @onready var debug_mesh = $DebugMesh
 
@@ -41,6 +42,9 @@ var enabled := false :
 		enabled = e
 		
 		enabled_changed.emit(e)
+		
+		if not enabled:
+			player_inside = false
 
 		set_deferred("monitorable", enabled)
 		set_deferred("monitoring", enabled)
@@ -53,12 +57,18 @@ var enabled := false :
 func _ready():
 	add_to_group(Globals.TRIGGERS_GROUP)
 	debug_mesh.visible = show
+	
+#	enabled = false
+#
+#	await Globals.await_playable()
+#
+#	enabled = start_enabled
 
 	body_entered.connect(
 		func (body):
 			if body == Globals.player:
 				# Not sure why this is useful tbh
-				await Globals.await_level()
+				await Globals.await_playable()
 				Globals.log_msg("Player entered trigger")
 				player_inside = true
 	)

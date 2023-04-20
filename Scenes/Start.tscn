@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8l6lpf100vwb"]
+[gd_scene load_steps=8 format=3 uid="uid://b8l6lpf100vwb"]
 
-[ext_resource type="PackedScene" uid="uid://knakj6gamdm8" path="res://Scenes/UIs/loading_scene.tscn" id="1_vuduh"]
 [ext_resource type="Texture2D" uid="uid://bctvx5ryv8o2i" path="res://Assets/UI/Icons/undo_arrow.svg" id="2_humhw"]
 [ext_resource type="Texture2D" uid="uid://syrt20bd07eq" path="res://Assets/UI/Icons/folder-fill.svg" id="3_t7l07"]
 
@@ -12,13 +11,14 @@ var user_levels_dir : String = ProjectSettings.get_setting(\"levels/user_levels_
 
 @onready var level_search_line : LineEdit = %LevelSearchLine
 @onready var levels_list : ItemList = %LevelsList
-@onready var loading_ui = %LoadingUI
+@onready var quit_btn = $PanelContainer2/HBoxContainer/QuitBtn
 
 var levels := {}
 
 func _ready():
 	Globals.set_cursor_mode(Globals.CURSOR_MODE.NORMAL)
-	levels_list.grab_focus.call_deferred()
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	grab_focus.call_deferred()
 	
 	game_levels_dir = \"res://\".path_join(game_levels_dir)
 	user_levels_dir = \"user://\".path_join(user_levels_dir)
@@ -93,6 +93,12 @@ func _on_quit_btn_pressed():
 func _on_levels_list_item_activated(index):
 	var lname = levels_list.get_item_text(index)
 	var level_data = levels[lname]
+	
+	var loading_ui : Control = preload(\"res://Scenes/UIs/loading_scene.tscn\").instantiate()
+	
+	add_child.call_deferred(loading_ui)
+	await loading_ui.ready
+	
 	loading_ui.path = level_data[\"scene\"]
 
 
@@ -135,12 +141,6 @@ focus_next = NodePath("PanelContainer/VBoxContainer/LevelsList")
 focus_mode = 2
 script = SubResource("GDScript_3rbdr")
 metadata/_edit_lock_ = true
-
-[node name="LoadingUI" parent="." instance=ExtResource("1_vuduh")]
-unique_name_in_owner = true
-visible = false
-z_index = 1
-layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

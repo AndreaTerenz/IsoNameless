@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://br5qwbqtbukwg"]
+[gd_scene load_steps=12 format=3 uid="uid://br5qwbqtbukwg"]
 
 [ext_resource type="FontFile" uid="uid://b1rgquheeicsd" path="res://Assets/Fonts/debug_font.ttf" id="1_5coar"]
 [ext_resource type="Script" path="res://Scripts/UIs/DebugUI.gd" id="1_6k8ji"]
@@ -38,12 +38,35 @@ var icons := {
 	\"right\": $GridContainer/ActionIcon6,
 }
 
+func _ready():
+	visible = false
+	
+	Globals.level_playable.connect(
+		func ():
+			visible = true
+	)
+
 func _input(event):
 	for action in icons.keys():
 		if Input.is_action_pressed(action):
 			icons[action].modulate.a = 1.
 		else:
 			icons[action].modulate.a = .2
+"
+
+[sub_resource type="GDScript" id="GDScript_sq68c"]
+script/source = "extends PanelContainer
+
+
+func _ready():
+	process_mode = Node.PROCESS_MODE_DISABLED
+	visible = false
+	
+	Globals.level_playable.connect(
+		func ():
+			process_mode = Node.PROCESS_MODE_ALWAYS
+			visible = true
+	)
 "
 
 [sub_resource type="GDScript" id="GDScript_uoif3"]
@@ -56,8 +79,14 @@ var player : Player :
 	get:
 		return Globals.player
 
+func _ready():
+	text = \"\"
+
 func _process(delta):
-	if property != \"\" and player:
+	if Globals.player == null:
+		return
+		# ????????????????????
+	if property != \"\" and player != null:
 		var val = player.get(property)
 		if val:
 			if val is Vector2:
@@ -206,6 +235,7 @@ ignore_visibility = true
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+script = SubResource("GDScript_sq68c")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/PanelContainer2"]
 layout_mode = 2

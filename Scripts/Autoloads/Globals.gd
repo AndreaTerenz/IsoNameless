@@ -44,8 +44,13 @@ var memory := Memory.new()
 
 var player : Player :
 	set(p):
+		player = p
+		
 		if not player:
-			player = p
+			# Nothing else to do
+			return
+		
+		if player != null:
 			player_set.emit(p)
 var player_pos : Vector3 :
 	get:
@@ -55,16 +60,23 @@ var player_pos : Vector3 :
 var level : Level = null :
 	set(l):
 		level = l
+		
+		if not level:
+			# Nothing else to do
+			return
+		
 		level.playable_changed.connect(
 			func (p):
 				if p:
 					level_playable.emit()
 		)
-		
+
 		debug_ui = debug_ui_scn.instantiate()
 		add_child(debug_ui)
-
 		debug_ui.visible = level.debug_ui_on_start
+	
+		blur_rect = await Utils.make_background_colorrect()
+		blur_rect.material = preload("res://Materials/screen_blur_mat.tres")
 		
 		for tmp in log_queue:
 			_print_to_db_ui(tmp[0], tmp[1], tmp[2])
@@ -97,11 +109,11 @@ var started:
 		return level != null
 		
 func _ready():
+	level = null
+	player = null
 	start_time = Time.get_ticks_msec()
+	log_msg("Starting...")
 	enforce_screen_size()
-	
-	blur_rect = await Utils.make_background_colorrect()
-	blur_rect.material = preload("res://Materials/screen_blur_mat.tres")
 	
 	add_child(memory)
 	memory.learned.connect(
@@ -142,11 +154,12 @@ func toggle_screen_blur(vis : bool):
 	await t.finished
 	
 func restart_level():
-	debug_ui.clear_all()
-	Globals.log_msg("Restarting...")
-	start_time = Time.get_ticks_msec() 
 	get_tree().reload_current_scene()
-		
+	
+func back_to_menu():
+	blur_rect.queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Start.tscn")
+
 func start_log_seq():
 	log_msg("")
 	log_timestamp = false
